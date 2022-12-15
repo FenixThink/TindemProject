@@ -1,5 +1,5 @@
-import { buttonsGender } from './sectionButtonsGender'
-import { descriptionProfiles } from './descriptionProfile'
+import { buttonsGender } from './sectionButtonsGender.js'
+import { descriptionProfiles } from './descriptionProfile.js'
 
 
 
