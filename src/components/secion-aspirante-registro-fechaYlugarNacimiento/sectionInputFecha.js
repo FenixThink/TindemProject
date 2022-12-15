@@ -3,7 +3,6 @@ export function inputFecha() {
     const titleGenerally = document.createElement("h2")
     titleGenerally.textContent = "Fecha y lugar de nacimiento"
 
-
     /*titulos input*/
     const labelDate = document.createElement("label")
     labelDate.textContent = "Fecha de nacimiento"
@@ -12,35 +11,20 @@ export function inputFecha() {
     const labelCity = document.createElement("label")
     labelCity.textContent = "Ciudad"
 
-    /* Parte de placeHolder */
-    const placeholderDate = document.createElement("label")
-    placeholderDate.textContent = "Select Date"
-    const placeholderCountry = document.createElement("label")
-    placeholderCountry.textContent = "ingrese Pais"
-    const placeholderCity = document.createElement("label")
-    placeholderCity.textContent = "Ingrese Ciudad" 
-
-    /*Parte icons */
-
-    /*Parte div placeholder y icons*/
-    const divFatherPlaceholder = document.createElement("div")
-    divFatherPlaceholder.className = "divFatherPlaceholder"
-    divFatherPlaceholder.appendChild(placeholderDate)
-    divFatherPlaceholder.appendChild(placeholderCountry)
-    divFatherPlaceholder.appendChild(placeholderCity) 
+    /* icons*/
 
     /* Parte inputs */
     const inputDate = document.createElement("input")
     inputDate.className = "inputsRegisterAspirante"
-    inputDate.appendChild(divFatherPlaceholder)
+    inputDate.placeholder = "Select Date"
 
     const inputCountry = document.createElement("input")
     inputCountry.className = "inputsRegisterAspirante"
-
+    inputCountry.placeholder = "Ingrese Pais"
 
     const inputCity = document.createElement("input")
     inputCity.className = "inputsRegisterAspirante"
-
+    inputCity.placeholder = "Ingrese Ciudad"
 
     /*Parte Div padre */
     const divFatherInputs = document.createElement("div")
@@ -68,31 +52,3 @@ export function inputFecha() {
     return divContainer
     
 };
-
-export function descriptionProfiles () {
-    //contenedor hijo de descripcion 
-    const profile = document.createElement("div")
-    profile.className = "conprofile"
-    
-
-    const textTitleDes = document.createElement("label")
-    textTitleDes.textContent = "Descripcion Perfil"
-    textTitleDes.className = "textTitleDes"
-    profile.appendChild(textTitleDes)
-
-    const pProfile = document.createElement("div")
-    pProfile.className = "pPerfil"
-    profile.appendChild(pProfile)
-
-    const placeHolder = document.createElement("label")
-    placeHolder.textContent = "Placeholder"
-    placeHolder.className = "placeHolder"
-    pProfile.appendChild(placeHolder)
-
-    const parentDescription = document.createElement("div")
-    parentDescription.appendChild(profile)
-
-
-    return parentDescription
-
-}
