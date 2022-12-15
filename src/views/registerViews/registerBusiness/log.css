@@ -1,227 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
-
-
-*{
-
+/*Aquí yace la parte de KDOE-117*/
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
-
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-
-    width: 100vw;
-    height: 100vh;
-
-}
-
-#app{
-
+/*Estructura Registro Empresa Seccion A*/
+.seccionA {
     display: flex;
-    inline-size: 100%;
-    block-size: 100%;
-
-
-}
-
-.padre{
-
-    display: flex;
-    flex-direction: column;
-    inline-size: 100%;
-    background-color: aliceblue;
-    padding: 1.5rem 3rem;
-    gap: 3rem;
-    overflow: auto;
-
-}
-
-.padre h1{
-
-    font-size: 56px;
-    border-bottom: thick solid black;
-
-}
-
-[class*="section-"]{
-
-    display: flex;
-    gap: 7rem;
-
-}
-
-.imageCont{
-
-    width: 30%;
-    border: thick solid black
-
-}
-
-.imageUser{
-
+    justify-content: space-evenly;
     width: 100%;
-    height: 100%;
-
+    height: 100vh;
 }
 
-.basicCre{
-
+.seccionLogo {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2rem;
-    inline-size: 50%;
-    
+    height: 30vh;
+    width: 40%;
+    border: 1px solid #000;
+    row-gap: 20px;
 }
 
-[class*='inputsLabel-']{
-
+.seccionCredenciales {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 30vh;
+    border: 1px solid #000;
+}
+.subSecSup {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.subSecInf {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.contGeneral {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.emailLabel{
-
-    font-size: 30px;
-
-}
-
-input{
-
-    inline-size: 100%;
-    font-size: 18px;
-    padding: 1rem;
-
-}
-
-
-.pswLabel{
-
-    font-size: 30px;
-
-}
-
-.section-2{
-
-    margin-top: 3rem;
-
-}
-
-.anotherCre{
-
-    display: grid;
-    gap: 3.5rem;
-    inline-size: 50%;
-
-}
-
-h2{
-
-    font-size: 38px;
-    border-bottom: thick solid black;
-
-
-}
-
-.contDesc{
-
-    inline-size: 100%;
-    block-size: 9rem;
-
-}
-
-.desc{
-
-    inline-size: 100%;
-    block-size: 100%;
-
-}
-
-.interestButton{
-
-    inline-size: fit-content;
-    margin: 0 auto;
-    padding: 1rem;
-    border: thick solid green;
-    background-color: rgb(130, 228, 130);
-
-}
-
-.interestButton:hover{
-
-    cursor: pointer;
-
-}
-
-/* Diseño del modal */
-
-.modalContainer {
-    
-    justify-content: center;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 25%; 
-    top: 0;
-    width: 50%;
-    height: 100%;
-    overflow: auto; 
-
- }
-
-
-  
- .modalContainer .modalContent {
-    background-color: white;
-    margin: auto;
-    padding: 25px;
-    border: 1px solid #6927a7;
- }
-  
- .modalContainer .close{
-    color: red;
-    float: right;
-    font-size: 26px;
+/*Estilos Registro Empresa Seccion A*/
+.textEdit {
+    color: #000;
     font-weight: bold;
- }
-  
- .modalContainer .close:hover .close:focus{
-    color: black;
-    text-decoration: none;
+}
+
+.textoEmpresa {
+    font-size: 1.2rem;
+}
+.inputEmpresa {
+    font-size: 1.1rem;
+    padding:5px 10px 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(126, 120, 120)
+}
+
+/*Logos*/
+.contLogo{
+    border-radius: 100%;
     cursor: pointer;
- }
-  
- .modalContainer .modalContent .carrera{
-    border: 1px solid ;
- }
-  
- .modalContainer .modalContent .father{
-    display: flex;
-    padding: 20px;
-    gap : 20px;
- }
+}
+.contLogo .LogoRegister {
+    width: 150px;
+}
 
- .modalContainer .modalContent .father .carrera{
-    width: 200px;
-    padding: 20px;
-    
- }
-
- .buttonModalBusiness{
-    display: flex;
-    width: 100px;
-    margin-left: 40%;
-    background-color: chartreuse;
- }
-
-
- 
- 
-
+/*Aquí termina la parte de KDOE-117*/

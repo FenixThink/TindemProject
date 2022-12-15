@@ -1,5 +1,5 @@
-import { totalSection } from '../../../components/section-user-registro/totalSection.js'
+import { constMainFunction } from "../../../components/register-company/totalSection.js";
 
 const app = document.querySelector('#app')
 
-app.appendChild(totalSection)
+app.appendChild(constMainFunction)
