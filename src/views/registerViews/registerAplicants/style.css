@@ -1,3 +1,5 @@
+
+/* desde aquí empiza los estilos del cuentanos mas sobre tí parte que le tocaba a andres felipe olarte */
 *{
     margin: 0;
     padding: 0;
@@ -6,3 +8,34 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
 
+div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border: none;
+    background: #ffffff;
+
+}
+
+
+
+button{
+    border: none;
+    background: #6171FF;
+    border-radius: 10px;
+    font-size: 16px;
+    Padding:8px, 16px, 8px, 16px;
+    width: 194px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+button:hover{
+    cursor: pointer;
+}
+
+/* aquí finaliza la parte de Andres Felipe Olarte Quintero */
