@@ -73,6 +73,9 @@
 }
 .contLogo .LogoRegister {
     width: 150px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 100%;
 }
 
 /*Aquí termina la parte de KDOE-117*/
