@@ -2,7 +2,7 @@ import { partCreator } from "../../../components/applicantPart/applicantPart.js"
 
 const app = document.querySelector('#app')
 
-const applicantPart = partCreator('https://i.ibb.co/PZ5Npww/imgAppl.png','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut excepturi ut debitis a, sit tempore tempora aspernatur quod mollitia quisquam veritatis')
+const applicantPart = partCreator('https://i.ibb.co/PZ5Npww/imgAppl.png','Como aspirante','Lorem ipsum is simply dummy text of the printing and typesetting industry.')
 
 app.appendChild(applicantPart)
 /* 
