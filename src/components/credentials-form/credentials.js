@@ -10,17 +10,17 @@ export const credentials = () => {
     //Creación del input del correo electrónico
     const emailInput = inputCreator()
     emailInput.placeholder="Correo Electrónico"
-    emailInput.className = "email"
+    emailInput.className = "emailInput"
 
     //Creación del label de la contraseña
     const passwordLabel = document.createElement('label')
     passwordLabel.textContent="Contraseña"
-    passwordLabel.className = "emailLabel"
+    passwordLabel.className = "passwordLabel"
     
     //Creación del input del correo electrónico
     const passwordInput = inputCreator()
     passwordInput.placeholder="Contraseña"
-    passwordInput.className = "email"
+    passwordInput.className = "passwordInput"
 
     //Creacion del div donde se encuentrar el input de email y de contraseña 
     const credentialsLogin = document.createElement('div')
