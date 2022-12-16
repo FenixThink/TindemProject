@@ -1,3 +1,5 @@
+import { containerText } from "../indexTextContainerOne/containerOne.js"
+
 export function background(){
     const padre = document.createElement("div")
     padre.className = "padre"
@@ -9,5 +11,6 @@ export function log(){
     const container = document.createElement("div")
     container.className = "cont"
     contpadre.appendChild(container)
+    container.appendChild(containerText)
     return contpadre
 }
