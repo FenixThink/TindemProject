@@ -1,3 +1,12 @@
+/* Parte johan*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
 .container{
     
     display: flex;
@@ -6,29 +15,31 @@
     height: 100vh;
     width: 100%;
 }
-
 .contenedorInputs{
     display: flex;
-    gap: 10px;
+    
     
     width: 100%;
     height: 30%;
 }
 
 .dateBirth{
+    font-size: 13px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
 }
 .Country{
+    font-size: 13px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
 }
 .city{
+    font-size: 13px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
 }
 .inputIcon{
     position: relative;
@@ -69,6 +80,20 @@
     transform: translateY(-50%);
 }
 
+.title{
+    font-weight: normal;
+}
+
+.inputsDate{
+    border-radius: 5px;
+    border-color: gray;
+
+    width: 150px;
+
+    padding: 5px 10px 5px 5px;
+}
+
+/* Fin parte johan */
 
 
 
