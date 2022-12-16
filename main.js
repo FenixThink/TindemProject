@@ -1,6 +1,7 @@
-import './style.css'
-import { log } from './src/components/viewLogin/loginView'
 
-document.querySelector('#app').appendChild(log)
+import { containerText } from "./src/components/indexTextContainerOne/containerOne.js";
+  
 
+
+document.querySelector('#app').appendChild(containerText)
 
