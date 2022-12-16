@@ -14,12 +14,12 @@ export const credentials = () => {
 
     //Creación del label de la contraseña
     const passwordLabel = document.createElement('label')
-    passwordLabel.textContent="Correo Electronico"
+    passwordLabel.textContent="Contraseña"
     passwordLabel.className = "emailLabel"
     
     //Creación del input del correo electrónico
     const passwordInput = inputCreator()
-    passwordInput.placeholder="NIT"
+    passwordInput.placeholder="Contraseña"
     passwordInput.className = "email"
 
     //Creacion del div donde se encuentrar el input de email y de contraseña 
