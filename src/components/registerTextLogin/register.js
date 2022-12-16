@@ -1,11 +1,15 @@
-class registerLogin extends HTMLElement{
-    constructor(){
-        super();
-    }
+import { registerTextLogin } from '../registerTextLogin/register.js';
 
-    connectedCallback(){
-        this.innerHTML = `<div> ¿No tienes cuenta? <u><b>Registrarse</b></u></div>`;
-    }
+export const registerTextLogin = () => {
+    const text = document.createElement('span');
+    const link = document.createElement('a');
+    text.textContent = `¿No tienes cuenta?`;
+    link.textContent = `Registrarse`;
+    Text.className = "text";
+    Text.className = "register";
+    
+    return text
+    
 }
 
-window.customElements.define("register-login", registerLogin);
+  
