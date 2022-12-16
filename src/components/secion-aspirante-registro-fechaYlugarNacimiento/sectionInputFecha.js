@@ -5,6 +5,11 @@ export function inputFecha() {
     titleGenerally.className = "title"
 
     /* Opciones*/
+    const optionhover1 = document.createElement("option")
+    optionhover1.disabled = "Selecciona una opcion"
+    optionhover1.selected = "Selecciona una opcion"
+    optionhover1.textContent = "Selecciona una opcion"
+
     const option1 = document.createElement ("option")
     option1.textContent = "Colombia"
     const option2 = document.createElement ("option")
@@ -12,13 +17,18 @@ export function inputFecha() {
     const option3 = document.createElement ("option")
     option3.textContent = "Canada"
 
+
+    const optionhover2 = document.createElement("option")
+    optionhover2.disabled = "Selecciona una opcion"
+    optionhover2.selected = "Selecciona una opcion"
+    optionhover2.textContent = "Selecciona una opcion"
+
     const option4 = document.createElement ("option")
-    option4.textContent = "Colombia"
+    option4.textContent = "Bucaramanga"
     const option5 = document.createElement ("option")
-    option5.textContent = "Argentina"
+    option5.textContent = "Buenos aires"
     const option6 = document.createElement ("option")
-    option6.textContent = "Canada"
-    
+    option6.textContent = "Quebec"
 
     /* inputs */
     const inputBirth = document.createElement('input')
@@ -56,13 +66,15 @@ export function inputFecha() {
     iconCity.alt = "down icon"*/
 
     /* Selects y sus options*/
-    inputCity.appendChild(option1)
-    inputCity.appendChild(option2)
-    inputCity.appendChild(option3)
+    inputCity.appendChild(optionhover1)
+    inputCity.appendChild(option4)
+    inputCity.appendChild(option5)
+    inputCity.appendChild(option6)
 
-    inputCountry.appendChild(option4)
-    inputCountry.appendChild(option5)
-    inputCountry.appendChild(option6)
+    inputCountry.appendChild(optionhover2)
+    inputCountry.appendChild(option1)
+    inputCountry.appendChild(option2)
+    inputCountry.appendChild(option3)
 
     /* div title */
     const title = document.createElement('div')

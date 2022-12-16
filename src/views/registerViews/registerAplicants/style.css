@@ -18,7 +18,8 @@
 .contenedorInputs{
     display: flex;
     
-    
+    gap: 20px;
+
     width: 100%;
     height: 30%;
 }
@@ -85,15 +86,15 @@
 }
 
 .inputsDate{
+    border: 1px solid gray;
     border-radius: 5px;
-    border-color: gray;
 
-    width: 150px;
+
+    width: 200px;
 
     padding: 5px 10px 5px 5px;
 }
 
 /* Fin parte johan */
-
 
 
