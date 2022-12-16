@@ -84,3 +84,9 @@ button{
 .title{
     margin: 0;
 }
+
+.log{
+    width: 800px;
+    height: 800px;
+    background-color: red;
+}

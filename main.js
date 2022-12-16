@@ -1,4 +1,6 @@
 import './style.css'
+import { log } from './src/components/viewLogin/loginView'
 
-document.querySelector('#app').innerHTML = ``
+document.querySelector('#app').appendChild(log)
+
 
