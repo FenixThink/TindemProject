@@ -12,23 +12,19 @@ div{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
-    gap: 10px;
+    padding: 15px;
+    gap: 20px;
     border: none;
     background: #ffffff;
 
 }
-
-
-
 button{
     border: none;
     background: #6171FF;
     border-radius: 10px;
     font-size: 16px;
-    Padding:8px, 16px, 8px, 16px;
     width: 194px;
-    height: 20px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
