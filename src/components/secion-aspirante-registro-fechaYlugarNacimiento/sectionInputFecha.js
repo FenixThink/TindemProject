@@ -1,54 +1,90 @@
 export function inputFecha() {
-    /*Titulo general*/
-    const titleGenerally = document.createElement("h2")
+    /* Parte titulo */
+    const titleGenerally = document.createElement('p')
     titleGenerally.textContent = "Fecha y lugar de nacimiento"
+    
+    /* inputs */
+    const inputBirth = document.createElement('input')
+    inputBirth.placeholder = "Select date" 
+    const inputCountry = document.createElement('input')
+    inputCountry.placeholder = "Ingrese pais" 
+    const inputCity = document.createElement('input')
+    inputCity.placeholder = "Ingrese ciudad" 
 
-    /*titulos input*/
-    const labelDate = document.createElement("label")
-    labelDate.textContent = "Fecha de nacimiento"
-    const labelCountry = document.createElement("label")
+    /* labels */
+    const labelBirth = document.createElement('label')
+    labelBirth.textContent = "Fecha de nacimiento"
+    const labelCountry = document.createElement('label')
     labelCountry.textContent = "Pais"
-    const labelCity = document.createElement("label")
+    const labelCity = document.createElement('label')
     labelCity.textContent = "Ciudad"
 
-    /* icons*/
+    /* img */
+    const iconCalendar = document.createElement('img')
+    iconCalendar.className = "icons"
+    iconCalendar.src = "https://i.ibb.co/RbqzDbs/icon-wrapper.png"
+    iconCalendar.alt = "calendar"
 
-    /* Parte inputs */
-    const inputDate = document.createElement("input")
-    inputDate.className = "inputsRegisterAspirante"
-    inputDate.placeholder = "Select Date"
+    const iconCountry = document.createElement('img')
+    iconCountry.className = "abajo1"
+    iconCountry.src = "https://i.ibb.co/fF2NC76/Colapsos.png"
+    iconCountry.alt = "down icon"
 
-    const inputCountry = document.createElement("input")
-    inputCountry.className = "inputsRegisterAspirante"
-    inputCountry.placeholder = "Ingrese Pais"
+    const iconCity = document.createElement('img')
+    iconCity.className = "abajo2"
+    iconCity.src = "https://i.ibb.co/fF2NC76/Colapsos.png"
+    iconCity.alt = "down icon"
 
-    const inputCity = document.createElement("input")
-    inputCity.className = "inputsRegisterAspirante"
-    inputCity.placeholder = "Ingrese Ciudad"
-
-    /*Parte Div padre */
-    const divFatherInputs = document.createElement("div")
-    divFatherInputs.className = "divFatherInputs"
+    /* div title */
+    const title = document.createElement('div')
+    title.className = "title"
+    title.appendChild(titleGenerally)
     
-    divFatherInputs.appendChild(inputDate)
-    divFatherInputs.appendChild(inputCountry)
-    divFatherInputs.appendChild(inputCity)
-   
+    /*div Input icon*/
+    const inputIcon = document.createElement('div')
+    inputIcon.className = "inputIcon"
+    inputIcon.appendChild(inputBirth)
+    inputIcon.appendChild(iconCalendar)
 
-    /* Parte guardar label*/
-    const divFatherLabels = document.createElement("div")
-    divFatherLabels.className = "divFatherLabels"
-    divFatherLabels.appendChild(labelDate)
-    divFatherLabels.appendChild(labelCountry)
-    divFatherLabels.appendChild(labelCity)
+    const inputIcon2 = document.createElement('div')
+    inputIcon2.className = "inputIcon"
+    inputIcon2.appendChild(inputCountry)
+    inputIcon2.appendChild(iconCountry)
 
-    /* Parte Container*/
-    const divContainer = document.createElement("div")
-    divContainer.className = "divContainer"
-    divContainer.appendChild(titleGenerally)
-    divContainer.appendChild(divFatherLabels)
-    divContainer.appendChild(divFatherInputs)
+    const inputIcon3 = document.createElement('div')
+    inputIcon3.className = "inputIcon"
+    inputIcon3.appendChild(inputCity)
+    inputIcon3.appendChild(iconCity)
 
-    return divContainer
-    
+    /*div dateBirth */
+    const dateBirth = document.createElement('div')
+    dateBirth.className = "dateBirth"
+    dateBirth.appendChild(labelBirth)
+    dateBirth.appendChild(inputIcon)
+
+    const Country = document.createElement('div')
+    Country.className = "Country"
+    Country.appendChild(labelCountry)
+    Country.appendChild(inputIcon2)
+
+    const City = document.createElement('div')
+    City.className = "city"
+    City.appendChild(labelCity)
+    City.appendChild(inputIcon3)
+
+    /* contenedor de inputs*/
+    const contenedorInputs = document.createElement('div')
+    contenedorInputs.className = "contenedorInputs"
+    contenedorInputs.appendChild(dateBirth)
+    contenedorInputs.appendChild(Country)
+    contenedorInputs.appendChild(City)
+
+    /*container*/
+    const container = document.createElement('div')
+    container.className = "container"
+    container.appendChild(title)
+    container.appendChild(contenedorInputs)
+
+    return container
+
 };

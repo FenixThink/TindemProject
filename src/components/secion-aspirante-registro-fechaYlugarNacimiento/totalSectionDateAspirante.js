@@ -6,7 +6,7 @@ function CallInputs() {
 
     const divFather = document.createElement("div")
     divFather.appendChild(callInput)
-    divFather.className = "fatherContainer"
+    divFather.className = "container"
 
     return divFather
 
