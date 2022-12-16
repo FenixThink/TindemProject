@@ -1,4 +1,7 @@
-import './style.css'
 
-document.querySelector('#app').innerHTML = ``
+import { containerText } from "./src/components/indexTextContainerOne/containerOne.js";
+  
+
+
+document.querySelector('#app').appendChild(containerText)
 
