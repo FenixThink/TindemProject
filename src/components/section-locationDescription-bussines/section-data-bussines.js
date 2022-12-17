@@ -14,12 +14,18 @@ export function dataBussines() {
     cityLabel.textContent = "Ciudad"
 
     //creacion input y selects
-    const birth = document.createElement('input:date');
+    const birth = document.createElement('input');
+    birth.type='date'
     birth.placeholder = "Select date" 
+    const option1 = document.createElement('option')
+    option1.textContent="Seleccione pais"
     const country = document.createElement('select');
-    country.createElement(option) = "Ingrese pais" 
+    country.appendChild(option1)
+    const option2 = document.createElement('option')
+    option2.textContent="Seleccione ciudad"
+     
     const city = document.createElement('select');
-    city.createElement(option) = "Ingrese ciudad" 
+    city.appendChild(option2) 
 
     //creacion del div Birth
     const divBirth = document.createElement('div');
