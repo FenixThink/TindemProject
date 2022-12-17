@@ -1,5 +1,5 @@
 import { loginCard } from "../../components/login/loginCard.js";
 
-const divApp = document.querySelector('#app')
+const divApp = loginCard()
 
-divApp.appendChild(loginCard);
+document.querySelector('#app').appendChild(divApp);

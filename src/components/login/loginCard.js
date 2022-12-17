@@ -7,6 +7,7 @@ import { buttonLogin } from "../../components/login/button.js";
 export const loginCard = () => {
 
     const totalCard = document.createElement('div')
+    totalCard.classList.add("total-card");
 
     totalCard.appendChild(tittleLogin());
     totalCard.appendChild(credentials());

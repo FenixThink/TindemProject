@@ -14,6 +14,7 @@ export const registerTextLogin = () => {
     
     //Creación del div donde se encuentra el texto y el link
     const parent = document.createElement('div')
+    parent.classList.add("text-login");
     parent.appendChild(text)
     parent.appendChild(a)
     return parent;

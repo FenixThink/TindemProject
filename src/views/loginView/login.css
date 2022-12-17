@@ -4,10 +4,13 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
+/*Credenciales*/
+
 .credentials-login{
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
 }
 
 input{
@@ -18,5 +21,54 @@ input{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
+
+/*Título*/
+
+.title-login-card{
+    display: flex;
+    justify-content: center;    
+}
+
+.blue-text{
+    color: #4267C7;
+}
+
+.red-text{
+    color: #D35499;
+}
+
+/*Card */
+.total-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/*Button*/
+
+button{
+    margin-top: 20px;
+    padding: 10px 20px 10px 20px;
+    background-color: #6170FC;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.button-div{
+    text-align: center;
+}
+
+/*Texto login*/
+
+.text-login{
+    padding-left: 20px;
+}
+
+
+
+
