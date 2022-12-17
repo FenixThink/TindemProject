@@ -1,4 +1,3 @@
-import { credentials } from "../../components/credentials-form/credentials.js";
+import { registerTextLogin }  from "../../components/registerTextLogin/register.js";
 
-const credentialsDiv= credentials();
-document.querySelector('#app').appendChild(credentialsDiv);
+div = document.querySelector('#app').appendChild(registerTextLogin());
