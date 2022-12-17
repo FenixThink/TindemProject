@@ -1,11 +1,12 @@
-/*Aquí yace la parte de KDOE-117*/
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Aquí yace la parte de KDOE-117*/
 /*Estructura Registro Empresa Seccion A*/
 .seccionA {
     display: flex;
@@ -79,3 +80,98 @@
 }
 
 /*Aquí termina la parte de KDOE-117*/
+
+
+/*Aqui empieza la parte de Julieth*/
+/* Estilos del contenedor padre */
+.container{
+    display: grid;
+    margin: 1em;
+    padding: 30px;
+    gap: 36px;
+    /* position: absolute; */
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+/* Contenedor de las fechas y ubicacion */
+.container-location{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 6px;
+}
+
+/* Texto inicial de los datos */
+.info{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* contenedor padre de los datos de la empresa */
+.info-location{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 41px;
+}
+
+/* contenedor de los datos */
+.div-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+}
+
+/* label de los datos y descripcion */
+label{
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos input y select */
+#data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 13px;
+    width: 250px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 2px solid #CED4DA;
+    border-radius: 10px;
+}
+
+/* Contenedor de la descripcion de la empresa */
+.container-description{
+    display: grid;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 10;
+}
+
+/* estilos de textarea */
+#description{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 4px;
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    border-radius: 8px;
+}
+/*Aqui termina la parte de Julieth*/
