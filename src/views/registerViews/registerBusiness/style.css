@@ -197,7 +197,42 @@ label{
 .description{
 
     height: 5rem;
+    border: 1px solid #C2C2C2;
     padding: .2rem .5rem;
+    border-radius: .5rem;
 
 }
 /*Aquí Finaliza Parte de Yulieth Correa*/
+
+
+/* desde aquí empiza los estilos del cuentanos mas sobre tí parte que le tocaba a andres felipe olarte */
+
+.parentInterest{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    gap: 20px;
+    border: none;
+    background: #ffffff;
+    
+    border: 1px solid #C2C2C2;
+    border-radius: .8rem;
+
+}
+
+.interestBtn{
+    border: none;
+    background: #6171FF;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    width: fit-content;
+    padding: .5rem 1rem;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+/* aquí finaliza la parte de Andres Felipe Olarte Quintero */

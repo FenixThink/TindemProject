@@ -7,8 +7,10 @@ export const contentDad=()=>{
     const spanArea=area()
     const btnAdd=buttonCreator()
     btnAdd.textContent = 'Agrega tu interés laboral:'
+    btnAdd.className = "interestBtn"
 
     const parent=document.createElement('div')
+    parent.className="parentInterest"
     parent.appendChild(title1)
     parent.appendChild(spanArea)
     parent.appendChild(btnAdd)
