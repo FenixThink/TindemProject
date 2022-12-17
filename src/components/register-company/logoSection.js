@@ -24,7 +24,9 @@ export function imageContainer() {
         if(bandera==0){
             contText.appendChild(miFunction())
         }
+        
         bandera=1
+        
         
     }) 
     /*contenedor del logo*/

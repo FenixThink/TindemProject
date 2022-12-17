@@ -5,7 +5,14 @@ export function modalUpload(){
     const span = document.createElement('span')
     span.textContent = 'X'
     span.className = 'close'
-
+    span.addEventListener('click',()=>{
+        modalContent.style.display = 'none'
+        // body.style.position = 'inherit'
+        // body.style.height = '100%'
+        // body.style.overflow = 'hidden'
+    })
+    
+    
     /*creacion de contenedor de imagen */ 
 
     const image = document.createElement('img');
@@ -23,6 +30,7 @@ export function modalUpload(){
     const labelUpload = document.createElement('label')
     labelUpload.appendChild(image)
     labelUpload.appendChild(inputUpload)
+    labelUpload.className = 'labelUpload'
     
 
      /*seccion de contenedor de imagen y input */ 
@@ -42,12 +50,15 @@ export function modalUpload(){
 
     const text1 = document.createElement('p')
     text1.textContent = 'Dale click o arrastra el archivo para subir'
+    text1.className = 'textosUpload'
     const text2 = document.createElement('p')
+    text2.className = 'textosUpload'
     text2.textContent = 'JPG,PNG'
 
     /*hijo 2*/ 
 
     const divText = document.createElement('div')
+    divText.className = "divTextUpload"
     divText.appendChild(text1)
     divText.appendChild(text2)
 

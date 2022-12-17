@@ -85,73 +85,89 @@
 
 /* Diseño del modal */
 
-.divFatherUpload {
-
-    width: 335px;
-    height: 301px;
+.modalContent{
+    box-sizing: border-box;
+    /* height: 30vh; */
+    width: 35%;
     left: 0px;
     top: 0px;
-
-    background: white;
+    background: #FFFFFF;
     border: 2px dashed #CECECE;
     border-radius: 16px;
-    
     justify-content: center;
-    display: none;
+    align-items: center;
+    /* display: none; */
     position: fixed;
     z-index: 1;
-    /* padding-top: 100px;
-    left: 25%; 
-    top: 0;
-    width: 50%;
-    height: 100%; */
     overflow: auto; 
+    display: flex;
+    
+    
 
  }
 
+ img.imageUpload{
+    
+    height: 22px;
+    width: 33px;
+    
+    
 
-  
- .divFatherUpload .modalContent {
-    background-color: red;
-    margin: auto;
-    padding: 25px;
  }
-  
- .divFatherUpload .close{
+
+ .uploadImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+
+ .modalContent .close{
     color: red;
     float: right;
     font-size: 26px;
     font-weight: bold;
+    
  }
   
- .divFatherUpload.close:hover .close:focus{
+ .modalContent .close:hover .close:focus{
     color: black;
     text-decoration: none;
     cursor: pointer;
  }
   
- .divFatherUpload .modalContent .carrera{
-    border: 1px solid ;
+ .modalContent .divTextUpload{
+    width: 90%;
+    left: 47px;
+    top: 141px;
+    border-radius: nullpx;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    /* letter-spacing: -0.07999999821186066px; */
+    text-align: left;
+
+
+
  }
-  
- .divFatherUpload .modalContent .father{
+
+ .textosUpload{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ }
+
+ 
+
+.modalContent {
+    /* display: flex; */
+    display: block;
     padding: 20px;
     gap : 20px;
  }
 
- .divFatherUpload .modalContent .father .carrera{
-    width: 200px;
-    padding: 20px;
-    
- }
-
- .buttonModalBusiness{
-    display: flex;
-    width: 100px;
-    margin-left: 40%;
-    background-color: chartreuse;
- }
 
  .fileInput{
     display: none;
