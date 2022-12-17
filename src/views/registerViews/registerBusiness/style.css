@@ -1,18 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins';
 }
+
+/* Aqui empieza La parte de Orejarena */
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 100vh;
+
+}
+
+.Padre{
+
+    background: rgba(0, 0, 0, 0.1);
+    width: 80%
+
+
+}
+
+/* Aqui termina la parte de Orejarena */
 
 /*Aquí yace la parte de KDOE-117*/
 /*Estructura Registro Empresa Seccion A*/
 .seccionA {
     display: flex;
-    justify-content: space-evenly;
     width: 100%;
-    height: 100vh;
 }
 
 .seccionLogo {
@@ -22,28 +43,23 @@
     justify-content: center;
     height: 30vh;
     width: 40%;
-    border: 1px solid #000;
     row-gap: 20px;
 }
 
 .seccionCredenciales {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 60%;
-    height: 30vh;
-    border: 1px solid #000;
+    
+    display: grid;
+    
 }
 .subSecSup {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    align-items: center;
+    gap: 4rem;
 }
 .subSecInf {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    align-items: center;
+    gap: 4rem;
 }
 .contGeneral {
     display: flex;
@@ -96,11 +112,8 @@
 
 /* Contenedor de las fechas y ubicacion */
 .container-location{
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
     gap: 6px;
 }
 

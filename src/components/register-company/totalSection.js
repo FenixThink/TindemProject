@@ -1,7 +1,7 @@
 import { imageContainer } from "./logoSection.js"
 import { credentialContainer } from "./credentialSection.js"
 
-const FuncionPrincipal = () => {
+export const principalFunction = () => {
 
     const imageContainerAlgoQUeLaDiferencie = imageContainer();
     const imageContainerAlgoQUeLaDiferencieOtraVez = credentialContainer();
@@ -12,5 +12,3 @@ const FuncionPrincipal = () => {
     divFather.appendChild(imageContainerAlgoQUeLaDiferencieOtraVez);
     return divFather;
 }
-
-export const constMainFunction = FuncionPrincipal();

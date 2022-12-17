@@ -1,7 +1,7 @@
 import { dataBussines } from "./section-data-bussines.js"
 import { descriptionBussines } from "./section-description-bussines.js"
 
-const totalSectionB = () => {
+export const totalSectionB = () => {
 
     const datosEmpresa = dataBussines();
     const descripcionEmpresa = descriptionBussines();
@@ -13,4 +13,3 @@ const totalSectionB = () => {
     return divFather;
 }
 
-export const functionMain = totalSectionB();
