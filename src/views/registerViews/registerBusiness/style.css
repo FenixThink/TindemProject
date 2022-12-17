@@ -22,7 +22,11 @@ body{
 .Padre{
 
     background: rgba(0, 0, 0, 0.1);
-    width: 80%
+    width: fit-content;
+    border-radius: 30px;
+    display: grid;
+    gap: 2.1rem;
+    padding: 30px;
 
 
 }
@@ -34,21 +38,20 @@ body{
 .seccionA {
     display: flex;
     width: 100%;
+    gap: 70px;
 }
 
 .seccionLogo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 30vh;
-    width: 40%;
     row-gap: 20px;
 }
 
 .seccionCredenciales {
-    
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
 }
 .subSecSup {
@@ -74,11 +77,12 @@ body{
 }
 
 .textoEmpresa {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .inputEmpresa {
     font-size: 1.1rem;
     padding:5px 10px 5px 10px;
+    width: 100%;
     border-radius: 5px;
     border: 1px solid rgb(126, 120, 120)
 }
@@ -100,6 +104,14 @@ body{
 
 /*Aqui empieza la parte de Julieth*/
 /* Estilos del contenedor padre */
+
+.seccionB{
+
+    display: grid;
+    gap: 2.1rem;
+
+}
+
 .container{
     display: grid;
     margin: 1em;
@@ -121,7 +133,7 @@ body{
 .info{
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1.15rem;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -130,7 +142,7 @@ body{
 /* contenedor padre de los datos de la empresa */
 .info-location{
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     align-items: flex-start;
     padding: 0px;
     gap: 41px;
@@ -141,16 +153,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 5px;
+    width: 100%;
 }
 
 /* label de los datos y descripcion */
 label{
     font-style: normal;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 20px;
     display: flex;
+    
     align-items: center;
 }
 
@@ -172,20 +185,19 @@ label{
     display: grid;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
-    gap: 10;
+    gap: 1rem;
 }
 
-/* estilos de textarea */
-#description{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 6px 12px;
-    gap: 4px;
-    background: #FFFFFF;
-    border: 1px solid #C2C2C2;
-    border-radius: 8px;
+.container-description label{
+    
+    font-size: 1rem;
+
 }
 
+.description{
+
+    height: 5rem;
+    padding: .2rem .5rem;
+
+}
 /*Aquí Finaliza Parte de Yulieth Correa*/

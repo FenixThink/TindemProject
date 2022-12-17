@@ -7,6 +7,7 @@ export function dataBussines() {
     
     //creacion labels de fecha y ubicación
     const birthLabel = document.createElement('label');
+
     birthLabel.textContent = "Fecha de nacimiento"
     const countryLabel = document.createElement('label');
     countryLabel.textContent = "Pais"
@@ -15,16 +16,19 @@ export function dataBussines() {
 
     //creacion input y selects
     const birth = document.createElement('input');
+    birth.className="inputCorreoEmp inputEmpresa"
     birth.type='date'
     birth.placeholder = "Select date" 
     const option1 = document.createElement('option')
     option1.textContent="Seleccione pais"
     const country = document.createElement('select');
+    country.className="inputCorreoEmp inputEmpresa"
     country.appendChild(option1)
     const option2 = document.createElement('option')
     option2.textContent="Seleccione ciudad"
      
     const city = document.createElement('select');
+    city.className="inputCorreoEmp inputEmpresa"
     city.appendChild(option2) 
 
     //creacion del div Birth
