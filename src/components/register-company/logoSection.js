@@ -20,12 +20,13 @@ export function imageContainer() {
     contText.appendChild(textEdit);
     let bandera = 0
     textEdit.addEventListener('click',()=>{
-        console.log(bandera)
-        if(bandera==0){
-            contText.appendChild(miFunction())
-        }
+        contText.appendChild(miFunction())
+        // console.log(bandera)
+        // if(bandera==0){
+        //     contText.appendChild(miFunction())
+        // }
         
-        bandera=1
+        // bandera=1
         
         
     }) 

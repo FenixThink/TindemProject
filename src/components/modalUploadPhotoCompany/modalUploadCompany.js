@@ -5,6 +5,13 @@ export function modalUpload(){
     const span = document.createElement('span')
     span.textContent = 'X'
     span.className = 'close'
+    span.addEventListener('click',()=>{
+        modalContent.style.display = 'none'
+        // body.style.position = 'inherit'
+        // body.style.height = '100%'
+        // body.style.overflow = 'hidden'
+        
+    })
     
     
     
