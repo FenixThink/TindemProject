@@ -1,4 +1,6 @@
 import { containerText } from "../indexTextContainerOne/containerOne.js"
+import { loginCard } from "../login/loginCard.js"
+
 
 export function background(){
     const padre = document.createElement("div")
@@ -12,5 +14,8 @@ export function log(){
     container.className = "cont"
     contpadre.appendChild(container)
     container.appendChild(containerText)
+    // const subCont = document.createElement("div")
+
+    container.appendChild(loginCard())
     return contpadre
 }
