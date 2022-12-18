@@ -30,12 +30,6 @@ export function imageContainer() {
         
     }) 
 
-    document.querySelector('.close').addEventListener('click',()=>{
-
-            modalContent.style.display = 'none'
-
-
-    })
 
     /*contenedor del logo*/
     const contLogo = document.createElement('div');
