@@ -123,13 +123,17 @@ body{
 /*Logos*/
 .contLogo{
     border-radius: 100%;
-    cursor: pointer;
+  
 }
 .contLogo .LogoRegister {
     width: 150px;
     padding: 10px;
     background-color: white;
     border-radius: 100%;
+}
+
+.contLogo .contEdit{
+    cursor: pointer;
 }
 
 /*Aquí termina la parte de KDOE-117*/
