@@ -33,14 +33,15 @@
     height: 100vh;
     width: 100vw;
 }
-.cont {
+.cont{
     padding: 2%;
     width: 55%;
     background-color: rgba(170, 143, 143, 0.281);
     border-radius: 30px;
     display: flex;
     flex-direction: row;
-    justify-content:space-between
+    justify-content:space-between;
+    gap: 6rem;
 }
 
 /*Aca termina la parte de Sebastian  */
@@ -84,11 +85,6 @@
 
 
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
 
 
 /* Aca empieza la parte de Natalia */
@@ -96,14 +92,12 @@
 /*Credenciales*/
 
 .credentials-login{
+    display: grid;
     border-radius: 5px;
-    padding-left: 20px;
-    margin-top: 20px;
 }
 
 .input{
-    width: 90%;
-    padding: 12px 20px;
+    padding: .6rem;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -119,14 +113,17 @@
     justify-content: center;    
     font-weight: bold;
     font-size:2rem;
+    margin-bottom: 1rem;
 }
 
 .blue-text{
     color: #4267C7;
+    font-size: 4.5rem;
 }
 
 .red-text{
     color: #D35499;
+    font-size: 4.5rem;
 }
 
 /*Card */
@@ -138,7 +135,8 @@
     background-color: white;
     border-radius: 8%;
     width: 45%;
-    padding-bottom:5%;
+    padding-block:4%;
+    gap: 1rem;
 }
 
 /*Button*/
@@ -160,9 +158,8 @@
 /*Texto login*/
 
 .text-login{
-    width: 80%;
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
 }
 
-/* Aca empieza la parte de Natalia */
+/* Aca termina la parte de Natalia */
