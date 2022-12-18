@@ -34,6 +34,36 @@ body{
 
 /* Aqui termina la parte de Orejarena */
 
+/* Aqui empieza la parte de Jose */
+
+.contHeader{
+
+    display:flex;
+    gap: 1rem;
+    padding-bottom: 30px;
+}
+
+.contHeader a{
+    
+    background: rgb(190, 197, 255);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+}
+
+.contHeader .profile{
+
+    background: rgb(97, 113, 255);
+
+}
+
+/* Aqui termina la parte de Jose */
+
+
 /*Aquí yace la parte de KDOE-117*/
 /*Estructura Registro Empresa Seccion A*/
 .seccionA {
