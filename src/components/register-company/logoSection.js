@@ -13,6 +13,7 @@ export function imageContainer() {
     textEdit.className = "textEdit";
     
     
+    
 
     /*contenedor del texto editar logo*/
     const contText = document.createElement('div');

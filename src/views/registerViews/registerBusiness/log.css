@@ -51,7 +51,8 @@
 }
 
 /*Estilos Registro Empresa Seccion A*/
-.textEdit {
+.textEdit:hover{
+    cursor: pointer;
     color: #000;
     font-weight: bold;
 }
@@ -84,6 +85,7 @@
 /*aca empieza pao  */
 
 /* Diseño del modal */
+
 
 .modalContent{
     box-sizing: border-box;
