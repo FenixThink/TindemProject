@@ -245,18 +245,21 @@ button:hover{
 
 /* Diseño del modal */
 
+.divFatherUpload{
+    position: absolute;
+    
+}
+
 .modalContent{
+    width: 200px;
     box-sizing: border-box;
-    width: 15%;
-    left: 42px;
-    top: 0px;
+    height: 160px;
+    bottom: 207px;
+    left: -44px;
     background: #FFFFFF;
     border: 2px dashed #CECECE;
     border-radius: 16px;
-    justify-content: center;
-    align-items: center;
-    /* display: none; */
-    position: fixed;
+    position: relative;
     z-index: 1;
     overflow: auto; 
     display: flex;
@@ -302,23 +305,16 @@ button:hover{
 
 
  .textosUpload{
-    font-family: Montserrat;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: -0.07999999821186066px;
-    text-align: left;
-
-    font-family: Montserrat;
-    font-size: 12px;
+    font-family: 'Poppins';
+    font-size: 11px;
     font-weight: 600;
     line-height: 20px;
-    letter-spacing: -0.07999999821186066px;
-    text-align: left;
-
+    letter-spacing: -0.08px;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2.5px;
     
  }
 
