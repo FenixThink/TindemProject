@@ -75,7 +75,7 @@ body{
     margin: auto;
     margin-top: 20px;
     padding-bottom: 30px;
-    width: 600px;
+    width: 100%;
 }
 .img{
     display: flex;
@@ -86,12 +86,13 @@ body{
     height: 100px;
 }
 .conPerfil{
-    display: flex;
-    flex-direction: column;
+    display: blog;
+    flex-direction: row;
     align-items: center;
-    margin-top:10px;
-    
-    width: 200px;
+    gap: 4px;
+    padding-top: 20px;
+    width: 754px;
+    height: 92px;
 }
 .divPerfil{
     display: flex;
@@ -102,9 +103,7 @@ body{
     border:solid 1px black;
     
 }
-.pPerfil{
-    text-align: center;  
-}
+
 .rigth{
     display: flex;
     flex-direction: column;
@@ -116,9 +115,8 @@ body{
 
 }
 .btns{
-    margin-top: 10px;
+    margin-top: 7px;
     display: flex;
-    justify-content: space-evenly;
 }
 button{
     cursor: pointer;
@@ -132,4 +130,80 @@ label{
 .interes{
     cursor:pointer;
     margin-top: 15px ;
+}
+
+.titleGender{
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.labelGender{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+}
+
+.contentMen{
+    padding-right: 20px;
+
+}
+
+.contentWoman{
+    padding-right: 20px;
+
+}
+
+.contentOtro{
+    padding-right: 20px;
+
+}
+
+
+
+
+
+
+.btnGender{
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #C2C2C2;
+    background-color: aliceblue;
+    
+}
+
+.textTitleDes{
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+
+}
+
+.pPerfil{
+    height: 92px;
+    width: 754px;
+    border-radius: 8px;
+    border: 1px solid #C2C2C2;
+
+}
+
+.placeHolder{
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #757575;
+
+
 }

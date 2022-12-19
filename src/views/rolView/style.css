@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+
+}   
+
+.app{
+    position: relative;
+    min-height: 100vh;
+}
+.appBackground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://s3-alpha-sig.figma.com/img/d727/fdf9/c0f8a550b40737ceb1bbb1606e1faea9?Expires=1672012800&Signature=DG66pqrCxz5pMq0EI~iUfJClZv6IAPL16vbIzMZUxNhrtKrxP1Omak1ULiTvZjGZXSJEwsjhRKHMzUTVgLg4sglPIMJ-J58TeqvhkqKKEm-Ieqr6KgAr6~wyPrwG~T4v-ymnxP7TshshOcVs0VGu4UJ8JTEgMYLDGtNtcuBpbiWh7sifP1cZyEXl0zyc8cvLji9kTB3yem9LhkgLdsBXjRIDT3juBhmtbD2YXOf3o73GQj~JE76bWR5IsVjFDjVQgkIDoRe726cB9eJGaMT85-9Liykg~4HaLFIZQRHi-4tcwX8gXTN6mNdd6WauKJCwInPxU~eRPk-a1-SRiGAhAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    min-height: 100%;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(50px);
+    z-index: -10;     
+}
+.appModal{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.appModalContent-modal{
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+    width: 55%;
+    background-color: #0000001c;
+    border-radius: 20px;
+    margin: auto; 
+}
+.appModalContent-modalCard{
+    background-color: rgba(255, 255, 255, 0.452);
+    padding: 40px;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+.appModalContent-modalCardImagen{
+    background-color: white;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;    
+}
+
+.appModalContent-modalCardTitle{
+    margin: 30px 0;
+    font-size: 24px;
+    color: #4267C7;
+}
+.appModalContent-modalCardText{
+    font-family: dsi-body-large;
+    line-height: 30px;
+    font-weight: 500;
+    font-size: 19px;
+    color: #5B5B5B;
+    margin: 0 0 30px 0 ;
+}
+
+.appModalContent-modalCardButton{
+    background-color: #6171FF;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 16px;
+    border: #6171FF;
+}
