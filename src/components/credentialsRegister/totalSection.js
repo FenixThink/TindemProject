@@ -1,9 +1,9 @@
 import { imageContainer } from "./logoSection.js"
 import { credentialContainer } from "./credentialSection.js"
 
-export const principalFunction = () => {
+export const principalFunction = (img) => {
 
-    const imageContainerAlgoQUeLaDiferencie = imageContainer();
+    const imageContainerAlgoQUeLaDiferencie = imageContainer(img);
     const imageContainerAlgoQUeLaDiferencieOtraVez = credentialContainer();
 
     const divFather = document.createElement('div');

@@ -6,5 +6,6 @@
         "ingrese",
         "nacimiento",
         "Pais"
-    ]
+    ],
+    "liveServer.settings.port": 5502
 }

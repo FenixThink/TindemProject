@@ -1,5 +1,5 @@
-import { parent } from "../../../components/registerCompanyView/parent.js"
+import { parentCreator } from "../../../components/registerCompanyView/parent.js"
 
 const app = document.querySelector('#app')
 
-app.appendChild(parent)
+app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png"))

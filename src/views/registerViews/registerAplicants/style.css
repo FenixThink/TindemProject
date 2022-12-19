@@ -122,14 +122,17 @@ body{
 
 /*Logos*/
 .contLogo{
-    border-radius: 100%;
+
+    padding: 2.7rem 3.1rem;
+    border-radius: 80%;
+    background-color: white;
+
   
 }
 .contLogo .LogoRegister {
-    width: 150px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 100%;
+
+    min-width: 3rem;
+
 }
 
 .contLogo .contEdit{

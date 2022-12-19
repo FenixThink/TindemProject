@@ -1,12 +1,12 @@
 import { principalFunction } from "../credentialsRegister/totalSection.js";
-import { totalSectionB } from '../section-locationDescription-bussines/totalSection.js'
-import {contentDad} from '..//tellUsAboutYourself/contentDad.js'
-import { createButtons } from '../headerCreate/createButtonsHeader.js'
+import { totalSectionB } from '../locationDescripionRegister/totalSection.js'
+import {contentDad} from '../tellUsAboutYourselfRegister/contentDad.js'
+import { createButtons } from '../header/createButtonsHeader.js'
 
 
-const parentCreator = ()=>{
+export const parentCreator = (img)=>{
 
-    const top = principalFunction()
+    const top = principalFunction(img)
     const midBot = totalSectionB()
     const interest = contentDad()
     const header = createButtons
@@ -25,5 +25,3 @@ const parentCreator = ()=>{
 
 
 }
-
-export const parent = parentCreator()

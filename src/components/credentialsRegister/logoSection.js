@@ -1,10 +1,10 @@
 import { miFunction } from "../modalUploadPhoto/functionButtonUploadImage.js"
 
-export function imageContainer() {
+export function imageContainer(img) {
     /*Etiqueta "img" para insertar el svg respectivo*/
     const image = document.createElement('img');
     image.className = "LogoRegister";
-    image.src = "https://i.ibb.co/5BTC7Tn/UserLogo.png";
+    image.src = img;
     image.alt = "LogoEmpresa";
 
   //etiqueta "a" para redirigir a la vista de edición del logo*/
