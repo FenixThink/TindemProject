@@ -7,9 +7,9 @@ export const generateBody = ()=>{
     const appModalContentmodal = document.createElement("div")
     appModalContentmodal.classList = "appModalContent-modal"
 
-    const cardAspirante = generateCard("/svg/aspirante.svg","imgAspirante","Como Aspirante","Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium laboriosam vero repellendus ad nam incidunt natus optio eligendi","Continuar","../registerViews/registerAplicants/index.html")
+    const cardAspirante = generateCard("../../../public/svg/aspirante.svg","imgAspirante","Como Aspirante","Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium laboriosam vero repellendus ad nam incidunt natus optio eligendi","Continuar","../registerViews/registerAplicants/index.html")
 
-    const cardEmpresa = generateCard("/svg/empresa.svg","imgEmpresa","Como Empresa","Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium laboriosam vero repellendus ad nam incidunt natus optio eligendi","Continuar","../registerViews/registerBusiness/log.html")
+    const cardEmpresa = generateCard("../../../public/svg/empresa.svg","imgEmpresa","Como Empresa","Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium laboriosam vero repellendus ad nam incidunt natus optio eligendi","Continuar","../registerViews/registerBusiness/log.html")
     modal.appendChild(appModalContentmodal)
     appModalContentmodal.appendChild(cardAspirante)
     appModalContentmodal.appendChild(cardEmpresa)
