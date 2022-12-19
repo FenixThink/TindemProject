@@ -1,7 +1,6 @@
 
 
-import { background } from "./src/components/viewLogin/loginView.js"
-import { log } from "./src/components/viewLogin/loginView.js"
+import { background, log } from "./src/components/loginViewComponents/loginView.js"
 
 
 document.querySelector('#app').appendChild(background())

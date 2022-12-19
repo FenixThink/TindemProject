@@ -1,4 +1,4 @@
-import { containerText } from "../indexTextContainerOne/containerOne.js"
+import { containerText } from "../loginViewComponents/indexTextContainerOne/containerOne.js"
 import { loginCard } from "../login/loginCard.js"
 
 

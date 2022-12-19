@@ -1,5 +1,5 @@
-import { generateBody } from "../../components/selectRolComponent/generateBody/generateBody.js"
-import { generateBackground } from "../../components/selectRolComponent/generateBackground/generateBackground.js"
+import { generateBody } from "../../components/selectRolViewComponents/generateBody/generateBody.js"
+import { generateBackground } from "../../components/selectRolViewComponents/generateBackground/generateBackground.js"
 
 const modal = generateBody()
 const Background = generateBackground()
