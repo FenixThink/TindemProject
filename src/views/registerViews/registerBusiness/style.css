@@ -122,17 +122,14 @@ body{
 
 /*Logos*/
 .contLogo{
-
-    padding: 2.7rem 3.1rem;
-    border-radius: 80%;
-    background-color: white;
-
+    border-radius: 100%;
   
 }
 .contLogo .LogoRegister {
-
-    min-width: 3rem;
-
+    width: 150px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 100%;
 }
 
 .contLogo .contEdit{
@@ -371,103 +368,3 @@ button:hover{
 }
 
 /*aca finaliza la parte de pao */
-/* Parte johan*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
-}
-
-.container{
-    
-    display: flex;
-    flex-direction: column;
-
-    height: 100vh;
-    width: 100%;
-}
-.contenedorInputs{
-    display: flex;
-    
-    gap: 20px;
-
-    width: 100%;
-    height: 30%;
-}
-
-.dateBirth{
-    font-size: 13px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-.Country{
-    font-size: 13px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-.city{
-    font-size: 13px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-.inputIcon{
-    position: relative;
-   
-    width: 200px;
-}
-
-.icons{
-    width: 15px;
-
-    position: absolute;
-
-    right: 30px;
-    top: 50%;
-
-    transform: translateY(-50%);
-}
-
-.abajo1{
-    width: 15px;
-
-    position: absolute;
-
-    right: 105px;
-    top: 50%;
-
-    transform: translateY(-50%);
-}
-
-.abajo2{
-    width: 15px;
-
-    position: absolute;
-
-    right: 90px;
-    top: 50%;
-
-    transform: translateY(-50%);
-}
-
-.title{
-    font-weight: normal;
-}
-
-.inputsDate{
-    border: 1px solid gray;
-    border-radius: 5px;
-
-
-    width: 200px;
-
-    padding: 5px 10px 5px 5px;
-}
-
-/* Fin parte johan */
-
-
