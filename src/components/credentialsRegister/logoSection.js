@@ -1,4 +1,4 @@
-import { miFunction } from "../modalUploadPhotoCompany/functionButtonUploadImage.js"
+import { miFunction } from "../modalUploadPhoto/functionButtonUploadImage.js"
 
 export function imageContainer() {
     /*Etiqueta "img" para insertar el svg respectivo*/

@@ -5,7 +5,7 @@ export function credentialContainer() {
     /*Creación de la etiqueta P referente al nombre de la empresa*/
     const textCompanyName = document.createElement('p');
     textCompanyName.className = "nombreEmpresa textoEmpresa";
-    textCompanyName.textContent = "Nombre de la Empresa";
+    textCompanyName.textContent = "Nombres";
     /*Creación de la etiqueta INPUT referente al nombre de la empresa*/
     const inputCompanyName = inputCreator();
     inputCompanyName.className = "inputNombreEmp inputEmpresa";
@@ -15,7 +15,7 @@ export function credentialContainer() {
     /*Creación de la etiqueta P referente al nombre de usuario de la empresa*/
     const textCompanyUsername = document.createElement('p');
     textCompanyUsername.className = "nombreUsuario textoEmpresa";
-    textCompanyUsername.textContent = "Nombre de usuario";
+    textCompanyUsername.textContent = "Apellidos";
     /*Creación de la etiqueta INPUT referente al nombre de usuario de la empresa*/
     const inputCompanyUsername = inputCreator();
     inputCompanyUsername.className = "inputUsuarioEmp inputEmpresa";

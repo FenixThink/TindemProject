@@ -1,10 +1,7 @@
 
 /* llamar al div general */
-import { sectionGenderDes } from '../../../components/ProfileAspirantGeneroyDescripcion/totalSection.js'
+import { parent } from "../../../components/registerCompanyView/parent.js"
 
 const app = document.querySelector('#app')
 
-app.appendChild(sectionGenderDes)
-
-
-
+app.appendChild(parent)

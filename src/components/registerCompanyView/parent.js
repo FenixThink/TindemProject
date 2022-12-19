@@ -1,4 +1,4 @@
-import { principalFunction } from "../register-company/totalSection.js";
+import { principalFunction } from "../credentialsRegister/totalSection.js";
 import { totalSectionB } from '../section-locationDescription-bussines/totalSection.js'
 import {contentDad} from '..//tellUsAboutYourself/contentDad.js'
 import { createButtons } from '../headerCreate/createButtonsHeader.js'

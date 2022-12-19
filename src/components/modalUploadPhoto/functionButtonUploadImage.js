@@ -1,4 +1,4 @@
-import { modalUpload } from "../modalUploadPhotoCompany/modalUploadCompany.js"
+import { modalUpload } from "./modalUpload.js"
 export function miFunction() {
 
     
