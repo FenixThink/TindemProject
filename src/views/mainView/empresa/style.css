@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+/*Empieza parte de johan*/
+.container{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    /* gap: 60px; */
+}
+
+.containerParagraphs{
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px ;
+
+}
+
+
+.divImagen{
+    width: 30%;
+
+
+}
+
+.divImageProfile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.imagenProfile{
+    width: 150px;
+    border-radius: 100%;
+    background-color: green;
+}
+
+.paragraphs{
+    text-align: justify;
+}
+
+.divParagraphs{
+    width: 70%;
+
+    color: #757575
+}
+
+.divSubTitles{
+    color: #757575
+}
+/*Termina parte de johan*/
