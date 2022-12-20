@@ -62,3 +62,33 @@
     color: #757575
 }
 /*Termina parte de johan*/
+
+.botones{
+    width: 113px;
+    height: 36px;
+    font-family: 'Work Sans';
+    font-size: 16px;
+    background: #D5D9FF;
+    color: #4267C7;
+    border-radius: 10px;
+    border: none;
+}
+.containerbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 8px, 16px, 8px, 16px; */
+    gap: 15px;
+}
+.divContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parrafo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
