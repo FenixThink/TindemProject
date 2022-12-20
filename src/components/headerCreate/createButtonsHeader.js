@@ -7,21 +7,20 @@ export const createHeader = ()=>{
     const main=
     document.createElement("a")
     main.textContent="Main"
-    main.href=""
-    main.className="main";
-    
+    main.className="header";
+    main.style.cursor = "pointer"
     
     const profile=
     document.createElement("a")
-    profile.href=""
     profile.textContent="Profile"
-    profile.className="profile";
+    profile.className="header";
+    profile.style.cursor = "pointer"
     
     const chat=
     document.createElement("a")
-    chat.href=""
     chat.textContent="Chat"
-    chat.className="chat";
+    chat.className="header";
+    chat.style.cursor = "pointer"
     
     const contHeader=document.createElement("div");
     contHeader.className="contHeader";
@@ -35,4 +34,3 @@ export const createHeader = ()=>{
 };
 
     
-    export const createButtons =  createHeader()

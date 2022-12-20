@@ -6,6 +6,7 @@ export function credentialContainer() {
     const textCompanyName = document.createElement('p');
     textCompanyName.className = "nombreEmpresa textoEmpresa";
     textCompanyName.textContent = "Nombre de la Empresa";
+
     /*Creación de la etiqueta INPUT referente al nombre de la empresa*/
     const inputCompanyName = inputCreator();
     inputCompanyName.className = "inputNombreEmp inputEmpresa";
