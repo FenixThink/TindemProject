@@ -19,7 +19,7 @@ botonesheader.forEach(element => {
         })
         
         let bandera =0 
-        let bandera2 = 0
+        
 
         data.forEach((e)=>{
 
