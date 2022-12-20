@@ -1,4 +1,4 @@
-export const a = function mesaje(nameChat,photo,inboxUser,hour) {
+export const a = function mensaje(nameChat,photo,inboxUser,hour) {
 
 // aca ingresa el nombre
 const insertNameChat = document.createElement("span");
@@ -55,7 +55,6 @@ interCaja.style.display="flex"
 interCaja.style.width="20%"
 interCaja.style.flexDirection="column"
 interCaja.style.justifyContent="center"
-interCaja.style.gap="0.5rem"
 
 
 interCaja.appendChild(namehourChat)
