@@ -1,4 +1,15 @@
-/* Cajas de mensajes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+
+}
+
+/* Cajas de mensajes (Maria) */
 
 *{
   padding: 0;
@@ -48,149 +59,23 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: right;
 }
+/* Aca acaba la parte de Maria */
 
-
-
-/* :root {
-  --background: #fffaf2;
-  --boxes: #e2e2e2;
-  --one: #737874;
-}
-* {
-  margin: 0%;
-  padding: 0%;
-}
-
-body {
-  background-color: var(--background);
-  height: 100vh;
-  width: 100vw;
-}
-
-.conten {
-  display: flex;
+/*Aca empieza la parte de sebastian*/
+.cont{
+  width: 150px;
+  height: 150px;
+  display: flex ;
+  flex-direction: column;
   justify-content: center;
-}
-
-.contacts{
-    height: 95vh;
-    width: 25vw;
-    border: 2px solid black;
-}
-
-.profile{
-    height: 30%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-}
-.container-photo{
-  height: 20vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-
+  gap: 10%;
 }
-.container-photo img{
-    width: 4vh;
-}
-.name{
-  
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-}
-
-.photo-contact {
-  background-color: var(--one);
-  border: solid 1px black;
-  height: 10vh;
-  width: 10vh;
-  border-radius: 100%;
-}
-
-.chat-one{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vh;
-    border-bottom: solid 2px black;
-}
-
-.search{
-    background-color: #737874;
-    margin: 1vh;
-    padding: 1vh;
-    border-radius: 5px;
-}
-
-.photo-chat{
-    background-color: var(--one);
-    height: 8vh;
-    width: 8vh;
-    margin: 1vh;
-    border-radius: 100%;
-    text-align: center;
-}
-.name-chat{
-  border: solid 1px black;
-  width: 8vw; 
+.spas{
   text-align: center;
-}
-.setting-chat{
-    width: 8vw;
-    text-align: center;
-}
-.setting-chat img{
-  width: 30%;
-}
-
-.chats{
-    height: 95vh;
-    border: solid 2px black;
-}
-
-.main-profile{
+  color: red;
+  display: block;
+  width: 100%;
   height: 20%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: solid 2px black;   
-
 }
-.main-profile .photo-chat{
-    width: 10vh;
-    height: 10vh;
-}
-
-.main-profile .name-chat{
-  width: 50%;
-  border: solid 2px black
-}
-
-.chat{
-  height: 75vh;
-}
-.conversation{
-  height: 65vh;
-}
-
-.options{
-
-  display: flex;
-  justify-content: space-around;
-}
-
-.options input{
-  width: 75%;
-} */
-
-
-
+/*Aca termina la parte de sebastian*/
