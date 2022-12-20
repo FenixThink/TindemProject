@@ -12,10 +12,19 @@ export function boxMessage(color){
     const hour = document.createTextNode("12:20 PM");
     p1.appendChild(hour)
 
+    //Creación del p que contiene el double check
+    const p2 = document.createElement("p")
+    p2.className="icon-check"
+    const image = document.createElement('img')
+    image.src = "../../../public/svg/double-check.svg"
+    image.className="double-check-"+color
+    p2.appendChild(image)
+
     // Creación del div del mensaje
     const div = document.createElement('div')
     div.classList.add("box-message-"+color);
     div.appendChild(p)
+    div.appendChild(p2)
 
     // Creción del div padre
     const parent = document.createElement('div')
