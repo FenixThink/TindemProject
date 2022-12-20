@@ -1,4 +1,4 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -252,3 +252,20 @@ body{
     padding: 30px;
     background-color: #CCFFCC;
 }
+
+/* Aqui inicia la parte del componente like and dislike por Bryan Vanegas y contiene estas 3 clases appDivPadreSpanImgP, appDivPadre, appDivPadreSpan*/
+
+.appDivPadreSpanImgP{
+    margin: 5px 0 0 0;
+}
+
+.appDivPadre{ 
+    display: flex; 
+    gap: 60px; 
+    justify-content: center;
+}
+.appDivPadreSpan{
+    text-align: center;
+}
+
+/* Aqui Finaliza la parte del componente like and dislike por Bryan Vanegas */
