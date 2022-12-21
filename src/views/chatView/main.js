@@ -1,6 +1,5 @@
-import { sectionChat } from "../../components/chatViewComponents/right-chat/totalSection.js"
+import { parentParentCreator } from "../../components/chatViewComponents/chatMidComponent/parentAll/parentAllCreator.js";
 
-const app = document.querySelector('#app')
-const mainChat = sectionChat()
+const app = document.querySelector('#app');
 
-app.appendChild(mainChat)
+app.appendChild(parentParentCreator())
