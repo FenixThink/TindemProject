@@ -8,7 +8,7 @@ export function right() {
     //Imagen de perfil
     const image = document.createElement('img');
     image.className = "ellipse";
-    image.src = image;
+    image.src = 'https://i.ibb.co/4FRrXkw/Ellipse-18.png';
     image.alt = "ellipse";
 
     //Nombre de perfil
