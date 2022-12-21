@@ -1,4 +1,4 @@
-const renderButtons = ()=>{
+ export const renderButtons = ()=>{
     /* Elemento Padre */
     const divPadre = document.createElement("div")
     /* Elemento Interior */
@@ -14,6 +14,7 @@ const renderButtons = ()=>{
     img.src = "/public/svg/VectorUnlike.svg"
     img.id = "imgUnlike"
     img.alt = "Unlike svg"
+    img.className = "buttons"
     const p = document.createElement("p")
     p.classList = "appDivPadreSpanImgP"
     p.textContent = "No me gusta"
@@ -27,6 +28,7 @@ const renderButtons = ()=>{
     img2.src = "/public/svg/VectorLike.svg"
     img2.id = "imglike"
     img2.alt = "like svg"
+    img2.className = "buttons"
     const p2 = document.createElement("p")
     p2.classList = "appDivPadreSpanImgP"
     p2.textContent = "Me gusta"
@@ -45,24 +47,25 @@ const renderButtons = ()=>{
 
     return divPadre
 }
-document.querySelector("#app").appendChild(renderButtons())
-/* declarando variables para traer los elementos */
-const unlikeVector = document.querySelector("#unlikeVector")
-const likeVector = document.querySelector("#likeVector")
-/* Asignando eventos de escucha, al ingresar cambia el svg al que esta con hover y al salir lo deja como estaba */
-likeVector.addEventListener("mouseenter",()=>{
-    document.querySelector("#imglike").src = "/public/svg/VectorLikeHover.svg"
-})
 
-likeVector.addEventListener("mouseleave",()=>{
-    document.querySelector("#imglike").src = "/public/svg/VectorLike.svg"
-})
+// document.querySelector("#app").appendChild(renderButtons())
+// /* declarando variables para traer los elementos */
+// const unlikeVector = document.querySelector("#unlikeVector")
+// const likeVector = document.querySelector("#likeVector")
+// /* Asignando eventos de escucha, al ingresar cambia el svg al que esta con hover y al salir lo deja como estaba */
+// likeVector.addEventListener("mouseenter",()=>{
+//     document.querySelector("#imglike").src = "/public/svg/VectorLikeHover.svg"
+// })
 
-unlikeVector.addEventListener("mouseenter",()=>{
-    document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlikeHover.svg"
-})
+// likeVector.addEventListener("mouseleave",()=>{
+//     document.querySelector("#imglike").src = "/public/svg/VectorLike.svg"
+// })
 
-unlikeVector.addEventListener("mouseleave",()=>{
-    document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlike.svg"
-})
+// unlikeVector.addEventListener("mouseenter",()=>{
+//     document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlikeHover.svg"
+// })
+
+// unlikeVector.addEventListener("mouseleave",()=>{
+//     document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlike.svg"
+// })
 

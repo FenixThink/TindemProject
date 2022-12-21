@@ -1,7 +1,5 @@
-import { upperComponents } from "../../../components/mainViewComponents/componentA/componentA.js"
-import { interests } from "../../../components/mainViewComponents/componentA/componentB.js"
+ import { mainViewBusiness } from "../../../components/mainViewComponents/totalComponet/totalComponent.js";
 
-const app = document.querySelector('#app')
+const app = document.querySelector('#app');
 
-app.appendChild(upperComponents("Nombre de empresa"," nit: ","Descripcion de empresa: "))
-app.appendChild(interests())
+app.appendChild(mainViewBusiness);

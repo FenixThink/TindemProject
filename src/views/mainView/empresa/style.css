@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
 
 *{
@@ -8,38 +7,82 @@
     font-family: 'Poppins';
 }
 
-/*Empieza parte de johan*/
+/* Empieza la parte de vanessa */
+    .containerFather{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .appDivPadre{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .appDivPadreSpan{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .divDescription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .spanPlaceHolder{
+        display:flex;
+        align-items: center; 
+        color: #757575;   
+        padding: 6px 12px;
+    }
+
+    .divSonDescription{
+        border: #C2C2C2 1px solid;
+        border-radius: 8px;
+        width: 100%;
+        height: 150px;
+    }
+
+    .buttons{
+        width: 80px;
+        /* height: 80px; */
+    }
+/* Aqui termina la parte de vanessa */
+
+/* Empieza parte de johan */
 .container{
     width: 100%;
-    height: 100vh;
-
     display: flex;
-    /* gap: 60px; */
+    gap: 60px;
 }
 
 .containerParagraphs{
     width: 70%;
-
     display: flex;
     flex-direction: column;
-
     gap: 10px ;
 
 }
 
-
 .divImagen{
     width: 30%;
-
-
 }
 
 .divImageProfile {
     width: 100%;
     display: flex;
     justify-content: center;
-
-
 }
 
 .imagenProfile{
@@ -54,13 +97,13 @@
 
 .divParagraphs{
     width: 70%;
-
     color: #757575
 }
 
 .divSubTitles{
     color: #757575
 }
+
 /*Termina parte de johan*/
 
 .botones{
@@ -92,3 +135,4 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
+
