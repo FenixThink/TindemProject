@@ -1,4 +1,4 @@
-export function right() {
+export function right(img) {
 
     //Contact info
     const info = document.createElement("div");

@@ -1,9 +1,9 @@
-import { right } from "./rightChat"
+import { right } from "./rightChat.js"
 import { options } from "../optionsChat/optionsChat.js"
 
 export const sectionChat = (textLabelDescription) => {
 
-    const sectionA = right();
+    const sectionA = right('https://i.ibb.co/TrZ38Cv/Ellipse-18.png');
     const sectionB = options(textLabelDescription);
 
     const divFather = document.createElement('div');

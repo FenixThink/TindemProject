@@ -1,6 +1,6 @@
-import { sectionChat } from "../../components/chatViewComponents/right-chat/totalSection.js"
+import { allView } from "../../components/chatViewComponents/allView/totalsection.js"
 
 const app = document.querySelector('#app')
-const mainChat = sectionChat()
 
-app.appendChild(mainChat)
+app.appendChild(allView())
+
