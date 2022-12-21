@@ -1,5 +1,7 @@
-import { parentParentCreator } from "../../components/chatViewComponents/chatMidComponent/parentAll/parentAllCreator.js";
+import { allView } from "../../components/chatViewComponents/allView/totalsection.js"
 
-const app = document.querySelector('#app');
 
-app.appendChild(parentParentCreator())
+const app = document.querySelector('#app')
+
+app.appendChild(allView())
+

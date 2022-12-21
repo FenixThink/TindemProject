@@ -86,27 +86,7 @@ body{
 
 /*Aca empieza la parte de Orejarena*/
 
-body{
 
-  height: 100vh;
-
-}
-
-#app{
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-
-}
-
-.parentParentMid{
-
-  height: 700px;
-  border: thin solid black;
-
-}
 
 .parentTop{
 
@@ -176,8 +156,9 @@ body{
 .inputSendMessage{
 
   border: none;
-  border-radius: 60px;
-  padding: 1rem 1rem 1rem 3rem;
+    inline-size: 83%;
+    border-radius: 60px;
+    padding: 1rem 1rem 1rem 3rem;
 
 }
 
@@ -278,11 +259,9 @@ body{
 /*Aca empieza la parte de olarte*/
  /* este es el estilo del contenedor que contiene el buscador y los chats  */
 .parentChat{ 
-  display: flex;
-  flex-direction: column;
-  width: 519px;
-  height: 780px;
-  border: solid;
+  /* display: flex;
+  flex-direction: column; */
+
 }
 
 /* agegando estilo al contenedor que contiene el buscador */
@@ -355,15 +334,28 @@ body{
 
 /*aca empieza la parte de pao*/
 
+#app{
+  display: flex;
+  justify-content: center;
+}
+
+.principal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+
 
 .childContent {
-  margin: auto;
-  width: fit-content;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
   background: rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  gap: 2.1rem;
-  padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 2.1rem;
+    inline-size: fit-content;
+    height: 80vh;
+    padding: 30px;
 }
 
