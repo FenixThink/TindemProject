@@ -1,10 +1,9 @@
- export const renderButtons = ()=>{
+export const renderButtons = () => {
     /* Elemento Padre */
     const divPadre = document.createElement("div")
     /* Elemento Interior */
     const divInterior = document.createElement("div")
     divInterior.classList = "appDivPadre"
-
     /* Span Unlike */
 
     const span1 = document.createElement("span")
@@ -35,7 +34,6 @@
 
     /* Inyeccion de los elementos creados */
 
-    divPadre.appendChild(divInterior)
     divInterior.appendChild(span1)
     span1.appendChild(img)
     span1.appendChild(p)
@@ -44,28 +42,5 @@
     span2.appendChild(p2)
 
     /* return el elemento padre con todo ya incrustado */
-
-    return divPadre
+    return divInterior
 }
-
-// document.querySelector("#app").appendChild(renderButtons())
-// /* declarando variables para traer los elementos */
-// const unlikeVector = document.querySelector("#unlikeVector")
-// const likeVector = document.querySelector("#likeVector")
-// /* Asignando eventos de escucha, al ingresar cambia el svg al que esta con hover y al salir lo deja como estaba */
-// likeVector.addEventListener("mouseenter",()=>{
-//     document.querySelector("#imglike").src = "/public/svg/VectorLikeHover.svg"
-// })
-
-// likeVector.addEventListener("mouseleave",()=>{
-//     document.querySelector("#imglike").src = "/public/svg/VectorLike.svg"
-// })
-
-// unlikeVector.addEventListener("mouseenter",()=>{
-//     document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlikeHover.svg"
-// })
-
-// unlikeVector.addEventListener("mouseleave",()=>{
-//     document.querySelector("#imgUnlike").src = "/public/svg/VectorUnlike.svg"
-// })
-
