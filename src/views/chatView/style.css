@@ -75,32 +75,56 @@
 [class*="parentMessage"]{
 
 
-  width: fit-content;
+  
+  max-width: 80%;
 
 }
 /* Aca acaba la parte de Maria */
 
 /*Aca empieza la parte de Orejarena*/
 
+body{
+
+  height: 100vh;
+
+}
+
+#app{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+
+}
+
+.parentParentMid{
+
+  border: thin solid black;
+  padding: 1rem;
+  width: 50%;
+
+}
+
 .parentTop{
 
   display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  gap: 1rem;
 
 }
 
 .contImgTopMid{
 
-  max-width: 10%;
-  max-height: 10%;
-  border-radius: 50%;
+  display: flex;
+  width: fit-content;
 
 }
 
 .imgTopMidChat{
 
-    width: 100%;
-    height: 100%;
-    border-radius: 68%;
+  width: 84px
 
 }
 
@@ -115,7 +139,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-self: end;
 
 }
 
