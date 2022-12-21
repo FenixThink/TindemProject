@@ -9,6 +9,11 @@
 
 }
 
+body{
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(25px);
+}
+
 /* Cajas de mensajes (Maria) */
 
 .box-message-verde{
@@ -54,3 +59,45 @@
   height: 20%;
 }
 /*Aca termina la parte de sebastian*/
+
+/*Aca empieza la parte de Carlos*/
+
+#app{
+  width: 1193px;
+  height: 780px;
+  margin-left: 400px;
+  margin-top: 125px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.conainer-all-chat{
+  padding-top: 17vh;
+}
+
+.title-all-chats{
+  padding-left: 2.5vh;
+  font-size: 2vh;
+}
+
+.interCaja{
+  cursor: pointer;
+}
+
+.interCaja:hover{
+  border: 3px  #F1F4F6;
+  background-color: #F1F4F6;
+  transition: .3s;
+}
+
+.insertPhotoChat:hover{
+  transform: scale(1.2);
+  transition: .3s;
+}
+
+.insertPhotoChat{
+  cursor: pointer;
+}
+
+/*Aca termina la partde de Carlos*/
