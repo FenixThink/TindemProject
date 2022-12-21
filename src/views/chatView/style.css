@@ -79,3 +79,34 @@
   height: 20%;
 }
 /*Aca termina la parte de sebastian*/
+
+/* Aquí empieza parte de Yulieth */
+
+/* Contact info y about */
+.info, .about{
+  font-size: 14px;
+  text-align: left;
+}
+
+/* imagen de perfil */
+.ellipse{
+  background: url(https://ibb.co/LpThQzC);
+  display: flex;
+  align-content: center;
+}
+
+/* Nombre de perfil */
+.nameProf{
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+}
+
+/* Descripción del perfil */
+.description{
+  font-size: 14px;
+  text-align: center;
+  color: #A2A2A2;
+}
+/* Aquí termina parte Yulieth */
