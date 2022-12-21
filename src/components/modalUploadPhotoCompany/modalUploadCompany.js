@@ -25,6 +25,35 @@ export function modalUpload(){
     const inputUpload = document.createElement('input')
     inputUpload.type='file'
     inputUpload.className ='fileInput'
+    inputUpload.setAttribute('id','archivoInput')
+    inputUpload.addEventListener('change',() => {
+    /*funcion -----------------------*/
+
+        const archivoInput = document.getElementById('archivoInput')
+        const archivoRuta = archivoInput.value;
+        const extPermitidas = /(.png|.jpg|.PNG|.JPG)$/i;
+    
+        if(!extPermitidas.exec(archivoRuta)){
+            alert('eso no se puede subir pendejo')
+            archivoInput.value = '';
+            return false;
+        }else{
+            if(archivoInput.files && archivoInput.files[0]){
+                let visor = new FileReader();
+                visor.onload = function(e){
+                    document.getElementById('divProfilePhoto').innerHTML =
+                    '<img src="'+e.target.result+'" class="profileImage" />';
+                    console.log("Hola");
+                }
+                visor.readAsDataURL(archivoInput.files[0]);
+    
+            }
+        }
+
+        /*----------------------------------*/
+
+    })
+    
     
 
    /* seccion de contenedor donde va la imagen*/
@@ -75,6 +104,5 @@ export function modalUpload(){
 
     return modalContent
 
-    
 
 }

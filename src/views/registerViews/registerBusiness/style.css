@@ -122,9 +122,15 @@ body{
 
 /*Logos*/
 .contLogo{
-    border-radius: 100%;
-  
+    max-width: 250px;
+    max-height: 170px;
+    }
+
+.profileImage {
+    width: 100%;
+    height: 100%;
 }
+
 .contLogo .LogoRegister {
     width: 150px;
     padding: 10px;

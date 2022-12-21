@@ -37,6 +37,10 @@ export function imageContainer() {
     const contLogo = document.createElement('div');
     contLogo.className = "contLogo";
     contLogo.appendChild(image);
+
+    /* funcionamiento agregar img*/
+    contLogo.setAttribute('id','divProfilePhoto')
+    
     /*ContenedorPadre de la seccion izquierda*/
     const sectionLogo = document.createElement('div');
     sectionLogo.className = "seccionLogo";
