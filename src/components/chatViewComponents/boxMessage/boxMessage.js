@@ -1,22 +1,22 @@
-export function boxMessage(color){
+export function boxMessage(color,cargo,content,hour){
 
     // Creación del p que contiene el mensaje
     const p = document.createElement("p")
     p.className="message"
-    const message = document.createTextNode("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore magni eaque dolore reiciendis iusto asperiores fugiat vitae sed. Nesciunt eligendi repudiandae sit temporibus deleniti a est, id molestias ipsam ipsa doloribus quo ad labore, velit vel quaerat voluptates dolores ut tempore odit? Explicabo, ipsa? Voluptatum ducimus harum distinctio. Voluptatibus, nobis.");
+    const message = document.createTextNode(content);
     p.appendChild(message)
 
     //Creación del p que contiene la hora
     const p1 = document.createElement("p")
     p1.className="hour"
-    const hour = document.createTextNode("12:20 PM");
-    p1.appendChild(hour)
+    const hourText = document.createTextNode(hour);
+    p1.appendChild(hourText)
 
     //Creación del p que contiene el double check
     const p2 = document.createElement("p")
     p2.className="icon-check"
     const image = document.createElement('img')
-    image.src = "../../../public/svg/double-check.svg"
+    image.src = "/svg/double-check.svg"
     image.className="double-check-"+color
     p2.appendChild(image)
 
@@ -28,6 +28,7 @@ export function boxMessage(color){
 
     // Creción del div padre
     const parent = document.createElement('div')
+    parent.className = "parentMessage-"+cargo
     parent.appendChild(div)
     parent.appendChild(p1)
 
