@@ -25,9 +25,9 @@ body{
 
   position: relative;
 
-
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  
+  max-width: 80%;
   padding: 15px 43px 10px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -74,45 +74,82 @@ body{
 .hour{
   color: #727272;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  text-align: right;
+  font-size: .9rem;
 }
 
 [class*="parentMessage"]{
 
 
-  width: fit-content;
 
 }
 /* Aca acaba la parte de Maria */
 
 /*Aca empieza la parte de Orejarena*/
 
+body{
+
+  height: 100vh;
+
+}
+
+#app{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+
+}
+
+.parentParentMid{
+
+  height: 700px;
+  border: thin solid black;
+
+}
+
 .parentTop{
 
   display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  height: 20%;
 
 }
 
 .contImgTopMid{
 
-  max-width: 10%;
-  max-height: 10%;
-  border-radius: 50%;
+  display: flex;
+  width: fit-content;
 
 }
 
 .imgTopMidChat{
 
-    width: 100%;
-    height: 100%;
-    border-radius: 68%;
+  width: 84px
 
 }
 
 .padreCenter{
 
-  display: grid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  
+  height: 80%;
+  justify-content: space-between;
+  padding: 1rem;
   gap: 1rem;
+  background-color: #F1F4F7;
+
+}
+
+.parentMessage-emisor .hour{
+
+  text-align: right;
+  
 
 }
 
@@ -120,7 +157,27 @@ body{
 
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  align-items: flex-end;
+  text-align: inherit;
+
+}
+
+.contInputSend{
+
+  position: absolute;
+  bottom: 1rem;
+  justify-content: center;
+  display: flex;
+  /* left: 20%; */
+  inline-size: 100%;
+
+}
+
+.inputSendMessage{
+
+  border: none;
+  border-radius: 60px;
+  padding: 1rem 1rem 1rem 3rem;
 
 }
 
