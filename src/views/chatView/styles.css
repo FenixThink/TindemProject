@@ -15,12 +15,6 @@ body{
 }
 
 /* Cajas de mensajes (Maria) */
-
-*{
-  padding: 0;
-  margin: 0;
-}
-
 .box-message-verde{
   background-color: #61C554;
   padding: 20px 20px 10px 20px;
@@ -67,9 +61,9 @@ body{
 /* Aca acaba la parte de Maria */
 
 /*Aca empieza la parte de sebastian*/
-.cont{
+ .cont{
   width: 150px;
-  height: 150px;
+  height: 150px; 
   display: flex ;
   flex-direction: column;
   justify-content: center;
@@ -88,17 +82,18 @@ body{
 /*Aca empieza la parte de Carlos*/
 
 #app{
-  width: 1193px;
-  height: 780px;
-  margin-left: 400px;
-  margin-top: 125px;
+  /* margin-left: 400px;
+  margin-top: 125px;  */
   background: #FFFFFF;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
 
 .conainer-all-chat{
-  padding-top: 17vh;
+  /* padding-top: 17vh; */
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .title-all-chats{
@@ -126,3 +121,42 @@ body{
 }
 
 /*Aca termina la partde de Carlos*/
+
+/*acá empieza la parte de andres Olarte*/
+.parentChat{ /*este es el estilo del contenedor que contiene el buscador y los chats*/
+  display: flex;
+  flex-direction: column;
+  width: 519px;
+  height: 780px;
+  border: solid;
+}
+.dadCont{/*agegando estilo al contenedor que contiene el buscador*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  
+}
+.searc{
+  display: flex;
+  background: #F2F3F5;
+  width: 80%;
+  height: 35px;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 14px;
+  gap: 7px;
+  
+}
+.lupa{
+  width: 30px;
+  height: 100%;
+  border: none;  
+}
+.searchContac{
+  border: none;
+  background: none;
+  cursor: text;
+  
+}
+/*acá termina la parte de andres Olarte*/

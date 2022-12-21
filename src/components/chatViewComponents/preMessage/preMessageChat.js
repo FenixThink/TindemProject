@@ -1,5 +1,6 @@
+import { divSearch } from "../all-chats/search.js";
 export const a = function mensaje(nameChat,photo,inboxUser,hour) {
-
+   
     // aca ingresa el nombre
     const insertNameChat = document.createElement("span");
     insertNameChat.className="nameChat"
@@ -187,7 +188,7 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     const interCaja =document.createElement("div")
     interCaja.className="interCaja"
     interCaja.style.display="flex"
-    interCaja.style.width="20%"
+    interCaja.style.width="100%"
     interCaja.style.flexDirection="column"
     interCaja.style.justifyContent="center"
     interCaja.appendChild(namehourChat)
@@ -196,7 +197,7 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     const interCaja2 =document.createElement("div")
     interCaja2.className="interCaja"
     interCaja2.style.display="flex"
-    interCaja2.style.width="20%"
+    interCaja2.style.width="100%"
     interCaja2.style.flexDirection="column"
     interCaja2.style.justifyContent="center"
     interCaja2.appendChild(namehourChat2)
@@ -205,7 +206,7 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     const interCaja3 =document.createElement("div")
     interCaja3.className="interCaja"
     interCaja3.style.display="flex"
-    interCaja3.style.width="20%"
+    interCaja3.style.width="100%"
     interCaja3.style.flexDirection="column"
     interCaja3.style.justifyContent="center"
     interCaja3.appendChild(namehourChat3)
@@ -214,7 +215,7 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     const interCaja4 =document.createElement("div")
     interCaja4.className="interCaja"
     interCaja4.style.display="flex"
-    interCaja4.style.width="20%"
+    interCaja4.style.width="100%"
     interCaja4.style.flexDirection="column"
     interCaja4.style.justifyContent="center"
     interCaja4.appendChild(namehourChat4)
@@ -223,7 +224,7 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     const interCaja5 =document.createElement("div")
     interCaja5.className="interCaja"
     interCaja5.style.display="flex"
-    interCaja5.style.width="20%"
+    interCaja5.style.width="100%"
     interCaja5.style.flexDirection="column"
     interCaja5.style.justifyContent="center"
     interCaja5.appendChild(namehourChat5)
@@ -288,7 +289,13 @@ export const a = function mensaje(nameChat,photo,inboxUser,hour) {
     divPadre.appendChild(caja4)
     divPadre.appendChild(caja5)
 
-    return divPadre
+    const chat=divSearch()//esta parte es de felipe olarte
+    const parent=document.createElement('div')//creando el contenedor padere que va a contener el buscador y la vista chatall
+    parent.className='parentChat'
+    parent.appendChild(chat)
+    parent.appendChild(divPadre)
+
+    return parent//hasta aquí termina lo de felipe olarte
 }
 
 
