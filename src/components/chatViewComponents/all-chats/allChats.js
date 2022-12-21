@@ -1,4 +1,4 @@
-import {a} from "../../components/chatViewComponents/preMessage/preMessageChat.js"
+import {a} from "../preMessage/preMessageChat.js"
 
 export const allChats = () => {
 

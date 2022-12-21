@@ -149,7 +149,6 @@ body{
 
 /* Contact info y about */
 .container{
-  display: grid;
   justify-content: right;
 }
 
@@ -191,7 +190,6 @@ body{
 
 
 .conainer-all-chat{
-  padding-top: 17vh;
 }
 
 .title-all-chats{
@@ -220,28 +218,95 @@ body{
 
 /*Aca termina la partde de Carlos*/
 
+/*Aca empieza la parte de olarte*/
+ /* este es el estilo del contenedor que contiene el buscador y los chats  */
+.parentChat{ 
+  display: flex;
+  flex-direction: column;
+  width: 519px;
+  height: 780px;
+  border: solid;
+}
+
+/* agegando estilo al contenedor que contiene el buscador */
+
+.dadCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  
+}
+.searc{
+  display: flex;
+  background: #F2F3F5;
+  width: 80%;
+  height: 35px;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 14px;
+  gap: 7px;
+  
+}
+.lupa{
+  width: 30px;
+  height: 100%;
+  border: none;  
+}
+.searchContac{
+  border: none;
+  background: none;
+  cursor: text;
+  
+}
+
+
+
+/* Aca termina la parte 
+
+/*aca empieza la parte de jose*/
+
+.contHeader{
+
+  display:flex;
+  gap: 1rem;
+  padding-bottom: 30px;
+
+}
+
+.contHeader a{
+  
+  background: rgb(190, 197, 255);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+}
+
+.contHeader .profile{
+
+  background: rgb(97, 113, 255);
+
+}
+
+
+
+/*aca termina la parte de jose*/
 
 /*aca empieza la parte de pao*/
 
-#app{
- 
-  background-color: red;
-}
 
-.principal {
+.childContent {
+  margin: auto;
   width: fit-content;
   display: grid;
+  grid-template-columns: repeat(2,1fr);
   background: rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   gap: 2.1rem;
   padding: 30px;
-  /* display: flex;
-  align-items: center;
-  margin: auto;
-  width: 80vw;
-  height: 100vh;
-  justify-content: center;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 10px; */
 }
+
