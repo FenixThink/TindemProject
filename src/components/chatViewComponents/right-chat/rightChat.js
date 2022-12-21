@@ -8,7 +8,7 @@ export function right() {
     //Imagen de perfil
     const image = document.createElement('img');
     image.className = "ellipse";
-    image.src = img;
+    image.src = 'https://i.ibb.co/4FRrXkw/Ellipse-18.png';
     image.alt = "ellipse";
 
     //Nombre de perfil
@@ -18,7 +18,7 @@ export function right() {
 
     //About
     const about = document.createElement("div");
-    about.textContent = "about";
+    about.textContent = "About";
     about.className = "about";
 
     //Descripción del perfil
@@ -27,14 +27,14 @@ export function right() {
     description.className = "description";
 
     //Contenedor
-    const cont = document.createElement("div");
-    cont.className = "cont"
-    cont.appendChild(info)
-    cont.appendChild(image)
-    cont.appendChild(nameProf)
-    cont.appendChild(about)
-    cont.appendChild(description)
+    const cont2 = document.createElement("div");
+    cont2.className = "cont2"
+    cont2.appendChild(info)
+    cont2.appendChild(image)
+    cont2.appendChild(nameProf)
+    cont2.appendChild(about)
+    cont2.appendChild(description)
 
-    return cont;
+    return cont2;
 
 }
