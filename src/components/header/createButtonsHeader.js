@@ -8,20 +8,20 @@ export const createHeader = ()=>{
     document.createElement("a")
     main.textContent="Main"
     main.href=""
-    main.className="main";
+    main.className="header";
     
     
     const profile=
     document.createElement("a")
     profile.href=""
     profile.textContent="Profile"
-    profile.className="profile";
+    profile.className="header";
     
     const chat=
     document.createElement("a")
     chat.href=""
     chat.textContent="Chat"
-    chat.className="chat";
+    chat.className="header";
     
     const contHeader=document.createElement("div");
     contHeader.className="contHeader";
