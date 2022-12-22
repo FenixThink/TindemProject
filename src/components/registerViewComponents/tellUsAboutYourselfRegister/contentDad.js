@@ -50,7 +50,7 @@ export const contentDad=()=>{
   parent.appendChild(spanArea)
   parent.appendChild(btnAdd)
 
-  return 
+  return parent
   
 }
 
