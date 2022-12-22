@@ -1,6 +1,6 @@
 import { inputCreator } from '../../input/input.js'
 
-export function credentialContainer(firstInput,secondInput) {
+export function credentialContainer(firstInput, secondInput) {
     /*Aquí EMPIEZA la creación de etiquetas de la sección SUPERIOR del CONTENEDOR de credenciales*/
     /*Creación de la etiqueta P referente al nombre de la empresa*/
     const textCompanyName = document.createElement('p');
@@ -32,6 +32,7 @@ export function credentialContainer(firstInput,secondInput) {
     /*Creación de la etiqueta INPUT referente al correo electronico de la empresa*/
     const inputCompanyEmail = inputCreator();
     inputCompanyEmail.className = "inputCorreoEmp inputEmpresa";
+    inputCompanyEmail.id = "inputMailID";
     inputCompanyEmail.placeholder = "Placeholder_input";
     inputCompanyEmail.size = "25";
 
@@ -43,6 +44,7 @@ export function credentialContainer(firstInput,secondInput) {
     const inputCompanyPassword = document.createElement('input');
     inputCompanyPassword.type = "password";
     inputCompanyPassword.className = "inputContraseñaEmp inputEmpresa";
+    inputCompanyPassword.id = "inputContraseñaID";
     inputCompanyPassword.placeholder = "Placeholder_input";
     inputCompanyPassword.size = "25";
     /*Aquí TERMINA la creación de etiquetas de la sección INFERIOR del CONTENEDOR de credenciales*/

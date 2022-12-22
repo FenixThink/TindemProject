@@ -6,10 +6,11 @@ export function descriptionBussines(textLabelDescription) {
 
     // creacion del textarea para descripcion de empresa
     const description = document.createElement('textarea');
-    description.row ="10"
-    description.col ="50"
+    description.row = "10"
+    description.col = "50"
     description.placeholder = "Placeholder"
     description.className = "description"
+    description.maxLength = "280"
 
     //contenedor de fecha y ubicación
     const contDescription = document.createElement('div');

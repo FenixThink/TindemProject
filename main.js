@@ -1,5 +1,3 @@
-
-
 import { background, log } from "./src/components/loginViewComponents/loginView.js"
 
 
@@ -21,11 +19,7 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
             bandera = 1
         }
     }
-
 });
-
-
-
 //Condicional para evaluar si los inputs estan vacios o no
 btn.addEventListener('click', (e) => {
 
