@@ -20,17 +20,13 @@ export const centerCreator = ()=>{
     inputCont.appendChild(input)
 
     //Creacion del padre donde se ubicara lo de los mensajes y el input
-
     const div1 = document.createElement('div')
     div1.className = 'padreMensajes'
 
     //Creacion del padre donde se ubicaran los mensajes
     const div2 = document.createElement('div')
     div2.className = "padreCenter"
-
-   
-
-
+    
         div1.appendChild(message)
         div1.appendChild(message1)
         div1.appendChild(message2)

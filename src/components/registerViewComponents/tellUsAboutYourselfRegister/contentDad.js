@@ -16,13 +16,10 @@ export const contentDad=()=>{
   btnAdd.className = "interestBtn"
   btnAdd.onclick=function(){
 
-
-
     document.querySelector(".Padre").appendChild(modalARCreate("Area","de trabajo",areas))
 
     const b = document.querySelectorAll(".optionsRoles")
 
-    
     b.forEach(e => {
       e.addEventListener("click",function j(){
         
@@ -41,31 +38,19 @@ export const contentDad=()=>{
                 this.name="inactive"
                     
               }
-              
-
-
-
-             
-              
-            
           }) 
-
-
-
         }); 
-
       }) 
-
     }); 
-   
   }
-
 
   const parent=document.createElement('div')
   parent.className="parentInterest"
   parent.appendChild(title1)
   parent.appendChild(spanArea)
   parent.appendChild(btnAdd)
-  return parent
+
+  return 
+  
 }
 

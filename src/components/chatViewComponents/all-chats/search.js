@@ -1,4 +1,5 @@
 export function divSearch(){
+
     const searchContac=document.createElement('input') //creando el input de busqueda
         searchContac.className="searchContac"// añadiendole la clase al input de busqueda
         searchContac.placeholder="Search or start new chat"
@@ -16,5 +17,7 @@ export function divSearch(){
     const dadCont=document.createElement('div')
         dadCont.className='dadCont'
         dadCont.appendChild(search)
+
     return dadCont
+    
 }

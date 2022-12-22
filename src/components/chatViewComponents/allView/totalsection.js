@@ -5,6 +5,7 @@ import { parentParentCreator } from "../chatMidComponent/parentAll/parentAllCrea
 
 
 export const allView = () =>{
+
     const mainChat = sectionChat('textLabelDescription')
     const fullLeftPart = partLeft() 
     const header = createHeader()
@@ -20,8 +21,6 @@ export const allView = () =>{
 
     const Contentheader = document.createElement('div')
     Contentheader.appendChild(header)
-
-
 
     mainContainer.appendChild(header)
     mainContainer.appendChild(childContent)
