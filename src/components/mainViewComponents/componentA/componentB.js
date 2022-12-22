@@ -1,7 +1,7 @@
-export function interests() {
+export function interests(textTitle) {
     //parrafo
     const text = document.createElement('p')
-    text.textContent = "área de interés laboral:"
+    text.textContent = textTitle
     text.className = "parrafo"
 
     //botones

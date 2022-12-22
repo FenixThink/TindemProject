@@ -1,17 +1,16 @@
-export function upperComponents(nombre, nit, descripcion) {
+export function upperComponents(img, nombre, span, valueSpan) {
     /* Parte title*/
     const title = document.createElement('h3')
     title.textContent = nombre
 
     /*Parte span */
     const spanText = document.createElement('span')
-    spanText.textContent = nit 
+    spanText.textContent = span
 
     const spanCero = document.createElement('span')
-    spanCero.textContent = "000000"
+    spanCero.textContent = valueSpan
 
     const spanDescription = document.createElement('span')
-    spanDescription.textContent = descripcion
 
     const spanTextDescription = document.createElement('span')
     spanTextDescription.textContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea ab sit, corrupti, doloremque esse cum placeat laborum deserunt in inventore voluptate est eius nihil delectus?"
@@ -22,8 +21,6 @@ export function upperComponents(nombre, nit, descripcion) {
     paragraphs1.appendChild(spanText)
     paragraphs1.appendChild(spanCero)
 
-    
-
     const paragraphs2 = document.createElement('p')
     paragraphs2.className = "paragraphs"
     paragraphs2.appendChild(spanDescription)
@@ -32,9 +29,8 @@ export function upperComponents(nombre, nit, descripcion) {
     /*Parte imagen*/
     const imagenProfile = document.createElement('img')
     imagenProfile.className = "imagenProfile"
-    imagenProfile.src = "https://i.ibb.co/D5qt45T/image-1.png"
+    imagenProfile.src = img
     imagenProfile.alt = "Imagen de perfil"
-    
 
     /*Parte divImageProfile*/
     const divImageProfile = document.createElement('div')

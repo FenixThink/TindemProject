@@ -5,12 +5,12 @@ import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 import { Description } from "../descriptionComponent/descriptionComponent.js";
 import { createHeader } from "../../header/createButtonsHeader.js";
 
-const TotalFunctionView = () => {
-   const componentAInformation = upperComponents("Nombre de empresa", "Nit - ", "Descripción de empresa - ");
+export const TotalFunctionView = (img, nombre, span, valueSpan, descTitle, interestText) => {
+   const componentAInformation = upperComponents(img, nombre, span, valueSpan);
    const componentHeader = createHeader();
-   const componentBDescription = interests();
+   const componentBDescription = interests(interestText);
+   const componentDescription = Description(descTitle, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim labore, rerum, totam fuga unde magnam debitis iure voluptate maiores nulla sit ipsum natus veritatis sequiLorem ipsum dolor sit amet consectetur adipisicing elit.");
    const componentCOptions = renderButtons();
-   const componentDescription = Description("Descripción de la vacante", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim labore, rerum, totam fuga unde magnam debitis iure voluptate maiores nulla sit ipsum natus veritatis sequiLorem ipsum dolor sit amet consectetur adipisicing elit.");
    /*Contenedores de contenido principales*/
    const divFather = document.createElement('div');
    divFather.className = "containerFather"
@@ -42,6 +42,5 @@ const totalFunctionHeader = () => {
    return contHeader;
 }
 */
-export const mainViewBusiness = TotalFunctionView();
 
 //export const mainHeaderBusiness = totalFunctionHeader();
