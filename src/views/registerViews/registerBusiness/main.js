@@ -17,16 +17,17 @@ botonesheader.forEach(element => {
         const description = document.querySelector('.description').value
         
         let data = []
-        data.push(description)
-
+        
         inputCompanyName.forEach((e) => {
             data.push(e.value)
         })
+        data.push(description)
 
+        console.log(data)
         //Banderita para evitar que se repita 50 veces los alerts
         let bandera = 0
         data.forEach((e) => {
-            if (e == '') {
+            if (e === '') {
                 if (bandera == 0) {
                     alert('porfavor llena los espacios vacios  ')
                     bandera = 1
@@ -58,19 +59,34 @@ botonesheader.forEach(element => {
 
 //Validacion de que el valor ingresado al input de email si sea un email
 
-document.querySelector("#inputMailID").addEventListener("focusout", (e) => {
+
+const cont = document.querySelector("#inputContraseñaID")
+
+cont.disabled = true
+
+const inputMail = document.querySelector('#inputMailID')
+
+inputMail.addEventListener('focusout', (e) => {
     let bandera = 0;
     if (bandera == 0) {
         let regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(e.target.value);
         if (!regExpEmail) {
             alert("Email invalido");
-            bandera = 1
+           
+        }else if(regExpEmail){
+            cont.disabled = false
+
         }
+        bandera = 1
+        
     }
 });
 
-document.querySelector("#inputContraseñaID").addEventListener("focusout", (e) => {
+
+
+document.querySelector("#inputContraseñaID").addEventListener("focusout", () => {
     // Validacion de que la contraseña cumpla con ciertos parametros (Minimo 8 letras, minimo una letra, minimo un digito)
+    
     let p = document.querySelector('#inputContraseñaID').value,
         errors = [];
     if (p.length < 8) {
