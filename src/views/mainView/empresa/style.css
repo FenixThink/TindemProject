@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+/*Aquí yacé la parte de KDOE*/
+.contHeader{
+    display:flex;
+    gap: 1rem;
+    width: 60%;
+}
+.contHeader a{
+    background: rgb(190, 197, 255);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.contHeader a:hover{
+
+    transition: all 1s;
+    background: rgb(97, 113, 255);
+
+}
+
+.contHeader .main{
+    background: rgb(97, 113, 255);
+}
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 40px;
+    gap: 1.7rem;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+/*Aquí termina la parte de KDOE*/
+
+/* Empieza la parte de vanessa */
+    .containerFather{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .appDivPadre{
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .appDivPadreSpan{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .divDescription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 90%;
+        gap: 0.68rem;
+    }
+
+    .spanPlaceHolder{
+        display:flex;
+        align-items: center; 
+        color: #757575;   
+        padding: 6px 12px;
+        width: 100%;
+        border-radius: 0.5rem;
+        text-align: justify;
+    }
+
+    .spanTitle {
+        font-size: 1.1em;
+    }
+
+    .divSonDescription{
+        border: #C2C2C2 1px solid;
+        border-radius: 8px;
+        width: 100%;
+        background-color: #ffff;
+    }
+    .buttons{
+        width: 60px;
+    }
+/* Aqui termina la parte de vanessa */
+
+/* Empieza parte de johan */
+.container{
+    display: flex;
+}
+
+.containerParagraphs{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px ;
+}
+
+.divImagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.divImageProfile {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.imagenProfile{
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    object-fit: cover;
+}
+
+.paragraphs{
+    text-align: justify;
+}
+
+.divParagraphs{
+    width: 90%;
+    color: #757575
+}
+
+.divSubTitles{
+    color: #757575
+}
+/*Termina parte de johan*/
+
+/*Aquí empieza la parte de Natalia*/
+.botones{
+    width: 113px;
+    height: 36px;
+    font-size: 16px;
+    background: #D5D9FF;
+    color: #4267C7;
+    border-radius: 10px;
+    border: none;
+}
+.containerbutton{
+    display: flex;
+
+    align-items: center;
+    /* padding: 8px, 16px, 8px, 16px; */
+    width: 100%;
+    gap: 15px;
+}
+
+.divContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    gap: 0.9rem;
+}
+
+.containerP {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.buttons:hover {
+    cursor: pointer;
+    filter: saturate(180%);
+}
+/*Aquí termina la parte de Natalia*/

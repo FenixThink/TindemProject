@@ -1,11 +1,10 @@
 import { parentCreator } from "../../../components/registerViewComponents/parent.js"
 
 const app = document.querySelector('#app')
-
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Descripcion de la empresa", "Perfiles profesionales deseados"))
 
 //Definicion de rutas por cada boton, para cuando se activen
-const rutas = ["../../mainView/empresa/company.html", "../../chatView/index.html", "../../profileView/perfilAspirante.html"]
+const rutas = ["../../mainView/aspirante/index.html", "../../chatView/index.html", "../../profileView/index.html"]
 
 const botonesheader = document.querySelectorAll('.header')
 //Foreach para la captura y manejo de inputs
@@ -86,9 +85,9 @@ inputMail.addEventListener('focusout', (e) => {
 
 document.querySelector("#inputContraseñaID").addEventListener("focusout", () => {
     // Validacion de que la contraseña cumpla con ciertos parametros (Minimo 8 letras, minimo una letra, minimo un digito)
-    
-    let p = document.querySelector('#inputContraseñaID').value,
-        errors = [];
+    let p = document.querySelector('#inputContraseñaID').value;
+    let bandera = 0;
+    let errors = [];
     if (p.length < 8) {
         errors.push("Tu contraseña debe contener al menos ocho caracteres");
     } else
@@ -99,6 +98,8 @@ document.querySelector("#inputContraseñaID").addEventListener("focusout", () =>
         errors.push("Tu contraseña debe contener al menos un número.");
     }
     if (errors.length > 0) {
-        alert(errors.join("\n"));
+        if(bandera==0){
+            alert(errors.join("\n"));
+        }
     }
 });
