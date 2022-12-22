@@ -10,12 +10,32 @@
 
 /* Aqui empieza La parte de Orejarena */
 
+/*Animación Inicial*/
+@keyframes slidein {
+    from {
+      opacity: 0;
+      margin-left: -50%;
+    }
+  
+    to {
+        opacity: 1;
+      margin-left: 0%;
+    }
+  }
+
 body{
 
     display: flex;
     justify-content: center;
     align-items: center;    
     height: 100vh;
+
+}
+
+.PadrePadre{
+
+    animation-duration: 2s;
+    animation-name: slidein;
 
 }
 

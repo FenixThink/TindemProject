@@ -18,6 +18,7 @@ export const parentCreator = (img, firstInput, secondInput, textLabelDescription
     child.appendChild(interest)
 
     const parent = document.createElement('div')
+    parent.className="PadrePadre"
     parent.appendChild(header)
     parent.appendChild(child)
 
