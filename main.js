@@ -22,7 +22,7 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
 });
 //Condicional para evaluar si los inputs estan vacios o no
 btn.addEventListener('click', (e) => {
-
+    
     e.preventDefault()
     const email = document.querySelector('#email').value
     const psw = document.querySelector('#psw').value

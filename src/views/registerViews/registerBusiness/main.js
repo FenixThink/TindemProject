@@ -71,8 +71,9 @@ document.querySelector("#inputMailID").addEventListener("focusout", (e) => {
 
 document.querySelector("#inputContraseñaID").addEventListener("focusout", (e) => {
     // Validacion de que la contraseña cumpla con ciertos parametros (Minimo 8 letras, minimo una letra, minimo un digito)
-    let p = document.querySelector('#inputContraseñaID').value,
-        errors = [];
+    let p = document.querySelector('#inputContraseñaID').value;
+    let bandera = 0;
+    let errors = [];
     if (p.length < 8) {
         errors.push("Tu contraseña debe contener al menos ocho caracteres");
     } else
@@ -83,6 +84,8 @@ document.querySelector("#inputContraseñaID").addEventListener("focusout", (e) =
         errors.push("Tu contraseña debe contener al menos un número.");
     }
     if (errors.length > 0) {
-        alert(errors.join("\n"));
+        if(bandera==0){
+            alert(errors.join("\n"));
+        }
     }
 });
