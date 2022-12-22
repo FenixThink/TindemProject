@@ -13,6 +13,7 @@ export const credentials = () => {
     emailInput.placeholder = "Correo Electrónico"
     emailInput.className = "input"
     emailInput.type="email"
+    emailInput.autocomplete = "off"
     emailInput.required = "required"
 
     //Creación del label de la contraseña

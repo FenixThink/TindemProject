@@ -3,19 +3,27 @@ import { parentCreator } from "../../../components/registerViewComponents/parent
 const app = document.querySelector('#app')
 
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Descripcion de la empresa", "Perfiles profesionales deseados"))
+
+//Definicion de rutas por cada boton, para cuando se activen
 const rutas = ["../../mainView/empresa/company.html", "../../chatView/index.html", "../../profileView/perfilAspirante.html"]
+
 const botonesheader = document.querySelectorAll('.header')
+//Foreach para la captura y manejo de inputs
 botonesheader.forEach(element => {
     element.disabled = "disabled";
     element.addEventListener('click', () => {
+
         const inputCompanyName = document.querySelectorAll('.inputEmpresa')
         const description = document.querySelector('.description').value
-        console.log(description);
+        
         let data = []
         data.push(description)
+
         inputCompanyName.forEach((e) => {
             data.push(e.value)
         })
+
+        //Banderita para evitar que se repita 50 veces los alerts
         let bandera = 0
         data.forEach((e) => {
             if (e == '') {
@@ -28,6 +36,14 @@ botonesheader.forEach(element => {
                     alert('sus datos han sido rellenados correctamente')
                     botonesheader.forEach((element, index) => {
                         element.style.backgroundColor = "#6171FF"
+
+                        //Limpieza de inputs
+                        inputCompanyName.forEach((e) => {
+                            e.value = ''
+                        })
+                        document.querySelector('.description').value = ''
+
+                        //Habilitando cada boton
                         element.href = rutas[index];
                     })
                     bandera = 1
@@ -39,6 +55,8 @@ botonesheader.forEach(element => {
     })
 
 });
+
+//Validacion de que el valor ingresado al input de email si sea un email
 
 document.querySelector("#inputMailID").addEventListener("focusout", (e) => {
     let bandera = 0;
