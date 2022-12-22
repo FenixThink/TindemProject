@@ -6,7 +6,9 @@ import { buttonLogin } from "./button.js";
 
 export const loginCard = () => {
 
-    const totalCard = document.createElement('div')
+    const totalCard = document.createElement('form')
+    totalCard.action = ""
+    totalCard.method = "POST" 
     totalCard.classList.add("total-card");
 
     totalCard.appendChild(tittleLogin());
