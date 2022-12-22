@@ -1,8 +1,8 @@
 /* llamar al div general */
-import { parentCreator } from "../../../components/registerViewComponents/parent.js"
+import { parentCreator } from "../../../components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Descripcion del perfil","área de interés laboral"))
+app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Jose Miguel","Orejarena Correa","jmoc951@gmail.com","Allweneedilove123", "Yo no se mañana, si estaremos juntos, si se acaba el mundo, yo no se si soy para ti, si seras para mi", "Descripcion del perfil","Agrega tu interes laboral"))
 
 //Definicion de rutas por cada boton, para cuando se activen
 const rutas = ["../../mainView/empresa/index.html", "../../chatView/index.html", "../../profileView/profileApplicant/index.html"]

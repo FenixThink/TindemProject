@@ -1,11 +1,10 @@
-/* llamar al div general */
-import { parentCreator } from "../../../components/registerViewComponents/parent.js"
+import { parentCreator } from "../../../components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Descripcion del perfil","área de interés laboral"))
+app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombre de la empresa","Nombre de usuario","Buchanas","Bucha","Buchanas@bucha.com","Babynomerhuso123", "Tus besos eran soles mis manos puñales, su sonrisa y la mia se dijeron te quiero, y frotaron las frase poco tradicionales, en una mujer libre y un hombre soltero", "Descripcion de la empresa" ,"Agrega tu interes laboral"))
 
 //Definicion de rutas por cada boton, para cuando se activen
-const rutas = ["../../mainView/empresa/index.html", "../../chatView/index.html", "../../profileView/profileApplicant/index.html"]
+const rutas = ["../../mainView/aspirante/index.html", "../../chatView/index.html", "../../profileView/profileCompany/index.html"]
 
 const botonesheader = document.querySelectorAll('.header')
 //Foreach para la captura y manejo de inputs
