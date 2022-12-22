@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+
+}
+
+body{
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(25px);
+}
+
+/* Cajas de mensajes (Maria) */
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+[class*="box-message-"]{
+
+  position: relative;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  max-width: 80%;
+  padding: 15px 43px 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+}
+
+.box-message-verde{
+
+  background-color: #61C554;
+  color: white;
+
+}
+
+.box-message-gris{
+
+  background-color: #E8ECEF;
+  color: black;
+
+}
+
+.icon-check{
+    position: absolute;
+    text-align: right;
+    right: 10px;
+    bottom: 0;
+}
+
+.message{
+  font-size: 14px;
+}
+
+.double-check-verde{
+  width: 15px;
+  height: 15px;
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(72deg) brightness(104%) contrast(99%)
+}
+
+.double-check-gris{
+  width: 15px;
+  height: 15px;
+  filter: invert(83%) sepia(4%) saturate(6487%) hue-rotate(169deg) brightness(104%) contrast(100%)
+}
+
+.hour{
+  color: #727272;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: .9rem;
+}
+
+[class*="parentMessage"]{
+
+
+
+}
+/* Aca acaba la parte de Maria */
+
+/*Aca empieza la parte de Orejarena*/
+
+
+
+.parentTop{
+
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  height: 20%;
+
+}
+
+.contImgTopMid{
+
+  display: flex;
+  width: fit-content;
+
+}
+
+.imgTopMidChat{
+
+  width: 84px
+
+}
+
+.padreCenter{
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  
+  height: 80%;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #F1F4F7;
+
+}
+
+.parentMessage-emisor .hour{
+
+  text-align: right;
+  
+
+}
+
+.parentMessage-emisor{
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: inherit;
+
+}
+
+.contInputSend{
+
+  position: absolute;
+  bottom: 1rem;
+  justify-content: center;
+  display: flex;
+  /* left: 20%; */
+  inline-size: 100%;
+
+}
+
+.inputSendMessage{
+
+  border: none;
+    inline-size: 83%;
+    border-radius: 60px;
+    padding: 1rem 1rem 1rem 3rem;
+
+}
+
+/*Aca termina la parte de Orejarena*/
+
+/*Aca empieza la parte de sebastian*/
+.cont{
+  width: 150px;
+  height: 150px;
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+.spas{
+  text-align: center;
+  color: red;
+  display: block;
+  width: 100%;
+  height: 20%;
+}
+/*Aca termina la parte de sebastian*/
+
+/* Aquí empieza parte de Yulieth */
+
+/* Contact info y about */
+.container{
+  justify-content: right;
+}
+
+.info{
+  margin: 30px 0 50px 0;
+}
+
+.info, .about{
+  font-size: 14px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+/* imagen de perfil */
+.ellipse{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+/* Nombre de perfil */
+.nameProf{
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Descripción del perfil */
+.description{
+  font-size: 14px;
+  text-align: center;
+  color: #A2A2A2;
+}
+/* Aquí termina parte Yulieth */
+/*Aca empieza la parte de Carlos*/
+
+
+.conainer-all-chat{
+}
+
+.title-all-chats{
+  padding-left: 2.5vh;
+  font-size: 2vh;
+}
+
+.interCaja{
+  cursor: pointer;
+}
+
+.interCaja:hover{
+  border: 3px  #F1F4F6;
+  background-color: #F1F4F6;
+  transition: .3s;
+}
+
+.insertPhotoChat:hover{
+  transform: scale(1.2);
+  transition: .3s;
+}
+
+.insertPhotoChat{
+  cursor: pointer;
+}
+
+/*Aca termina la partde de Carlos*/
+
+/*Aca empieza la parte de olarte*/
+ /* este es el estilo del contenedor que contiene el buscador y los chats  */
+.parentChat{ 
+  /* display: flex;
+  flex-direction: column; */
+
+}
+
+/* agegando estilo al contenedor que contiene el buscador */
+
+.dadCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  
+}
+.searc{
+  display: flex;
+  background: #F2F3F5;
+  width: 80%;
+  height: 35px;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 14px;
+  gap: 7px;
+  
+}
+.lupa{
+  width: 30px;
+  height: 100%;
+  border: none;  
+}
+.searchContac{
+  border: none;
+  background: none;
+  cursor: text;
+  
+}
+
+
+
+/* Aca termina la parte 
+
+/*aca empieza la parte de jose*/
+
+.contHeader{
+
+  display:flex;
+  gap: 1rem;
+  padding-bottom: 30px;
+
+}
+
+.contHeader a{
+  
+  background: rgb(190, 197, 255);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+}
+
+.contHeader .profile{
+
+  background: rgb(97, 113, 255);
+
+}
+
+
+
+/*aca termina la parte de jose*/
+
+/*aca empieza la parte de pao*/
+
+#app{
+  display: flex;
+  justify-content: center;
+}
+
+.principal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+
+.childContent {
+  background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 2.1rem;
+    inline-size: fit-content;
+    height: 80vh;
+    padding: 30px;
+}
+
