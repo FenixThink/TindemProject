@@ -4,10 +4,10 @@ import { contentDad } from './tellUsAboutYourselfRegister/contentDad.js'
 import { createHeader } from '../header/createButtonsHeader.js'
 
 
-export const parentCreator = (img, firstInput, secondInput, textLabelDescription, interestSpan) => {
+export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan) => {
 
     const top = principalFunction(img, firstInput, secondInput)
-    const midBot = totalSectionB(textLabelDescription)
+    const midBot = totalSectionB(date, textLabelDescription)
     const interest = contentDad(interestSpan)
     const header = createHeader()
 

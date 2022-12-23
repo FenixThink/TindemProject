@@ -1,7 +1,7 @@
 import { parentCreator } from "../../../components/registerViewComponents/parent.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Descripcion de la empresa", "Perfiles profesionales deseados"))
+app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario","Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
 
 //Definicion de rutas por cada boton, para cuando se activen
 const rutas = ["../../mainView/aspirante/index.html", "../../chatView/index.html", "../../profileView/profileCompany/index.html"]

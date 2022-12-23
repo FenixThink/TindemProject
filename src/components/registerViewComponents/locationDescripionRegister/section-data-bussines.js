@@ -1,8 +1,8 @@
-export function dataBussines() {
+export function dataBussines(date) {
 
     // Texto Principal
     const infoTitle = document.createElement('div');
-    infoTitle.textContent = "Fecha y lugar de nacimiento"
+    infoTitle.textContent = date
     infoTitle.className = "info"
     
     //creacion labels de fecha y ubicación
