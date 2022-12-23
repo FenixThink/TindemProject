@@ -1,4 +1,4 @@
-import { modalUpload } from "./modalUpload.js"
+/* import { modalUpload } from "./modalUpload.js"
 export function miFunction() {
     const modalUploadImage = modalUpload()
     const divFatherUpload = document.createElement('div')
@@ -14,4 +14,4 @@ export function miFunction() {
     return divFatherUpload;
 
 
-}
+} */

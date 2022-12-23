@@ -1,4 +1,4 @@
-import { miFunction } from "../modalUploadPhoto/functionButtonUploadImage.js"
+import { modalUpload } from "../modalUploadPhoto/modalUpload.js"
 
 export function imageContainer(img) {
   /*Etiqueta "img" para insertar el svg respectivo*/
@@ -16,23 +16,23 @@ export function imageContainer(img) {
   contText.className = "contEdit";
   contText.appendChild(textEdit);
   let bandera = 0
-  contText.appendChild(miFunction())
   textEdit.addEventListener('click', () => {
-
+    
     document.querySelector('.modalContent').style.display = 'block'
-   
+    
     // console.log(bandera)
     // if(bandera==0){
-    //     contText.appendChild(miFunction())
-    // }
-
-    // bandera=1
-
-  })
-  /*contenedor del logo*/
-  const contLogo = document.createElement('div');
-  contLogo.className = "contLogo";
-  contLogo.appendChild(image);
+      //     contText.appendChild(miFunction())
+      // }
+      
+      // bandera=1
+      
+    })
+    /*contenedor del logo*/
+    const contLogo = document.createElement('div');
+    contLogo.className = "contLogo";
+    contLogo.appendChild(image);
+    contLogo.appendChild(modalUpload())
   /* funcionamiento agregar img*/
   contLogo.setAttribute('id', 'divProfilePhoto')
 
