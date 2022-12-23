@@ -36,7 +36,7 @@ btn.addEventListener('click', (e) => {
         } else {
             document.querySelector('#email').value = ""
             document.querySelector('#psw').value = ""
-            window.location = "src/views/mainView/Aspirante/index.html"
+            window.location = "src/views/mainView/aspirante/index.html"
         }
     }
 }

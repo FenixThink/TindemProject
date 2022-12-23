@@ -14,7 +14,7 @@
 @keyframes slidein {
     from {
       opacity: 0;
-      margin-left: -50%;
+      margin-left: 50%;
     }
   
     to {
@@ -33,7 +33,7 @@ body{
 }
 
 .PadrePadre{
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-name: slidein;
 
 }
@@ -113,15 +113,6 @@ body{
     .containerRolesAndAreas button:hover, .agregarCambios:hover{
         cursor: pointer;
     }
-
-    
-
-
-
-
-
-
-
 
 /* este es el header de los componenetes */
 .contHeader{

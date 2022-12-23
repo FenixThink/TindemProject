@@ -1,6 +1,6 @@
 
-import { modalARCreate } from "../modalCreateComponet/modalCreator.js";
-import { buttonCreator } from '../button/button.js'
+import { modalARCreate } from "../../modalCreateComponet/modalCreator.js";
+import { buttonCreator } from '../../button/button.js'
 import { area } from './spanArea.js'
 import { title } from './tellUsAboutYourself.js'
 
