@@ -16,8 +16,11 @@ export function imageContainer(img) {
   contText.className = "contEdit";
   contText.appendChild(textEdit);
   let bandera = 0
+  contText.appendChild(miFunction())
   textEdit.addEventListener('click', () => {
-    contText.appendChild(miFunction())
+
+    document.querySelector('.modalContent').style.display = 'block'
+   
     // console.log(bandera)
     // if(bandera==0){
     //     contText.appendChild(miFunction())

@@ -20,28 +20,21 @@ export function modalUpload() {
     inputUpload.setAttribute('id', 'archivoInput')
     inputUpload.addEventListener('change', () => {
         /*funcion -----------------------*/
-        const archivoInput = document.getElementById('archivoInput')
-        const archivoRuta = archivoInput.value;
-        const extPermitidas = /(.png|.jpg|.PNG|.JPG)$/i;
-        if (!extPermitidas.exec(archivoRuta)) {
-            alert('eso no se puede subir compañero.')
-            archivoInput.value = '';
-            return false;
-        } else {
-            if (archivoInput.files && archivoInput.files[0]) {
-                let visor = new FileReader();
-                visor.onload = function (e) {
-                    document.getElementById('divProfilePhoto').innerHTML =
-                        '<img src="' + e.target.result + '" class="profileImage" />';
-                    modalContent.style.display = 'none'
-                }
-                visor.readAsDataURL(archivoInput.files[0]);
-            } else {
-                modalContent.style.display = 'none'
+        const inputFile = document.getElementById('archivoInput')
+        const img = document.querySelector('.LogoRegister');
+        const choosedFile = inputFile.files[0];
+
+        if (choosedFile) {
+            const reader = new FileReader(); 
+             modalContent.style.display = 'none'
+            reader.addEventListener('load', function(){
+                img.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(choosedFile);
             }
-        }
+        })
         /*----------------------------------*/
-    })
+    
     /* seccion de contenedor donde va la imagen*/
     const labelUpload = document.createElement('label')
     labelUpload.appendChild(image)
@@ -55,7 +48,7 @@ export function modalUpload() {
     const uploadImage = document.createElement('div')
     uploadImage.className = 'uploadImage'
     uploadImage.appendChild(imageUpload)
-    /*elementos que van dentro de hijo 2*/
+    /*elementos que van denton de hijo 2*/
     const text1 = document.createElement('p')
     text1.textContent = 'Dale click o arrastra el archivo para subir'
     text1.className = 'textosUpload'
@@ -67,10 +60,17 @@ export function modalUpload() {
     divText.className = "divTextUpload"
     divText.appendChild(text1)
     divText.appendChild(text2)
+
     const modalContent = document.createElement('div')
     modalContent.className = 'modalContent'
-    modalContent.appendChild(span)
-    modalContent.appendChild(uploadImage)
-    modalContent.appendChild(divText)
+
+        modalContent.appendChild(span)
+        modalContent.appendChild(uploadImage)
+        modalContent.appendChild(divText)
+        modalContent.style.display = 'none'
+  
+ 
+   
+
     return modalContent
 }
