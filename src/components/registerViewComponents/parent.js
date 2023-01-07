@@ -2,7 +2,10 @@ import { principalFunction } from "./credentialsRegister/totalSection.js";
 import { totalSectionB } from './locationDescripionRegister/totalSection.js'
 import { contentDad } from './tellUsAboutYourselfRegister/contentDad.js'
 import { createHeader } from '../header/createButtonsHeader.js'
+import { AreasRoles } from "../modalOneCreateComponet/modalCreator.js";
 
+
+let areas =["Ingenieria de sistemas","Administracion de empresas","Comunicacion  social","Finanzas y negocios internacionales","Mercadeo y publicidad","Seguridad","Servcios generales","Medicina"]
 
 export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan) => {
 
@@ -16,6 +19,7 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     child.appendChild(top)
     child.appendChild(midBot)
     child.appendChild(interest)
+    child.appendChild(AreasRoles(areas))
 
     const parent = document.createElement('div')
     parent.className="PadrePadre"
