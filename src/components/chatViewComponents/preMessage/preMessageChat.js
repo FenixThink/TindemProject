@@ -1,5 +1,5 @@
 
-export const a = function mesaje(name1,photo,inboxUser,hour) {
+export const a = function mesaje(id,name1,photo,inboxUser,hour) {
 
     // aca ingresa el nombre
     const insetNameChat = document.createElement("span");
@@ -30,29 +30,34 @@ export const a = function mesaje(name1,photo,inboxUser,hour) {
     namehourChat.appendChild(hourChat)
     namehourChat.style.display="flex";
     namehourChat.style.justifyContent="space-between"
-    
+
+    //Creacion de la imagen
     const insertPhotoChat = document.createElement("img");
-    insertPhotoChat.style.width="65px";
-    insertPhotoChat.style.height="65px";
+    insertPhotoChat.className='profileImg'
     insertPhotoChat.src=photo;
-    insertPhotoChat.style.borderRadius="50%";
-    insertPhotoChat.style.padding="1vh"
     
+    //Creacion del contenedor que tendra la imagen
+    const contImg = document.createElement('div')
+    contImg.className='profileImgCont'
+    contImg.appendChild(insertPhotoChat)
+
+
     const interCaja =document.createElement("div")
+    interCaja.className='boxMessageAllChat'
     interCaja.style.display="flex"
-    interCaja.style.width="81%"
+    interCaja.style.width="70%"
     interCaja.style.flexDirection="column"
     interCaja.style.justifyContent="center"
+    interCaja.style.marginLeft = '1rem'
 /*     interCaja.style.gap="0.5rem" */
     interCaja.appendChild(namehourChat)
     interCaja.appendChild(inboxChat)
     
     const caja =document.createElement("div")
-    caja.style.display="flex"
-    caja.style.flexDirection="rows"
-    caja.style.padding="1rem"
+    caja.className = 'messageBox'
+    caja.id = id
     
-    caja.appendChild(insertPhotoChat)
+    caja.appendChild(contImg)
     caja.appendChild(interCaja)
     
     

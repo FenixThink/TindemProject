@@ -1,4 +1,4 @@
-export function right(img) {
+export function right(name,img,description) {
 
     //Contact info
     const info = document.createElement("div");
@@ -8,12 +8,16 @@ export function right(img) {
     //Imagen de perfil
     const image = document.createElement('img');
     image.className = "ellipse";
-    image.src = 'https://i.ibb.co/4FRrXkw/Ellipse-18.png';
+    image.src = img;
     image.alt = "ellipse";
+
+    const imageCont = document.createElement('div')
+    imageCont.className='elipCont'
+    imageCont.appendChild(image)
 
     //Nombre de perfil
     const nameProf = document.createElement("div");
-    nameProf.textContent = "Zilan";
+    nameProf.textContent = name;
     nameProf.className = "nameProf";
 
     //About
@@ -22,18 +26,18 @@ export function right(img) {
     about.className = "about";
 
     //Descripción del perfil
-    const description = document.createElement("div");
-    description.textContent = "Hello my name is Zilan";
-    description.className = "description";
+    const descriptionDiv = document.createElement("div");
+    descriptionDiv.textContent = description;
+    descriptionDiv.className = "description";
 
     //Contenedor
     const cont2 = document.createElement("div");
     cont2.className = "cont2"
     cont2.appendChild(info)
-    cont2.appendChild(image)
+    cont2.appendChild(imageCont)
     cont2.appendChild(nameProf)
     cont2.appendChild(about)
-    cont2.appendChild(description)
+    cont2.appendChild(descriptionDiv)
 
     return cont2;
 

@@ -28,7 +28,7 @@ export function boxMessage(color,cargo,content,hour){
 
     // Creción del div padre
     const parent = document.createElement('div')
-    parent.className = "parentMessage-"+cargo
+    parent.className = "boxM parentMessage-"+cargo
     parent.appendChild(div)
     parent.appendChild(p1)
 

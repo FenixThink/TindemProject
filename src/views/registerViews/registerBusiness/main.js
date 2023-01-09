@@ -3,17 +3,13 @@ import { parentCreator } from "../../../components/registerViewComponents/parent
 const app = document.querySelector('#app')
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario","Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
 
-//Definicion de rutas por cada boton, para cuando se activen
-const rutas = ["../../mainView/aspirante/index.html", "../../chatView/index.html", "../../profileView/profileCompany/index.html"]
-
-const botonesheader = document.querySelectorAll('.header')
+const send = document.querySelector('.submitButton')
 //Foreach para la captura y manejo de inputs
-botonesheader.forEach(element => {
-    element.disabled = "disabled";
-    element.addEventListener('click', () => {
+
+    send.addEventListener('click', () => {
 
         const inputCompanyName = document.querySelectorAll('.inputEmpresa')
-        const description = document.querySelector('.description').value
+        let description = document.querySelector('.description').value
         
         let data = []
         
@@ -25,36 +21,25 @@ botonesheader.forEach(element => {
         console.log(data)
         //Banderita para evitar que se repita 50 veces los alerts
         let bandera = 0
-        data.forEach((e) => {
-            if (e === '') {
-                if (bandera == 0) {
-                    alert('porfavor llena los espacios vacios  ')
-                    bandera = 1
-                }
-            } else {
-                if (bandera == 0) {
-                    alert('sus datos han sido rellenados correctamente')
-                    botonesheader.forEach((element, index) => {
-                        element.style.backgroundColor = "#6171FF"
-
-                        //Limpieza de inputs
-                        inputCompanyName.forEach((e) => {
-                            e.value = ''
-                        })
-                        document.querySelector('.description').value = ''
-
-                        //Habilitando cada boton
-                        element.href = rutas[index];
+        data.some((e)=>{
+            if(bandera===0){
+                if(e===''){
+                    bandera=1
+                    return alert('Por favor llenar todos los datos requeridos')
+                    
+                }else{
+                    
+                    inputCompanyName.forEach(e=>{
+                        e.value = ''
                     })
-                    bandera = 1
+                    description = ''
+                    window.location='../../mainView/aspirante/index.html'
                 }
             }
-
+            
         })
 
     })
-
-});
 
 //Validacion de que el valor ingresado al input de email si sea un email
 
@@ -62,7 +47,6 @@ botonesheader.forEach(element => {
 const cont = document.querySelector("#inputContraseñaID")
 
 cont.disabled = true
-
 const inputMail = document.querySelector('#inputMailID')
 
 inputMail.addEventListener('focusout', (e) => {

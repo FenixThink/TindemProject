@@ -1,4 +1,4 @@
-export const headerChatCreator = (nameUser,src)=>{
+export const headerChatCreator = (id,nameUser,src)=>{
 
     //Creacion de la imagen
     const img = document.createElement('img')
@@ -12,6 +12,7 @@ export const headerChatCreator = (nameUser,src)=>{
     
     //Creacion del span con el nombre del individuo en cuestion
     const spanName = document.createElement('h3')
+    spanName.id=id
     spanName.className = 'nameTopChat'
     spanName.textContent = nameUser
 

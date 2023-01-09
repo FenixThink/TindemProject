@@ -1,8 +1,26 @@
+import { people } from "../partLeftChat/unionPartsLeft"
 export function divSearch(){
 
     const searchContac=document.createElement('input') //creando el input de busqueda
         searchContac.className="searchContac"// añadiendole la clase al input de busqueda
-        searchContac.placeholder="Search or start new chat"
+        searchContac.placeholder="Search chat"
+
+    //Configurando el input para realizar la busqueda de algun chat
+    searchContac.addEventListener('keyup',(e)=>{
+        for (let i = 1; i <= Object.keys(people).length; i++) {
+            if(searchContac.value!=''){
+                let name = people[i].name.toLowerCase()
+                let searchName = searchContac.value.toLowerCase()
+                if(!name.startsWith(searchName)){
+                    document.getElementById(Object.keys(people)[i-1]).style.display='none'
+                }
+            }else{
+                document.getElementById(Object.keys(people)[i-1]).style.display='flex'
+
+            }
+        }
+    })
+
 
     const lupa=document.createElement('img')/*el boton para la lupa del buscador */
         lupa.className='lupa'
