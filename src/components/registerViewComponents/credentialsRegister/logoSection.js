@@ -15,17 +15,11 @@ export function imageContainer(img) {
   const contText = document.createElement('div');
   contText.className = "contEdit";
   contText.appendChild(textEdit);
-  let bandera = 0
+  
   textEdit.addEventListener('click', () => {
     
     document.querySelector('.modalContent').style.display = 'block'
-    
-    // console.log(bandera)
-    // if(bandera==0){
-      //     contText.appendChild(miFunction())
-      // }
-      
-      // bandera=1
+  
       
     })
     /*contenedor del logo*/

@@ -1,9 +1,6 @@
 export function dataBussines() {
 
     // Texto Principal
-    const infoTitle = document.createElement('div');
-    infoTitle.textContent = "Fecha y lugar de nacimiento"
-    infoTitle.className = "info"
     
     //creacion labels de fecha y ubicación
     const birthLabel = document.createElement('label');
@@ -59,7 +56,6 @@ export function dataBussines() {
     //contenedor de fecha y ubicación
     const contLocation = document.createElement('div');
     contLocation.className = "container-location"
-    contLocation.appendChild(infoTitle);
     contLocation.appendChild(contData);
 
 

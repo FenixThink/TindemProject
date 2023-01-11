@@ -21,6 +21,7 @@ export function dataBussines() {
     birth.placeholder = "Select date" 
     const option1 = document.createElement('option')
     option1.textContent="Seleccione pais"
+    option1.defaultSelected
     const optionb = document.createElement('option')
     optionb.textContent="Colombia"
     const country = document.createElement('select');
@@ -29,6 +30,7 @@ export function dataBussines() {
     country.appendChild(optionb)
     const option2 = document.createElement('option')
     option2.textContent="Seleccione ciudad"
+    option2.defaultSelected
     const optionC = document.createElement('option')
     optionC.textContent="Armenia"
     const optionD = document.createElement('option')

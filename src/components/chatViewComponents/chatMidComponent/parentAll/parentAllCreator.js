@@ -29,7 +29,7 @@ inputCont.addEventListener('keyup',(e)=>{
             let date = new Date()   
             let zone = ''
             date.getHours()>12 ? zone='PM' : zone='AM'
-            let now = `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`
+            let now = `${date.toLocaleString('es-CO').slice(9,15)} ${zone}`
             
             padreCentro.appendChild(boxMessage('verde','transmitter',input.value,now))
 
