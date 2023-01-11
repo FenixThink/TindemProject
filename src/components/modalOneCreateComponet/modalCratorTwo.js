@@ -1,7 +1,9 @@
 
- export  function AreasRolesTwo(btnRolInArea) {
+import {enviar} from '../registerViewComponents/tellUsAboutYourselfRegister/contentDad.js'
+export const rolesPerson=[]
+export  function AreasRolesTwo(btnRolInArea) {
+     
 
-   
     const rol = document.createElement("span");
     rol.className="rolOn"
     rol.textContent="Rol de  "
@@ -27,17 +29,8 @@
     add.onclick=function (params) {
             const devuelta =  document.getElementsByName('active')
             const newB = [].slice.call(devuelta)
-            console.log(newB)
+            enviar(newB)
 
-        newB.forEach((e) => {
-            
-            document.querySelector(".rolesInProfiles").appendChild(e)
-
-            e.style.color="#4267C7"
-            e.style.background="#D4D9FF"
-            
-            
-        });
 /*         con este codigo remuevo el hijo que se crea cada que llamamos una area 
  */        
 document.querySelector(".modalHijo").remove()

@@ -38,7 +38,7 @@ export function AreasRoles(btnAreasOrRoles) {
         
         
     });
-    console.log(rolesName)
+   
   
 
 
