@@ -1,15 +1,16 @@
 class Profile{
     
-    constructor(name,description,interests,iLikelt,UseId,CitId){
+    constructor(name,description,interests,iLikelt,id_Country,id_City,id_User){
         this.name = name;
         this.description = description;
         this.interests = interests;
         this.iLikelt = iLikelt;
-        this.UseId = UseId;
-        this.CitId = CitId
+        this.id_Country = id_Country;
+        this.id_City = id_City;
+        this.id_User = id_User;
     }
 
-    
+
 }
 
 export default Profile;
