@@ -1,6 +1,6 @@
-class Profile{
-    
-    constructor(name,description,interests,iLikelt,id_Country,id_City,id_User){
+class ProfileAccount {
+
+    constructor(name, description, interests, iLikelt, id_Country, id_City, id_User) {
         this.name = name;
         this.description = description;
         this.interests = interests;
@@ -13,4 +13,4 @@ class Profile{
 
 }
 
-export default Profile;
+export default ProfileAccount;
