@@ -1,5 +1,5 @@
 import { containerText } from "../loginViewComponents/indexTextContainerOne/containerOne.js"
-import { loginCard } from "../login/loginCard.js"
+import { loginCard } from "../loginViewComponents/loginCard/loginCard.js"
 
 
 export function background(){
