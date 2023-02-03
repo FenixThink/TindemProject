@@ -1,7 +1,7 @@
 class CountryModel{
     
-    constructor(name){
-        this.#name = name;
+    constructor(body){
+        this.#name = body.name;
     }
 
     set name(name){ this.#name = name; }
