@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "vite": "^4.0.0"
   },
   "dependencies": {
