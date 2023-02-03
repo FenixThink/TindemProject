@@ -33,4 +33,4 @@ class Profile{
 
 }
 
-export default Profile;
+export default ProfileAccount;
