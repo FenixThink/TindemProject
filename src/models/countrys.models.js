@@ -1,4 +1,5 @@
 class CountryModel{
+    
     constructor(name){
         this.#name = name;
     }

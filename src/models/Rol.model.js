@@ -1,15 +1,15 @@
 class Rol{
 
     constructor(body){
-        this.name = body.name
-        this.id_Area = body.id_Area
+        this.#name = body.name
+        this.#id_Area = body.id_Area
     }
 
-    set Name(name){ this.name = name }
-    set Id_Area(id_Area){ this.id_Area = id_Area }
+    set Name(name){ this.#name = name }
+    set Id_Area(id_Area){ this.#id_Area = id_Area }
 
-    get Name(){ return this.name }
-    get Id_Area(){ return this.id_Area }
+    get Name(){ return this.#name }
+    get Id_Area(){ return this.#id_Area }
 
 }
 
