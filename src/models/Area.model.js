@@ -8,6 +8,7 @@ class Area{
     set Name(name){ this.#name = name }
     
     get Name(){ return this.#name }
+    
 }
 
 export default Area

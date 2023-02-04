@@ -1,4 +1,4 @@
-class Rol{
+class Specialization{
 
     constructor(body){
         this.#name = body.name
@@ -13,4 +13,4 @@ class Rol{
 
 }
 
-export default Rol
+export default Specialization

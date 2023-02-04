@@ -1,4 +1,4 @@
-class Profile{
+class ProfileAccount{
     
     constructor(body){
         this.#name = body.name;
@@ -18,9 +18,6 @@ class Profile{
     set Id_City(id_City){this.#id_City=id_City}
     set Id_User(id_User){this.#id_User=id_User}
 
-
-
-
     get Name(){return this.#name}
     get Description(){return this.#description}
     get Interests(){return this.#interests}
@@ -29,8 +26,6 @@ class Profile{
     get Id_City(){return this.#id_City}
     get Id_User(){return this.#id_User}
 
-
-
 }
 
-export default ProfileAccount;
+export default Profile;
