@@ -1,7 +1,9 @@
 import { principalFunction } from "./credentialsRegister/totalSection.js";
 import { totalSectionB } from './locationDescripionRegister/totalSection.js'
 import { contentDad } from './tellUsAboutYourselfRegister/contentDad.js'
-import { createHeader } from '../header/createButtonsHeader.js'
+import { buttonCreator } from "../button/button.js";
+
+
 import { AreasRoles } from "../modalOneCreateComponet/modalCreator.js";
 
 
@@ -22,6 +24,7 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     child.appendChild(top)
     child.appendChild(midBot)
     child.appendChild(interest)
+    child.appendChild(button)
     child.appendChild(AreasRoles(areas))
 
     const parent = document.createElement('div')

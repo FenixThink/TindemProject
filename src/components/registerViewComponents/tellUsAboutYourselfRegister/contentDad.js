@@ -40,14 +40,15 @@ export const contentDad=()=>{
 
 
  export function enviar(e) {  
-   e.forEach(i => {
-    document.querySelector(".rolesInProfiles").appendChild(i)
- i.style.color="#4267C7"
- i.style.background="#D4D9FF"
- /*  de esta manerq me dejo calncelar el evento onclick
- */ 
-i.onclick=function (){this.background=""}
-}) ;
+  const padre = document.createElement('div');
+  document.querySelector(".rolesInProfiles").appendChild(padre)
+
+  e.forEach(i => {
+    const botones =document.createElement('button')
+    botones.className='optionsRoles'
+    padre.appendChild(botones)
+    botones.textContent=`${i}`
+  }) ;
 
 
 }
