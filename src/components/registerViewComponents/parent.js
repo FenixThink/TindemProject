@@ -24,7 +24,6 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     child.appendChild(top)
     child.appendChild(midBot)
     child.appendChild(interest)
-    child.appendChild(button)
     child.appendChild(AreasRoles(areas))
 
     const parent = document.createElement('div')
