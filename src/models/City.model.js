@@ -1,4 +1,6 @@
-class CityModels{
+class City{
+
+    static table = 'City'
 
     constructor(body) {
         this.#name = body.name,
@@ -13,4 +15,4 @@ class CityModels{
 
 }
 
-export default CityModels;
+export default City;

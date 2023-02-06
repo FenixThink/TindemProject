@@ -1,5 +1,7 @@
 class Specialization{
 
+    static table = 'Specialization'
+
     constructor(body){
         this.#name = body.name
         this.#id_Area = body.id_Area

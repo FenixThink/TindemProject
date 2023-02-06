@@ -23,14 +23,30 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
 //Condicional para evaluar si los inputs estan vacios o no
 btn.addEventListener('click', (e) => {
     
-    e.preventDefault()
     const email = document.querySelector('#email').value
     const psw = document.querySelector('#psw').value
 
+    const cuerpo = {
+        email: email,
+        userPassword: psw
+    }
+
+    const transactionJson = JSON.stringify(cuerpo)
+
+    fetch('http://localhost:5173/',{
+        method:'Post',
+        headers:{
+            "Content-type":'application/json'
+        },
+        body: transactionJson
+    })
+    
+/* 
     if (!email || !psw) {
         alert("Email o contraseña incompletas")
 
     } else {
+        
         if (psw !== "gatitoFudioso777") {
             alert("Digite su contraseña correctamente")
         } else {
@@ -38,7 +54,7 @@ btn.addEventListener('click', (e) => {
             document.querySelector('#psw').value = ""
             window.location = "src/views/mainView/aspirante/index.html"
         }
-    }
+    } */
 }
 
 )

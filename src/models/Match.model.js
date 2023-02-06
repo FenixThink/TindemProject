@@ -1,4 +1,6 @@
-class ServiceMatch {
+class Match {
+
+    static table = 'ServiceMatch'
 
     constructor(body) {
         this.#id_Applicant = body.id_Applicant,
@@ -12,4 +14,4 @@ class ServiceMatch {
     get Id_Company() { return this.#id_Company }
 }
 
-export default ServiceMatch
+export default Match

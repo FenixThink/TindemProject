@@ -1,6 +1,8 @@
 
 class Area{
 
+    static table = 'Area'
+
     constructor(body){
         this.#name = body.name
     }

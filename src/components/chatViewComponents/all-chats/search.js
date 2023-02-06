@@ -1,4 +1,4 @@
-import { people } from "../partLeftChat/unionPartsLeft"
+import { people } from "../partLeftChat/unionPartsLeft.js"
 export function divSearch(){
 
     const searchContac=document.createElement('input') //creando el input de busqueda

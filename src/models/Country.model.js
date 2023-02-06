@@ -1,5 +1,7 @@
-class CountryModel{
-    //el mejor modelo
+class Country{
+    
+    static table = 'Country'
+    
     constructor(body){
         this.#name = body.name;
     }
@@ -10,4 +12,4 @@ class CountryModel{
     
 }
 
-export default CountryModel;
+export default Country;

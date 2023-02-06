@@ -1,4 +1,6 @@
-class CompanyModel{
+class Company{
+
+    static table = 'Company'
 
     constructor(body){
         this.#NIT = body.NIT,
@@ -15,4 +17,4 @@ class CompanyModel{
     get id_Profile(){ return this.#id_Profile }
 }
 
-export default CompanyModel
+export default Company

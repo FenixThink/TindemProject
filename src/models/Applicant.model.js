@@ -1,5 +1,7 @@
 class Applicant{
     
+    static table = 'Applicant'
+
     constructor(body){
         this.#dayOfBirth = body.dayOfBirth;
         this.#id_Profile = body.id_Profile;
@@ -13,4 +15,4 @@ class Applicant{
 
 }
 
-export default ApplicantModel;
+export default Applicant;
