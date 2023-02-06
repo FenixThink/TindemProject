@@ -65,6 +65,63 @@ body{
 /* Aqui termina la parte de Orejarena */
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* Aqui empieza la parte de Jose */
+.modalPadre, .modalHijo{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.301);
+}
+
+.containerRolesAndAreas{
+    
+        padding: 1.5rem;
+    border-radius: 0.5rem;
+    width:37%;
+    height: fit-content;
+    background-color:white ;
+    }
+    
+    
+    .header{
+       
+        font-size: 1.3rem;
+    
+        font-weight: 600;
+       padding: 0.3rem;
+       margin-bottom: 12px;
+    }
+    
+   
+    .containerRolesAndAreas button , .profileRoles button{
+       
+        color:#4267C7;
+        border: solid 0px ;
+        border-radius: 10px;
+        padding: 8px 12px 8px 12px;
+        margin: 5px 10px 5px 1px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        background-color: #D4D9FF;
+    
+    }
+    .agregarCambios{
+       
+        color:#fff;
+        border: solid 0px ;
+        border-radius: 10px;
+        padding: 8px 12px 8px 12px;
+        margin: 12px 10px 5px 1px;
+    font-weight: 500;
+        font-size: 0.9rem;
+        background-color: #6171FF;
+    }
+    .containerRolesAndAreas button:hover, .agregarCambios:hover{
+        cursor: pointer;
+    }
 
 
 
@@ -132,6 +189,8 @@ body{
 .contHeader{
     display:flex;
     gap: 1rem;
+    padding-bottom: 30px;
+    
 }
 
 .contHeader a{
@@ -163,12 +222,12 @@ body{
 }
 
 .seccionLogo {
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;;
     row-gap: 10px;
-    width: 30%;
 }
 
 .seccionCredenciales {
@@ -214,31 +273,37 @@ body{
 
 /*Logos*/
 .contLogo{
-    border-radius: 0.5rem;
+
+    padding: 1.7rem 2.1rem;
+    border-radius: 80%;
     background-color: white;
     width: 58%;
     /* height: 79%; */
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+
     align-items: center;
 }
 
 .contLogo .LogoRegister {
 
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 160px;
-    padding: 4vmin;
-    object-position: center;
+    min-width: 3rem;
+    
 }
-
 .profileImage {
     border-radius: 16px;
 }
 
 .contLogo .contEdit{
     cursor: pointer;
+}
+.tellAboutTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.tellAboutSpan {
+    font-size: 1rem;
 }
 
 .tellAboutTitle {
@@ -347,7 +412,7 @@ label{
     height: 5.5rem;
     border: 1px solid #C2C2C2;
     padding: .2rem .5rem;
-    border-radius: .5rem;  
+    border-radius: .5rem;
     resize: none;
 
 }
@@ -363,6 +428,7 @@ label{
     padding: 15px;
     gap: 0.7rem;
     border: none;
+    border: 1px solid #C2C2C2;
     background: #ffffff;
     border: 1px solid #C2C2C2;
     border-radius: .8rem;
@@ -403,6 +469,8 @@ button:hover{
     border: 2px dashed #CECECE;
     border-radius: 16px;
     position: absolute;
+    
+
  }
 
  img.imageUpload{
@@ -443,6 +511,34 @@ button:hover{
     padding: 2.5px;
     
  }
+
+ 
+ .modalContent .close{
+    color: red;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+ }
+ .modalContent .close:hover .close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+ }
+ .textosUpload{
+    font-family: 'Poppins';
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.08px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5px;
+    
+ }
+
 
  .fileInput{
     display: none;
