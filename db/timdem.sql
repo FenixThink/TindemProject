@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS Tindem;
 CREATE DATABASE IF NOT EXISTS Tindem;
 
 USE Tindem;
@@ -13,8 +14,8 @@ DROP TABLE IF EXISTS UserAccount;
 DROP TABLE IF EXISTS Career;
 DROP TABLE IF EXISTS Specialization;
 
-CREATE TABLE Career (
-    id_career INT(11) PRIMARY KEY,
+CREATE TABLE InterestArea (
+    id_interest INT(11) PRIMARY KEY,
     name VARCHAR(60) NOT NULL
 );
 
@@ -24,9 +25,11 @@ CREATE TABLE UserAccount (
     userPassword VARCHAR(30) NOT NULL UNIQUE
 );
 
-CREATE TABLE Specialization (
+CREATE TABLE SpecificInterest (
     id_specialization INT(11) PRIMARY KEY,
-    name VARCHAR(60) NOT NULL
+    name VARCHAR(60) NOT NULL,
+    id_interest INT(11) NOT NULL,
+    CONSTRAINT FK_Interest_Area FOREIGN KEY (id_interest) REFERENCES InterestArea (id_interest) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 CREATE TABLE Company(
@@ -57,15 +60,14 @@ CREATE TABLE ProfileAccount(
     id_career INT(11) NOT NULL,
     CONSTRAINT FK_Company_Id FOREIGN KEY(id_company) REFERENCES Company(id_company) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT FK_UserAccount_Id FOREIGN KEY(id_user) REFERENCES UserAccount(id_user) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT FK_City_Id FOREIGN KEY(id_city) REFERENCES City(id_city) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT FK_career_Id FOREIGN KEY(id_career) REFERENCES Career(id_career) ON DELETE NO ACTION ON UPDATE CASCADE
+    CONSTRAINT FK_City_Id FOREIGN KEY(id_city) REFERENCES City(id_city) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 CREATE TABLE Applicant(
 	id_applicant  INT AUTO_INCREMENT PRIMARY KEY,
     dateOfBirth DATE NOT NULL,
     id_profile INT(11),
-    CONSTRAINT FK_Profile_Id FOREIGN KEY(id_profile) REFERENCES ProfileAccount(id_profile) ON DELETE NO ACTION ON UPDATE CASCADE
+    CONSTRAINT FK_Profile_Id2 FOREIGN KEY(id_profile) REFERENCES ProfileAccount(id_profile) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 CREATE TABLE ServiceMatch (
@@ -80,6 +82,6 @@ CREATE TABLE UserSpecialization (
     id_user_specialization INT(11) PRIMARY KEY,
     id_profile  INT(11) NOT NULL,
     id_specialization INT(11) NOT NULL,
-    CONSTRAINT PK_profile_id FOREIGN KEY (id_profile)REFERENCES ProfileAccount(id_profile) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT PK_id_specialization FOREIGN KEY (id_specialization)REFERENCES Specialization(id_specialization) ON DELETE NO ACTION ON UPDATE CASCADE
+    CONSTRAINT PK_Profile_id3 FOREIGN KEY (id_profile)REFERENCES ProfileAccount(id_profile) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT PK_Id_Specialization FOREIGN KEY (id_specialization)REFERENCES SpecificInterest(id_specialization) ON DELETE NO ACTION ON UPDATE CASCADE
 );
