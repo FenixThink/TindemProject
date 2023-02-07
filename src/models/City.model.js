@@ -1,4 +1,8 @@
+import { pool } from "../../db/db.js"
+
 class City{
+  #name;
+  #id_Country;
 
     static table = 'City'
 
@@ -13,6 +17,11 @@ class City{
     get name(){ return this.#name }
     get id_Country(){ return this.#id_Country}
 
+
+  async  Create(){
+    const rows = await pool.query(`INSERT INTO City(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_Country])
+    return rows
+  }
 }
 
 export default City;

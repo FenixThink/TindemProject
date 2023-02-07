@@ -17,6 +17,14 @@ class User extends GeneralQuerySql{
     get Email(){ return this.#email }
     get Password(){ return this.#password }
 
+    createUser (){
+
+        const insert = pool.query('INSERT INTO UserAccount(email,password) VALUES(?,?)',[this.#email,this.#password])
+        return insert[0]
+             
+
+    }
+
 }
 
 export default User;
