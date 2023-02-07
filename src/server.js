@@ -4,7 +4,6 @@ import routerAction from './routes/Actions.routes.js'
 import routerCity from './routes/city.routes.js';
 import routerArea from './routes/area.routes.js';
 import routerProfileSpecialization from './routes/Profile_Specialization.routes.js';
-import routerArea from './routes/area.routes.js';
 import routeApplicant from './routes/registerAplicant.routes.js';
 import profileAccountRoutes from './routes/profileAccount.routes.js';
 import companyRoutes from './routes/company.routes.js';
