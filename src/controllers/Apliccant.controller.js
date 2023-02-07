@@ -1,12 +1,13 @@
 import { response } from "express";
 import  Applicant from "../models/Applicant.model.js"
 
-const applicant = new Applicant()
+
 
 class ApplicantController{
-    applicantCreate = async (req, res)=>{
+    applicantCreate = async(req,response)=>{
         try {
-           const res = await applicant.createApplicant(req,response); 
+            const applicant = new Applicant(req.body)
+           const res = await applicant.createApplicant(); 
            response.send(res);
         } catch (error) {
             response.send({
