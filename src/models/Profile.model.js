@@ -2,6 +2,8 @@ class Profile{
 
     static table = 'ProfileAccount'
     
+    #name;
+
     constructor(body){
         this.#name = body.name;
         this.#description = body.description;
