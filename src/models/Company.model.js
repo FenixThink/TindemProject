@@ -1,6 +1,11 @@
+import { pool } from "../../db/db.js"
+
 class Company{
 
     static table = 'Company'
+    #NIT;
+    #dayOfFounded;
+    #id_Profile;
 
     constructor(body){
         this.#NIT = body.NIT,
@@ -15,6 +20,14 @@ class Company{
     get NIT(){ return this.#NIT }
     get dayOfFounded(){ return this.#dayOfFounded }
     get id_Profile(){ return this.#id_Profile }
+
+    Create(){
+
+        const insert = pool.query('INSERT INTO COMPANY(NIT,dayOfFounded,id_Profile) VALUES (?,?,?)',[this.#NIT, this.#dayOfFounded, this.#id_Profile])        
+        return insert[0]
+
+    }
+
 }
 
 export default Company
