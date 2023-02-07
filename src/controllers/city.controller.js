@@ -14,6 +14,4 @@ class cityController{
         }
     };
 }
-export{
-    cityController
-}
+export default cityController;
