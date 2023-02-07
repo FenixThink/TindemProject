@@ -1,7 +1,8 @@
-import { pool } from "../../db/db"
+import { pool } from "../../db/db.js"
 
 class Profile_Specialization{
-
+    #id_Profile_Account;
+    #id_Specialization;
     static table = 'Profile_Specialization'
 
     constructor(body){
@@ -17,7 +18,7 @@ class Profile_Specialization{
 
     create(){
         const [rows] = pool.query('INSERT INTO tindem (id_profile_account, id_specialization) VALUES (?, ?)',
-        [this.#id_Profile_Account, this.#Specialization]);
+        [this.#id_Profile_Account, this.#id_Specialization]);
         return rows;
     }
 

@@ -1,4 +1,4 @@
-import { Profile_Specialization } from "../models/Profile_Specialization.model.js";
+import  Profile_Specialization  from "../models/Profile_Specialization.model.js";
 
 class ProfileSpecializationController{
 
