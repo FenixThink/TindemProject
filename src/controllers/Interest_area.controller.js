@@ -13,6 +13,19 @@ class InterestAreaController{
                }
        }
     }
+
+    static getInterestAplicant(){
+        return async(req,res) => {
+            try {
+                const log = await Interest_area.indexInteresAplicant(req.params);
+                const {profile, interest} = log
+                return res.status(200).json([profile[0][0], interest[0]]);
+
+            } catch (error) {
+                return res.status(500).json({message:error.message});
+            }
+        }
+    }
 }
 
 export default InterestAreaController;

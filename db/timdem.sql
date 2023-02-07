@@ -50,7 +50,7 @@ create table profile_account(
 );
 
 create table profile_specialization(
-	id int(11)  not null,
+	id int(11) primary key not null auto_increment,
     id_profile_account int(11) not null,
     id_specialization int(11) not null,
 	constraint fk_id_profile_account foreign key (id_profile_account) references profile_account(id) ON DELETE NO ACTION ON UPDATE CASCADE,
