@@ -1,20 +1,9 @@
-import { AreasRoles } from "../../modalOneCreateComponet/modalCreator.js";
 import { buttonCreator } from '../../button/button.js'
 import { area } from './spanArea.js'
 import { title } from './tellUsAboutYourself.js'
-import { rolesPerson } from '../../modalOneCreateComponet/modalCratorTwo.js'
 
-
-
-
-
-  
 // creacion del contenedor padre con los otros archovos exportados 
 export const contentDad=()=>{
-  
-  
-  
-
 
   const title1=title()
   

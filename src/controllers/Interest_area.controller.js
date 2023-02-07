@@ -1,4 +1,4 @@
-import Interest_area from "../models/Interest_area.model";
+import Interest_area from "../models/Interest_area.model.js";
 
 class InterestAreaController{
 

@@ -6,7 +6,6 @@ import { parentCreator } from "../../../components/profileViewComponents/parent.
 
 const app = document.querySelector('#app');
 
-
 app.appendChild(TotalFunctionView('https://imgs.search.brave.com/c121K9dZq414t-DILTMGbg5yBrSAkWD0kox7IqifPOQ/rs:fit:1080:1200:1/g:ce/aHR0cHM6Ly9pLmli/Yi5jby9idmZzU3Bm/L0FuYS1kZS1Bcm1h/cy1XYWxscGFwZXJz/LUluc3RhLUZpdC1C/aW8tMS5qcGc', 'Nombre completo', 'Edad : ', '*Numero de dos digitos*', 'Descripion de Perfil','Titulos profesionales:'));
 const father = document.querySelector('.containerFather')
 
