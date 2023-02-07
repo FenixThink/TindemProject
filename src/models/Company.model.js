@@ -19,7 +19,7 @@ class Company{
 
     async create(){
 
-        const insert = await pool.query('INSERT INTO COMPANY(NIT,dayOfFounded) VALUES (?,?)',[this.#NIT, this.#dayOfFounded])        
+        const insert = await pool.query('INSERT INTO company(NIT,dayOfFounded) VALUES (?,?)',[this.#NIT, this.#dayOfFounded])        
         return insert[0]
 
     }

@@ -6,7 +6,7 @@ class CompanyController {
         return  async (req,res)=>{
             try {
                 const company = new Company(req.body)
-                const data = await company.Create()
+                const data = await company.create()
                 res.status(200).json({message: 'Company successfully created'})
             } catch (error) {
                 res.status(500).json({
