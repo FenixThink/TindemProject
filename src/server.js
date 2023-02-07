@@ -2,7 +2,7 @@ import express from 'express';
 import userRoute from './routes/user.routes.js'
 import routerMatch from './routes/Match.routes.js'
 import routerCity from './routes/city.route.js';
-import routerArea from './routes/Area.routes.js';
+import routerArea from './routes/area.routes.js';
 
 const app = express();
 app.use(express.json());
