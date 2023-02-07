@@ -1,18 +1,22 @@
+import {pool} from "../../db/db.js";
 class Applicant{
+
+    #day_of_birth;
     
-    static table = 'Applicant'
-
+    // static table = 'applicant'
+    
     constructor(body){
-        this.#dayOfBirth = body.dayOfBirth;
-        this.#id_Profile = body.id_Profile;
+        this.#day_of_birth = body.day_of_birth
     }
+    
+    set day_of_birth(day_of_birth){ this.#day_of_birth = day_of_birth }
 
-    set DayOfBirth(dayOfBirth){ this.#dayOfBirth = dayOfBirth }
-    set Id_Profile(id_Profile){ this.#id_Profile = id_Profile }
-
-    get DayOfBirth(){ return this.#dayOfBirth }
-    get Id_Profile(){ return this.#id_Profile }
-
+    get day_of_birth(){ return this.#day_of_birth }
+    
+    async createApplicant(){
+        const rows = await pool.query(`INSERT INTO applicant(day_of_birth) VALUES (?)`,[this.#day_of_birth])
+        return rows[0];
+    }
 }
 
 export default Applicant;
