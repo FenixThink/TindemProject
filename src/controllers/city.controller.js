@@ -1,4 +1,4 @@
-import city from '../models/City.model.js';
+import City from '../models/City.model.js';
 
 
 

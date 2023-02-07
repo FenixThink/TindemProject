@@ -19,7 +19,7 @@ class City{
 
 
   async  Create(){
-    const rows = pool.query(`INSERT INTO City(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_Country])
+    const rows = await pool.query(`INSERT INTO City(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_Country])
     return rows
   }
 }

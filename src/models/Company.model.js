@@ -21,9 +21,9 @@ class Company{
     get dayOfFounded(){ return this.#dayOfFounded }
     get id_Profile(){ return this.#id_Profile }
 
-    Create(){
+    async Create(){
 
-        const insert = pool.query('INSERT INTO COMPANY(NIT,dayOfFounded,id_Profile) VALUES (?,?,?)',[this.#NIT, this.#dayOfFounded, this.#id_Profile])        
+        const insert = await pool.query('INSERT INTO COMPANY(NIT,dayOfFounded,id_Profile) VALUES (?,?,?)',[this.#NIT, this.#dayOfFounded, this.#id_Profile])        
         return insert[0]
 
     }
