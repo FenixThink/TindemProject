@@ -5,7 +5,7 @@ import routerCity from './routes/city.routes.js';
 import routerArea from './routes/area.routes.js';
 import routerProfileSpecialization from './routes/Profile_Specialization.routes.js';
 import routeApplicant from './routes/registerAplicant.routes.js';
-import speficitInterest from './routes/specificInterest.routes.js';
+import specificInterest from './routes/specificInterest.routes.js';
 import profileAccountRoutes from './routes/profileAccount.routes.js';
 import companyRoutes from './routes/company.routes.js';
 
@@ -17,7 +17,7 @@ app.use(routerCity)
 app.use(routerArea)
 app.use(routerProfileSpecialization)
 app.use(routeApplicant)
-app.use(speficitInterest)
+app.use(specificInterest)
 app.use(profileAccountRoutes)
 app.use(companyRoutes)
 
