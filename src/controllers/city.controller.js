@@ -26,7 +26,4 @@ class cityController extends GeneralQuerySql {
         }
     }
 }
-
-export{
-    cityController
-}
+export default cityController;

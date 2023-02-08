@@ -9,18 +9,17 @@ class CompanyController extends GeneralQuerySql {
 
     static Create(){
         return  async (req,res)=>{
-            const company = new Company(req.body)
             try {
-               const data = await company.Create()
-               res.status(200).json({message: 'Company successfully created'})
+                const company = new Company(req.body)
+                const data = await company.create()
+                res.status(200).json({message: 'Company successfully created'})
             } catch (error) {
                 res.status(500).json({
-                    Message : error.Messages 
-                })
+                    message: error.message
+                });
             }
         }
     }
-
 
 }
 
