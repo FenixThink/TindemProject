@@ -1,6 +1,7 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-export class Actions {
+export class Actions extends GeneralQuerySql{
     //insertar las relaciones entre los aplicantes y las empresas 
     static table = 'actions'
     #action_time; 

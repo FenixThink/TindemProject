@@ -8,6 +8,7 @@ class GeneralQuerySql{
 
     static async FindOne(id){
         const queryId = await pool.query(`SELECT *  FROM ${this.table} WHERE id = (?)`, [id])
+        console.log(queryId[0])
         return queryId[0]
     }
 
