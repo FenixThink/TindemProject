@@ -16,9 +16,8 @@ class Profile_Specialization{
     get Id_Profile_Account(){ return this.#id_Profile_Account }
     get Id_Specialization(){ return this.#id_Specialization }
 
-    create(){
-        const [rows] = pool.query('INSERT INTO tindem (id_profile_account, id_specialization) VALUES (?, ?)',
-        [this.#id_Profile_Account, this.#id_Specialization]);
+    async create(){
+        const [rows] = await pool.query('INSERT INTO Profile_Specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
         return rows;
     }
 
