@@ -14,6 +14,10 @@ class SpecificInterestController{
     static getAll =async(req,res)=>{
         try{
             const respuesta = await SpecificInterest.All()
+            
+            if(respuesta.length == 0){
+            return res.status(404).json({message: "Specific interests not found"})
+            }
             res.send(respuesta)
 
         }catch(error){
@@ -24,6 +28,23 @@ class SpecificInterestController{
 
         }
     }
+
+    static getOne = async(req, res) => {
+        try {
+           const respuesta = await SpecificInterest.FindOne(req.params.id); 
+           
+           if(respuesta.length == 0){
+            return res.status(404).json({message: "Specific interests not found"})
+            }
+
+            res.send(respuesta);
+        } catch (error) {
+            res.send({
+                "status" : 404,
+                "message" : error.message
+            });
+        };
+}
 }
 
 export default SpecificInterestController;
