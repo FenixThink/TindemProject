@@ -24,7 +24,9 @@ class ProfileAccountController{
             const rows = await ProfileAccount.All()
 
             if(!rows.length){
-                throw new Error ('Profile not found')
+                return res.status(404).json({
+                    message: "Profiles not found"
+                }); 
             }
 
             res.send(rows)
@@ -41,7 +43,9 @@ class ProfileAccountController{
            const rows = await ProfileAccount.FindOne(req.params.id); 
 
             if(!rows.length){  
-                throw new Error ('Profile not found')
+                return res.status(404).json({
+                    message: "Profile not found"
+                });            
             }
             
             res.send(rows);
