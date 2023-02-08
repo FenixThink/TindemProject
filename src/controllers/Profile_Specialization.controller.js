@@ -34,12 +34,15 @@ class ProfileSpecializationController extends GeneralQuerySql{
         try{
             const [respuestaId] = await Profile_Specialization.FindOne(req.params.id)
             res.send(respuestaId)
+            if (respuestaId.length <= 0) return res.status(404).json({
+                message: 'Profile Specialization does not exist!'
+            });
 
         }catch(error){
-
-            if (respuestaId.length <= 0) return res.status(404).json({
-                message: 'Profile Specialization not found'
-            });
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
 
         }
     }
