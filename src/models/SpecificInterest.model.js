@@ -1,12 +1,12 @@
 import { pool } from "../../db/db.js"
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-
 class SpecificInterest extends GeneralQuerySql{
     static table = 'specific_interest'
     #name
     #id_interest
     constructor(body){
+        super();
         this.#name = body.name
         this.#id_interest = body.id_interest
     }
