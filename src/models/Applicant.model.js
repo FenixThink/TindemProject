@@ -1,9 +1,10 @@
 import {pool} from "../../db/db.js";
-class Applicant{
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+class Applicant extends GeneralQuerySql{
 
     #day_of_birth;
     
-    // static table = 'applicant'
+    static table = 'applicant'
     
     constructor(body){
         this.#day_of_birth = body.day_of_birth
@@ -17,6 +18,8 @@ class Applicant{
         const rows = await pool.query(`INSERT INTO applicant(day_of_birth) VALUES (?)`,[this.#day_of_birth])
         return rows[0];
     }
+
+    
 }
 
 export default Applicant;
