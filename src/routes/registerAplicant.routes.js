@@ -3,9 +3,9 @@ import { Router } from "express";
 import ApplicantController from "../controllers/Apliccant.controller.js";
 
 const router = Router();
-const controllerApplicant = new ApplicantController();
 
 // router.get('/RegisterAspirant', aspirantRegiser);
-router.post('/createAspirant', controllerApplicant.applicantCreate);
+router.post('/createAspirant',ApplicantController.applicantCreate);
+router.get('/aspirant/:id', ApplicantController.applicantId);
 
 export default router;
