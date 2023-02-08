@@ -1,9 +1,10 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class Profile_Specialization{
+class Profile_Specialization extends GeneralQuerySql{
     #id_Profile_Account;
     #id_Specialization;
-    static table = 'Profile_Specialization'
+    static table = 'profile_specialization'
 
     constructor(body){
         this.#id_Profile_Account = body.id_Profile_Account
@@ -17,7 +18,7 @@ class Profile_Specialization{
     get Id_Specialization(){ return this.#id_Specialization }
 
     async create(){
-        const [rows] = await pool.query('INSERT INTO Profile_Specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
+        const [rows] = await pool.query('INSERT INTO profile_specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
         return rows;
     }
 

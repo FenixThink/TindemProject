@@ -13,7 +13,23 @@ class ProfileSpecializationController{
                 message: error.message
             });
         }
-    };   
+    }; 
+
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await Profile_Specialization.All()
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+    
+    
 }
 
 export default ProfileSpecializationController;

@@ -14,16 +14,20 @@ class cityController extends GeneralQuerySql {
         }
     };
 
-    static ObtenerDatos = (res) =>{
+    static getAll =async(req,res)=>{
         try{
-            
-            City.Obtener();
-            res.status(200).json({message: 'City '})
+            const respuesta = await City.All()
+            res.send(respuesta)
 
-        }catch (error) {
-            console.log(error)
-            res.status(500).json({message: error.message})
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
         }
     }
+
+    
 }
 export default cityController;

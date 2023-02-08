@@ -10,6 +10,20 @@ class SpecificInterestController{
             res.status(500).json({message: error.message})
         }
     };
+
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await SpecificInterest.All()
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
 }
 
 export default SpecificInterestController;

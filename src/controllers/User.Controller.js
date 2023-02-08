@@ -2,8 +2,8 @@ import User from '../models/User.model.js'
 
 
 class UserController{
-    createUser(){
-        return async(req,response)=>{
+
+    static createUser=async(req,response)=>{
         try{
 
 
@@ -16,23 +16,19 @@ class UserController{
                 "message":error.message
             })
         }
-
-    }
     }
 
-    getAll(){
-        return async(req,res)=>{
-            try{
-                const respuesta = await User.All()
-                res.send(respuesta)
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await User.All()
+            res.send(respuesta)
 
-            }catch(error){
-                return res.send({
-                    "status":404,
-                    "message":error.message
-                })
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
 
-            }
         }
     }
 

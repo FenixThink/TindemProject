@@ -2,10 +2,18 @@ import { Router } from 'express';
 import UserController from '../controllers/User.Controller.js';
 import User from '../models/User.model.js';
 
-const usercontroller = new UserController()
+
 
 const router = Router();
 
+
+router.post('/createUser',UserController.createUser)
+
+
+
+router.get('/allUser',UserController.getAll)
+
+export default router;
 
 // router.post('/',async (req,res)=>{
 
@@ -18,11 +26,3 @@ const router = Router();
 //     })
 
 // });
-
-router.post('/createUser',usercontroller.createUser())
-
-
-
-router.get('/allUser',usercontroller.getAll())
-
-export default router;
