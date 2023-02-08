@@ -25,9 +25,7 @@ class User extends GeneralQuerySql{
         const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email,this.#password])
 
         return insert[0]
-
-        
-            
+   
          
 
     }
