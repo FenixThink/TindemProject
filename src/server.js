@@ -22,8 +22,8 @@ app.use(profileAccountRoutes)
 app.use(companyRoutes)
 
 app.use(express.static('./'))
-app.listen(5173, ()=>{
+app.listen(process.env.LOCALSERVERT , ()=>{
     
-    console.log('server running on port 5173')
+    console.log(`server running on port ${process.env.LOCALSERVERT}`)
 
 })
