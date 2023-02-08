@@ -7,7 +7,7 @@ import { person } from "../../userDataCard/userDataCard.js";
 //Parte de la izquierda que tiene que ver con los componentes de chat
 import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.js";
 
-export const  TotalFunctionView = (img, nombre, span, valueSpan, introDescription, descTitle, interestText) => {
+export const TotalFunctionView = (img, nombre, span, valueSpan, introDescription, descTitle, interestText) => {
    const componentAInformation = upperComponents(img, nombre, span, valueSpan, introDescription);
    const componentBDescription = interests(interestText);
    const componentDescription = Description(descTitle, "LoremDescTitle ipsum dolor sit amet consectetur adipisicing elit. Enim labore, rerum, totam fuga unde magnam debitis iure voluptate maiores nulla sit ipsum natus veritatis sequiLorem ipsum dolor sit amet consectetur adipisicing elit.");
@@ -31,10 +31,22 @@ export const  TotalFunctionView = (img, nombre, span, valueSpan, introDescriptio
    divFather.appendChild(middleContainer);
    return divFather;
 }
-// Reemplazar datos dinamicamente a través de objetos
-const nextTargetProfile = (img, nombre, span, valueSpan, descTitle, interestText) => {
-   for(let i=1;i<Object.keys(person).length;i++){
+// Reemplazar datos dinamicamente de un objeto
+const nextTargetProfile = (img, nombre, span, valueSpan, introDescription, descTitle, interestText) => {
+   for (let i = 1; i < Object.keys(person).length; i++) {
+      console.log(i, "Es la I");
       let infoPersona = Object.values(person[i])
       console.log(infoPersona);
    }
 }
+// Evento detonante del reemplazo de los datos
+const theOne = document.querySelector('likeVector');
+theOne.addEventListener('click', nextTargetProfile)
+
+if (theOne) {
+   console.log("true");
+} else {
+   console.log("🚀 ~ file: totalComponent.js:43 ~ theOne", theOne)
+}
+
+
