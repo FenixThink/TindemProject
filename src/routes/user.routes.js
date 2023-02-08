@@ -13,6 +13,8 @@ router.post('/createUser',UserController.createUser)
 
 router.get('/allUser',UserController.getAll)
 
+router.get('/getfindOne/:id',UserController.getfindOne)
+
 export default router;
 
 // router.post('/',async (req,res)=>{

@@ -1,6 +1,7 @@
 import  Profile_Specialization  from "../models/Profile_Specialization.model.js";
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
-class ProfileSpecializationController{
+class ProfileSpecializationController extends GeneralQuerySql{
 
     static CreateSpec = async (req, res) => {
         try {
@@ -19,6 +20,23 @@ class ProfileSpecializationController{
         try{
             const respuesta = await Profile_Specialization.All()
             res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+
+    static getFindOne =async(req,res)=>{
+        try{
+            const [respuestaId] = await Profile_Specialization.FindOne(req.params.id)
+            res.send(respuestaId)
+            if (respuestaId.length <= 0) return res.status(404).json({
+                message: 'Profile Specialization does not exist!'
+            });
 
         }catch(error){
             return res.send({

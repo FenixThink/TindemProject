@@ -19,7 +19,7 @@ class Profile_Specialization extends GeneralQuerySql{
 
     async create(){
         const [rows] = await pool.query('INSERT INTO profile_specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
-        return rows;
+        return rows[0];
     }
 
 }
