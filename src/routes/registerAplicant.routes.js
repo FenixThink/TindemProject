@@ -8,4 +8,9 @@ const router = Router();
 router.post('/createAspirant',ApplicantController.applicantCreate);
 router.get('/aspirant/:id', ApplicantController.applicantId);
 
+
+router.get('/allaspirant', ApplicantController.getAll);
+
+
+
 export default router;

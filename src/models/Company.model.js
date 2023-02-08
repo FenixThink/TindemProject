@@ -3,7 +3,7 @@ import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
 class Company extends GeneralQuerySql{
 
-    static table = 'Company'
+    static table = 'company'
     #NIT;
     #dayOfFounded;
 

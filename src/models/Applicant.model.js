@@ -18,7 +18,6 @@ class Applicant extends GeneralQuerySql{
         const rows = await pool.query(`INSERT INTO applicant(day_of_birth) VALUES (?)`,[this.#day_of_birth])
         return rows[0];
     }
-
     
 }
 

@@ -27,6 +27,23 @@ class InterestAreaController extends GeneralQuerySql {
             }
         }
     }
+
+
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await Interest_area.All()
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+
+
 }
 
 export default InterestAreaController;

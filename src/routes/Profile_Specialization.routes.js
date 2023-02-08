@@ -4,6 +4,8 @@ import ProfileSpecializationController from "../controllers/Profile_Specializati
 const routerProfileSpecialization = Router()
 // const controller = new ProfileSpecializationController()
 
-routerProfileSpecialization.post("/profileSpecialization", ProfileSpecializationController.CreateSpec)
+routerProfileSpecialization.post("/profileSpecialization/create", ProfileSpecializationController.CreateSpec)
+
+routerProfileSpecialization.get("/allprofilespecialization",ProfileSpecializationController.getAll)
 
 export default routerProfileSpecialization

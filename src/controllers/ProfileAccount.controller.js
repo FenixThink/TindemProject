@@ -15,6 +15,23 @@ class ProfileAccountController{
         }
         
     }
+
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await ProfileAccount.All()
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+
+
+
 }
 
 export default ProfileAccountController;

@@ -20,13 +20,12 @@ class User extends GeneralQuerySql{
     get Email(){ return this.#email }
     get Password(){ return this.#password }
 
-    createUser =async(req,res)=>{
+    createUser =async()=>{
 
         const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email,this.#password])
 
         return insert[0]
    
-         
 
     }
 

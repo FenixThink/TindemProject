@@ -21,6 +21,22 @@ class CompanyController extends GeneralQuerySql {
         }
     }
 
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await Company.All()
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+
+
+
 }
 
 

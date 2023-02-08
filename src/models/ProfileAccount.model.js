@@ -1,8 +1,10 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class ProfileAcocunt{
 
-    static table = 'ProfileAccount'   
+class ProfileAcocunt extends GeneralQuerySql{
+
+    static table = 'profile_account'   
 
     #name 
     #description
