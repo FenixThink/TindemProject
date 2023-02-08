@@ -19,6 +19,9 @@ class ProfileSpecializationController extends GeneralQuerySql{
     static getAll =async(req,res)=>{
         try{
             const respuesta = await Profile_Specialization.All()
+            if (respuesta.length <= 0) return res.status(404).json({
+                message: 'Profiles Specializations does not exist!'
+            });
             res.send(respuesta)
 
         }catch(error){
@@ -32,11 +35,13 @@ class ProfileSpecializationController extends GeneralQuerySql{
 
     static getFindOne =async(req,res)=>{
         try{
-            const [respuestaId] = await Profile_Specialization.FindOne(req.params.id)
-            res.send(respuestaId)
+            
+            const respuestaId = await Profile_Specialization.FindOne(req.params.id)
             if (respuestaId.length <= 0) return res.status(404).json({
                 message: 'Profile Specialization does not exist!'
             });
+            res.send(respuestaId)
+           
 
         }catch(error){
             return res.send({

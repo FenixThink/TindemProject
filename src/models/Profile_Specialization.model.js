@@ -7,6 +7,7 @@ class Profile_Specialization extends GeneralQuerySql{
     static table = 'profile_specialization'
 
     constructor(body){
+        super()
         this.#id_Profile_Account = body.id_Profile_Account
         this.#id_Specialization = body.id_Specialization
     }

@@ -6,7 +6,7 @@ const routerArea = Router();
 routerArea.post('/Area/create',InterestAreaController.createInterestArea())
 routerArea.get('/Area/Interes/:id',InterestAreaController.getInterestAplicant())
 
-routerArea.get('/Area/',InterestAreaController.getAll)
+// routerArea.get('/Area/',InterestAreaController.getAll)
 routerArea.get('/Area/:id',InterestAreaController.FindOne)
 
 export default routerArea
