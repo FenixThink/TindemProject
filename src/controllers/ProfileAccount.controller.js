@@ -5,8 +5,11 @@ class ProfileAccountController{
     static create = async (req,res) =>{
         try {
             const profileAccount = new ProfileAccount(req.body)
-            const data = await profileAccount.Create()
-            res.status(200).json({message: 'Profile successfully created'})
+            const rows = await profileAccount.Create()
+
+            res.status(200).json({
+                message: "Profile has been created successfully"
+            })
             
         } catch (error) {
             res.status(500).json({
@@ -18,20 +21,37 @@ class ProfileAccountController{
 
     static getAll =async(req,res)=>{
         try{
-            const respuesta = await ProfileAccount.All()
-            res.send(respuesta)
+            const rows = await ProfileAccount.All()
+
+            if(!rows.length){
+                throw new Error ('Profile not found')
+            }
+
+            res.send(rows)
 
         }catch(error){
-            return res.send({
-                "status":404,
-                "message":error.message
-            })
-
+            res.status(500).json({
+                message: error.message
+            });
         }
     }
 
+    static findOne = async(req, res) => {
+        try {
+           const rows = await ProfileAccount.FindOne(req.params.id); 
 
+            if(!rows.length){  
+                throw new Error ('Profile not found')
+            }
+            
+            res.send(rows);
 
+        } catch (error) {
+            res.status(500).json({
+                message: error.message
+            });
+        };
+    }
 }
 
 export default ProfileAccountController;
