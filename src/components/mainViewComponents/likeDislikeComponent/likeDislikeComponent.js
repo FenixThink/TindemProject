@@ -44,3 +44,5 @@ export const renderButtons = () => {
     /* return el elemento padre con todo ya incrustado */
     return divInterior
 }
+
+ 

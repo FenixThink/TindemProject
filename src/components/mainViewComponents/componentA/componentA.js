@@ -1,11 +1,11 @@
-export function upperComponents(img, nombre, span, valueSpan, introDescription) {
+export function upperComponents(img, nombre, valueSpan, introDescription) {
     /* Parte title*/
     const title = document.createElement('h3')
     title.textContent = nombre
 
     /*Parte span */
     const spanText = document.createElement('span')
-    spanText.textContent = span
+    spanText.textContent = "Edad: "
 
     const spanCero = document.createElement('span')
     spanCero.textContent = valueSpan
