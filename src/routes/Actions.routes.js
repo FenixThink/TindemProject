@@ -6,6 +6,7 @@ const routerAction = Router()
 
 routerAction.post("/ActionsPost",ActionController.ActionCreate)
 
-routerAction.get("/allActions",ActionController.getAll)
+routerAction.get("/allAction/a",ActionController.getAll)
+routerAction.get("/allAction/:id",ActionController.ActionId)
 
 export default routerAction
