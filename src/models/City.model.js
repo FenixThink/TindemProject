@@ -1,10 +1,12 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class City{
+
+class City extends GeneralQuerySql{
   #name;
   #id_Country;
 
-    static table = 'City'
+    static table = 'city'
 
     constructor(body) {
         this.#name = body.name,
@@ -19,9 +21,11 @@ class City{
 
 
   async  Create(){
-    const rows = await pool.query(`INSERT INTO City(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_Country])
+    const rows = await pool.query(`INSERT INTO city(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_Country])
     return rows
   }
+  
+  
 }
 
 export default City;

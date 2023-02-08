@@ -1,29 +1,26 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class Company{
+class Company extends GeneralQuerySql{
 
-    static table = 'Company'
+    static table = 'company'
     #NIT;
     #dayOfFounded;
-    #id_Profile;
 
     constructor(body){
         this.#NIT = body.NIT,
         this.#dayOfFounded = body.dayOfFounded
-        this.#id_Profile = body.id_Profile
     }
 
     set NIT(NIT){ this.#NIT = NIT }
     set dayOfFounded(dayOfFounded){ this.#dayOfFounded = dayOfFounded }
-    set id_Profile(id_Profile){ this.#id_Profile = id_Profile }
 
     get NIT(){ return this.#NIT }
     get dayOfFounded(){ return this.#dayOfFounded }
-    get id_Profile(){ return this.#id_Profile }
 
-    async Create(){
+    async create(){
 
-        const insert = await pool.query('INSERT INTO COMPANY(NIT,dayOfFounded,id_Profile) VALUES (?,?,?)',[this.#NIT, this.#dayOfFounded, this.#id_Profile])        
+        const insert = await pool.query('INSERT INTO company(NIT,day_of_founded) VALUES (?,?)',[this.#NIT, this.#dayOfFounded])        
         return insert[0]
 
     }
