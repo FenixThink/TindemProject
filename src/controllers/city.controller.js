@@ -1,9 +1,9 @@
 import City from '../models/City.model.js';
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
 
 
-
-class cityController{
+class cityController extends GeneralQuerySql {
     static createCity = (req, res) => {
         try {
             const city = new City(req.body);
@@ -13,7 +13,17 @@ class cityController{
             res.status(500).json({message: error.message})
         }
     };
+
+    static ObtenerDatos = (res) =>{
+        try{
+            
+            City.Obtener();
+            res.status(200).json({message: 'City '})
+
+        }catch (error) {
+            console.log(error)
+            res.status(500).json({message: error.message})
+        }
+    }
 }
-export{
-    cityController
-}
+export default cityController;

@@ -1,10 +1,8 @@
 
-class aspirante{
+class ApplicantController{
     static aspirantRegiser = (req, res) => {
         res.render('../views/RegisterViews/registerAplicants/index.html');
     };
 }    
 
-export{
-    aspirante
-}
+export default ApplicantController;

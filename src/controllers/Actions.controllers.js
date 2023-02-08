@@ -1,14 +1,16 @@
 import Actions from "../models/Actions.model.js";
 
-const Action = new Actions()
+
 
 class ActionController {
     //control de errores con try catch
-    ActionCreate = async (req, res)=>{
+     ActionCreate = async (req, res)=>{
         try {
-            const result = await Action.CreateMatch(req, res)
+            const Action = new Actions(req.body)
+            const result = Action.Create()
             res.send("success full")
         } catch (error) {
+            console.log(error)
             res.send(error.message)
         }
     }
