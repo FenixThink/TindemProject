@@ -3,12 +3,15 @@ class GeneralQuerySql{
 
     static async All(){
         const queryAll = await pool.query(`SELECT * FROM ${this.table}`)
+        
         return queryAll[0]
+        
+        
+        
     } 
 
     static async FindOne(id){
         const queryId = await pool.query(`SELECT *  FROM ${this.table} WHERE id = (?)`, [id])
-        console.log(queryId[0])
         return queryId[0]
     }
 

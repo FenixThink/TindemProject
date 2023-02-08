@@ -1,6 +1,7 @@
 import { principalFunction } from "./credentialsRegister/totalSection.js";
 import { totalSectionB } from './locationDescripionRegister/totalSection.js'
 import { contentDad } from './tellUsAboutYourselfRegister/contentDad.js'
+import {createProfileSup,createProfileInf,obj} from './profilePersonal/index.js'
 
 
 export const parentCreator = (img, firstInput, secondInput, name, userName, email, psw, textTarea, textLabelDescription, interestSpan) => {
@@ -15,10 +16,8 @@ export const parentCreator = (img, firstInput, secondInput, name, userName, emai
 
     const child = document.createElement('div')
     child.className = "padre"
-    child.appendChild(exit)
-    child.appendChild(top)
-    child.appendChild(midBot)
-    child.appendChild(interest)
+    child.appendChild(createProfileSup(obj))
+    child.appendChild(createProfileInf(obj))
 
     
 
