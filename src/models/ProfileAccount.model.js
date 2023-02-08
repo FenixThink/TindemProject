@@ -1,7 +1,6 @@
 import { pool } from "../../db/db.js"
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-
 class ProfileAcocunt extends GeneralQuerySql{
 
     static table = 'profile_account'   
@@ -14,6 +13,7 @@ class ProfileAcocunt extends GeneralQuerySql{
     #id_City
     
     constructor(body){
+        super();
         this.#name = body.name;
         this.#description = body.description;
         this.#type = body.type;
