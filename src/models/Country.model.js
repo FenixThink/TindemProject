@@ -6,6 +6,7 @@ class Country extends GeneralQuerySql{
     static table = 'Country'
     
     constructor(body){
+        super()
         this.#name = body.name;
     }
 
@@ -15,7 +16,7 @@ class Country extends GeneralQuerySql{
     
     create = async ()=>{
         const index = await pool.query('INSERT INTO country (name) VALUES (?)',[this.#name])
-        return 
+        return index[0]
     }
  
 }
