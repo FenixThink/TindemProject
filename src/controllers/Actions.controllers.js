@@ -1,13 +1,17 @@
 import Actions from "../models/Actions.model.js";
 
-const Action = new Actions()
-
 class ActionController {
-    MatchCreate = async (req, res)=>{
+    //control de errores con try catch
+     ActionCreate = async (req, res)=>{
         try {
-            const result = await Action.CreateMatch(req, res)
+            const Action = new Actions(req.body)
+            const result = Action.Create()
+            if (result.affectedRows <= 0) res.status(404).json({
+                message: 'missing fields to fill'
+            })
             res.send("success full")
         } catch (error) {
+            console.log(error)
             res.send(error.message)
         }
     }
