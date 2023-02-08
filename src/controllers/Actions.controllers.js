@@ -1,8 +1,9 @@
 import Actions from "../models/Actions.model.js";
 
+
 const Action = new Actions()
 
-class ActionController {
+class ActionController  {
     //control de errores con try catch
     ActionCreate = async (req, res)=>{
         try {

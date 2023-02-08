@@ -1,6 +1,7 @@
 import Company from "../models/Company.model.js";
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
-class CompanyController {
+class CompanyController extends GeneralQuerySql {
     
     static companyRegister = (req,res) =>{
         res.render('../views/registerViews/registerBusiness/index.html')

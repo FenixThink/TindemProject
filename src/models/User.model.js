@@ -1,12 +1,15 @@
+import { pool } from "../../db/db.js";
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+
 
 class User extends GeneralQuerySql{
    
-    static table = 'UserAccount'
+    static table = 'user_account'
     #email;
     #password;
 
     constructor(body){
+        super()
         this.#email = body.email;
         this.#password = body.password;
     }
@@ -17,13 +20,22 @@ class User extends GeneralQuerySql{
     get Email(){ return this.#email }
     get Password(){ return this.#password }
 
-    createUser (){
+    createUser =async(req,res)=>{
 
-        const insert = pool.query('INSERT INTO UserAccount(email,password) VALUES(?,?)',[this.#email,this.#password])
+        const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email,this.#password])
+
         return insert[0]
-             
+
+        
+            
+         
 
     }
+
+
+
+
+
 
 }
 

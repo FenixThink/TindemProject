@@ -1,6 +1,7 @@
 import Interest_area from "../models/Interest_area.model.js";
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
-class InterestAreaController{
+class InterestAreaController extends GeneralQuerySql {
 
     static  createInterestArea(){
         return async(req,res) => {

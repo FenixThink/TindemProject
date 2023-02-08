@@ -1,5 +1,6 @@
 import { pool } from "../../db/db.js";
-class Interest_area{
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+class Interest_area extends GeneralQuerySql{
     #name;
 
     static table = 'interest_area'

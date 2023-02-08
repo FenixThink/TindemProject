@@ -3,7 +3,7 @@ import  Applicant from "../models/Applicant.model.js"
 
 
 
-class ApplicantController{
+class ApplicantController {
     applicantCreate = async(req,response)=>{
         try {
             const applicant = new Applicant(req.body)

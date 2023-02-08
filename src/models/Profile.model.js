@@ -1,4 +1,5 @@
-class Profile{
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+class Profile extends GeneralQuerySql{
 
     static table = 'ProfileAccount'
     

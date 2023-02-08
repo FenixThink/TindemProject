@@ -1,5 +1,6 @@
 import {pool} from "../../db/db.js";
-class Applicant{
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+class Applicant extends GeneralQuerySql{
 
     #day_of_birth;
     

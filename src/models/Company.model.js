@@ -1,6 +1,7 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class Company{
+class Company extends GeneralQuerySql{
 
     static table = 'Company'
     #NIT;

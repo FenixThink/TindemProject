@@ -1,4 +1,5 @@
-class Specialization{
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+class Specialization extends GeneralQuerySql{
 
     static table = 'Specialization'
 
