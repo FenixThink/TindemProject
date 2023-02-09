@@ -12,7 +12,7 @@ class UserController{
         try{
 
         const dataUser= new User(req.body);
-            const res = await dataUser.createUser()
+            const res = await dataUser.create()
             if(res.affectedRows>0){
                 return response.status(202).json({'message': 'se guardo correctamente'})
 
