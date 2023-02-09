@@ -4,9 +4,9 @@ import routerAction from './routes/Actions.routes.js';
 import routerCity from './routes/city.routes.js';
 import routerArea from './routes/area.routes.js';
 import routerProfileSpecialization from './routes/Profile_Specialization.routes.js';
-import routeApplicant from './routes/registerAplicant.routes.js';
-import routerSpecificInterest from './routes/specificInterest.routes.js';
-import routerProfileAccount from './routes/profileAccount.routes.js';
+import routeApplicant from './routes/Applicant.routes.js';
+import routerSpecificInterest from './routes/Specific_interest.routes.js';
+import routerProfileAccount from './routes/Profile_account.routes.js';
 import routerCompany from './routes/company.routes.js';
 import routerCountry from './routes/Country.routes.js';
 

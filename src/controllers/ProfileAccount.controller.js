@@ -21,7 +21,7 @@ class ProfileAccountController{
 
     static getAll =async(req,res)=>{
         try{
-            const rows = await ProfileAccount.All()
+            const rows = await Profile_account.All()
 
             if(!rows.length){
                 return res.status(404).json({
@@ -40,7 +40,7 @@ class ProfileAccountController{
 
     static findOne = async(req, res) => {
         try {
-           const rows = await ProfileAccount.FindOne(req.params.id); 
+           const rows = await Profile_account.FindOne(req.params.id); 
 
             if(!rows.length){  
                 return res.status(404).json({

@@ -14,7 +14,7 @@ class Profile_specialization extends GeneralQuerySql{
     }
 
     set id_profile_account(id_profile_account){ this.#id_profile_account = id_profile_account }
-    set id_specialization(id_specialization){ this.#id_Specialization = id_specialization }
+    set id_specialization(id_specialization){ this.#id_specialization = id_specialization }
 
     get id_profile_account(){ return this.#id_profile_account }
     get id_specialization(){ return this.#id_specialization }

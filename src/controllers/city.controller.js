@@ -30,4 +30,4 @@ class CityController extends GeneralQuerySql {
 
     
 }
-export default cityController;
+export default CityController;
