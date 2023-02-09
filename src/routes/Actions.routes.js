@@ -8,5 +8,8 @@ const routerAction = Router()
 
 routerAction.get("/allAction/a",ActionController.getAll)
 routerAction.get("/allAction/:id",ActionController.ActionId)
+routerAction.get("/allAction/applicant/:id",ActionController.FindOneA)
+routerAction.get("/allAction/company/:id",ActionController.FindOneC)
+
 
 export default routerAction

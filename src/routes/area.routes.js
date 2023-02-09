@@ -8,6 +8,6 @@ routerArea.post('/Area/create',InterestAreaController.createInterestArea)
 routerArea.get('/Area/Interes/:email',InterestAreaController.getInterestAplicant)
 
 routerArea.get('/Area',InterestAreaController.InteresgetAll)
-routerArea.get('/Area/:id',InterestAreaController.FindOne)
+routerArea.get('cc',InterestAreaController.FindOne)
 
 export default routerArea

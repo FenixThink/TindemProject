@@ -170,11 +170,11 @@ INSERT INTO applicant VALUES ( 2,"Orejarena","1990-08-03");
 INSERT INTO applicant VALUES ( 3,"Orechana","2005-02-07");
 
 
-INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",1,1,1);
-INSERT INTO actions VALUES ( 2,"2004-09-07","dislike","company",0,2,2);
-
-/*INSERT INTO actions VALUES ( 3,"2003-09-07","like","aspirante",1,3,2);
-INSERT INTO actions VALUES ( 4,"2002-09-07","dislike","aspirant",0,2,2);
+INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",0,1,2);
+INSERT INTO actions VALUES ( 2,"2004-09-07","dislike","company",0,2,1);
+INSERT INTO actions VALUES ( 3,"2003-09-07","like","aspirante",0,2,2);
+INSERT INTO actions VALUES ( 4,"2002-09-07","like","aspirant",1,1,1);
+/*
 INSERT INTO actions VALUES ( 5,"2001-09-07","dislike","aspirant",0,3,1);*/
 
 
