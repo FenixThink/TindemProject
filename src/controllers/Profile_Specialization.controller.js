@@ -1,12 +1,12 @@
-import  Profile_Specialization  from "../models/Profile_Specialization.model.js";
+import  Profile_specialization  from "../models/Profile_specialization.model.js";
 
 class ProfileSpecializationController{
 
     static CreateSpec = async (req, res) => {
         try {
-                const prSpecialization = new Profile_Specialization(req.body);
+                const prSpecialization = new Profile_specialization(req.body);
                 const query = await prSpecialization.create();
-                res.status(200).json({message: 'Profile Specialization successfully created'})
+                res.status(200).json({message: query})
         } catch (error) {
             console.log(error)
             return res.status(500).json({

@@ -34,10 +34,11 @@ export class Actions extends GeneralQuerySql{
     get id_applicant(){ return this.#id_applicant }
     get id_company(){ return this.#id_company }
 
-    Create = async ()=>{
+    create = async ()=>{
         const [rows] = await pool.query('INSERT INTO actions (action_time, action, action_author, action_match, id_applicant, id_company) VALUES (?, ?, ?, ?, ?, ?)', [this.#action_time, this.#action, this.#action_author, this.#action_match, this.#id_applicant, this.#id_company])
         return rows[0]
     }
+
 }
 
 export default Actions

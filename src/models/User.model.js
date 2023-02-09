@@ -4,36 +4,29 @@ import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
 class User extends GeneralQuerySql{
    
-    static table = 'user_account'
+    static table = 'user_account';
     #email;
     #password;
 
     constructor(body){
-        super()
+        super();
         this.#email = body.email;
         this.#password = body.password;
     }
 
-    set Email(email){ this.#email = email }
-    set Password(password){ this.#password =  password }
+    set email(email){ this.#email = email }
+    set password(password){ this.#password =  password }
 
-    get Email(){ return this.#email }
-    get Password(){ return this.#password }
+    get email(){ return this.#email }
+    get password(){ return this.#password }
 
-    createUser =async(req,res)=>{
+    create = async()=>{
 
         const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email,this.#password])
 
         return insert[0]
-   
-         
 
     }
-
-
-
-
-
 
 }
 

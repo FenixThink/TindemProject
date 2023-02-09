@@ -1,4 +1,4 @@
-import SpecificInterest from '../models/SpecificInterest.model.js'
+import SpecificInterest from '../models/Specific_interest.model.js'
 
 class SpecificInterestController{
     static createSpecificInterest = async (req, res) => {

@@ -8,7 +8,7 @@ class UserController{
 
 
         const dataUser= new User(req.body);
-            const res = await dataUser.createUser()
+            const res = await dataUser.create()
             return response.status(202).json({'message':'el usuario ha sido creado'})
         }catch(error){
             return response.send({

@@ -7,7 +7,7 @@ class ActionController {
      ActionCreate = async (req, res)=>{
         try {
             const Action = new Actions(req.body)
-            const result = Action.Create()
+            const result = Action.create()
             res.send("success full")
         } catch (error) {
             console.log(error)

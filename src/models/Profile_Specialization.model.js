@@ -1,26 +1,29 @@
 import { pool } from "../../db/db.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
-class Profile_Specialization{
+class Profile_specialization extends GeneralQuerySql{
+
+    static table = 'profile_specialization';
     #id_Profile_Account;
     #id_Specialization;
-    static table = 'Profile_Specialization'
 
     constructor(body){
-        this.#id_Profile_Account = body.id_Profile_Account
-        this.#id_Specialization = body.id_Specialization
+        super();
+        this.#id_Profile_Account = body.idProfileAccount;
+        this.#id_Specialization = body.idSpecialization;
     }
 
-    set Id_Profile_Account(id_Profile_Account){ this.#id_Profile_Account = id_Profile_Account }
-    set Id_Specialization(id_Specialization){ this.#id_Specialization = id_Specialization }
+    set id_Profile_Account(idProfileAccount){ this.#id_Profile_Account = idProfileAccount }
+    set id_Specialization(idSpecialization){ this.#id_Specialization = idSpecialization }
 
-    get Id_Profile_Account(){ return this.#id_Profile_Account }
-    get Id_Specialization(){ return this.#id_Specialization }
+    get id_Profile_Account(){ return this.#id_Profile_Account }
+    get id_Specialization(){ return this.#id_Specialization }
 
     async create(){
-        const [rows] = await pool.query('INSERT INTO Profile_Specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
-        return rows;
+        const rows = await pool.query('INSERT INTO Profile_Specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_Profile_Account, this.#id_Specialization]);
+        return rows[0];
     }
 
 }
 
-export default Profile_Specialization
+export default Profile_specialization

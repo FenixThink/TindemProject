@@ -1,11 +1,11 @@
-import ProfileAccount from "../models/ProfileAccount.model.js"
+import Profile_account from "../models/Profile_account.model.js"
 
 class ProfileAccountController{
 
     static create = async (req,res) =>{
         try {
-            const profileAccount = new ProfileAccount(req.body)
-            const data = await profileAccount.Create()
+            const profileAccount = new Profile_account(req.body)
+            const data = await profileAccount.create()
             res.status(200).json({message: 'Profile successfully created'})
             
         } catch (error) {

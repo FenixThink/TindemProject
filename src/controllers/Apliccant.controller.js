@@ -7,8 +7,8 @@ class ApplicantController{
     static applicantCreate = async(req,response)=>{
         try {
             const applicant = new Applicant(req.body)
-           const res = await applicant.createApplicant(); 
-           response.send(res);
+           const res = await applicant.create(); 
+           response.send(res.affectedRows);
         } catch (error) {
             response.send({
                 "status" : 404,

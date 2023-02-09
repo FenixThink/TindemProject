@@ -1,15 +1,16 @@
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 class Country extends GeneralQuerySql{
     
-    static table = 'Country'
+    static table = 'country'
     
     constructor(body){
+        super();
         this.#name = body.name;
     }
 
-    set Name(name){ this.#name = name; }
+    set name(name){ this.#name = name; }
 
-    get Name(){ return this.#name; }
+    get name(){ return this.#name; }
     
 }
 
