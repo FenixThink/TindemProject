@@ -105,10 +105,11 @@ export function createProfileInf(body){
 
 
 
-    const otros = document.createElement('div');
-    
+    const otros = document.createElement('div')
     otros.className='otros';
-    otros.textContent='otros:';
+const textOtros= document.createElement('h3')
+textOtros.textContent='expesializaxion'
+    otros.appendChild(textOtros)
 
    const otrosEstudios= body.otros
    otrosEstudios.forEach(element => {
