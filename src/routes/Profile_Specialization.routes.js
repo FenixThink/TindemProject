@@ -6,4 +6,9 @@ const routerProfileSpecialization = Router()
 
 routerProfileSpecialization.post("/profileSpecialization/create", ProfileSpecializationController.CreateSpec)
 
+routerProfileSpecialization.get("/allprofilespecialization",ProfileSpecializationController.getAll)
+
+routerProfileSpecialization.get("/allprofilespecialization/:id",ProfileSpecializationController.getFindOne)
+
+
 export default routerProfileSpecialization

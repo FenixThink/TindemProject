@@ -1,5 +1,5 @@
 import { pool } from "../../db/db.js"
-import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 
 export class Actions extends GeneralQuerySql{
     //insertar las relaciones entre los aplicantes y las empresas 

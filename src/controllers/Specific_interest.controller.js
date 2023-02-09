@@ -10,6 +10,41 @@ class SpecificInterestController{
             res.status(500).json({message: error.message})
         }
     };
+
+    static getAll =async(req,res)=>{
+        try{
+            const respuesta = await SpecificInterest.All()
+            
+            if(respuesta.length == 0){
+            return res.status(404).json({message: "Specific interests not found"})
+            }
+            res.send(respuesta)
+
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
+
+    static getOne = async(req, res) => {
+        try {
+           const respuesta = await SpecificInterest.FindOne(req.params.id); 
+           
+           if(respuesta.length == 0){
+            return res.status(404).json({message: "Specific interests not found"})
+            }
+
+            res.send(respuesta);
+        } catch (error) {
+            res.send({
+                "status" : 404,
+                "message" : error.message
+            });
+        };
+}
 }
 
 export default SpecificInterestController;
