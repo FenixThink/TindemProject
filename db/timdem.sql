@@ -99,11 +99,25 @@ INSERT INTO interest_area VALUES ( 3,"Derecho" );
 INSERT INTO interest_area VALUES ( 4,"Psicologia" );
 INSERT INTO interest_area VALUES ( 5,"Ingenieria Electronica" );
 
-INSERT INTO specific_interest VALUES ( 1,"implementaciones y gestiones de: sistemas electrónicos",5 );
+INSERT INTO specific_interest VALUES ( 1,"Telecomunicaciones",5 );
 INSERT INTO specific_interest VALUES ( 2,"Auxiliar juridico",3 );
 INSERT INTO specific_interest VALUES ( 3,"Ayudante de cocina",2 );
 INSERT INTO specific_interest VALUES ( 4,"Psicólogo organizacional",4 );
 INSERT INTO specific_interest VALUES ( 5,"Mantenimiento de los sistemas informáticos",1 );
+
+INSERT INTO specific_interest VALUES ( 6,"implementaciones y gestiones de: sistemas electrónicos",5 );
+INSERT INTO specific_interest VALUES ( 7,"Abogado",3 );
+INSERT INTO specific_interest VALUES ( 8,"Chef",2 );
+INSERT INTO specific_interest VALUES ( 9,"Psicólogo",4 );
+INSERT INTO specific_interest VALUES ( 10,"Diseñador de base de datos",1 );
+
+INSERT INTO specific_interest VALUES ( 11,"Diseño y desarrollo de equipos electrónicos",5 );
+INSERT INTO specific_interest VALUES ( 12,"Magistrado",3 );
+INSERT INTO specific_interest VALUES ( 13,"Pastelero",2 );
+INSERT INTO specific_interest VALUES ( 14,"Psicólogo General",4 );
+INSERT INTO specific_interest VALUES ( 15,"Arquitecto de software",1 );
+
+
 
 INSERT INTO country VALUES ( 1,"Colombia" );
 INSERT INTO country VALUES ( 2,"Canada" );
@@ -129,11 +143,24 @@ INSERT INTO profile_account VALUES ( 5,"Johan","yes yes","applicant",3,3,5);
 
 
 INSERT INTO profile_specialization VALUES ( 1,1,1 );
-INSERT INTO profile_specialization VALUES ( 2,2,2 );
-INSERT INTO profile_specialization VALUES ( 3,3,3 );
-INSERT INTO profile_specialization VALUES ( 4,4,4 );
-INSERT INTO profile_specialization VALUES ( 5,5,5 );
+INSERT INTO profile_specialization VALUES ( 2,1,6 );
+INSERT INTO profile_specialization VALUES ( 3,1,11 );
 
+INSERT INTO profile_specialization VALUES ( 4,2,2);
+INSERT INTO profile_specialization VALUES ( 5,2,7 );
+INSERT INTO profile_specialization VALUES ( 6,2,12 );
+
+INSERT INTO profile_specialization VALUES ( 7,3,3);
+INSERT INTO profile_specialization VALUES ( 8,3,8 );
+INSERT INTO profile_specialization VALUES ( 9,3,13 );
+
+INSERT INTO profile_specialization VALUES ( 10,4,4);
+INSERT INTO profile_specialization VALUES ( 11,4,9);
+INSERT INTO profile_specialization VALUES ( 12,4,14 );
+
+INSERT INTO profile_specialization VALUES ( 13,5,5);
+INSERT INTO profile_specialization VALUES ( 14,5,10);
+INSERT INTO profile_specialization VALUES ( 15,5,15);
 
 INSERT INTO company VALUES ( 1,"123441141","1994-06-19");
 INSERT INTO company VALUES ( 2,"463523424","1994-06-19");
@@ -145,6 +172,7 @@ INSERT INTO applicant VALUES ( 3,"Orechana","2005-02-07");
 
 INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",1,1,1);
 INSERT INTO actions VALUES ( 2,"2004-09-07","dislike","company",0,2,2);
+
 /*INSERT INTO actions VALUES ( 3,"2003-09-07","like","aspirante",1,3,2);
 INSERT INTO actions VALUES ( 4,"2002-09-07","dislike","aspirant",0,2,2);
 INSERT INTO actions VALUES ( 5,"2001-09-07","dislike","aspirant",0,3,1);*/
