@@ -1,14 +1,16 @@
 import { pool } from "../../db/db.js"
-import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
+class Specific_interest extends GeneralQuerySql{
 
-class SpecificInterest extends GeneralQuerySql{
-    static table = 'specific_interest'
-    #name
-    #id_interest
+    static table = 'specific_interest';
+    #name;
+    #id_interest;
+
     constructor(body){
-        this.#name = body.name
-        this.#id_interest = body.id_interest
+        super();
+        this.#name = body.name;
+        this.#id_interest = body.id_interest;
     }
 
     set name(name){this.#name = name}
@@ -24,4 +26,4 @@ class SpecificInterest extends GeneralQuerySql{
 
 }
 
-export default SpecificInterest
+export default Specific_interest

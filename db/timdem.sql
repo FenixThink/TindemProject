@@ -21,12 +21,12 @@ create table city (
 
 create table interest_area(
 	id int(11) primary key auto_increment,
-    name varchar(60) not null
+    name varchar(60) not null unique
 );
 
 create table specific_interest (
 	id int(11) primary key auto_increment,
-    name varchar(60) not null,
+    name varchar(60) not null unique,
     id_interest int(11) not null,
     constraint fk_id_interest foreign key (id_interest) references interest_area(id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -64,7 +64,8 @@ create table applicant (
 
 create table company (
     id int(11) primary key auto_increment,
-    nit VARCHAR(15) not null
+    nit VARCHAR(15) not null,
+    day_of_founded date not null
 );
 
 create table actions (

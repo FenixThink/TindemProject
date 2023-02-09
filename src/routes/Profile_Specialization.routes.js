@@ -8,4 +8,7 @@ routerProfileSpecialization.post("/profileSpecialization/create", ProfileSpecial
 
 routerProfileSpecialization.get("/allprofilespecialization",ProfileSpecializationController.getAll)
 
+routerProfileSpecialization.get("/allprofilespecialization/:id",ProfileSpecializationController.getFindOne)
+
+
 export default routerProfileSpecialization

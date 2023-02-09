@@ -4,7 +4,7 @@ import ProfileAccountController from '../controllers/ProfileAccount.controller.j
 const router = Router()
 
 router.post('/profile', ProfileAccountController.create)
-
-router.get('/allprofileaccount',ProfileAccountController.getAll)
+router.get('/profile',ProfileAccountController.getAll)
+router.get('/profile/:id',ProfileAccountController.findOne)
 
 export default router
