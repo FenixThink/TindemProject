@@ -2,8 +2,8 @@ import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 import { pool } from "../../db/db.js";
 
 class Country extends GeneralQuerySql{
-    
-    static table = 'country'
+    static table = 'Country'
+    #name;
     
     constructor(body){
         super();
