@@ -21,12 +21,12 @@ create table city (
 
 create table interest_area(
 	id int(11) primary key auto_increment,
-    name varchar(60) not null
+    name varchar(60) not null unique
 );
 
 create table specific_interest (
 	id int(11) primary key auto_increment,
-    name varchar(60) not null,
+    name varchar(60) not null unique,
     id_interest int(11) not null,
     constraint fk_id_interest foreign key (id_interest) references interest_area(id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -34,13 +34,13 @@ create table specific_interest (
 create table user_account(
 	id int(11) primary key auto_increment,
     email varchar(40) not null unique,
-    password varchar(30) not null unique
+    password varchar(30) not null 
 );
 
 create table profile_account(
 	id int(11) primary key auto_increment,
-	name varchar(30) not null,
-    description varchar(255) not null,
+    name varchar(30) not null,
+    description varchar(500) not null,
     type enum('applicant','company'),
     key_rol int not null,
     id_user int(11) not null,
@@ -50,7 +50,7 @@ create table profile_account(
 );
 
 create table profile_specialization(
-	id int(11)  not null,
+	id int(11) primary key not null auto_increment,
     id_profile_account int(11) not null,
     id_specialization int(11) not null,
 	constraint fk_id_profile_account foreign key (id_profile_account) references profile_account(id) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -59,12 +59,14 @@ create table profile_specialization(
 
 create table applicant (
     id int(11) primary key auto_increment,
+	lastname varchar(30) not null,
     day_of_birth date not null
 );
 
 create table company (
     id int(11) primary key auto_increment,
-    nit VARCHAR(15) not null
+    nit VARCHAR(15) not null,
+    day_of_founded date not null
 );
 
 create table actions (
@@ -121,9 +123,9 @@ INSERT INTO profile_account VALUES ( 2,"Liomar","increliblo","applicant",1,1,3);
 
 INSERT INTO profile_account VALUES ( 3,"Accor","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",2,7,2);
 
-INSERT INTO profile_account VALUES ( 4,"jose","nao nao","applicant",2,2,4);
+INSERT INTO profile_account VALUES ( 4,"Jose","nao nao","applicant",2,2,4);
 
-INSERT INTO profile_account VALUES ( 5,"johan","yes yes","applicant",3,3,5);
+INSERT INTO profile_account VALUES ( 5,"Johan","yes yes","applicant",3,3,5);
 
 
 INSERT INTO profile_specialization VALUES ( 1,1,1 );
@@ -133,12 +135,12 @@ INSERT INTO profile_specialization VALUES ( 4,4,4 );
 INSERT INTO profile_specialization VALUES ( 5,5,5 );
 
 
-INSERT INTO company VALUES ( 1,"123441141");
-INSERT INTO company VALUES ( 2,"463523424");
+INSERT INTO company VALUES ( 1,"123441141","1994-06-19");
+INSERT INTO company VALUES ( 2,"463523424","1994-06-19");
 
-INSERT INTO applicant VALUES ( 1,"1994-06-19");
-INSERT INTO applicant VALUES ( 2,"1990-08-03");
-INSERT INTO applicant VALUES ( 3,"2005-02-07");
+INSERT INTO applicant VALUES ( 1,"Messi","1994-06-19");
+INSERT INTO applicant VALUES ( 2,"Orejarena","1990-08-03");
+INSERT INTO applicant VALUES ( 3,"Orechana","2005-02-07");
 
 
 INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",1,1,1);
