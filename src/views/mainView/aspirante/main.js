@@ -1,4 +1,4 @@
-import { TotalFunctionView } from "../../../components/mainViewComponents/totalComponet/totalComponent.js";
+import { TotalFunctionView, totalPartLeft } from "../../../components/mainViewComponents/totalComponet/totalComponent.js";
 import { allView } from "../../../components/chatViewComponents/allView/totalsection.js";
 import { people } from "../../../components/chatViewComponents/partLeftChat/unionPartsLeft.js";
 import { boxMessage } from "../../../components/chatViewComponents/boxMessage/boxMessage.js";
@@ -8,10 +8,13 @@ import { applicant } from "../../../components/userDataCard/userDataCard.js";
 
 const app = document.querySelector('#app');
 
-app.appendChild(TotalFunctionView('https://imgs.search.brave.com/c121K9dZq414t-DILTMGbg5yBrSAkWD0kox7IqifPOQ/rs:fit:1080:1200:1/g:ce/aHR0cHM6Ly9pLmli/Yi5jby9idmZzU3Bm/L0FuYS1kZS1Bcm1h/cy1XYWxscGFwZXJz/LUluc3RhLUZpdC1C/aW8tMS5qcGc', 'Nombre completo', '*Numero de dos digitos*', 'Loremsito de introducción', 'Descripion de Perfil'));
+let objectApplicant = Object.values(applicant);
+
+app.appendChild(TotalFunctionView(objectApplicant[0].profile_image, objectApplicant[0].name, objectApplicant[0].day_of_birth, "Descripcion Laboral", objectApplicant[0].description, objectApplicant[1][0].Especializaciones))
 const father = document.querySelector('.containerFather')
-//La data del totalFunctionView
-//'https://imgs.search.brave.com/c121K9dZq414t-DILTMGbg5yBrSAkWD0kox7IqifPOQ/rs:fit:1080:1200:1/g:ce/aHR0cHM6Ly9pLmli/Yi5jby9idmZzU3Bm/L0FuYS1kZS1Bcm1h/cy1XYWxscGFwZXJz/LUluc3RhLUZpdC1C/aW8tMS5qcGc', 'Nombre completo', 'Edad : ', '*Numero de dos digitos*', 'Loremsito de introducción', 'Descripion de Perfil', 'Titulos profesionales:'
+
+//Applicant: Desc Perfil
+//Company: Desc Empresa
 
 father.appendChild(allView('', ''))
 father.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png", "Nombres", "Apellidos", "Jose Miguel", "Orejarena Correa", "jmoc951@gmail.com", "Allweneedilove123", "Yo no se mañana, si estaremos juntos, si se acaba el mundo, yo no se si soy para ti, si seras para mi", "Descripcion del perfil", "Agrega tu interes laboral"))
@@ -35,9 +38,7 @@ sercCont.addEventListener('mouseover', (e) => {
 
 //Cuando quita el mouse de encima
 sercCont.addEventListener('mouseout', (e) => {
-
     search.removeAttribute('style')
-
     lupa.style.transition = 'transform 1s ease-in-out'
     lupa.style.transform = 'translate(0,0)'
 

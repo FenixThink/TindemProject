@@ -1,12 +1,9 @@
-export function interests(textTitle) {
+export function interests(interestItems) {
     //parrafo
     const text = document.createElement('p')
     text.textContent = "Titulos Profesionales: "
     text.className = "parrafo"
 
-    //botones
-    const boton1 = document.createElement('button')
-    boton1.className = "interestButtons"
 
 
     //container div parrafo
@@ -14,10 +11,22 @@ export function interests(textTitle) {
     containerP.className = "containerP"
     containerP.appendChild(text);
 
+
+
     //container div botones
     const containerbutton = document.createElement('div')
     containerbutton.className = "containerbutton"
-    containerbutton.appendChild(boton1)
+
+    // console.log(interestItems)
+    
+    interestItems.forEach(e => {
+        //botones
+        const boton = document.createElement('button')
+        boton.className = "interestButtons"
+        boton.textContent = e.name
+        containerbutton.appendChild(boton)
+    });
+    
 
     //container
     const containerTotal = document.createElement('div')
