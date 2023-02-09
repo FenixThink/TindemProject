@@ -7,7 +7,7 @@ routerArea.post('/Area/create',InterestAreaController.createInterestArea)
 
 routerArea.get('/Area/Interes/:id',InterestAreaController.getInterestAplicant)
 
-routerArea.get('/Area/',InterestAreaController.InteresgetAll)
+routerArea.get('/Area',InterestAreaController.InteresgetAll)
 routerArea.get('/Area/:id',InterestAreaController.FindOne)
 
 export default routerArea

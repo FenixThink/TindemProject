@@ -3,8 +3,7 @@ import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
 
 class InterestAreaController extends GeneralQuerySql {
 
-    static  createInterestArea(){
-        return async(req,res) => {
+    static async createInterestArea(req,res){
             try {
                 
                    const area = new Interest_area(req.body);
@@ -12,16 +11,15 @@ class InterestAreaController extends GeneralQuerySql {
                     result.affectedRows = 0
                    console.log(result.affectedRows);
 
-                   (result.affectedRows == 1) ?  res.status(201).json({message:"Area Created Successfully"}) : res.status(500).json({message:"Error creating interest area"})
-                   
+                   res.status(201).json({message:"Area Created Successfully"})
+
                } catch (error) {
                    return res.status(500).json({message:error.message});
                }
-       }
+       
     }
 
-    static getInterestAplicant(){
-        return async(req,res) => {
+    static async getInterestAplicant(req,res){
             try {
                 const log = await Interest_area.indexInteresAplicant(req.params);
                 const {profile, interest} = log
@@ -30,7 +28,7 @@ class InterestAreaController extends GeneralQuerySql {
             } catch (error) {
                 return res.status(500).json({message:error.message});
             }
-        }
+        
     }
 
 

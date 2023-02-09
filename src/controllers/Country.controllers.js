@@ -3,8 +3,7 @@ import Country from "../models/Country.model.js";
 
 class CountryController{
 
-    static createContry(){
-        return async(req,res) => {
+    static async createContry(req,res){
             try{
                 const contry= new Country(req.body);
                 const respuesta= await contry.create()
@@ -17,7 +16,7 @@ class CountryController{
                 console.log(error)
                 return res.status(500).json({message:error.message})
             }
-        }
+        
     }
 
     static CountryId=async(req, response) => {
