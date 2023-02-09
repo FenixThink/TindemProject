@@ -4,6 +4,7 @@ import CountryController from "../controllers/Country.controllers.js";
 const routerCountry = Router();
 
 routerCountry.post('/contry/create',CountryController.createContry)
-routerCountry.get('/contry/create',CountryController.getAll)
+routerCountry.get('/contry/:id',CountryController.CountryId)
+routerCountry.get('/contry/get',CountryController.getAll)
 
 export default routerCountry
