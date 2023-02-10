@@ -11,6 +11,7 @@ import routerCompany from './routes/company.routes.js';
 import routerCountry from './routes/Country.routes.js';
 
 const app = express();
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(routerUser)
 app.use(routerAction)

@@ -35,6 +35,11 @@ class User extends GeneralQuerySql{
 
     }
 
+    searchType = async (email)=>{
+        const search = await pool.query('SELECT type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
+        return search[0]
+    }
+
 }
 
 export default User;
