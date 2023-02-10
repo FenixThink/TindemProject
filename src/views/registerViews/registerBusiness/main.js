@@ -3,10 +3,10 @@ import { parentCreator } from "../../../components/registerViewComponents/parent
 const app = document.querySelector('#app')
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario","Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
 
-const send = document.querySelector('.submitButton')
+const button = document.querySelector('.submitButton')
 //Foreach para la captura y manejo de inputs
 
-    send.addEventListener('click', () => {
+    button.addEventListener('click', () => {
 
         const inputCompanyName = document.querySelectorAll('.inputEmpresa')
         let description = document.querySelector('.description')

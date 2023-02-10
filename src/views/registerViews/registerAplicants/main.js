@@ -6,10 +6,10 @@ import {
 const app = document.querySelector('#app')
 app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png", "Nombres", "Apellidos", "Fecha y lugar de nacimiento", "Descripcion del perfil", "área de interés laboral"))
 
-const boton = document.querySelector('.submitButton')
+const button = document.querySelector('.submitButton')
 //Foreach para la captura y manejo de inputs
 
-boton.addEventListener('click', () => {
+button.addEventListener('click', () => {
 
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     const description = document.querySelector('.description').value
