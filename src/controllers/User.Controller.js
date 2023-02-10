@@ -1,5 +1,5 @@
 import User from '../models/User.model.js'
-
+import jwt from "jsonwebtoken";
 
 class UserController{
 
@@ -30,20 +30,17 @@ class UserController{
 
     static getAll =async(req,res)=>{
         try{
-            
             const respuesta = await User.All()
             if(respuesta.length=== 0){
-                return res.status(404).json({'message':'users not found'})
+                return {'message':'users not found'}
             }
             // console.log(respuesta)
-            res.send(respuesta)
-            
-
+            return (respuesta);
         }catch(error){
-            return res.send({
+            return {
                 "status":404,
                 "message":error.message
-            })
+            }
 
         }
     }
@@ -67,6 +64,35 @@ class UserController{
             })
 
         }
+    }
+
+    static generateAccessToken(user){
+        return jwt.sign(user,process.env.SECRET,{expiresIn: '5m'})
+    }
+    static auth = async (req,res)=>{
+
+    const {email,password} = req.body;
+    const user = new User(email,password);
+    const query = await this.getAll();
+    let status = false
+     query.forEach((e)=>{
+        if (e.email === email && e.password === password){
+            status = true
+        }
+    })
+    if (status){
+        const [query2] = await user.searchType(email);
+        const User = {email:email,rol:query2.type};
+        const accessToken = this.generateAccessToken(User);
+
+        res.header('autorization',accessToken).json({
+            message: 'user atutenticado',
+            token:accessToken
+
+        });
+        return;
+    }
+    res.send('No se ha podido loguear');
     }
 
 }
