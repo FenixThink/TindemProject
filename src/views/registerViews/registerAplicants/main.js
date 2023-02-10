@@ -50,7 +50,7 @@ button.addEventListener('click', () => {
             
                 const transactionJson = JSON.stringify(cuerpo)
             
-                fetch('http://localhost:5173/test', {
+                fetch('http://localhost:5173/applicant/create', {
                     method: 'Post',
                     headers: {
                         "Content-type": 'application/json'
