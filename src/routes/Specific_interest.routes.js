@@ -8,4 +8,7 @@ router.get('/specificInterest',SpecificInterestController.getAll)
 
 router.get('/specificInterest/:id',SpecificInterestController.getOne)
 
+
+router.get("/findUserSpecializations/:id",SpecificInterestController.findUserSpecializations)
+
 export default router
