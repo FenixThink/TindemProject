@@ -1,20 +1,43 @@
 import { Router } from 'express';
 import UserController from '../controllers/User.Controller.js';
 import User from '../models/User.model.js';
-
-
+import userController from "../controllers/User.Controller.js";
+import Middelwares from '../Middlewares/Auth.Middleware.js';
+const middelwares = new Middelwares()
 
 const router = Router();
 
-
 router.post('/createUser',UserController.createUser)
-
-
 
 router.get('/allUser',UserController.getAll)
 
 router.get('/getfindOne/:id',UserController.getfindOne)
 
+router.post('/api/login',UserController.auth)
+
+router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
+    res.json({
+        rol:req.user.rol,
+        tuits:[
+            {
+                id:0,
+                text:'Este es mi primer tuit',
+                username:'yisus'
+            },
+            {
+                id:1,
+                text:'Este es mi segundo tuit',
+                username:'johan'
+            },
+            {
+                id:2,
+                text:'Este es mi tercer tuit',
+                username:'sebas'
+            }
+        ]
+    })
+    return;
+})
 export default router;
 
 // router.post('/',async (req,res)=>{
