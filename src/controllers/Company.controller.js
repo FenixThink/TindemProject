@@ -7,18 +7,17 @@ class CompanyController extends GeneralQuerySql {
         res.render('../views/registerViews/registerBusiness/index.html')
     };
 
-    static Create(){
-        return  async (req,res)=>{
+    static async Create(req,res){
             try {
-                const company = new Company(req.body)
-                const data = await company.create()
+                // const company = new Company(req.body)
+                // const data = await company.create()
+                console.log(req.body)
                 res.status(200).json({message: 'Company successfully created'})
             } catch (error) {
                 res.status(500).json({
                     message: error.message
                 });
             }
-        }
     }
 
     static getAll =async(req,res)=>{

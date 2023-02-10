@@ -1,12 +1,20 @@
 import Profile_account from "../models/Profile_account.model.js"
+import User from "../models/User.model.js";
+import Applicant from "../models/Applicant.model.js";
 
 class ProfileAccountController{
 
     static create = async (req,res) =>{
         try {
-            const profileAccount = new Profile_account(req.body)
-            const rows = await profileAccount.create()
-
+            const user = new User(req.body)
+            const applicant = new Applicant(req.body)
+            const profile = new Profile_account(req.body)
+            await user.create();
+            await applicant.create();
+            await profile.idCity(req.body.city)
+            await profile.lastUser(req.body.email)
+            await profile.lastApplicant();
+            await profile.create()
             res.status(200).json({
                 message: "Profile has been created successfully"
             })
@@ -21,7 +29,7 @@ class ProfileAccountController{
 
     static getAll =async(req,res)=>{
         try{
-            const rows = await ProfileAccount.All()
+            const rows = await Profile_account.All()
 
             if(!rows.length){
                 return res.status(404).json({
@@ -40,7 +48,7 @@ class ProfileAccountController{
 
     static findOne = async(req, res) => {
         try {
-           const rows = await ProfileAccount.FindOne(req.params.id); 
+           const rows = await Profile_account.FindOne(req.params.id); 
 
             if(!rows.length){  
                 return res.status(404).json({

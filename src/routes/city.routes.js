@@ -1,10 +1,10 @@
 import { Router } from "express"
-import cityController from "../controllers/City.controller.js"
+import CityController from "../controllers/city.controller.js"
 
 
 const routerCity = Router()
-routerCity.post("/cityPost", cityController.createCity)
+routerCity.post("/cityPost",CityController.createCity)
 
-routerCity.get('/allcity',cityController.getAll)
+routerCity.get('/allcity',CityController.getAll)
 
 export default routerCity

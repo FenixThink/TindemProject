@@ -3,10 +3,11 @@ import InterestAreaController from "../controllers/Interest_area.controller.js";
 
 const routerArea = Router();
 
-routerArea.post('/Area/create',InterestAreaController.createInterestArea())
-routerArea.get('/Area/Interes/:id',InterestAreaController.getInterestAplicant())
+routerArea.post('/Area/create',InterestAreaController.createInterestArea)
 
-routerArea.get('/Area/',InterestAreaController.InteresgetAll)
-routerArea.get('/Area/:id',InterestAreaController.FindOne)
+routerArea.get('/Area/Interes/:email',InterestAreaController.getInterestAplicant)
+
+routerArea.get('/Area',InterestAreaController.InteresgetAll)
+routerArea.get('/cc/:id',InterestAreaController.FindOne)
 
 export default routerArea
