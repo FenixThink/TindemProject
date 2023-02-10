@@ -27,8 +27,6 @@ class Interest_area extends GeneralQuerySql{
         const area = await pool.query('SELECT DISTINCT ia.name FROM interest_area ia INNER JOIN specific_interest si ON ia.id = si.id_interest INNER JOIN profile_specialization ps ON si.id = ps.id_specialization INNER JOIN profile_account pa ON ps.id_profile_account = pa.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email = (?)',[params.email]);
 
         const interest = await pool.query('SELECT si.name AS interes, ia.name AS Area FROM specific_interest si  INNER JOIN interest_area ia ON si.id_interest = ia.id INNER JOIN profile_specialization ps ON si.id = ps.id_specialization INNER JOIN profile_account pa ON pa.id = ps.id_profile_account INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email= (?) ',[params.email])
-        // console.log(area[0][0].name)
-        // console.log(interest[0]);
         
         const element = {};
         for (let i = 0; i < area[0].length; i++) {
