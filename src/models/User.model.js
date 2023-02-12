@@ -1,5 +1,6 @@
 import { pool } from "../../db/db.js";
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
+import { encrypt, compare } from "../helpers/Bcrypt.helper.js";
 
 
 class User extends GeneralQuerySql{
@@ -22,8 +23,11 @@ class User extends GeneralQuerySql{
 
     create = async()=>{
 
-        const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email,this.#password])
+        const passwordHash = await encrypt(this.#password)
+        const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email, passwordHash])
+        
 
+        console.log(passwordHash)
         
 
         // return({
@@ -33,8 +37,16 @@ class User extends GeneralQuerySql{
 
         return insert[0]
 
+        
+
     }
 
+    searchType = async (email)=>{
+        const search = await pool.query('SELECT type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
+        return search[0]
+    }
+
+    
 }
 
 export default User;

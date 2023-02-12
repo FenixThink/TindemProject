@@ -48,6 +48,39 @@ class ActionController {
 
         }
     }
+
+    static FindOneA = async(req, res)=>{
+        try{
+            const respuesta = await Actions.FindOneA(req.params.id)
+            if (respuesta.length <= 0) res.status(404).json({
+                message: 'Action not found'
+            })
+            res.send(respuesta)
+        }catch(error){
+            console.log(error)
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+        }
+    }
+
+    static FindOneC = async(req, res) => {
+        try {
+            const respuesta = await Actions.FindOneC(req.params.id)
+            if (respuesta.length <= 0) res.status(404).json({
+                message: 'Action not found'
+            })
+            res.send(respuesta)
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "status": 404,
+                "message": error.message
+            });
+        };
+    }
+
 }
 
 export default ActionController

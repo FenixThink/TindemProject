@@ -22,8 +22,11 @@ class InterestAreaController extends GeneralQuerySql {
     static async getInterestAplicant(req,res){
             try {
                 const log = await Interest_area.indexInteresAplicant(req.params);
-                const {profile, interest} = log
-                return res.status(200).json([profile[0][0], interest[0]]);
+                const {profile,interest,element} = log
+                if(profile[0].length == 0 || interest[0].length == 0){
+                 return res.status(500).json({message:"Profile not found"})   
+                };
+                return res.status(200).json([profile[0][0], element]); 
 
             } catch (error) {
                 return res.status(500).json({message:error.message});

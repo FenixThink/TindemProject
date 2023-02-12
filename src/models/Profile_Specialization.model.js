@@ -24,6 +24,9 @@ class Profile_specialization extends GeneralQuerySql{
         return rows[0];
     }
 
+   
+
+
 }
 
 export default Profile_specialization

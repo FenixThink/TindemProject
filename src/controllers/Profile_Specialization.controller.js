@@ -33,6 +33,8 @@ class ProfileSpecializationController extends GeneralQuerySql{
         }
     }
 
+    
+
     static getFindOne =async(req,res)=>{
         try{
             
@@ -51,6 +53,8 @@ class ProfileSpecializationController extends GeneralQuerySql{
 
         }
     }
+
+    
     
     
 }

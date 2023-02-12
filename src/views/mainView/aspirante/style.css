@@ -64,6 +64,11 @@ donde ingreso estilos  a la parte de perfil de el usuario */
     justify-content: center;
     text-align: center;
 }
+.date>div>h3{
+    font-size: 2.7rem;
+  
+    font-weight: 900;
+}
 .date>div>p{
   font-size: 2vmin;
     font-weight: 900;
@@ -100,37 +105,95 @@ h3{
 
 .estudios{
     width: 35vmin;
-font-size: 2vmin;
-font-weight: 800;
+    height: 7vmin;
+    font-size: 2vmin;
+    font-weight: 800;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
-    padding: 1vmax;
+    padding: 0.5vmax;
+     overflow-x: hidden;
+    
 }
+.estudio{
+  display:flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.next{
+ display: flex;
+ 
+ flex-direction: column;
+ justify-content: center;
+
+}
+.nextImg{
+  width: 80%;
+}
+.nextImg:hover{
+  cursor: pointer;
+  width: 85%
+}
+
+
+.before{
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: center;
+ 
+}
+.beforeImg{
+  width: 80%;
+}
+.beforeImg:hover{
+ cursor: pointer;
+ width: 85%
+}
+
 
 .otros{
     height: 25vmin;
-    font-size: 2.5vmin;
+    width: 35vmin;
     font-weight: 900;
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
     padding: 2vmin 2vmin;
    
     overflow-y: scroll;
+    overflow-x: hidden;
 
 }
-.otros::-webkit-scrollbar{
-    display: none;
+.otros>h3{
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
+.otros::-webkit-scrollbar {
+  width: 12px;
+}
+.otros::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #D5D8FE; 
+  border-radius: 10px;
+}
+.otros::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.959);
+}
+
 
 .profileInf{
     width: 100vmin;
     height: 35vmin;
 }
 li{
-  font-size: 2vmin;
+ 
   font-weight: 900;
   list-style: none;
-  color: #514c74;
+  margin-left: 1rem;
 }
 
 .descriptionProfile{
@@ -143,7 +206,7 @@ li{
     padding: 1vmin;  
     text-align: center;
 
-    font-size: 2.5vmin;
+    
     font-weight: 900;
     gap: 1.5vmin;
     overflow-y: scroll;
@@ -154,18 +217,36 @@ li{
   font-weight: 900;
   text-transform: uppercase;
 }
-.descriptionProfile::-webkit-scrollbar{
-    display: none;
+.descriptionProfile::-webkit-scrollbar {
+  width: 12px;
 }
+.descriptionProfile::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #D5D8FE; 
+  border-radius: 10px;
+}
+.descriptionProfile::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.997);
+}
+
+
+
+
+
 
 .descriptionPerfil{
   height: 80%;
   width: 100%;
-  color: #514c74;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 25px 5px;
   
+}
+.textDescription{
+height: 95%;
+
+
 }
 
 /* aqui termina la parte de jose caballero */
