@@ -1,11 +1,11 @@
-export function upperComponents(img, nombre, span, valueSpan) {
+export function upperComponents(img, nombre, valueSpan, introDescription) {
     /* Parte title*/
     const title = document.createElement('h3')
     title.textContent = nombre
 
     /*Parte span */
     const spanText = document.createElement('span')
-    spanText.textContent = span
+    spanText.textContent = "Edad: "
 
     const spanCero = document.createElement('span')
     spanCero.textContent = valueSpan
@@ -13,7 +13,7 @@ export function upperComponents(img, nombre, span, valueSpan) {
     const spanDescription = document.createElement('span')
 
     const spanTextDescription = document.createElement('span')
-    spanTextDescription.textContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea ab sit, corrupti, doloremque esse cum placeat laborum deserunt in inventore voluptate est eius nihil delectus?"
+    spanTextDescription.textContent = introDescription
 
     /*Parte parrafos*/
     const paragraphs1 = document.createElement('p')
@@ -65,7 +65,7 @@ export function upperComponents(img, nombre, span, valueSpan) {
     containerParagraphs.appendChild(divParagraphs)
 
     /*container*/
-    const container  = document.createElement('div')
+    const container = document.createElement('div')
     container.className = "container"
     container.appendChild(divImagen)
     container.appendChild(containerParagraphs)

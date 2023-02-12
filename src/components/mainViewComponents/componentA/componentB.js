@@ -1,33 +1,9 @@
-export function interests(textTitle) {
+export function interests(interestItems) {
     //parrafo
     const text = document.createElement('p')
-    text.textContent = textTitle
+    text.textContent = "Titulos Profesionales: "
     text.className = "parrafo"
 
-    //botones
-    const boton1 = document.createElement('button')
-    boton1.textContent = "FrontEnd"
-    boton1.className = "botones"
-
-    const boton2 = document.createElement('button')
-    boton2.textContent = "BackEnd"
-    boton2.className = "botones"
-
-    const boton3 = document.createElement('button')
-    boton3.textContent = "JavaScript"
-    boton3.className = "botones"
-
-    const boton4 = document.createElement('button')
-    boton4.textContent = "CSS"
-    boton4.className = "botones"
-
-    const boton5 = document.createElement('button')
-    boton5.textContent = "Vuejs"
-    boton5.className = "botones"
-
-    const boton6 = document.createElement('button')
-    boton6.textContent = "Nuxt"
-    boton6.className = "botones"
 
 
     //container div parrafo
@@ -35,15 +11,22 @@ export function interests(textTitle) {
     containerP.className = "containerP"
     containerP.appendChild(text);
 
+
+
     //container div botones
     const containerbutton = document.createElement('div')
     containerbutton.className = "containerbutton"
-    containerbutton.appendChild(boton1)
-    containerbutton.appendChild(boton2)
-    containerbutton.appendChild(boton3)
-    containerbutton.appendChild(boton4)
-    containerbutton.appendChild(boton5)
-    containerbutton.appendChild(boton6)
+
+    // console.log(interestItems)
+    
+    interestItems.forEach(e => {
+        //botones
+        const boton = document.createElement('button')
+        boton.className = "interestButtons"
+        boton.textContent = e.name
+        containerbutton.appendChild(boton)
+    });
+    
 
     //container
     const containerTotal = document.createElement('div')
