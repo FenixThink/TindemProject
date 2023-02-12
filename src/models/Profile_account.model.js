@@ -35,13 +35,30 @@ class Profile_account extends GeneralQuerySql{
     get id_user(){ return this.#id_user }
     get id_city(){ return this.#id_city }
 
-    async create(){
-
-        const insert = await pool.query('INSERT INTO profile_account (name, description, type, key_rol, id_user, id_city) VALUES (?,?,?,?,?,?)',[this.#name, this.#description,this.#type,this.#key,this.#id_user,this.#id_city])        
-        return insert[0];
-
+    
+    async idCity(city){
+        const [cit] = await pool.query('SELECT c.id FROM city c WHERE c.name = (?)',[city]);
+        this.#id_city = cit[0].id;  
+        return  this.#id_city;
     }
-
+    
+    async lastApplicant(){
+        const [key] = await pool.query('SELECT id FROM applicant ORDER BY applicant.id DESC LIMIT 1');
+        this.#key = key[0].id;
+        return this.#key;
+    }
+    async lastUser(email){
+        const [user ] = await pool.query('SELECT u.id FROM user_account u WHERE u.email = (?)',[email]);
+        this.#id_user = user[0].id;
+        return this.#id_user;
+    }
+    
+    async create(){
+        const insert = await pool.query('INSERT INTO profile_account (name, description, type, key_rol, id_user, id_city) VALUES (?,?,?,?,?,?)',[this.#name, this.#description,this.#type,this.#key,this.#id_user,this.#id_city])    
+        
+        return insert[0];
+    }
+    
 }
 
 export default Profile_account;
