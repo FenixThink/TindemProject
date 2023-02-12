@@ -1,13 +1,16 @@
 import { response } from "express";
 import  Applicant from "../models/Applicant.model.js"
-
+import User from '../models/Applicant.model.js'
 
 
 class ApplicantController{
     static applicantCreate = async(req,response)=>{
         try {
+
+            console.log(req.body)
+            /* const user = new User(req.body)
             const applicant = new Applicant(req.body)
-           const res = await applicant.create(); 
+           const res = await applicant.create();  */
            response.send(res.affectedRows);
         } catch (error) {
             response.send({

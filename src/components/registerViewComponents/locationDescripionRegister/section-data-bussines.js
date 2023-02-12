@@ -81,6 +81,7 @@ export function dataBussines() {
     option4.textContent="Chia"
     const option5 = document.createElement('option')
     option5.textContent="Cinéga"
+    option5.id = 1
     const option6 = document.createElement('option')
     option6.textContent="Floridablanca"
     const option7 = document.createElement('option')

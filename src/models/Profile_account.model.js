@@ -18,7 +18,7 @@ class Profile_account extends GeneralQuerySql{
         this.#type = body.type;
         this.#key = body.key;
         this.#id_user = body.id_user;
-        this.#id_city = body.id_city;
+        this.#id_city = body.city;
     }
 
     set name(name){ this.#name=name }
