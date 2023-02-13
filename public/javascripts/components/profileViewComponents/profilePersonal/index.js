@@ -61,70 +61,72 @@ const obj1 = {
     const month = date.getMonth()+1
     const day = date.getDate()
     const how =[year,  day,month]
-    export function createProfileSup(body) {
-     const yearUser = body.Profile.day_of_birth
-    let caja =yearUser.split('/')
+
+
+export function createProfileSup(body) {
+        const yearUser = body.Profile.day_of_birth
+        let caja =yearUser.split('/')
+        
+    let edadReal
     
-let edadReal
-   
-       if(caja[1]<=month){
-        if(caja[2]<=day){
-            edadReal=year-caja[0]
-         }else{
-            edadReal=((year-caja[0])-1)
-         }
-     }else{
-        edadReal=year-caja[0]-1
-     }
+        if(caja[1]<=month){
+            if(caja[2]<=day){
+                edadReal=year-caja[0]
+            }else{
+                edadReal=((year-caja[0])-1)
+            }
+        }else{
+            edadReal=year-caja[0]-1
+        }
 
 
-const padre = document.createElement('div');
-padre.className='profile';
+    const padre = document.createElement('div');
+    padre.className='profile';
 
 
-const years = document.createElement('div');
-years.className='years';
-console.log(body.Profile.day_of_birth)
-years.textContent = edadReal;//fecha de nacimiento
+    const years = document.createElement('div');
+    years.className='years';
+    console.log(body.Profile.day_of_birth)
+    years.textContent = edadReal;//fecha de nacimiento
 
-const photo = document.createElement('div');
-photo.className='photo';
+    const photo = document.createElement('div');
+    photo.className='photo';
 
-const img = document.createElement('img');
+    const img = document.createElement('img');
 
-img.className='img';
-img.src = 'https://as01.epimg.net/meristation/imagenes/2022/05/19/noticias/1652944408_523527_1652944740_noticia_normal_recorte1.jpg';
+    img.className='img';
+    img.src = 'https://as01.epimg.net/meristation/imagenes/2022/05/19/noticias/1652944408_523527_1652944740_noticia_normal_recorte1.jpg';
 
-photo.appendChild(years);
-photo.appendChild(img);
-
-
-
-const textName = document.createElement('div')
-const date = document.createElement('div');
-date.appendChild(textName);
-
-const name = document.createElement('h1');
-const lastName = document.createElement('h3');
-const from = document.createElement('p');
-;
-from.textContent=`${body.Profile.city} - ${body.Profile.Country}`;
-name.textContent =body.Profile.name
-lastName.textContent =body.Profile.lasname
-
-date.className='date';
-name.className='name';
-textName.appendChild(name);
-textName.appendChild(lastName);
-textName.appendChild(from);
+    photo.appendChild(years);
+    photo.appendChild(img);
 
 
 
-padre.appendChild(photo);
-padre.appendChild(date);
+    const textName = document.createElement('div')
+    const date = document.createElement('div');
+    date.appendChild(textName);
+
+    const name = document.createElement('h1');
+    const lastName = document.createElement('h3');
+    const from = document.createElement('p');
+    ;
+    from.textContent=`${body.Profile.city} - ${body.Profile.Country}`;
+    name.textContent =body.Profile.name
+    lastName.textContent =body.Profile.lasname
+
+    date.className='date';
+    name.className='name';
+    textName.appendChild(name);
+    textName.appendChild(lastName);
+    textName.appendChild(from);
 
 
-return padre;
+
+    padre.appendChild(photo);
+    padre.appendChild(date);
+
+
+    return padre;
     
 }
 
@@ -142,6 +144,7 @@ export function createProfileInf(body){
 
     const otros = document.createElement('div')
     otros.className='otros';
+    
 const textOtros= document.createElement('h3')
 textOtros.textContent='Especializacion'
     otros.appendChild(textOtros)
@@ -222,6 +225,7 @@ descriptionPadre.appendChild(textDescription);
             
 
                 setTimeout(() => {
+                  
                     estudio.textContent=''
                     estudio.style.transition = 'transform.25s ease-in-out'
                     estudio.style.transform = 'translate(200%,0)' 

@@ -119,7 +119,6 @@
     .containerFather{
         display: flex;
         width: 100%;
-        gap: 7%;
         overflow: hidden;
     }
 
@@ -665,16 +664,17 @@
 
 /* Aqui termina la parte de Orejarena */
 
-/* Aqui empieza la parte de Jose */
+/* Aqui empieza la parte de caballero */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;0,900;1,200&display=swap');
-
+.padre{
+  padding: 5vmin;
+  margin:auto auto auto auto;
+}
 
 
 .profile{
     display: flex;
-    width: 96vmin;
-    height: 30vmin;
+    height: 35vmin;
    flex-direction: row;
    justify-content: space-evenly;
  
@@ -685,20 +685,20 @@
     border-radius:50%;
     position: relative;
     
-    width: 30vmin;
+    width: 35vmin;
     height: 30vmin;
 }
 .years{
     display: flex   ;
-    font-size: larger;
+    font-size: 2vh;
     font-weight: 900;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 3.5vmin;
+    right: 6vmin;
     background-color: #fff;
     box-shadow: 0 0 12px rgba(o,o,o,-2);
-    width: 40px;
-    height: 40px;
+    width: 4vmin;
+    height: 4vmin;
     z-index: 2;
     align-items: center;
     justify-content: center;
@@ -719,7 +719,7 @@
 
 .date{
     display: flex;
-    align-items: center;
+    align-items: center;3￼
     justify-content: center;
     text-align: center;
 }
@@ -732,6 +732,7 @@ h1{
     font-weight: 900;
 }
 .eParents{
+  width: 35vmin;
   display: flex;
   gap: 1vmin;
   flex-direction: column;
@@ -748,52 +749,74 @@ h3{
 
 
 /* parte inferios de la vista */
+
 .profileInf{
-   
+   gap: 2vmin;
    display: flex;
-   width: 90vmin;
-   height: 35vmin;
-  flex-direction: row;
-  justify-content:  space-evenly;
+   flex-direction: row;
+   justify-content: center;
+  
+   
+
 }
 
 .estudios{
     width: 35vmin;
-font-size: 2vmin;
-font-weight: 800;
+    height: 7.5vmin;
+    display:grid;
+    grid-template-columns: 1fr 7fr 1fr ;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
-    padding: 1vmax;
+    padding: 1vmin;
+
+    overflow:hidden ;
+    
+    
+}
+.estudios>*{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .otros{
     height: 25vmin;
-    font-size: 2.5vmin;
+    width: 35vmin;
+    
     font-weight: 900;
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
     padding: 2vmin 2vmin;
-   
-    overflow-y: scroll;
+    overflow-x: hidden;
+
+    
 
 }
-.otros::-webkit-scrollbar{
-    display: none;
-}
 
-.profileInf{
-    width: 100vmin;
-    height: 35vmin;
-}
-li{
+.otros>h3{
   font-size: 2vmin;
+
+}
+.liDiv{
+  font-size: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+
+li{
+ 
   font-weight: 900;
   list-style: none;
   color: #514c74;
 }
 
 .descriptionProfile{
-    width: 55vmin;
+    width: 75vmin;
    
     display: flex;
     flex-direction: column;
@@ -802,29 +825,46 @@ li{
     padding: 1vmin;  
     text-align: center;
 
-    font-size: 2.5vmin;
+    font-size: 1rem;
     font-weight: 900;
     gap: 1.5vmin;
-    overflow-y: scroll;
+
 
 }
 .descriptionProfile>h3{
+  height: 15%;
   font-size: 3vmin;
   font-weight: 900;
   text-transform: uppercase;
 }
-.descriptionProfile::-webkit-scrollbar{
-    display: none;
-}
+
 
 .descriptionPerfil{
   height: 80%;
   width: 100%;
   color: #514c74;
   display: flex;
+
   flex-direction: column;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
   
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.descriptionPerfil>P{
+height: 85%;
 }
 
 /* Aqui termina la parte de Jose */
