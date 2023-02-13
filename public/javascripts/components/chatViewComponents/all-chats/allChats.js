@@ -14,19 +14,21 @@ export const allChats = () => {
     //Creacion del contenedor de chats
     const divMessage = document.createElement('div')
     divMessage.className = 'father-all-chats'
+    console.log(people.length)
+    
+    people.forEach(e=>{
 
-    for(let i=1;i<=Object.keys(people).length;i++){
-        
-        //Array de los mensajes de cada uno de los chats
-        let chatMessages = Object.values(people[i].messages)
+        //Array de los mensajes de cada uno de los 
+        let chatMessages = e.messages
         //Ultimo mensaje del arrays de mensaje con sus propiedades
         let posLastMessage = chatMessages[chatMessages.length-1]
         let lastMessage = posLastMessage.message
         posLastMessage.role=='transmitter' ? lastMessage = 'You: '+ lastMessage : lastMessage=lastMessage
         //Agregacion de el contenedor del chat  
-        divMessage.appendChild((a(Object.keys(people)[i-1],people[i].name,people[i].profileImage,lastMessage,posLastMessage.hour)))
+        divMessage.appendChild((a(e.id,e.name,e.profileImage,lastMessage,posLastMessage.hour)))
         
-    }
+    })
+    
     
     //Creacion del contenedor que tendra el titulo all chats y el contenedor de los mensjes
     const divAllChats = document.createElement('div')

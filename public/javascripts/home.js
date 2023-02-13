@@ -95,15 +95,15 @@ document.querySelectorAll('.messageBox').forEach((e,i)=>{
 
     e.addEventListener('click',(ev)=>{
 
-        const person = Object.values(people)[i]
+        const person = people[i]
 
         father.removeChild( document.querySelector('.principal'))
-        father.appendChild(allView(Object.keys(people)[i],person.name,person.profileImage,person.description))
+        father.appendChild(allView(person.id,person.name,person.profileImage,person.description))
         
         document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
         //Configurando la actualizacion de los mensajes respecto al chat seleccionado
         const messageFather = document.querySelector('.padreMensajes')
-        Object.values(person.messages).forEach(e=>{
+        person.messages.forEach(e=>{
             let color = ''
             e.role=='transmitter' ? color = 'verde' : color = 'gris'
             messageFather.appendChild(boxMessage(color,e.role,e.message,e.hour))
