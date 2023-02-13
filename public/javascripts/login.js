@@ -1,6 +1,5 @@
 import { background, log } from "./components/loginViewComponents/loginView.js"
 
-
 document.querySelector('#app').appendChild(background())
 document.querySelector('#app').appendChild(log())
 
@@ -22,7 +21,7 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
 });
 //Condicional para evaluar si los inputs estan vacios o no
 btn.addEventListener('click', async (e) => {
-    
+
     const email = document.querySelector('#email').value
     const psw = document.querySelector('#psw').value
 
@@ -38,8 +37,21 @@ btn.addEventListener('click', async (e) => {
             body: JSON.stringify(cuerpo)
         })
         const data = await response.json();
-
         console.log(data);
+
+        if(data.message==false){
+            Swal.fire({
+                title: 'Error!',
+                text: 'Credenciales invalidas',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        
+        if (data.message == "user atutenticado") {
+            localStorage.setItem("token",  (data.token))
+        }
 }
+
 
 )
