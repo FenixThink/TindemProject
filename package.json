@@ -1,38 +1,26 @@
 {
-  "name": "proyectotindem",
-  "private": true,
+  "name": "myapp",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "nodemon ./src/server.js",
-    "build": "vite build",
-    "preview": "vite preview"
+  "bin": {
+    "www": "./bin/www.js"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.20",
-    "vite": "^4.0.0"
+  "scripts": {
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.0",
+    "mongoose": "^6.9.1",
+    "morgan": "~1.9.1",
     "mysql2": "^3.1.2",
     "path": "^0.12.7"
-  },
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/educacion-coex/grupo-g2/proyectotindem.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/educacion-coex/grupo-g2/proyectotindem/issues"
-  },
-  "homepage": "https://gitlab.com/educacion-coex/grupo-g2/proyectotindem#readme"
+  }
 }

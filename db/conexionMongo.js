@@ -1,8 +1,3 @@
-
-import mongoose from 'mongoose'
-
-
-
 //conexion a base de datos
 
 const port = process.env.Port || 3000
@@ -15,9 +10,5 @@ const conexionmongo = {
 }
 
 const uri =  `mongodb+srv://${conexionmongo.user}:${conexionmongo.password}@cluster0.kzzhkwa.mongodb.net/${conexionmongo.dbname}?retryWrites=true&w=majority`
-
-
-
-
 
 export default uri
