@@ -16,8 +16,10 @@ class Interest_area extends GeneralQuerySql{
     get name(){ return this.#name }
     
     create = async ()=>{
+
         const index = await pool.query('INSERT INTO interest_area (name) VALUES (?)',[this.#name])
         return index[0]
+        
     }
 
     static indexInteresAplicant = async (params)=>{
@@ -32,7 +34,6 @@ class Interest_area extends GeneralQuerySql{
         for (let i = 0; i < area[0].length; i++) {
             const name = area[0][i].name
             element[name] = []
-            
         }
 
         for(let i = 0; i < area[0].length; i++) {
@@ -42,9 +43,10 @@ class Interest_area extends GeneralQuerySql{
                 }
             }
         }
-        return {profile,area,interest,element}
-    }
 
+        return {profile,area,interest,element}
+
+    }
 }
 
 export default Interest_area
