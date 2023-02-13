@@ -69,6 +69,8 @@ class UserController{
     static generateAccessToken(user){
         return jwt.sign(user,process.env.SECRET,{expiresIn: '5m'})
     }
+
+
     static auth = async (req,res)=>{
 
     const {email,password} = req.body;
@@ -85,14 +87,16 @@ class UserController{
         const User = {email:email,rol:query2.type};
         const accessToken = this.generateAccessToken(User);
 
-        res.header('autorization',accessToken).json({
+        res.status(200).header('autorization',accessToken).json({
             message: 'user atutenticado',
             token:accessToken
 
         });
         return;
     }
-    res.send('No se ha podido loguear');
+    res.status(500).json({
+        message: false
+    });
     }
 
 }

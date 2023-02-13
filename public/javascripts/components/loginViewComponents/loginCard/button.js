@@ -4,7 +4,7 @@ export const buttonLogin = () =>{
     button.id = "sendBtn"
     button.textContent="Iniciar Sesión"
 
-    button.type = "submit"
+    button.type = "button"
     button.style.cursor = "pointer"
     button.classList.add("button")
     const div = document.createElement('div')

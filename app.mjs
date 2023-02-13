@@ -12,6 +12,7 @@ import indexRouter from './routes/index.routes.js'
 import userRouter from './routes/user.routes.js'
 import applicantRouter from './routes/applicant.routes.js'
 import companyRouter from './routes/company.routes.js'
+import areaRouter from './routes/area.routes.js'
 
 var app = express();
 
@@ -29,6 +30,10 @@ app.use('/', indexRouter);
 app.use(userRouter);
 app.use(applicantRouter);
 app.use(companyRouter);
+app.use(areaRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

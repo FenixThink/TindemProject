@@ -21,40 +21,25 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
     }
 });
 //Condicional para evaluar si los inputs estan vacios o no
-btn.addEventListener('click', (e) => {
+btn.addEventListener('click', async (e) => {
     
     const email = document.querySelector('#email').value
     const psw = document.querySelector('#psw').value
 
     const cuerpo = {
         email: email,
-        userPassword: psw
+        password: psw
     }
+        const response = await fetch('http://localhost:3000/api/login/',{
+            method:'post',
+            headers:{
+                "Content-type":'application/json'
+            },
+            body: JSON.stringify(cuerpo)
+        })
+        const data = await response.json();
 
-    const transactionJson = JSON.stringify(cuerpo)
-
-    fetch('http://localhost:5173/',{
-        method:'Post',
-        headers:{
-            "Content-type":'application/json'
-        },
-        body: transactionJson
-    })
-    
-/* 
-    if (!email || !psw) {
-        alert("Email o contraseña incompletas")
-
-    } else {
-        
-        if (psw !== "gatitoFudioso777") {
-            alert("Digite su contraseña correctamente")
-        } else {
-            document.querySelector('#email').value = ""
-            document.querySelector('#psw').value = ""
-            window.location = "src/views/mainView/aspirante/index.html"
-        }
-    } */
+        console.log(data);
 }
 
 )

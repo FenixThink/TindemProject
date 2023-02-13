@@ -4,6 +4,7 @@ import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.j
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 export const TotalFunctionView = () => {
+
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales
    const divFather = document.createElement('div');
