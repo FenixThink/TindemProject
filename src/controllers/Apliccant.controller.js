@@ -39,7 +39,7 @@ class ApplicantController{
     static getAll =async(req,res)=>{
         try{
             const respuesta = await Applicant.All()
-            res.send(respuesta)
+            return respuesta
         }catch(error){
             return res.send({
                 "status":404,

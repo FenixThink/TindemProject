@@ -53,6 +53,23 @@ inputCont.addEventListener('keyup',(e)=>{
                 }
             })
 
+            const message ={
+                message:input.value,
+                hour: `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`,
+                role:'transmitter'
+            }
+
+            fetch('/chats',{
+                    method:'post',
+                    headers:{
+                        "Content-type":"Application/json",
+                    body: JSON.stringify(message)
+                }
+            })
+            
+
+
+
             let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
             padreCentro.scrollTop+=diEnd
             

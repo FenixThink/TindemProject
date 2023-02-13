@@ -21,7 +21,7 @@ document.querySelector("#email").addEventListener("focusout", (e) => {
     }
 });
 //Condicional para evaluar si los inputs estan vacios o no
-btn.addEventListener('click', (e) => {
+btn.addEventListener('click', async (e) => {
     
     const email = document.querySelector('#email').value
     const psw = document.querySelector('#psw').value
@@ -32,14 +32,24 @@ btn.addEventListener('click', (e) => {
     }
 
     const transactionJson = JSON.stringify(cuerpo)
-
-    fetch('http://localhost:5173/',{
-        method:'Post',
+    console.log(transactionJson)
+    fetch('/',{
+        method:'post',
         headers:{
             "Content-type":'application/json'
         },
         body: transactionJson
     })
+
+    const applicants = await fetch('/allaspirant',{
+        method: 'get',
+        headers:{
+            "Content-type":'application/json'
+        }
+    })
+    const data = await applicants.json()
+    console.log(data)
+
     
 /* 
     if (!email || !psw) {
