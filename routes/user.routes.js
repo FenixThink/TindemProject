@@ -40,7 +40,8 @@ router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
 })
 export default router;
 
-// router.post('/',async (req,res)=>{
+router.post('/',async (req,res)=>{
+    console.log(req.body)
 
 //     const query = await User.All()
 //     query.forEach(e=>{
@@ -50,4 +51,4 @@ export default router;
 //         }
 //     })
 
-// });
+});

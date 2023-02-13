@@ -4,6 +4,7 @@ import { inputCreator } from "../../../input/input.js"
 import { boxMessage } from "../../boxMessage/boxMessage.js"
 import { people } from "../../partLeftChat/unionPartsLeft.js";
 
+
 export const parentParentCreator = (id,profileName,photo)=>{
 
 const center = centerCreator()
@@ -52,6 +53,32 @@ inputCont.addEventListener('keyup',(e)=>{
                     e.lastChild.textContent = 'You: ' + input.value 
                 }
             })
+            const text = input.value
+            setTimeout(() => {
+               const recep = document.querySelector('.nameTopChat')
+               console.log(recep.id);
+               const body ={
+                   "idApplicant":recep.id,
+                   "idCompany":4,
+                   "message":{
+   
+                       text:text,
+                       hour: `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`,
+                       role:'transmitter'
+                   }
+               } 
+               fetch('/chats',{
+                       method:'Post',
+                       headers:{
+                           "Content-type":"Application/json"},
+                       body: JSON.stringify(body)
+                   
+               })
+            }, 1000);
+
+            
+
+
 
             let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
             padreCentro.scrollTop+=diEnd
