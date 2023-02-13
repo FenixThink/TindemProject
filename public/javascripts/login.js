@@ -28,43 +28,18 @@ btn.addEventListener('click', async (e) => {
 
     const cuerpo = {
         email: email,
-        userPassword: psw
+        password: psw
     }
+        const response = await fetch('http://localhost:3000/api/login/',{
+            method:'post',
+            headers:{
+                "Content-type":'application/json'
+            },
+            body: JSON.stringify(cuerpo)
+        })
+        const data = await response.json();
 
-    const transactionJson = JSON.stringify(cuerpo)
-    console.log(transactionJson)
-    fetch('/',{
-        method:'post',
-        headers:{
-            "Content-type":'application/json'
-        },
-        body: transactionJson
-    })
-
-    const applicants = await fetch('/allaspirant',{
-        method: 'get',
-        headers:{
-            "Content-type":'application/json'
-        }
-    })
-    const data = await applicants.json()
-    console.log(data)
-
-    
-/* 
-    if (!email || !psw) {
-        alert("Email o contraseña incompletas")
-
-    } else {
-        
-        if (psw !== "gatitoFudioso777") {
-            alert("Digite su contraseña correctamente")
-        } else {
-            document.querySelector('#email').value = ""
-            document.querySelector('#psw').value = ""
-            window.location = "src/views/mainView/aspirante/index.html"
-        }
-    } */
+        console.log(data);
 }
 
 )
