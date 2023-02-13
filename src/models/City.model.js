@@ -8,6 +8,7 @@ class City extends GeneralQuerySql{
     #id_country;
 
     constructor(body) {
+        super()
         this.#name = body.name,
         this.#id_country = body.id_country
     }
