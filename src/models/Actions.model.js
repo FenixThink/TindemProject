@@ -46,11 +46,23 @@ export class Actions extends GeneralQuerySql{
         return {name:queryname[0], consulta:queryId[0]}
     }
 
-    static async FindOneC(id){
+    static async FindOneC(){
         const [queryname] = await pool.query(`SELECT p.name  FROM profile_account p  WHERE key_rol = (?) AND p.type = "company"`, [id])
+        console.log("holas")
         const queryId = await pool.query(`SELECT ac.action, p.name AS name_company,co.id AS id_applicant  FROM actions ac INNER JOIN profile_account p ON ac.id_company = p.key_rol AND p.type = "applicant" AND action_match = 1 INNER JOIN applicant ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.id_company = (?)`, [id])
         return {name:queryname[0], consulta:queryId[0]}
+
     }
+    
+    static async DeleteChat(req, res){
+        const id_company = req.body
+        console.log(id_company)
+        const id_applicant = req.body
+        console.log(id_applicant)
+        const rows = await pool.query(`DELETE FROM actions where actions.id_company = (?) AND action_match = 1 AND actions.id_applicant = (?)`, [id_company, id_applicant])
+        return rows[0]
+    } 
+
 }
 
 export default Actions
