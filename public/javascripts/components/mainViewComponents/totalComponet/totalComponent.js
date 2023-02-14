@@ -3,7 +3,16 @@ import { rightCreator, reloadData } from "./mainFunction.js";
 import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
+
+    async function fetchMoviesJSON() {
+       const response = await fetch('http://localhost:3000/api/allaspirant');
+       const movies = await response.json();
+       return movies;
+    }
 export const TotalFunctionView = () => {
+   fetchMoviesJSON().then(movies => {
+      console.log(movies); // fetched movies
+   });
 
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales

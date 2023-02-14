@@ -56,7 +56,6 @@ inputCont.addEventListener('keyup',(e)=>{
             const text = input.value
             setTimeout(() => {
                const recep = document.querySelector('.nameTopChat')
-               console.log(recep.id);
                const body ={
                    "idApplicant":recep.id,
                    "idCompany":4,

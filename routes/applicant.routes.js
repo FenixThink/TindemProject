@@ -9,7 +9,7 @@ router.get('/register/applicant', function(_, res) {
   });
 router.post('/applicant/create',ApplicantController.applicantCreate);
 
-router.get('/allaspirant', ApplicantController.getAll);
+router.get('/api/allaspirant', ApplicantController.getAll);
 router.get('/aspirant/:id', ApplicantController.applicantId);
 
 

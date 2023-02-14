@@ -8,6 +8,7 @@ export const rightCreator = (img, nombre, valueSpan, descTitle, spanTextDescript
     setTimeout(() => {
         reloadData()
     }, 100);
+    console.log(interestItems)
     const componentAInformation = upperComponents(img, nombre, valueSpan);
     const componentBDescription = interests(interestItems);
     const componentDescription = Description(descTitle, spanTextDescription);
