@@ -8,6 +8,7 @@ const routerAction = Router()
 
 routerAction.get("/allAction/a",ActionController.getAll)
 routerAction.get("/allAction/:id",ActionController.ActionId)
+routerAction.delete('/allAction/deleteChats',ActionController.DeleteChat)
 routerAction.get("/allAction/applicant/:id",ActionController.FindOneA)
 routerAction.get("/allAction/company/:id",ActionController.FindOneC)
 
