@@ -26,8 +26,6 @@ const send = document.querySelector('.submitButton')
         //Condicional para definir si los campos estan vacios
         let emptyInputsBool = data.some(e=>e==="")
 
-        console.log(emptyInputsBool)
-        console.log(data.length)
         if(emptyInputsBool==true){
             alert('Por favor llenar todos los datos requeridos')
         }else{

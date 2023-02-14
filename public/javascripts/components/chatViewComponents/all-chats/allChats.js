@@ -14,8 +14,7 @@ export const allChats = () => {
     //Creacion del contenedor de chats
     const divMessage = document.createElement('div')
     divMessage.className = 'father-all-chats'
-    console.log(people.length)
-    
+
     people.forEach(e=>{
 
         //Array de los mensajes de cada uno de los 
