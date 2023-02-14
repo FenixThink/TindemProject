@@ -12,6 +12,9 @@ routerChats.post("/chats",(req,res)=>{
     chat.save().then((data)=>res.json(data))
 })
 
-routerChats.get('/obtenerChats',chatsController.obtenerChats)
+routerChats.get('/obtenerChats',chatsController.getAllChats)
 
+routerChats.get('/obtenerChatIDApplicant/:idApplicant',chatsController.getChatIdUserApplicant)
+
+routerChats.get('/getChatIdUserCompany/:idCompany',chatsController.getChatIdUserCompany)
 export default routerChats
