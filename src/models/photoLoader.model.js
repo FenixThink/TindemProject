@@ -1,0 +1,7 @@
+
+
+
+class PhotoLoader {
+    title;
+
+}

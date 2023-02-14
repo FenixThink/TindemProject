@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "bin": {
+    
     "www": "./bin/www.js"
   },
   "scripts": {
@@ -24,7 +25,9 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.1.2",
     "path": "^0.12.7",
-    "timeago.js": "^4.0.2",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
     "uuid": "^9.0.0"
   }
 }

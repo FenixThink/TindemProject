@@ -40,9 +40,10 @@ create table user_account(
 create table profile_account(
 	id int(11) primary key auto_increment,
     name varchar(30) not null,
-    description varchar(500) not null,
+    description varchar(255) not null,
     type enum('applicant','company'),
     key_rol int not null,
+    img varchar(255) not null,
     id_user int(11) not null,
     id_city int(11) not  null,
     constraint fk_id_user foreign key (id_user) references user_account(id) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -80,6 +81,7 @@ create table actions (
     constraint fk_id_applicant foreign key (id_applicant) references applicant(id) ON DELETE NO ACTION ON UPDATE CASCADE,
     constraint fk_id_company foreign key (id_company) references company(id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
+
 
 INSERT INTO user_account VALUES ( 1,"neutro@gmail.com","short321" );
 INSERT INTO user_account VALUES ( 2,"jose1@gmail.com","yogurt456" );
@@ -132,14 +134,11 @@ INSERT INTO city VALUES ( 4,"Los angeles",4 );
 INSERT INTO city VALUES ( 5,"Manchester",5 );
 
 
-INSERT INTO profile_account VALUES ( 1,"Google","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",1,6,1);
-INSERT INTO profile_account VALUES ( 2,"Liomar","increliblo","applicant",1,1,3);
-
-INSERT INTO profile_account VALUES ( 3,"Accor","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",2,7,2);
-
-INSERT INTO profile_account VALUES ( 4,"Jose","nao nao","applicant",2,2,4);
-
-INSERT INTO profile_account VALUES ( 5,"Johan","yes yes","applicant",3,3,5);
+INSERT INTO profile_account VALUES ( 1,"Google","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",1,"01",6,1);
+INSERT INTO profile_account VALUES ( 2,"Liomar","increliblo","applicant",1,"001",1,3);
+INSERT INTO profile_account VALUES ( 3,"Accor","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",2,"01001",7,2);
+INSERT INTO profile_account VALUES ( 4,"Jose","nao nao","applicant",2,"00001",2,4);
+INSERT INTO profile_account VALUES ( 5,"Johan","yes yes","applicant",3,"000001",3,5);
 
 
 INSERT INTO profile_specialization VALUES ( 1,1,1 );
