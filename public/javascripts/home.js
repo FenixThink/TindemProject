@@ -5,20 +5,40 @@ import { boxMessage } from "./components/chatViewComponents/boxMessage/boxMessag
 import { parentCreator } from "./components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app');
-async function fetchMoviesJSON() {
-    const data = [];
-    const response = await fetch('http://localhost:3000/Area');
-    const dataArea = await response.json();
 
-    const response1 = await fetch('http://localhost:3000/Area/Interes/neutro@gmail.com');
+async function fetchMoviesJSON() {
+const data = []
+    const token = localStorage.getItem('token')
+    const tokenPropio = {'token':token}
+
+    const response = await fetch('http://localhost:3000/api/decode/',{
+        method:'post',
+        headers:{
+            "Content-type":'application/json'
+        },
+        body: JSON.stringify(tokenPropio)
+    })
+    const infoUser = await response.json();
+
+    const response1 = await fetch('/Area/Interes/neutro@gmail.com',{
+        method: 'get',
+        headers: {
+            'autorization': token
+        }
+    });
     const dataUser = await response1.json();
-    data.push(dataArea);
+
+    if (dataUser.message === "Access Denied" || dataUser.message ==="access denied, token expired or incorrect"){
+        window.location = '/'
+    }
+    data.push(infoUser);
     data.push(dataUser);
+
     return data;
 }
 fetchMoviesJSON().then(data => {
-    const [dataArea, dataUser] = data;
-
+    const [infoUser, dataUser] = data;
+    console.log(infoUser)
     app.appendChild(TotalFunctionView(dataUser));
     const father = document.querySelector('.containerFather');
 

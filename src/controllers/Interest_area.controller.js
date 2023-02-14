@@ -26,7 +26,7 @@ class InterestAreaController extends GeneralQuerySql {
                 if(profile[0].length == 0 || interest[0].length == 0){
                  return res.status(500).json({message:"Profile not found"})   
                 };
-                return res.status(200).json([profile[0][0], element]); 
+                return res.status(200).json([profile[0][0], element]);
 
             } catch (error) {
                 return res.status(500).json({message:error.message});
