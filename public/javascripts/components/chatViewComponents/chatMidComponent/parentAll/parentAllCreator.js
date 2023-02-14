@@ -67,14 +67,21 @@ inputCont.addEventListener('keyup',(e)=>{
                    }
                } 
                fetch('/chats',{
-                       method:'Post',
+                       method:'Post', 
                        headers:{
                            "Content-type":"Application/json"},
                        body: JSON.stringify(body)
                    
                })
+               
             }, 1000);
 
+            fetch('/obtenerChats',{
+                method:'Get',
+                headers:{
+                    "Content-type":"Application/json"},
+                body: JSON.stringify(body)
+            })
             
 
 
