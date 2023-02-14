@@ -50,6 +50,7 @@ btn.addEventListener('click', async (e) => {
         if (data.message == "user atutenticado") {
             localStorage.setItem("token",  (data.token))
         }
+        console.log(data)
 }
 
 
