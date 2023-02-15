@@ -4,7 +4,7 @@ import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.j
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 
-export const TotalFunctionView = (dataArea) => {
+export const TotalFunctionView = async(dataArea) => {
    //console.log(dataArea)
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales
@@ -13,7 +13,7 @@ export const TotalFunctionView = (dataArea) => {
    const right = document.createElement('div');
    right.className = "right";
    //Componente del header de la izquierda
-   const left = partLeft('Pepsi', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+   const left = await partLeft('Pepsi', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
    divFather.appendChild(left)
 
    divFather.appendChild(right);

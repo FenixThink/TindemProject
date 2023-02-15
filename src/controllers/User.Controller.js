@@ -112,9 +112,13 @@ class UserController{
     static auth = async (req,res)=>{
 
     const {email,password} = req.body;
+
     const user = new User(email,password);
+
     const query = await this.getAll();
+
     let status = false
+
      query.forEach((e)=>{
         if (e.email === email && e.password === password){
             status = true
@@ -130,7 +134,8 @@ class UserController{
             });
             return;
         }
-        const User = {email:email,rol:query2.type};
+        console.log(query2);
+        const User = {id:query2.id,email:email,rol:query2.type};
         const accessToken = this.generateAccessToken(User);
 
         res.status(200).header('autorization',accessToken).json({

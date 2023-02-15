@@ -6,7 +6,7 @@ import { parentCreator } from "./components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app');
 
-async function fetchMoviesJSON() {
+export async function fetchQuerys() {
     const data = []
     const emails = []
     let infoemails = {}
@@ -40,6 +40,7 @@ async function fetchMoviesJSON() {
         });
         infoemails = await emailsCompany.json();
     }
+    const id = infoUser.message.id
 
     console.log(infoemails.message[1].email)
     for (let  i = 0; i < Object.values(infoemails.message).length; i++){
@@ -58,13 +59,27 @@ async function fetchMoviesJSON() {
     }
     data.push(infoUser);
     data.push(dataUser);
+    
+    //Fetch para buscar los match de acuerdo a su id
+    const idFetch = await fetch(`allAction/applicant/${id}`,{
+        method: 'get',
+        headers: {
+            'autorization': token
+        }
+    });
+    const infoMessage = await idFetch.json();
 
+    data.push(infoMessage)
+    //Fetch para traer la info de los mensajes hora etc..
+
+    
     return data;
 }
-fetchMoviesJSON().then(data => {
+
+fetchQuerys().then(async(data) => {
     const [infoUser, dataUser] = data;
 
-    app.appendChild(TotalFunctionView(dataUser));
+    app.appendChild(await TotalFunctionView(dataUser));
     const father = document.querySelector('.containerFather');
 
     father.appendChild(allView('',''))
