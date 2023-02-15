@@ -78,6 +78,7 @@ export function AreasRoles(btnAreasOrRoles) {
 /* creacion de botones por parametros*/
 function createButton(name,i){
     let btn = document.createElement("input");
+    btn.type='button'
     btn.className="optionsAreas"
     btn.value=name
     btn.id=i

@@ -101,6 +101,7 @@ export function AreasRolesTwo(btnRolInArea) {
 /* creacion de botones por parametros*/
 function createButton(name) {
     let btn = document.createElement("input");
+    btn.type = "button"
     btn.className = "optionsRoles"
     btn.value = name
     btn.name = "inactive"
@@ -117,7 +118,7 @@ function createButton(name) {
             this.style.color = "#fff"
             this.name = "active"
         } else {
-            this.style.background = "#fff"
+            this.style.background = "#D4D9FF"
             this.style.color = "#4267C7"
             this.name = "inactive"
         }

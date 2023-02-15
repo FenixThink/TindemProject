@@ -100,7 +100,7 @@ body{
     }
     
    
-    .containerRolesAndAreas button , .profileRoles button{
+    .containerRolesAndAreas input , .profileRoles input{
        
         color:#4267C7;
         border: solid 0px ;
@@ -123,7 +123,7 @@ body{
         font-size: 0.9rem;
         background-color: #6171FF;
     }
-    .containerRolesAndAreas button:hover, .agregarCambios:hover{
+    .containerRolesAndAreas input:hover, .agregarCambios:hover{
         cursor: pointer;
     }
 
@@ -382,7 +382,7 @@ label{
     padding: .5rem 1rem;
 }
 
-button:hover{
+input:hover{
     cursor: pointer;
 }
 
