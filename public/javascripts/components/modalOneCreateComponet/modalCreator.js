@@ -69,7 +69,7 @@ export function AreasRoles(btnAreasOrRoles) {
     
     
     
-    const b=document.querySelectorAll(".optionsRoles")
+
     
 
 

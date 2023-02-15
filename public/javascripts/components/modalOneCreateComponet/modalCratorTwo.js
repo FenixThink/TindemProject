@@ -21,68 +21,54 @@ export function AreasRolesTwo(btnRolInArea) {
 
     const add = document.createElement("input")
     add.type = "button"
+   add.id = "agregarCambios"
     add.className = "agregarCambios"
     add.value = "Aplicar Cambios"
-
-
     /* con este evento capturamos los botones seleccionados y los enviamos a la caja necesarioa 
     */
 
     add.onclick = function () {
+
+        //capturando botones activos
         const devuelta = document.getElementsByName('active')
-
-
-        let Array1 = [...devuelta]; console.log(devuelta)
-
-
+//enviando la lista de notos aun array
+        let Array1 = [...devuelta]; 
         let array1Content = []
 
-
-
         Array1.forEach(i => {
-            array1Content.push(i.textContent)
-            //console.log(i.textContent,'item');
+            array1Content.push(i.value)
         })
-
-
-
         //nuevo.add(array2Content)
 
+        //enviando datos al set asi aseguramos que no entren repetidos
         array1Content.forEach(element => {
             prueba.add(element)
         });
+
         console.log(prueba)
-
-
-
+        //capturando botones a eliminar para crear nuevamente 
         const reset = document.querySelector(".rolesInProfiles")
         while (reset.firstChild) {
             reset.removeChild(reset.firstChild)
         }
+        //funcion que nos permite crear respecto al set asi aseguramos que no entren repetidos 
+        
         enviar(prueba)
-
-        /*         con este codigo remuevo el hijo que se crea cada que llamamos una area 
-        */
+        //       con este codigo remuevo el hijo que se crea cada que llamamos una area  
+        
         document.querySelector(".modalHijo").remove()
-
     }
-
     /*  para dar un clasname diferente */
     btnRolInArea.forEach(e => {
-
         rolesName.appendChild(createButton(e))
-
     });
-
     const headerRoles = document.createElement("div")
     headerRoles.className = "header"
     headerRoles.appendChild(rol)
     headerRoles.appendChild(area)
 
-
     const footerRoles = document.createElement("div")
     footerRoles.appendChild(add)
-
     const container = document.createElement("div")
     container.className = "containerRolesAndAreas"
 

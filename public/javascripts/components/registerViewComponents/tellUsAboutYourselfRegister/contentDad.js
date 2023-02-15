@@ -34,11 +34,12 @@ export function enviar(e) {
   document.querySelector(".rolesInProfiles").appendChild(padre)
 
   e.forEach(i => {
+    console.log(i,'este es el console ')
     const botones = document.createElement('input');
     botones.type = 'button';
     botones.className = 'optionsRoles'
+    botones.value = i
     padre.appendChild(botones)
-    botones.value = `${i}`
   });
 
 
