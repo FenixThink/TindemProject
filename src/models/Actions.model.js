@@ -55,12 +55,11 @@ export class Actions extends GeneralQuerySql{
     }
     
     static async DeleteChat(req, res){
-        const id_company = req.body
+        const {id_company,id_applicant} = req.body;
         console.log(id_company)
-        const id_applicant = req.body
         console.log(id_applicant)
         const rows = await pool.query(`DELETE FROM actions where actions.id_company = (?) AND action_match = 1 AND actions.id_applicant = (?)`, [id_company, id_applicant])
-        return rows[0]
+        return "Eliminado exitoso"
     } 
 
 }

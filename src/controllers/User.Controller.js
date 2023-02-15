@@ -44,6 +44,20 @@ class UserController{
 
         }
     }
+    static validateToken =async(req,res)=>{
+        try{
+            const token = req.body.token
+            const respuesta = await User.validationToken(token)
+            console.log(respuesta)
+            return res.status(200).json({'message':respuesta})
+        }catch(error){
+            return res.status(500).json({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
 
     static getfindOne =async(req,res)=>{
         try{

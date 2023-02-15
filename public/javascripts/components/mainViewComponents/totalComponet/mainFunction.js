@@ -4,14 +4,32 @@ import { Description } from "../descriptionComponent/descriptionComponent.js";
 import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
-export const rightCreator = (img, nombre, valueSpan, descTitle, spanTextDescription, interestItems) => {
-    setTimeout(() => {
-        reloadData()
-    }, 100);
-    console.log(interestItems)
-    const componentAInformation = upperComponents(img, nombre, valueSpan);
-    const componentBDescription = interests(interestItems);
-    const componentDescription = Description(descTitle, spanTextDescription);
+export const rightCreator = (img, nombre, valueSpan, descTitle, spanTextDescription, interestItems, dataArea) => {
+
+    //setTimeout(() => { reloadData() }, 100);
+    const [data, interestArea] = dataArea
+    const array = []
+    const otherArray = []
+
+    for (const x in interestArea) {
+        array.push(x)
+    }
+    for (let  i = 0; i < Object.values(interestArea).length; i++){
+        if (interestArea[array[i]].length > 1){
+            for (let  a = 0; a <= interestArea[array[a]].length; a++){
+                otherArray.push(interestArea[array[i]][a])
+            }
+        }else{
+            otherArray.push(interestArea[array[i]])
+        }
+    }
+
+    console.log(data)
+
+
+    const componentAInformation = upperComponents(img, data.name, data.day_of_birth);
+    const componentBDescription = interests(otherArray);
+    const componentDescription = Description(descTitle, data.description);
     const componentCOptions = renderButtons();
     const mainContainerSon = document.createElement('div');
     mainContainerSon.className = "mainContainerSon";
