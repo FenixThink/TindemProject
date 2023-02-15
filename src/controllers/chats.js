@@ -9,7 +9,7 @@ class chatsController{
 
 
     static getChatIdUserApplicant = async (req,res)=>{
-        const chat = await chatsmodel.find({idApplicant:req.body.idApplicant})
+        const chat = await chatsmodel.find({idApplicant:req.params.idApplicant})
         res.send(chat)
     }
 
@@ -19,20 +19,6 @@ class chatsController{
     }
 
 }
-//const obtenerChats = async (req,res)=>{
-//     const chat = await chatsmodel.find()
-//     chatsmodel.countDocuments({},(err,total)=>{
-//         if(err){
-//             return res.json({
-//                 status:400,
-//                 mensaje: "Error al leer el archivo",
-//                 err
 
-//             })
-//         }
-
-//         res.json({status:200,total,chat})
-//     })
-// }
 
 export default chatsController

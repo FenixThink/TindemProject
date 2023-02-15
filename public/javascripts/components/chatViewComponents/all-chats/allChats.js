@@ -7,9 +7,8 @@ import { fetchQuerys } from "../../../home.js"
 
 export const allChats = async() => {
     const holaMundo = await fetchQuerys().then(data => {
-        const [infoUser, dataUser,infoMessage] = data;
+        const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data;
       
-        console.log(infoMessage.consulta[0]);
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')
         h1.className = 'TitleallChats'
@@ -35,6 +34,7 @@ export const allChats = async() => {
         // })
         divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s","lastMessage","12-5-2023")))
 
+        console.log(allmessagesAplicant)        
 
         
         

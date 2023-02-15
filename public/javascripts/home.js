@@ -70,9 +70,18 @@ export async function fetchQuerys() {
     const infoMessage = await idFetch.json();
 
     data.push(infoMessage)
+
     //Fetch para traer la info de los mensajes hora etc..
 
-    
+    const idApplicant = await fetch (`obtenerChatIDApplicant/${id}`,{
+        method: 'get',
+        
+    })
+
+    const allmessagesAplicant = await idApplicant.json()
+
+    data.push(allmessagesAplicant)
+
     return data;
 }
 

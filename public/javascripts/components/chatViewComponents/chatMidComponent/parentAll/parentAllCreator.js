@@ -62,7 +62,7 @@ inputCont.addEventListener('keyup',(e)=>{
                    "message":{
    
                        text:text,
-                       hour: `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`,
+                       hour: `${date.toLocaleString('es-CO').slice(10,16)} ${zone}`,
                        role:'transmitter'
                    }
                } 
