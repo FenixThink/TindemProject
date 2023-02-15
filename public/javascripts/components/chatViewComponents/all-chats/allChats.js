@@ -22,16 +22,16 @@ export const allChats = () => {
     
 //    }
 
-    // const  obteneraplicantes =  fetch('/obtenerChatIDApplicant/',{
-    //     method:'get',
-    //     headers:{
-    //         "Content-type":"Application/json"},
-    //     body:{
-    //         idApplicant:1
-    //     }
-    // })
+//     const  obteneraplicantes =  fetch('/obtenerChatIDApplicant/',{
+//         method:'get',
+//         headers:{
+//             "Content-type":"Application/json"},
+//         body:{
+//             idApplicant:1
+//         }
+//     })
 
-   // console.log(obteneraplicantes)
+//    console.log(obteneraplicantes)
 
     people.forEach(e=>{
 

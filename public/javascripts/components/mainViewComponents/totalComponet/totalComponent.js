@@ -3,6 +3,7 @@ import { rightCreator, reloadData } from "./mainFunction.js";
 import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
+
 export const TotalFunctionView = (dataArea) => {
    //console.log(dataArea)
    const objectApplicant = Object.values(applicant);
