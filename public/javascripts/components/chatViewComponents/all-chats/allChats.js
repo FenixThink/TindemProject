@@ -32,9 +32,13 @@ export const allChats = async() => {
         //     //Agregacion de el contenedor del chat  
             
         // })
-        divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s","lastMessage","12-5-2023")))
+        //console.log(infoMessage)
+        let posicition = allmessagesAplicant.length
 
-        console.log(allmessagesAplicant)        
+        divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allmessagesAplicant[posicition-1].message[0].text,allmessagesAplicant[posicition-1].message[0].hour)))
+
+        console.log(infoMessage)        
+             
 
         
         

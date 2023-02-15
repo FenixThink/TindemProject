@@ -43,6 +43,7 @@ export async function fetchQuerys() {
     const id = infoUser.message.id
 
     console.log(infoemails.message[1].email)
+    
     for (let  i = 0; i < Object.values(infoemails.message).length; i++){
 
     }
