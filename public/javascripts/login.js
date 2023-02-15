@@ -46,8 +46,13 @@ btn.addEventListener('click', async (e) => {
                 confirmButtonText: 'Aceptar'
             })
         }
+        
+        if (data.message == "user atutenticado") {
+            localStorage.setItem("token",  (data.token))
+            window.location = '/home'
+        }
 
-        console.log(data);
 }
+
 
 )

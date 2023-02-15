@@ -15,6 +15,13 @@ router.get('/getfindOne/:id',UserController.getfindOne)
 
 router.post('/api/login',UserController.auth)
 
+router.post('/api/decode',UserController.validateToken)
+
+router.get('/api/getAllEmailCompanies',UserController.emailCompanies)
+
+router.get('/api/getAllEmailApplicant',UserController.emailApplicant)
+
+
 router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
     res.json({
         rol:req.user.rol,

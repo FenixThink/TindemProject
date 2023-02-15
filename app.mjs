@@ -14,6 +14,7 @@ import applicantRouter from './routes/applicant.routes.js'
 import companyRouter from './routes/company.routes.js'
 import areaRouter from './routes/area.routes.js'
 import chats from './routes/chats.routes.js'
+import actionRouter from './routes/actions.routes.js'
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(applicantRouter);
 app.use(companyRouter);
 app.use(areaRouter);
 app.use(chats)
+app.use(actionRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

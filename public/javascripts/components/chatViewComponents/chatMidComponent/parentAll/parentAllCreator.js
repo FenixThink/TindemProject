@@ -56,26 +56,27 @@ inputCont.addEventListener('keyup',(e)=>{
             const text = input.value
             setTimeout(() => {
                const recep = document.querySelector('.nameTopChat')
-               console.log(recep.id);
                const body ={
                    "idApplicant":recep.id,
                    "idCompany":4,
                    "message":{
    
                        text:text,
-                       hour: `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`,
+                       hour: `${date.toLocaleString('es-CO').slice(10,16)} ${zone}`,
                        role:'transmitter'
                    }
                } 
                fetch('/chats',{
-                       method:'Post',
+                       method:'Post', 
                        headers:{
                            "Content-type":"Application/json"},
                        body: JSON.stringify(body)
                    
                })
+               
             }, 1000);
 
+            
             
 
 

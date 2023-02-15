@@ -1,6 +1,7 @@
 import { pool } from "../../db/db.js";
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 import { encrypt, compare } from "../helpers/Bcrypt.helper.js";
+import jwt_decode from "jwt-decode";
 
 
 class User extends GeneralQuerySql{
@@ -40,10 +41,19 @@ class User extends GeneralQuerySql{
         
 
     }
+    static AllEmail = async (type)=>{
+        const search = await pool.query('SELECT email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE profile_account.type = (?)',[type])
+        return search[0]
+    }
 
     searchType = async (email)=>{
-        const search = await pool.query('SELECT type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
+        const search = await pool.query('SELECT user_account.id,type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
         return search[0]
+    }
+    static validationToken = async (tokencito)=>{
+        const token = tokencito;
+        const decoded = jwt_decode(token);
+        return decoded
     }
 
     
