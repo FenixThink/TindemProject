@@ -15,6 +15,24 @@ export const allChats = () => {
     const divMessage = document.createElement('div')
     divMessage.className = 'father-all-chats'
 
+    // const APIAPLICANTES = '/obtenerChatIDApplicant/'
+
+//    async function obteneraplicantes() {
+//      const mensajesAplicantes = await fetch
+    
+//    }
+
+    // const  obteneraplicantes =  fetch('/obtenerChatIDApplicant/',{
+    //     method:'get',
+    //     headers:{
+    //         "Content-type":"Application/json"},
+    //     body:{
+    //         idApplicant:1
+    //     }
+    // })
+
+   // console.log(obteneraplicantes)
+
     people.forEach(e=>{
 
         //Array de los mensajes de cada uno de los 
@@ -27,6 +45,8 @@ export const allChats = () => {
         divMessage.appendChild((a(e.id,e.name,e.profileImage,lastMessage,posLastMessage.hour)))
         
     })
+
+
     
     
     //Creacion del contenedor que tendra el titulo all chats y el contenedor de los mensjes

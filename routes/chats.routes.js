@@ -14,7 +14,7 @@ routerChats.post("/chats",(req,res)=>{
 
 routerChats.get('/obtenerChats',chatsController.getAllChats)
 
-routerChats.get('/obtenerChatIDApplicant/:idApplicant',chatsController.getChatIdUserApplicant)
+routerChats.get('/obtenerChatIDApplicant',chatsController.getChatIdUserApplicant)
 
 routerChats.get('/getChatIdUserCompany/:idCompany',chatsController.getChatIdUserCompany)
 export default routerChats

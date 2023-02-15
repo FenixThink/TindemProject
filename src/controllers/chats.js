@@ -9,7 +9,7 @@ class chatsController{
 
 
     static getChatIdUserApplicant = async (req,res)=>{
-        const chat = await chatsmodel.find({idApplicant:req.params.idApplicant})
+        const chat = await chatsmodel.find({idApplicant:req.body.idApplicant})
         res.send(chat)
     }
 
