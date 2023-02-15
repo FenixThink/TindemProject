@@ -99,6 +99,22 @@ class UserController{
     });
     }
 
+    static userUpdate = async (req, response) => {
+        try {
+            const{email,password} = req.body;
+            const res = await User.update(email,password, req.params.id);
+            return response.send({
+                "status" : 200,
+                "message":"User update succefully"
+            })
+        } catch (error) {
+            return res.send({
+                "status" : 404,
+                "message" : error.message
+            })
+        }
+    }
+
 }
 
 export default UserController;

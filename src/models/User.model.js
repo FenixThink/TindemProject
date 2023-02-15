@@ -46,7 +46,12 @@ class User extends GeneralQuerySql{
         return search[0]
     }
 
-    
+    static async update(email,password,id){
+        const query = "UPDATE user_account SET email = ?, password = ? WHERE id = ?";
+        const values = [email,password,id];
+        const result = await pool.query(query, values);
+        return result.affectedRows;
+    }
 }
 
 export default User;
