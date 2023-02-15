@@ -7,20 +7,45 @@ import { parentCreator } from "./components/profileViewComponents/parent.js"
 const app = document.querySelector('#app');
 
 async function fetchMoviesJSON() {
-const data = []
+    const data = []
+    const emails = []
+    let infoemails = {}
     const token = localStorage.getItem('token')
     const tokenPropio = {'token':token}
-
-    const response = await fetch('http://localhost:3000/api/decode/',{
+    //Devolver el token desencriptado
+    const tokenData = await fetch('http://localhost:3000/api/decode/',{
         method:'post',
         headers:{
             "Content-type":'application/json'
         },
         body: JSON.stringify(tokenPropio)
     })
-    const infoUser = await response.json();
+    const infoUser = await tokenData.json();
 
-    const response1 = await fetch('/Area/Interes/neutro@gmail.com',{
+    if (infoUser.message.rol === 'applicant'){
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+    infoemails = await emailsApplicant.json();
+    }
+    if (infoUser.message.rol === 'company'){
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        infoemails = await emailsCompany.json();
+    }
+
+    console.log(infoemails.message[1].email)
+    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+    }
+    const response1 = await fetch(`/Area/Interes/${infoUser.message.email}`,{
         method: 'get',
         headers: {
             'autorization': token
@@ -38,7 +63,7 @@ const data = []
 }
 fetchMoviesJSON().then(data => {
     const [infoUser, dataUser] = data;
-    console.log(infoUser)
+
     app.appendChild(TotalFunctionView(dataUser));
     const father = document.querySelector('.containerFather');
 
