@@ -48,6 +48,16 @@ class ApplicantController{
 
         }
     }
+
+    static applicantUpdate = async(req, response) => {
+        try {
+          const { lastname, day_of_birth } = req.body;
+          const res = await Applicant.update(lastname, day_of_birth, req.params.id);
+        return response.send({ "status": 200, "message": "Applicant updated successfully." });
+        } catch (error) {
+          return response.send({ "status": 404, "message": error.message });
+        }
+      } 
 }
 
 export default ApplicantController;
