@@ -5,12 +5,13 @@ const app = document.querySelector('#app')
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
 
 const send = document.querySelector('.submitButton')
+const dataForm = document.querySelector('.Padre')
 
-send.addEventListener('click', async () => {
-    loadImage();
+dataForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
-
     let data = []
 
     inputCompanyName.forEach((e) => {
@@ -47,6 +48,7 @@ send.addEventListener('click', async () => {
             alert(errors.join("\n"));
             return
         }
+
         const body = {
             name: data[0],
             nit: data[1],
@@ -58,15 +60,16 @@ send.addEventListener('click', async () => {
             description: data[7],
         }
 
-        const transactionJson = JSON.stringify(body)
+        const inputFile = document.getElementById('archivoInput')
+        const postForm = new FormData()
+        postForm.append("image", inputFile)
+        postForm.append("body", body)
+        const transactionJson = JSON.stringify(postForm)
+        console.log(postForm);
 
-        const res = await fetch('/company/create', {
-            method: "post",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: transactionJson,
-
+        fetch('/company/create', {
+            method: 'post',
+            body: postForm
         })
 
 
@@ -82,7 +85,6 @@ send.addEventListener('click', async () => {
         })
 
         description.value = ''
-        window.location = '/home'
     }
 
 })

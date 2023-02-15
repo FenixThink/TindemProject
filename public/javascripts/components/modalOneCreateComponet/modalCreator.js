@@ -77,10 +77,10 @@ export function AreasRoles(btnAreasOrRoles) {
 }
 /* creacion de botones por parametros*/
 function createButton(name,i){
-    let btn = document.createElement("button");
+    let btn = document.createElement("input");
     btn.className="optionsAreas"
-    btn.textContent=name
-    btn.value=i
+    btn.value=name
+    btn.id=i
 /*     llamamos al segundo modal y escondemos el padre
  */     btn.onclick= function (params) {
 
