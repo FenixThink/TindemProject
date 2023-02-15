@@ -83,7 +83,7 @@ class ActionController {
 
     static DeleteChat = async(req, res) => {
         try {
-            const respuesta = await Actions.DeleteChat(req.body)
+            const respuesta = await Actions.DeleteChat(req, res)
             if (respuesta.length <= 0) res.status(404).json({
                 message: 'Action not found'
             })
