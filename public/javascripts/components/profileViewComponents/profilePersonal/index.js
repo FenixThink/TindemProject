@@ -54,7 +54,6 @@ const obj1 = {
 
 
     let positionStudy=0
-    console.log(positionStudy)
 
     const date = new Date()
     const year = date.getFullYear()
@@ -84,7 +83,6 @@ padre.className='profile';
 
 const years = document.createElement('div');
 years.className='years';
-console.log(body.Profile.day_of_birth)
 years.textContent = edadReal;//fecha de nacimiento
 
 const photo = document.createElement('div');
@@ -146,7 +144,6 @@ const textOtros= document.createElement('h3')
 textOtros.textContent='Especializacion'
     otros.appendChild(textOtros)
 
-   console.log( body.Estudios[1].Especializaciones)
    const liDiv = document.createElement('div')
         liDiv.className='liDiv'
 

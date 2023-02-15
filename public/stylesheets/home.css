@@ -166,8 +166,15 @@
     width: 100%;
     background-color: #ffff;
 }
-.buttons{
+#imglike{
     width: 60px;
+    color: #53C946;
+    font-size: 5rem!important;
+}
+#imgUnlike{
+    width: 60px;
+    color: #E24442;
+    font-size: 5rem!important;
 }
 /* Aqui termina la parte de vanessa */
 
@@ -264,9 +271,18 @@
     justify-content: flex-start;
 }
 
-.buttons:hover {
+#imglike:hover {
     cursor: pointer;
-    filter: saturate(180%);
+    color: #28ac14;
+    transition: all .5s;
+    transform: scale(1.1);
+}
+
+#imgUnlike:hover{
+    cursor: pointer;
+    color: rgb(237, 5, 5);
+    transition: all .3s;
+    transform: scale(1.1);
 }
 /*Aquí termina la parte de Natalia*/
 
@@ -406,6 +422,14 @@
     text-align: right;
     right: 10px;
     bottom: 0;
+}
+
+#icon-doubleCheck{
+    color: #9A9191;
+}
+
+.box-message-verde #icon-doubleCheck{
+    color: #E4D8D8;
 }
 
 .message{

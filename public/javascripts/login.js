@@ -37,7 +37,6 @@ btn.addEventListener('click', async (e) => {
             body: JSON.stringify(cuerpo)
         })
         const data = await response.json();
-        console.log(data);
 
         if(data.message==false){
             Swal.fire({
@@ -50,7 +49,9 @@ btn.addEventListener('click', async (e) => {
         
         if (data.message == "user atutenticado") {
             localStorage.setItem("token",  (data.token))
+            window.location = '/home'
         }
+
 }
 
 

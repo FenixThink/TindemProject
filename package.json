@@ -4,13 +4,14 @@
   "private": true,
   "type": "module",
   "bin": {
-    "www": "./bin/www.js"
+    "www": "bin/www.js"
   },
   "scripts": {
     "start": "node ./bin/www.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "boxicons": "^2.1.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
@@ -18,9 +19,26 @@
     "express": "^4.18.2",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
     "mongoose": "^6.9.1",
     "morgan": "~1.9.1",
     "mysql2": "^3.1.2",
     "path": "^0.12.7"
-  }
+  },
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/educacion-coex/grupo-g2/proyectotindem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/educacion-coex/grupo-g2/proyectotindem/issues"
+  },
+  "homepage": "https://gitlab.com/educacion-coex/grupo-g2/proyectotindem#readme"
 }

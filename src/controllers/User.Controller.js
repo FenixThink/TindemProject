@@ -44,6 +44,44 @@ class UserController{
 
         }
     }
+    static emailCompanies = async (req,res)=>{
+    try {
+    const answer = await User.AllEmail('company')
+   res.status(200).json({message:answer})
+    }catch(error){
+        res.status(500).json({
+            "message":error.message
+        })
+
+    }
+    }
+
+    static emailApplicant = async (req,res)=>{
+        try {
+            const answer = await User.AllEmail('Applicant')
+            res.status(200).json({message:answer})
+        }catch(error){
+            res.status(500).json({
+                "message":error.message
+            })
+
+        }
+    }
+
+    static validateToken =async(req,res)=>{
+        try{
+            const token = req.body.token
+            const respuesta = await User.validationToken(token)
+            console.log(respuesta)
+            return res.status(200).json({'message':respuesta})
+        }catch(error){
+            return res.status(500).json({
+                "status":404,
+                "message":error.message
+            })
+
+        }
+    }
 
     static getfindOne =async(req,res)=>{
         try{
@@ -74,9 +112,13 @@ class UserController{
     static auth = async (req,res)=>{
 
     const {email,password} = req.body;
+
     const user = new User(email,password);
+
     const query = await this.getAll();
+
     let status = false
+
      query.forEach((e)=>{
         if (e.email === email && e.password === password){
             status = true
@@ -84,7 +126,16 @@ class UserController{
     })
     if (status){
         const [query2] = await user.searchType(email);
-        const User = {email:email,rol:query2.type};
+
+        if (query2 === undefined)
+        {
+            res.status(404).json({
+                message: 'user not Found'
+            });
+            return;
+        }
+        console.log(query2);
+        const User = {id:query2.id,email:email,rol:query2.type};
         const accessToken = this.generateAccessToken(User);
 
         res.status(200).header('autorization',accessToken).json({

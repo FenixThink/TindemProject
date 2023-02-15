@@ -103,7 +103,7 @@ export const people = [
 
 
 
-export const partLeft =(topName,topProfileImg) =>{
+export const partLeft = async(topName,topProfileImg) =>{
     
     //Creacion de la imagen
     const img = document.createElement('img')
@@ -135,7 +135,7 @@ export const partLeft =(topName,topProfileImg) =>{
     profile.appendChild(imgName)
     profile.appendChild(search)
 
-    const chats = allChats()
+    const chats = await allChats()
 
     const totalpartLeft = document.createElement('div')
     totalpartLeft.className = 'totalpartLeft'
