@@ -44,6 +44,30 @@ class UserController{
 
         }
     }
+    static emailCompanies = async (req,res)=>{
+    try {
+    const answer = await User.AllEmail('company')
+   res.status(200).json({message:answer})
+    }catch(error){
+        res.status(500).json({
+            "message":error.message
+        })
+
+    }
+    }
+
+    static emailApplicant = async (req,res)=>{
+        try {
+            const answer = await User.AllEmail('Applicant')
+            res.status(200).json({message:answer})
+        }catch(error){
+            res.status(500).json({
+                "message":error.message
+            })
+
+        }
+    }
+
     static validateToken =async(req,res)=>{
         try{
             const token = req.body.token
@@ -98,6 +122,14 @@ class UserController{
     })
     if (status){
         const [query2] = await user.searchType(email);
+
+        if (query2 === undefined)
+        {
+            res.status(404).json({
+                message: 'user not Found'
+            });
+            return;
+        }
         const User = {email:email,rol:query2.type};
         const accessToken = this.generateAccessToken(User);
 

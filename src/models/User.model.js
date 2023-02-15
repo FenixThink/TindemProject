@@ -41,6 +41,10 @@ class User extends GeneralQuerySql{
         
 
     }
+    static AllEmail = async (type)=>{
+        const search = await pool.query('SELECT email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE profile_account.type = (?)',[type])
+        return search[0]
+    }
 
     searchType = async (email)=>{
         const search = await pool.query('SELECT type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
