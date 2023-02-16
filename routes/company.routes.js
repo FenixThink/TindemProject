@@ -7,7 +7,7 @@ router.get('/register/company', function(req, res, next) {
     res.render('registerCompany');
   }); 
 router.post('/company/create', CompanyController.Create)
-
+router.patch("/company/:id", CompanyController.companyUpdate);
 router.get('/Allcompany', CompanyController.getAll)
 
 export default router

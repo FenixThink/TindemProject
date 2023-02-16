@@ -11,6 +11,8 @@ router.post('/createUser',UserController.createUser)
 
 router.get('/allUser',UserController.getAll)
 
+router.patch('/user/:id', UserController.userUpdate);
+
 router.get('/getfindOne/:id',UserController.getfindOne)
 
 router.post('/api/login',UserController.auth)

@@ -175,6 +175,13 @@
     width: 60px;
     color: #E24442;
     font-size: 5rem!important;
+    color: #53C946;
+    font-size: 5rem!important;
+}
+#imgUnlike{
+    width: 60px;
+    color: #E24442;
+    font-size: 5rem!important;
 }
 /* Aqui termina la parte de vanessa */
 
@@ -743,7 +750,7 @@
 
 .date{
     display: flex;
-    align-items: center;3￼
+    align-items: center;
 justify-content: center;
     text-align: center;
 }

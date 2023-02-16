@@ -64,6 +64,22 @@ class ProfileAccountController{
             });
         };
     }
+
+    static update = async (req, response) => {
+        try {
+            const{name,description,id_city} = req.body;
+            const res = await Profile_account.update(name,description,id_city, req.params.id);
+            return response.send({
+                "status" : 200,
+                "message":"Profile account update succefully"
+            })
+        } catch (error) {
+            return res.send({
+                "status" : 404,
+                "message" : error.message
+            })
+        }
+    }
 }
 
 export default ProfileAccountController;
