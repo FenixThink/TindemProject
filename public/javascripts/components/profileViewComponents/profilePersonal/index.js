@@ -149,7 +149,7 @@ descriptionPadre.appendChild(textDescription);
     estudios.className='estudios';
     const estudio = document.createElement('p')
     estudio.className='estudio';
-    estudio.textContent= array[0]
+    estudio.textContent= array[positionStudy]
    
     
     // botones que determinan el estudio 
@@ -187,7 +187,7 @@ descriptionPadre.appendChild(textDescription);
                 
                 }, 100);
                 setTimeout(() => {
-                    estudio.textContent=array;
+                    estudio.textContent=array[positionStudy];
                     
                     estudio.style.transition = 'transform.25s ease-in-out'
                             estudio.style.transform = 'translate(0,0)'
@@ -201,8 +201,7 @@ descriptionPadre.appendChild(textDescription);
                             liDiv.style.transform = 'translate(0%,0)'
                            
                 },100)
-                dataUser[1][array].forEach(element => {
-
+                dataUser[1][array[1]].forEach(element => {
                 const li = document.createElement('li');
                 li.className='li';
                 li.textContent=element
@@ -218,14 +217,12 @@ descriptionPadre.appendChild(textDescription);
             
             
         });
-       
-        
-        if ((dataUser[1]-1)==positionStudy) {
+        if ((positionStudy==array.length-1)) {
             next.style.display = 'none';
-            
         }
-    
+
     }
+
     const beforeDiv = document.createElement('div');
     beforeDiv.className='before';
     const before = document.createElement('img');
@@ -254,7 +251,7 @@ descriptionPadre.appendChild(textDescription);
                 
                 }, 100);
                 setTimeout(() => {
-                    estudio.textContent=array;
+                    estudio.textContent=array[positionStudy];
                     
                     estudio.style.transition = 'transform.25s ease-in-out'
                             estudio.style.transform = 'translate(0,0)'
