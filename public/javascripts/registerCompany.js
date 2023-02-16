@@ -7,9 +7,8 @@ app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre d
 const send = document.querySelector('.submitButton')
 const dataForm = document.querySelector('.Padre')
 
+
 dataForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
     let data = []
@@ -49,6 +48,9 @@ dataForm.addEventListener('submit', (e) => {
             return
         }
 
+        const image = loadImage()
+        console.log(image);
+
         const body = {
             name: data[0],
             nit: data[1],
@@ -59,19 +61,6 @@ dataForm.addEventListener('submit', (e) => {
             city: data[6],
             description: data[7],
         }
-
-        const inputFile = document.getElementById('archivoInput')
-        const postForm = new FormData()
-        postForm.append("image", inputFile)
-        postForm.append("body", body)
-        const transactionJson = JSON.stringify(postForm)
-        console.log(postForm);
-
-        fetch('/company/create', {
-            method: 'post',
-            body: postForm
-        })
-
 
         inputCompanyName.forEach((e, i) => {
             if (i == 5) {
@@ -91,7 +80,6 @@ dataForm.addEventListener('submit', (e) => {
 
 //Validacion de que el valor ingresado al input de email si sea un email
 
-
 const inputMail = document.querySelector('#inputMailID')
 
 inputMail.addEventListener('focusout', (e) => {
@@ -100,14 +88,10 @@ inputMail.addEventListener('focusout', (e) => {
         let regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(e.target.value);
         if (!regExpEmail) {
             alert("Email invalido");
-
         }
         bandera = 1
-
     }
 });
-
-
 
 document.querySelector("#inputContraseñaID").addEventListener("focusout", () => {
 

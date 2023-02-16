@@ -21,6 +21,8 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
 
     const child = document.createElement('form')
     child.className = "Padre"
+    child.name = "Padre"
+    //En Revisión
     child.action = '/company/create'
     child.enctype = 'multipart/form-data'
     child.method = 'post'
