@@ -6,21 +6,59 @@ import { fetchQuerys } from "../../../home.js"
 
 
 export const allChats = async() => {
-    const holaMundo = await fetchQuerys().then(data => {
-        const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data;
-      
+    const holaMundo = await fetchQuerys().then(async (data) => {
+        console.log(data)
+        const [infoUser, dataUser,infoMessage,allMessages] = data;
+        console.log(infoUser)
+        
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')
         h1.className = 'TitleallChats'
         h1.textContent = 'All Chat'
 
+        
         //Objeto infor chats
-
-
+        
         //Creacion del contenedor de chats
         const divMessage = document.createElement('div')
         divMessage.className = 'father-all-chats'
+        console.log(infoMessage)
+        infoMessage.consulta.forEach(async (e,i)=>{
+            let posicition = allMessages.length-1    
 
+
+
+                const allMessage = await fetch(`/getChatscompanyapplicant/${e.idApplicant}/${e.idCompany}`,{
+                    method: 'get'
+                })
+
+            console.log(allMessage)    
+
+            if(infoUser.message.rol == 'applicant'){
+
+
+                console.log(allMessages[posicition].idCompany)
+                console.log(allMessages[posicition])       
+                if(e.id_company)
+                divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allMessages[posicition].message[0].text,allMessages[posicition].message[0].hour)))
+            
+            }else{
+
+                allMessages[posicition].idCompany
+                console.log(allMessages)       
+                console.log()
+                divMessage.appendChild((a(e.id_applicant,e.name_applicant,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allMessages[posicition].message[0].text,allMessages[posicition].message[0].hour)))
+
+            }
+        })
+
+
+      
+
+
+
+
+        
         // people.forEach(e=>{
 
         //     //Array de los mensajes de cada uno de los 
@@ -33,11 +71,11 @@ export const allChats = async() => {
             
         // })
         //console.log(infoMessage)
-        let posicition = allmessagesAplicant.length
+        // let posicition = allmessagesAplicant.length
 
-        divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allmessagesAplicant[posicition-1].message[0].text,allmessagesAplicant[posicition-1].message[0].hour)))
+        // divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].nombrecompany,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allmessagesAplicant[posicition-1].message[0].text,allmessagesAplicant[posicition-1].message[0].hour)))
 
-        console.log(infoMessage)        
+        // console.log(infoMessage)        
              
 
         

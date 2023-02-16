@@ -18,6 +18,20 @@ class chatsController{
         res.send(chat)
     }
 
+    static getChatscompanyapplicant = async (req,res)=>{
+        try{
+
+            const chat = await chatsmodel.find({idCompany:req.params.idCompany,idApplicant:req.params.idApplicant})
+            return chat
+
+        }catch(e){
+            console.log(e)
+            res.status(500).json({
+                "Messsage":"Something goes wrong"
+            })
+        }
+    }
+
 }
 
 

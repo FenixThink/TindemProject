@@ -10,6 +10,8 @@ export async function fetchQuerys() {
     const data = []
     const emails = []
     let infoemails = {}
+    let allmessages;
+    let infoMessage;
     const token = localStorage.getItem('token')
     const tokenPropio = {'token':token}
     //Devolver el token desencriptado
@@ -21,6 +23,7 @@ export async function fetchQuerys() {
         body: JSON.stringify(tokenPropio)
     })
     const infoUser = await tokenData.json();
+    const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant'){
         const emailsApplicant = await fetch(`/api/getAllEmailCompanies`,{
@@ -29,7 +32,28 @@ export async function fetchQuerys() {
                 'autorization': token
             }
         });
-    infoemails = await emailsApplicant.json();
+
+        infoemails = await emailsApplicant.json();
+
+        //Fetch para traer la info de los mensajes hora etc..
+
+        const idApplicant = await fetch (`obtenerChatIDApplicant/${id}`,{
+            method: 'get',
+        })
+
+        allmessages = await idApplicant.json();
+
+
+        //Fetch para buscar los match de acuerdo a su id
+        const idFetch = await fetch(`allAction/applicant/${id}`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        infoMessage = await idFetch.json();
+
+
     }
     if (infoUser.message.rol === 'company'){
         const emailsCompany = await fetch(`/api/getAllEmailApplicant`,{
@@ -39,14 +63,11 @@ export async function fetchQuerys() {
             }
         });
         infoemails = await emailsCompany.json();
-    }
-    const id = infoUser.message.id
 
-    console.log(infoemails.message[1].email)
+        
+    }
     
-    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
 
-    }
     const response1 = await fetch(`/Area/Interes/${infoUser.message.email}`,{
         method: 'get',
         headers: {
@@ -60,39 +81,19 @@ export async function fetchQuerys() {
     }
     data.push(infoUser);
     data.push(dataUser);
-    
-    //Fetch para buscar los match de acuerdo a su id
-    const idFetch = await fetch(`allAction/applicant/${id}`,{
-        method: 'get',
-        headers: {
-            'autorization': token
-        }
-    });
-    const infoMessage = await idFetch.json();
+    data.push(infoMessage);
+    data.push(allmessages);
 
-    data.push(infoMessage)
-
-    //Fetch para traer la info de los mensajes hora etc..
-
-    const idApplicant = await fetch (`obtenerChatIDApplicant/${id}`,{
-        method: 'get',
-        
-    })
-
-    const allmessagesAplicant = await idApplicant.json()
-
-    data.push(allmessagesAplicant)
-
+    console.log(data)
     return data;
 }
 
 fetchQuerys().then(async(data) => {
-    const [infoUser, dataUser] = data;
-
+    const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
     app.appendChild(await TotalFunctionView(dataUser));
     const father = document.querySelector('.containerFather');
 
-    father.appendChild(allView('',''))
+    father.appendChild(await allView('',''))
     father.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Jose Miguel","Orejarena Correa","jmoc951@gmail.com","Allweneedilove123", "Yo no se mañana, si estaremos juntos, si se acaba el mundo, yo no se si soy para ti, si seras para mi", "Descripcion del perfil","Agrega tu interes laboral"))
 
 
@@ -176,12 +177,12 @@ fetchQuerys().then(async(data) => {
 
     document.querySelectorAll('.messageBox').forEach((e,i)=>{
 
-        e.addEventListener('click',(ev)=>{
+        e.addEventListener('click',async (ev)=>{
 
             const person = people[i]
-
+            console.log(infoMessage.consulta[i].id_company)
             father.removeChild( document.querySelector('.principal'))
-            father.appendChild(allView(person.id,person.name,person.profileImage,person.description))
+            father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
 
             document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
             //Configurando la actualizacion de los mensajes respecto al chat seleccionado

@@ -17,4 +17,7 @@ routerChats.get('/obtenerChats',chatsController.getAllChats)
 routerChats.get('/obtenerChatIDApplicant/:idApplicant',chatsController.getChatIdUserApplicant)
 
 routerChats.get('/getChatIdUserCompany/:idCompany',chatsController.getChatIdUserCompany)
+
+routerChats.get('/getChatscompanyapplicant/:idApplicant/:idCompany',chatsController.getChatscompanyapplicant)
+
 export default routerChats
