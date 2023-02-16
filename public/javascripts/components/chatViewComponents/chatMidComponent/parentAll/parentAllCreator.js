@@ -11,7 +11,7 @@ export const parentParentCreator = async (id,profileName,photo)=>{
     const holaMundo = await fetchQuerys().then(data => {
         
         const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
-        console.log(infoMessage.consulta[1].id_company)
+        //console.log(infoMessage.consulta[1].id_company)
 
         const center = centerCreator()
         const top = headerChatCreator(id,profileName,photo)

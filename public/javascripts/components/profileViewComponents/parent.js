@@ -67,7 +67,7 @@ export const parentCreator = (dataUser) => {
         ]
     }
     
-console.log(dataUser,)
+console.log(dataUser)
 
     const exit = document.createElement('span')
     exit.className='x'
