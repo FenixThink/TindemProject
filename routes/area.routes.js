@@ -7,7 +7,8 @@ const routerArea = Router();
 
 routerArea.post('/Area/create',InterestAreaController.createInterestArea)
 
-routerArea.get('/Area/Interes/:email',middelwares.Authmidelware,InterestAreaController.getInterestAplicant)
+routerArea.get('/Interes/applicant/:email',middelwares.Authmidelware,InterestAreaController.getInterestAplicant)
+routerArea.get('/Interes/company/:email',middelwares.Authmidelware,InterestAreaController.getInterestCompany)
 
 routerArea.get('/Area',InterestAreaController.InteresgetAll)
 routerArea.get('/cc/:id',InterestAreaController.FindOne)
