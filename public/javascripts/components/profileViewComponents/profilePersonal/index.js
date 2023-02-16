@@ -85,11 +85,11 @@ return padre;
 
 export function createProfileInf(dataUser){
     const array = []
-
     for (const x in dataUser[1]) {
         array.push(x)
     }
-    
+    console.log(dataUser[1][array])
+
     const padre2 = document.createElement('div');
     padre2.className='profileInf';
 

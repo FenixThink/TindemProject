@@ -11,13 +11,15 @@ export const rightCreator = (img,dataArea,emails) => {
     const [data, interestArea] = dataArea
     const array = []
     const otherArray = []
-
     for (const x in interestArea) {
         array.push(x)
     }
+    console.log(interestArea[array[0]].length)
+
     for (let  i = 0; i < Object.values(interestArea).length; i++){
+        console.log(interestArea[array[i]].length)
         if (interestArea[array[i]].length > 1){
-            for (let  a = 0; a <= interestArea[array[a]].length; a++){
+            for (let  a = 0; a <= interestArea[array[i]].length; a++){
                 otherArray.push(interestArea[array[i]][a])
             }
         }else{
