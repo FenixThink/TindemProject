@@ -88,8 +88,6 @@ export function createProfileInf(dataUser){
     for (const x in dataUser[1]) {
         array.push(x)
     }
-    console.log(array)
-    console.log(dataUser[1][array[0]])
 
     const padre2 = document.createElement('div');
     padre2.className='profileInf';
@@ -151,8 +149,6 @@ descriptionPadre.appendChild(textDescription);
     estudios.className='estudios';
     const estudio = document.createElement('p')
     estudio.className='estudio';
-    console.log();
-    console.log(array[0]);
     estudio.textContent= array[0]
    
     

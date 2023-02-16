@@ -16,10 +16,8 @@ export const rightCreator = (img,dataArea,emails) => {
         array.push(x)
     }
     
-    //console.log(interestArea[array[0]].length)
 
     for (let  i = 0; i < Object.values(interestArea).length; i++){
-        console.log(interestArea[array[i]].length)
         if (interestArea[array[i]].length > 1){
             for (let  a = 0; a <= interestArea[array[i]].length; a++){
                 otherArray.push(interestArea[array[i]][a])
@@ -29,7 +27,6 @@ export const rightCreator = (img,dataArea,emails) => {
         }
     }   
 
-    //console.log(data)
 
 
     const componentAInformation = upperComponents(img, data.name, data.day_of_birth);
@@ -51,7 +48,6 @@ export const rightCreator = (img,dataArea,emails) => {
     return mainContainer;
 }
 export const reloadData = (emails) => {
-    console.log(emails.length)
     const large = emails.length
     const aleatory = Math.floor(Math.random() * large);
 

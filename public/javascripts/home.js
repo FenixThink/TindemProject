@@ -191,8 +191,6 @@ fetchQuerys().then(async(data) => {
         e.addEventListener('click',async (ev)=>{
 
             const person = people[i]
-            console.log(i)
-            console.log(infoMessage.consulta[i].id_company)
             father.removeChild( document.querySelector('.principal'))
             father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
 

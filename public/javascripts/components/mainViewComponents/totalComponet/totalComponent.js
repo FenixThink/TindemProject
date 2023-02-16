@@ -5,7 +5,6 @@ import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.j
 import { applicant } from "../../userDataCard/userDataCard.js";
 
 export const TotalFunctionView = async(dataArea,emails) => {
-   //console.log(dataArea)
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales
    const divFather = document.createElement('div');
