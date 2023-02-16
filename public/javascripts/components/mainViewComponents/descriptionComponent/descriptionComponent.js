@@ -1,8 +1,8 @@
-export function Description(descTitle, spanTextDescription) {
+export function Description( spanTextDescription) {
 
     // Creación de span, contenedor y clase para e titulo
     const spanTitleH3 = document.createElement('span')
-    spanTitleH3.textContent = descTitle;
+    spanTitleH3.textContent = "Descripcion";
     spanTitleH3.className = "spanTitle";
 
     const spanPlaceHolder = document.createElement('span')

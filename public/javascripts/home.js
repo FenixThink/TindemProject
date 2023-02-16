@@ -42,11 +42,9 @@ export async function fetchQuerys() {
     }
     const id = infoUser.message.id
 
-    console.log(infoemails.message[1].email)
+    //console.log(infoemails.message[0].email)
     
-    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
 
-    }
     const response1 = await fetch(`/Area/Interes/${infoUser.message.email}`,{
         method: 'get',
         headers: {
@@ -83,13 +81,26 @@ export async function fetchQuerys() {
 
     data.push(allmessagesAplicant)
 
+    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+        const emailsInfo = await fetch(`/Area/Interes/${infoemails.message[i].email}`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        const UsersData = await emailsInfo.json();
+        emails.push(UsersData)
+    }
+    data.push(emails)
+
+    //console.log(data)
     return data;
 }
 
 fetchQuerys().then(async(data) => {
-    const [infoUser, dataUser] = data;
-
-    app.appendChild(await TotalFunctionView(dataUser));
+    const [infoUser, dataUser,infoMessage,allmessagesAplicant,emails] = data;
+    console.log(emails[0])
+    app.appendChild(await TotalFunctionView(emails[0],emails));
     const father = document.querySelector('.containerFather');
 
     father.appendChild(allView('',''))
