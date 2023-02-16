@@ -51,7 +51,12 @@ export async function fetchQuerys() {
             'autorization': token
         }
     });
-    const dataUser = await response1.json();
+     const dataUser = await response1.json();
+     const datos = dataUser
+    
+    console.log(dataUser)
+    
+    
 
     if (dataUser.message === "Access Denied" || dataUser.message ==="access denied, token expired or incorrect"){
         window.location = '/'
@@ -104,7 +109,7 @@ fetchQuerys().then(async(data) => {
     const father = document.querySelector('.containerFather');
 
     father.appendChild(allView('',''))
-    father.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Jose Miguel","Orejarena Correa","jmoc951@gmail.com","Allweneedilove123", "Yo no se mañana, si estaremos juntos, si se acaba el mundo, yo no se si soy para ti, si seras para mi", "Descripcion del perfil","Agrega tu interes laboral"))
+    father.appendChild(parentCreator(dataUser))
 
 
 //Creacion de la animacion del buscador
