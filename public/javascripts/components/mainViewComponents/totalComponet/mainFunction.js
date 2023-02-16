@@ -7,13 +7,15 @@ import { applicant } from "../../userDataCard/userDataCard.js";
 export const rightCreator = (img, nombre, valueSpan, descTitle, spanTextDescription, interestItems, dataArea) => {
 
     //setTimeout(() => { reloadData() }, 100);
+    console.log(dataArea)
     const [data, interestArea] = dataArea
     const array = []
     const otherArray = []
-
+    
     for (const x in interestArea) {
         array.push(x)
     }
+    
     for (let  i = 0; i < Object.values(interestArea).length; i++){
         if (interestArea[array[i]].length > 1){
             for (let  a = 0; a <= interestArea[array[a]].length; a++){
@@ -22,7 +24,7 @@ export const rightCreator = (img, nombre, valueSpan, descTitle, spanTextDescript
         }else{
             otherArray.push(interestArea[array[i]])
         }
-    }
+    }   
 
     console.log(data)
 

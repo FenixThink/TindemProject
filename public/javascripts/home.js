@@ -67,17 +67,15 @@ export async function fetchQuerys() {
         
     }
     
-
-    const response1 = await fetch(`/Area/Interes/${infoUser.message.email}`,{
+    console.log(infoUser.message.email)
+    const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
         method: 'get',
         headers: {
             'autorization': token
         }
     });
      const dataUser = await response1.json();
-     const datos = dataUser
     
-    console.log(dataUser)
     
     
 
@@ -95,6 +93,7 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async(data) => {
     const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
+    console.log(dataUser)
     app.appendChild(await TotalFunctionView(dataUser));
     const father = document.querySelector('.containerFather');
 
