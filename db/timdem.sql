@@ -189,6 +189,7 @@ INSERT INTO specific_interest VALUES ( 25,"Diseño de circuitos",1 );
 
 
 
+
 -- INTERES CON PERFIL
 
 -- interes aplicante

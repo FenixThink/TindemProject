@@ -28,7 +28,12 @@ class Applicant extends GeneralQuerySql{
         return rows[0];
     }
 
-    
+    static async update(lastname, day_of_birth, id){
+        const query = "UPDATE applicant SET lastname = ?, day_of_birth = ? WHERE id = ?";
+        const values = [lastname, day_of_birth, id];
+        const result = await pool.query(query, values);
+        return result.affectedRows;
+    }
     
 }
 

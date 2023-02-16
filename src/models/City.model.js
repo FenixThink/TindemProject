@@ -24,7 +24,6 @@ class City extends GeneralQuerySql{
     const rows = await pool.query(`INSERT INTO city(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_country])
     return rows[0]
   }
-
 }
 
 export default City;

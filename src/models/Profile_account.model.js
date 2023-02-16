@@ -58,6 +58,13 @@ class Profile_account extends GeneralQuerySql{
         
         return insert[0];
     }
+
+    static async update(name,description,id_city,id){
+        const query = "UPDATE profile_account SET name = ?, description = ?, id_city = ? WHERE id = ?";
+        const values = [name,description,id_city,id];
+        const result = await pool.query(query,values)
+        return result.affectedRows;
+    }
     
 }
 
