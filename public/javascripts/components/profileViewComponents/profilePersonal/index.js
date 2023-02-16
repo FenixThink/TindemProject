@@ -85,11 +85,12 @@ return padre;
 
 export function createProfileInf(dataUser){
     const array = []
-
     for (const x in dataUser[1]) {
         array.push(x)
     }
-    
+    console.log(array)
+    console.log(dataUser[1][array[0]])
+
     const padre2 = document.createElement('div');
     padre2.className='profileInf';
 
@@ -104,7 +105,7 @@ textOtros.textContent='Especializacion'
    const liDiv = document.createElement('div')
         liDiv.className='liDiv'
 
-        dataUser[1][array].forEach(element => {
+        dataUser[1][array[0]].forEach(element => {
    
             const li = document.createElement('li');
             li.className='li';
@@ -162,6 +163,11 @@ descriptionPadre.appendChild(textDescription);
     next.classList='nextImg'
     
     next.src='https://i.ibb.co/s6yngJd/928.png';
+
+    if (array.length==1) {
+        
+        next.style.display = 'none';
+    }
     next.onclick=function(){
        
        
@@ -199,11 +205,11 @@ descriptionPadre.appendChild(textDescription);
                             liDiv.style.transform = 'translate(0%,0)'
                            
                 },100)
-            body.Estudios[positionStudy].Especializaciones.forEach(element => {
+                dataUser[1][array].forEach(element => {
 
                 const li = document.createElement('li');
                 li.className='li';
-                li.textContent=element.name
+                li.textContent=element
                 li.style.transform = 'translate(200%,0)'
                 
                 liDiv.appendChild(li);
@@ -218,7 +224,7 @@ descriptionPadre.appendChild(textDescription);
         });
        
         
-        if ((body.Estudios.length-1)==positionStudy) {
+        if ((dataUser[1]-1)==positionStudy) {
             next.style.display = 'none';
             
         }
@@ -252,7 +258,7 @@ descriptionPadre.appendChild(textDescription);
                 
                 }, 100);
                 setTimeout(() => {
-                    estudio.textContent=body.Estudios[positionStudy].Area;
+                    estudio.textContent=array;
                     
                     estudio.style.transition = 'transform.25s ease-in-out'
                             estudio.style.transform = 'translate(0,0)'
@@ -270,11 +276,11 @@ descriptionPadre.appendChild(textDescription);
         },100)
         
 
-        body.Estudios[positionStudy].Especializaciones.forEach(element => {
+        dataUser[1][array].forEach(element => {
     
             const li = document.createElement('li');
             li.className='li';
-            li.textContent=element.name
+            li.textContent=element
             li.style.transform = 'translate(-200%,0)'
                 liDiv.appendChild(li);
                 setTimeout(()=>{

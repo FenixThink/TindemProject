@@ -46,8 +46,9 @@ class UserController{
     }
     static emailCompanies = async (req,res)=>{
     try {
-    const answer = await User.AllEmail('company')
-   res.status(200).json({message:answer})
+        const answer = await User.AllEmail('company')
+        res.status(200).json({message:answer})
+        return;
     }catch(error){
         res.status(500).json({
             "message":error.message

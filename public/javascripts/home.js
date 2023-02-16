@@ -67,17 +67,14 @@ export async function fetchQuerys() {
         
     }
     
-    console.log(infoUser.message.email)
+
     const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
         method: 'get',
         headers: {
             'autorization': token
         }
     });
-     const dataUser = await response1.json();
-    
-    
-    
+    const dataUser = await response1.json();
 
     if (dataUser.message === "Access Denied" || dataUser.message ==="access denied, token expired or incorrect"){
         window.location = '/'
@@ -87,18 +84,28 @@ export async function fetchQuerys() {
     data.push(infoMessage);
     data.push(allmessages);
 
-    console.log(data)
+    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+        const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        const UsersData = await emailsInfo.json();
+        emails.push(UsersData)
+    }
+    data.push(emails)
+
     return data;
 }
 
 fetchQuerys().then(async(data) => {
-    const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
-    console.log(dataUser)
-    app.appendChild(await TotalFunctionView(dataUser));
+    const [infoUser, dataUser,infoMessage,allmessagesAplicant,emails] = data
+    app.appendChild(await TotalFunctionView(emails[0],emails));
     const father = document.querySelector('.containerFather');
 
     father.appendChild(await allView('',''))
-    father.appendChild(parentCreator(dataUser))
+    father.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos","Jose Miguel","Orejarena Correa","jmoc951@gmail.com","Allweneedilove123", "Yo no se mañana, si estaremos juntos, si se acaba el mundo, yo no se si soy para ti, si seras para mi", "Descripcion del perfil","Agrega tu interes laboral"))
 
 
 //Creacion de la animacion del buscador
@@ -184,6 +191,7 @@ fetchQuerys().then(async(data) => {
         e.addEventListener('click',async (ev)=>{
 
             const person = people[i]
+            console.log(i)
             console.log(infoMessage.consulta[i].id_company)
             father.removeChild( document.querySelector('.principal'))
             father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
