@@ -102,10 +102,11 @@ export async function fetchQuerys() {
 fetchQuerys().then(async(data) => {
     const [infoUser, dataUser,infoMessage,allmessagesAplicant,emails] = data
     app.appendChild(await TotalFunctionView(emails[0],emails));
-    const father = document.querySelector('.containerFather');
+    const father = document.querySelector('.right');
 
-    father.appendChild(await allView('',''))
-    father.appendChild(parentCreator(dataUser))
+    father.appendChild(parentCreator(dataUser));
+
+    father.appendChild(await allView('',''));
 
 
 //Creacion de la animacion del buscador
@@ -186,37 +187,32 @@ fetchQuerys().then(async(data) => {
     })
 //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    document.querySelectorAll('.messageBox').forEach((e,i)=>{
+    document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
+
+        const person = people[i]
+        father.removeChild( document.querySelector('.principal'))
+        father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
+
+        document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
+        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
+        const messageFather = document.querySelector('.padreMensajes')
+        person.messages.forEach(e=>{
+            let color = ''
+            e.role=='transmitter' ? color = 'verde' : color = 'gris'
+            messageFather.appendChild(boxMessage(color,e.role,e.message,e.hour))
+        })
+
 
         e.addEventListener('click',async (ev)=>{
-
-            const person = people[i]
-            father.removeChild( document.querySelector('.principal'))
-            father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
-
-            document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
-            //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-            const messageFather = document.querySelector('.padreMensajes')
-            person.messages.forEach(e=>{
-                let color = ''
-                e.role=='transmitter' ? color = 'verde' : color = 'gris'
-                messageFather.appendChild(boxMessage(color,e.role,e.message,e.hour))
-            })
-
             //Animacion en si
             const main = document.querySelector('.mainContainer')
             const profile = document.querySelector('.padre')
             const chat = document.querySelector('.principal')
 
-            main.style.transition = 'transform .25s ease-in-out'
-            main.style.transform = 'translate(0,200%)'
 
-            profile.style.transition = 'transform .25s ease-in-out'
-            profile.style.transform = 'translate(200%,0)'
 
-            chat.style.display='flex'
-            chat.style.transition = 'transform .25s ease-in-out'
-
+            chat.style.display='block'
+            //chat.style.width='800px'
             setTimeout(()=>{
 
                 main.style.display='none'
@@ -237,12 +233,12 @@ fetchQuerys().then(async(data) => {
                     chat.style.transform = 'translate(0,-200%)'
 
                     setTimeout(()=>{
-                        main.style.display='flex'
+                        main.style.display='block'
                         setTimeout(()=>{
 
                             main.style.transition = 'transform .25s ease-in-out'
                             main.style.transform = 'translate(0,0)'
-
+                            chat.style.display = 'none'
                         },10)
                     },250)
                 })
