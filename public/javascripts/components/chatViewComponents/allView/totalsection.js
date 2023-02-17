@@ -11,8 +11,10 @@ export const allView = async(id, profileName, photo, description) => {
     const mainContainer = document.createElement('div')
 
     const childContent = document.createElement('div')
+
     childContent.appendChild(midPart)
     childContent.appendChild(mainChat)
+
     childContent.className = 'childContent'
 
     mainContainer.appendChild(childContent)

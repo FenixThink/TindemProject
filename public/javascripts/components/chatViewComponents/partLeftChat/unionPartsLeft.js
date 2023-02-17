@@ -1,8 +1,7 @@
 
 import { allChats } from '../all-chats/allChats.js'
 import { divSearch } from '../all-chats/search.js'
-import {allView} from "../allView/totalsection.js";
-import {boxMessage} from "../boxMessage/boxMessage.js";
+
 
 export const people = [
     {
