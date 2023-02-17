@@ -76,5 +76,5 @@ export function modalUpload() {
 }
 
 export function loadImage() {
-    return nameImg;
+    return nameImg
 }

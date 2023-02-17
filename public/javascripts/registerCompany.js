@@ -7,7 +7,6 @@ app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre d
 const send = document.querySelector('.submitButton')
 const dataForm = document.querySelector('.Padre')
 
-
 dataForm.addEventListener('submit', (e) => {
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
@@ -60,8 +59,19 @@ dataForm.addEventListener('submit', (e) => {
             country: data[5],
             city: data[6],
             description: data[7],
+            nameImg: image,
         }
 
+        console.log(body);
+        /* 
+        fetch('/company/create', {
+        method: 'POST',
+        headers: {
+            "content-type": 'application/json'
+        },
+        body: JSON.stringify(body)
+        }) 
+        */
         inputCompanyName.forEach((e, i) => {
             if (i == 5) {
                 e.value = 'Seleccione pais'
@@ -75,7 +85,6 @@ dataForm.addEventListener('submit', (e) => {
 
         description.value = ''
     }
-
 })
 
 //Validacion de que el valor ingresado al input de email si sea un email

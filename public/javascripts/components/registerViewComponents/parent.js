@@ -17,6 +17,8 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     const button = buttonCreator()
     button.className = 'submitButton'
     button.textContent = 'Enviar'
+
+    /* button.type = 'button' */
     button.type = 'submit'
 
     const child = document.createElement('form')

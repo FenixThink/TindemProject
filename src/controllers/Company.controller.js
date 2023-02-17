@@ -1,16 +1,16 @@
 import Company from "../models/Company.model.js";
-import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
+import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 import multer from '../../public/libs/multer.js';
 
 class CompanyController extends GeneralQuerySql {
     static Create(req, res) {
         try {
-            /* const company = new Company(req.body)
-            const data = await company.create() */
+            /*  const company = new Company(req.body) const data = await company.create() */
             /* multer.single('image') */
-            console.log("BTS Super SIIII");
-            res.status(200).json({
-                
+            
+            let company = (req.body);
+            console.log("Company", company);
+            res.status(202).json({
                 message: 'NiceOne'
             });
         } catch (error) {
