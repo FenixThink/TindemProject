@@ -79,6 +79,9 @@ export async function fetchQuerys() {
     if (dataUser.message === "Access Denied" || dataUser.message ==="access denied, token expired or incorrect"){
         window.location = '/'
     }
+
+
+
     data.push(infoUser);
     data.push(dataUser);
     data.push(infoMessage);
@@ -103,7 +106,6 @@ fetchQuerys().then(async(data) => {
     const [infoUser, dataUser,infoMessage,allmessagesAplicant,emails] = data
     app.appendChild(await TotalFunctionView(emails[0],emails));
     const father = document.querySelector('.containerFather');
-
     father.appendChild(await allView('',''))
     father.appendChild(parentCreator(dataUser))
 
@@ -184,15 +186,30 @@ fetchQuerys().then(async(data) => {
         })
 
     })
-//Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
+    
+
+    //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
     document.querySelectorAll('.messageBox').forEach((e,i)=>{
 
         e.addEventListener('click',async (ev)=>{
 
+            let userId, userName;
+            if(infoUser.message.rol === 'applicant'){
+
+                userId = infoMessage.consulta[i].id_company 
+                userName = infoMessage.consulta[i].name_company
+                
+                
+            }else{
+                
+                userId = infoMessage.consulta[i].id_applicant
+                userName = infoMessage.consulta[i].name_applicant
+                
+            }
             const person = people[i]
             father.removeChild( document.querySelector('.principal'))
-            father.appendChild(await allView(person.id,person.name,person.profileImage,person.description))
+            father.appendChild(await allView(userId,userName,person.profileImage,person.description))
 
             document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
             //Configurando la actualizacion de los mensajes respecto al chat seleccionado

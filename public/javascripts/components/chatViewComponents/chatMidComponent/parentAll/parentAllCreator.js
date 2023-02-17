@@ -16,7 +16,6 @@ export const parentParentCreator = async (id,profileName,photo)=>{
         const center = centerCreator()
         const top = headerChatCreator(id,profileName,photo)
         
-        
         //Creacion input
         const input = inputCreator()
         input.placeholder = "Type a message"
@@ -27,7 +26,7 @@ export const parentParentCreator = async (id,profileName,photo)=>{
         inputCont.appendChild(input)
         
 //Configuracion de la agregacion del contenedor del mensaje al chat
-inputCont.addEventListener('keyup',(e)=>{
+inputCont.addEventListener('keyup',async (e)=>{
     if(e.code == 'Enter'){
         if(input.value){
             
@@ -42,19 +41,25 @@ inputCont.addEventListener('keyup',(e)=>{
             
             
             
-            
             //Guardado del mensaje en la lista de mensajes existentes en el chat con la otra persona
             const personId = document.querySelector('.nameTopChat').id
-            const posLastMessage = Object.values(people[personId].messages).length  
-            
-            people[personId].messages[posLastMessage+1]={
+            console.log(infoUser.message.id, personId)
+            const chat = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${personId}`,{
+                method: 'get'
+            })
+
+            const chatData = await chat.json()
+            const posLastMessage = chatData.Message.length  
+
+            /* people[personId].messages[posLastMessage+1]={
                 message:input.value,
                 hour: `${date.toLocaleString('es-CO').slice(10,14)} ${zone}`,
                 role:'transmitter'
-            }
+            } */
             //Actualizacion del ultimo mensaje de la barra lateral izquierda del chat
             const boxChat = document.querySelectorAll('.boxMessageAllChat')
             boxChat.forEach(e=>{
+                console.log(e.parentElement.id, personId)
                 if(e.parentElement.id==personId){
                     e.lastChild.textContent = 'You: ' + input.value 
                 }
