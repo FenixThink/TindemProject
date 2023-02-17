@@ -111,6 +111,8 @@ fetchQuerys().then(async(data) => {
 
     father.appendChild(await allView('',''));
 
+    console.log(allmessagesAplicant)
+
 
 //Creacion de la animacion del buscador
 
@@ -193,12 +195,14 @@ fetchQuerys().then(async(data) => {
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
     document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
-
+            console.log(e)
             let userId, userName;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company
+
+                console.log(infoUser)
                 
                 
             }else{
@@ -207,8 +211,9 @@ fetchQuerys().then(async(data) => {
                 userName = infoMessage.consulta[i].name_applicant
                 
             }
+            // const person = idFetch[i]
             const person = people[i]
-            father.removeChild( document.querySelector('.principal'))
+            father.removeChild(document.querySelector('.principal'))
             father.appendChild(await allView(userId,userName,person.profileImage,person.description))
 
         document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
