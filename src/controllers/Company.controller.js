@@ -8,8 +8,8 @@ class CompanyController extends GeneralQuerySql {
             /*  const company = new Company(req.body) const data = await company.create() */
             /* multer.single('image') */
             
-            let company = (req.body);
-            console.log("Company", company);
+            let infoImage = (req.file);
+            console.log("Info: ", infoImage);
             res.status(202).json({
                 message: 'NiceOne'
             });
