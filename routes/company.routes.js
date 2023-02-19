@@ -8,7 +8,7 @@ const router = Router()
 router.get('/register/company', function (req, res, next) {
   res.render('registerCompany');
 });
-router.post('/company/create', multer.single('image'), CompanyController.Create);
+router.post('/company/create', multer.single('img'), CompanyController.Create);
 
 
 router.get('/Allcompany', CompanyController.getAll)

@@ -1,4 +1,4 @@
-let nameImg
+//let nameImg
 
 export function modalUpload() {
     /*seccion para cerrar modal */
@@ -19,14 +19,15 @@ export function modalUpload() {
     const inputUpload = document.createElement('input')
     inputUpload.type = 'file'
     inputUpload.className = 'fileInput'
-    inputUpload.name = 'image'
+    //Clase del input tipo File.
+    inputUpload.name = 'img'
     inputUpload.setAttribute('id', 'archivoInput')
     inputUpload.addEventListener('change', () => {
         /*funcion -----------------------*/
         const inputFile = document.getElementById('archivoInput')
         const img = document.querySelector('.LogoRegister');
         const choosedFile = inputFile.files[0];
-        nameImg = inputFile.files[0].name;
+        //nameImg = inputFile.files[0].name;
         if (choosedFile) {
             const reader = new FileReader();
             modalContent.style.display = 'none'
@@ -75,6 +76,6 @@ export function modalUpload() {
     return modalContent
 }
 
-export function loadImage() {
-    return nameImg
-}
+// export function loadImage() {
+//     return nameImg
+// }
