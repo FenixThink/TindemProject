@@ -44,8 +44,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-app.use(photoRoute)
-
 app.use('/', indexRouter);
 app.use(userRouter);
 app.use(applicantRouter);
