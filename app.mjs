@@ -5,8 +5,8 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 
 import morgan from 'morgan';
+import storage from './public/libs/multer.js';
 import multer from 'multer';
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,7 +30,14 @@ app.use(express.json());
 app.use(morgan('dev'));
 //Facilita la comprensión de data enviada de un formulario al servidor
 app.use(express.urlencoded({ extended: false }));
-//Generar el path para almacenar las imagenes
+
+//AutoGenerar el path para almacenar las imagenes
+app.use(multer({
+  storage,
+  dest: path.join(__dirname, 'public/img'),
+  //FileSize, para evitar que se suban imagenes DEMASIADO pesadas // Peso actual: 3Mb
+  limits: { fileSize: 3000000 }
+}).single('img'));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));

@@ -1,14 +1,12 @@
 import { Router } from 'express'
 import CompanyController from '../src/controllers/Company.controller.js';
-import multer from '../public/libs/multer.js';
-
 
 const router = Router()
 
-router.get('/register/company', function (req, res, next) {
+router.get('/register/company', (req, res) => {
   res.render('registerCompany');
 });
-router.post('/company/create', multer.single('img'), CompanyController.Create);
+router.post('/company/create', CompanyController.Create);
 
 
 router.get('/Allcompany', CompanyController.getAll)

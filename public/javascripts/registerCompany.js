@@ -7,7 +7,7 @@ app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre d
 const send = document.querySelector('.submitButton')
 const dataForm = document.querySelector('.Padre')
 
-dataForm.addEventListener('submit', (e) => {
+send.addEventListener('submit', (e) => {
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
     let data = []

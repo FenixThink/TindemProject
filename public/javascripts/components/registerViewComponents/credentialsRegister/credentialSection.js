@@ -20,7 +20,7 @@ export function credentialContainer(firstInput, secondInput) {
     /*Creación de la etiqueta INPUT referente al nombre de usuario de la empresa*/
     const inputCompanyUsername = inputCreator();
     inputCompanyUsername.className = "inputUsuarioEmp inputEmpresa";
-    inputCompanyUsername.name = "companyUsername"
+    inputCompanyUsername.name = "companyUsername";
     inputCompanyUsername.placeholder = "Placeholder_input";
     inputCompanyUsername.size = "25";
     /*Aquí TERMINA la creación de etiquetas de la sección SUPERIOR del CONTENEDOR de credenciales*/
