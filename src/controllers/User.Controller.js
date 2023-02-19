@@ -73,7 +73,6 @@ class UserController{
         try{
             const token = req.body.token
             const respuesta = await User.validationToken(token)
-            console.log(respuesta)
             return res.status(200).json({'message':respuesta})
         }catch(error){
             return res.status(500).json({
@@ -91,10 +90,7 @@ class UserController{
             if(answer.length=== 0){
                 return res.status(404).json({'message':'user not found'})
             }
-            // console.log(respuesta)
             res.send(answer)
-            
-            
 
         }catch(error){
             return res.send({

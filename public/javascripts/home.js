@@ -15,7 +15,7 @@ export async function fetchQuerys() {
     const token = localStorage.getItem('token')
     const tokenPropio = {'token':token}
     //Devolver el token desencriptado
-    const tokenData = await fetch('http://localhost:3000/api/decode/',{
+    const tokenData = await fetch('/api/decode/',{
         method:'post',
         headers:{
             "Content-type":'application/json'
@@ -67,7 +67,6 @@ export async function fetchQuerys() {
         
     }
     
-
     const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
         method: 'get',
         headers: {
@@ -80,14 +79,13 @@ export async function fetchQuerys() {
         window.location = '/'
     }
 
-
-
     data.push(infoUser);
     data.push(dataUser);
     data.push(infoMessage);
     data.push(allmessages);
 
     for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
         const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
             method: 'get',
             headers: {
@@ -108,10 +106,7 @@ fetchQuerys().then(async(data) => {
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-
     father.appendChild(await allView('',''));
-
-    console.log(allmessagesAplicant)
 
 
 //Creacion de la animacion del buscador
@@ -195,15 +190,12 @@ fetchQuerys().then(async(data) => {
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
     document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
-            console.log(e)
+        console.log('a')
             let userId, userName;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
-                userName = infoMessage.consulta[i].name_company
-
-                console.log(infoUser)
-                
+                userName = infoMessage.consulta[i].name_company      
                 
             }else{
                 

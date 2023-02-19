@@ -123,11 +123,11 @@ INSERT INTO applicant VALUES (4,"Ruiz","2006-04-21");
 INSERT INTO applicant VALUES (5,"Olaya","2013-04-17");
 
 -- COMPAÑYA
-INSERT INTO company VALUES (6,"123441141","1994-06-30");
-INSERT INTO company VALUES (7,"621644264","1990-05-12");
-INSERT INTO company VALUES (8,"643523424","1980-04-16");
-INSERT INTO company VALUES (9,"123456456","2000-02-19");
-INSERT INTO company VALUES (10,"699862137","2005-03-20");
+INSERT INTO company VALUES (1,"123441141","1994-06-30");
+INSERT INTO company VALUES (2,"621644264","1990-05-12");
+INSERT INTO company VALUES (3,"643523424","1980-04-16");
+INSERT INTO company VALUES (4,"123456456","2000-02-19");
+INSERT INTO company VALUES (5,"699862137","2005-03-20");
 
 
 -- CUENTA DE PERFIL
@@ -139,15 +139,15 @@ INSERT INTO profile_account VALUES ( 4,"Jose","Interesados en seguir estudiando"
 INSERT INTO profile_account VALUES ( 5,"Johan","Persona activa con actitud para trabajar en equipo","applicant",3,"img-johan",3,5);
 
 -- cuenta Empresa
-INSERT INTO profile_account VALUES ( 6,"Google","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",6,"img-google",6,1);
+INSERT INTO profile_account VALUES ( 6,"Google","Google LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internetGoogle LLC es una compañía principal subsidiaria de la estadounidense Alphabet cuya especialización son los productos y servicios relacionados con internet","company",1,"img-google",6,1);
 
-INSERT INTO profile_account VALUES ( 7,"PepsiCo","compañía líder global de alimentos y bebidas. Nuestros consumidores disfrutan nuestros productos mil millones de veces al día en más de 200 países y territorios.","company",7,"img-pepsico",7,3);
+INSERT INTO profile_account VALUES ( 7,"PepsiCo","compañía líder global de alimentos y bebidas. Nuestros consumidores disfrutan nuestros productos mil millones de veces al día en más de 200 países y territorios.","company",2,"img-pepsico",7,3);
 
-INSERT INTO profile_account VALUES ( 8,"Tesla","compañía perteneciente a la industria Automotriz, que se encarga de producir y distribuir vehículos eléctricos junto a sistemas de almacenamiento de baterías. Tesla, Inc. cuenta con 45,000 trabajadores distribuidos alrededor del mundo.","company",8,"img-tesla",8,2);
+INSERT INTO profile_account VALUES ( 8,"Tesla","compañía perteneciente a la industria Automotriz, que se encarga de producir y distribuir vehículos eléctricos junto a sistemas de almacenamiento de baterías. Tesla, Inc. cuenta con 45,000 trabajadores distribuidos alrededor del mundo.","company",3,"img-tesla",8,2);
 
-INSERT INTO profile_account VALUES ( 9,"PsicoSalud"," grupo de Gabinetes de Psicología y Psicoanálisis con 11 centros en la provincia de Málaga desde 1995 y con mas de 50 profesionales de la Salud Mental en el que encontrará soluciones a todo aquello psicológico que le preocupa y/o quiere solventar, garantizándole un trato personalizado y adaptado a sus necesidades, poniendo a su disposición, toda nuestra experiencia y nuestra profesionalidad.","company",9,"img-psicosalud",9,5);
+INSERT INTO profile_account VALUES ( 9,"PsicoSalud"," grupo de Gabinetes de Psicología y Psicoanálisis con 11 centros en la provincia de Málaga desde 1995 y con mas de 50 profesionales de la Salud Mental en el que encontrará soluciones a todo aquello psicológico que le preocupa y/o quiere solventar, garantizándole un trato personalizado y adaptado a sus necesidades, poniendo a su disposición, toda nuestra experiencia y nuestra profesionalidad.","company",4,"img-psicosalud",9,5);
 
-INSERT INTO profile_account VALUES ( 10,"Garrigues","Garrigues es una firma internacional de servicios legales y fiscales que asesora a nivel local, regional y global desde todos los ángulos del derecho de los negocios. La fuerza de Garrigues reside en su equipo, más de 2.000 personas que trabajan de manera transversal para resolver los problemas de sus clientes.","company",10,"img-garrigues",10,4);
+INSERT INTO profile_account VALUES ( 10,"Garrigues","Garrigues es una firma internacional de servicios legales y fiscales que asesora a nivel local, regional y global desde todos los ángulos del derecho de los negocios. La fuerza de Garrigues reside en su equipo, más de 2.000 personas que trabajan de manera transversal para resolver los problemas de sus clientes.","company",5,"img-garrigues",10,4);
 
 -- AREAS 
 INSERT INTO interest_area VALUES ( 1,"Ingenieria de sistemas" );
@@ -243,19 +243,22 @@ INSERT INTO profile_specialization VALUES ( null,10,17);
 
 -- ACCIONES (MATCHS)
 
-INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",0,0,1,6);
-INSERT INTO actions VALUES ( 2,"2004-09-07","like","applicant",1,0,1,6);
+INSERT INTO actions VALUES ( 1,"2000-09-07","like","company",1,0,1,4);
+INSERT INTO actions VALUES ( 2,"2000-09-07","like","company",1,0,1,2);
+INSERT INTO actions VALUES ( 3,"2000-09-07","like","company",1,0,1,1);
+INSERT INTO actions VALUES ( 4,"2004-09-07","like","applicant",0,0,1,5);
 
-INSERT INTO actions VALUES ( 3,"2002-09-07","like","applicant",0,0,2,7);
-INSERT INTO actions VALUES ( 4,"2002-09-17","like","company",1,0,2,7);
+INSERT INTO actions VALUES ( 5,"2002-09-07","like","applicant",1,0,2,5);
+INSERT INTO actions VALUES ( 6,"2002-09-17","like","company",1,0,2,1);
+INSERT INTO actions VALUES ( 7,"2002-09-17","like","company",0,0,2,3);
 
-INSERT INTO actions VALUES ( 5,"2010-09-07","like","company",0,0,3,8);
-INSERT INTO actions VALUES ( 6,"2010-09-10","like","applicant",1,0,3,8);
+INSERT INTO actions VALUES ( 9,"2010-09-10","like","applicant",1,0,3,5);
+INSERT INTO actions VALUES ( 10,"2010-09-10","like","applicant",1,0,3,4);
+INSERT INTO actions VALUES ( 11,"2010-09-10","dislike","applicant",0,0,3,1);
+INSERT INTO actions VALUES ( 12,"2010-09-10","like","applicant",1,0,3,3);
+INSERT INTO actions VALUES ( 13,"2010-09-10","dislike","applicant",0,0,3,2);
 
-INSERT INTO actions VALUES ( 7,"2015-09-07","like","applicant",0,0,4,9);
-INSERT INTO actions VALUES ( 8,"2015-09-15","like","company",1,0,4,9);
 
-select * from actions
 /*
 INSERT INTO actions VALUES ( 5,"2001-09-07","dislike","aspirant",0,3,1);*/
 

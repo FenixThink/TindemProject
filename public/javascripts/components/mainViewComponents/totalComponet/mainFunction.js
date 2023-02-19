@@ -7,7 +7,7 @@ import { applicant } from "../../userDataCard/userDataCard.js";
 export const rightCreator = (img,dataArea,emails) => {
 
     setTimeout(() => { reloadData(emails) }, 100);
-
+    console.log(dataArea)
     const [data, interestArea] = dataArea
     const array = []
     const otherArray = []
