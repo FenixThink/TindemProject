@@ -12,7 +12,7 @@ class CompanyController extends GeneralQuerySql {
             /*  const company = new Company(req.body) 
                 const data = await company.create() */
             /* multer.single('image') */
-            const { companyName, companyUsername, description, type, key } = req.body;
+            const { companyName, companyUsername, companyEmail, dayFounded, companyPassword, description, type, key, city, interest } = req.body;
 
             let bodyInfo = req.body;
             console.log("Body Info: ", bodyInfo);
@@ -22,11 +22,16 @@ class CompanyController extends GeneralQuerySql {
 
             const newCompanyInfo = {
                 name: companyName,
-                userName: companyUsername,
+                NIT: companyUsername,
+                email: companyEmail,
+                day_of_founded: dayFounded,
+                password: companyPassword,
                 description: description,
                 type: type,
                 key: key,
                 img: req.file.filename,
+                city: city,
+                interest: interest,
             }
             console.log("NewCompanyInfo", newCompanyInfo);
 
