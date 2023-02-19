@@ -81,6 +81,24 @@ class ActionController {
         };
     }
 
+    static DeleteChat = async(req, res) => {
+        try {
+            const respuesta = await Actions.DeleteChat(req, res)
+            if (respuesta.length <= 0) res.status(404).json({
+                message: 'Action not found'
+            })
+            res.send(respuesta)
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "status": 404,
+                "message": error.message
+            });
+        };
+    }
+
+
+    
 }
 
 export default ActionController

@@ -1,5 +1,4 @@
 import { parentCreator } from "./components/registerViewComponents/parent.js"
-//import { loadImage } from "./components/registerViewComponents/modalUploadPhoto/modalUpload.js"
 
 const app = document.querySelector('#app')
 app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
@@ -46,10 +45,6 @@ send.addEventListener('submit', (e) => {
             alert(errors.join("\n"));
             return
         }
-
-        // const image = loadImage()
-        // console.log(image);
-
         const body = {
             name: data[0],
             nit: data[1],

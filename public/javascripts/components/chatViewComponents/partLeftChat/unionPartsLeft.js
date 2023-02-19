@@ -1,8 +1,7 @@
 
 import { allChats } from '../all-chats/allChats.js'
 import { divSearch } from '../all-chats/search.js'
-import {allView} from "../allView/totalsection.js";
-import {boxMessage} from "../boxMessage/boxMessage.js";
+
 
 export const people = [
     {
@@ -103,7 +102,7 @@ export const people = [
 
 
 
-export const partLeft =(topName,topProfileImg) =>{
+export const partLeft = async(topName,topProfileImg) =>{
     
     //Creacion de la imagen
     const img = document.createElement('img')
@@ -135,7 +134,7 @@ export const partLeft =(topName,topProfileImg) =>{
     profile.appendChild(imgName)
     profile.appendChild(search)
 
-    const chats = allChats()
+    const chats = await allChats()
 
     const totalpartLeft = document.createElement('div')
     totalpartLeft.className = 'totalpartLeft'
@@ -146,71 +145,5 @@ export const partLeft =(topName,topProfileImg) =>{
     return totalpartLeft;
 }
 
-setTimeout(function() {
-    const father = document.querySelector('.containerFather')
-    document.querySelectorAll('.messageBox').forEach((e,i)=>{
 
-        e.addEventListener('click',(ev)=>{
-
-            const person = people[i]
-
-            father.removeChild( document.querySelector('.principal'))
-            father.appendChild(allView(person.id,person.name,person.profileImage,person.description))
-
-            document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
-            //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-            const messageFather = document.querySelector('.padreMensajes')
-            person.messages.forEach(e=>{
-                let color = ''
-                e.role=='transmitter' ? color = 'verde' : color = 'gris'
-                messageFather.appendChild(boxMessage(color,e.role,e.message,e.hour))
-            })
-
-            //Animacion en si
-            const main = document.querySelector('.mainContainer')
-            const profile = document.querySelector('.padre')
-            const chat = document.querySelector('.principal')
-
-            main.style.transition = 'transform .25s ease-in-out'
-            main.style.transform = 'translate(0,200%)'
-
-            profile.style.transition = 'transform .25s ease-in-out'
-            profile.style.transform = 'translate(200%,0)'
-
-            chat.style.display='flex'
-            chat.style.transition = 'transform .25s ease-in-out'
-
-            setTimeout(()=>{
-
-                main.style.display='none'
-                profile.style.display='none'
-                chat.style.transform = 'translate(0,0)'
-
-
-            },100)
-
-
-            //Evento de la x para volver a ver las tarjeticas
-            document.querySelectorAll('.x').forEach(e=>{
-                e.addEventListener('click',()=>{
-
-                    const main = document.querySelector('.mainContainer')
-                    const chat = document.querySelector('.principal')
-
-                    chat.style.transform = 'translate(0,-200%)'
-
-                    setTimeout(()=>{
-                        main.style.display='flex'
-                        setTimeout(()=>{
-
-                            main.style.transition = 'transform .25s ease-in-out'
-                            main.style.transform = 'translate(0,0)'
-
-                        },10)
-                    },250)
-                })
-            })
-        })
-    })
-}, 3000);
 

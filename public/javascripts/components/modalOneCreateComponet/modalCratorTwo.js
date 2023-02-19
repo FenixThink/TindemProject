@@ -1,11 +1,10 @@
-
-import { enviar } from '../registerViewComponents/tellUsAboutYourselfRegister/contentDad.js'
+import {
+    enviar
+} from '../registerViewComponents/tellUsAboutYourselfRegister/contentDad.js'
 export const rolesPerson = []
 let prueba = new Set
 
 export function AreasRolesTwo(btnRolInArea) {
-
-
     const rol = document.createElement("span");
     rol.className = "rolOn"
     rol.textContent = "Rol de  "
@@ -21,41 +20,33 @@ export function AreasRolesTwo(btnRolInArea) {
 
     const add = document.createElement("input")
     add.type = "button"
-   add.id = "agregarCambios"
+    add.id = "agregarCambios"
     add.className = "agregarCambios"
     add.value = "Aplicar Cambios"
     /* con este evento capturamos los botones seleccionados y los enviamos a la caja necesarioa 
-    */
+     */
 
     add.onclick = function () {
-
-        //capturando botones activos
         const devuelta = document.getElementsByName('active')
-//enviando la lista de notos aun array
-        let Array1 = [...devuelta]; 
+        let Array1 = [...devuelta];
+        // console.log(devuelta)
         let array1Content = []
-
         Array1.forEach(i => {
-            array1Content.push(i.value)
+            array1Content.push(i.textContent)
+            //console.log(i.textContent,'item');
         })
         //nuevo.add(array2Content)
-
-        //enviando datos al set asi aseguramos que no entren repetidos
         array1Content.forEach(element => {
             prueba.add(element)
         });
-
-        console.log(prueba)
-        //capturando botones a eliminar para crear nuevamente 
         const reset = document.querySelector(".rolesInProfiles")
         while (reset.firstChild) {
             reset.removeChild(reset.firstChild)
         }
-        //funcion que nos permite crear respecto al set asi aseguramos que no entren repetidos 
-        
         enviar(prueba)
-        //       con este codigo remuevo el hijo que se crea cada que llamamos una area  
-        
+        /*         
+        con este codigo remuevo el hijo que se crea cada que llamamos una area 
+         */
         document.querySelector(".modalHijo").remove()
     }
     /*  para dar un clasname diferente */
@@ -69,6 +60,7 @@ export function AreasRolesTwo(btnRolInArea) {
 
     const footerRoles = document.createElement("div")
     footerRoles.appendChild(add)
+
     const container = document.createElement("div")
     container.className = "containerRolesAndAreas"
 
@@ -84,22 +76,21 @@ export function AreasRolesTwo(btnRolInArea) {
 
     return padreRolesOrAreas
 }
+
+export { prueba };
 /* creacion de botones por parametros*/
 function createButton(name) {
-    let btn = document.createElement("input");
-    btn.type = "button"
+    let btn = document.createElement("button");
     btn.className = "optionsRoles"
+    btn.textContent = name
+    btn.type = "button"
     btn.value = name
     btn.name = "inactive"
-
-
-
-    /*     para cambiar estilos y atributos para selecionarlos
-    */    btn.onclick = function (params) {
-
-
+    /*     
+    para cambiar estilos y atributos para selecionarlos
+     */
+    btn.onclick = function (params) {
         if (btn.name == "inactive") {
-
             this.style.background = "#6171FF"
             this.style.color = "#fff"
             this.name = "active"
@@ -113,3 +104,4 @@ function createButton(name) {
 
     return btn
 }
+

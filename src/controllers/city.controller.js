@@ -1,5 +1,6 @@
 import City from '../models/City.model.js';
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
+import { response } from 'express';
 
 
 
@@ -22,12 +23,10 @@ class CityController extends GeneralQuerySql {
         }catch(error){
             return res.send({
                 "status":404,
-                "message":error.message
+                "message":"perros"
             })
 
         }
     }
-
-    
 }
 export default CityController;

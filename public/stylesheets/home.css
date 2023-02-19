@@ -9,71 +9,71 @@
 
 /*Aqui empieza la parte de orejarena*/
 
-    .profileCont{
-   
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-inline: 1rem;
-        background: #D5D9FF;
+.profileCont{
 
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 1rem;
+    background: #D5D9FF;
 
-    .leftProfile{
-   
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+}
 
-    }
+.leftProfile{
 
-    .profileImgCont{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        overflow: hidden;
-        cursor: pointer;
+}
 
-    }
+.profileImgCont{
 
-    .profileImg{
-        
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
 
-    }
+}
 
-    .totalpartLeft{
+.profileImg{
 
-        height: 100vh;
-        width: 47vmin;
-        min-width: 47vmin;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 
-        background: rgba(0, 0, 0, 0.1);
+}
 
-    }
+.totalpartLeft{
 
-    .TitleallChats{
+    height: 100vh;
+    width: 47vmin;
+    min-width: 47vmin;
 
-        text-align: center;
-        padding: 1rem;
+    background: rgba(0, 0, 0, 0.1);
 
-    }
-    .messageBox{
-      display: flex;
-      padding: 1rem;
-      width: 100%;
-    }
+}
 
-    .messageBox:hover{
+.TitleallChats{
 
-        cursor: pointer;
-        background-color: #D5D9FF;
-        transition: all .8s ease-out;
+    text-align: center;
+    padding: 1rem;
 
-    }
+}
+.messageBox{
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+}
+
+.messageBox:hover{
+
+    cursor: pointer;
+    background-color: #D5D9FF;
+    transition: all .8s ease-out;
+
+}
 
 /*Aqui termina la parte de orejarena*/
 
@@ -101,7 +101,7 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    max-width: 60%;
+    max-width: 100%;
     padding: 40px;
     gap: 1.7rem;
     border-radius: 30px;
@@ -116,74 +116,88 @@
 /*Aquí termina la parte de KDOE*/
 
 /* Empieza la parte de vanessa */
-    .containerFather{
-        display: flex;
-        width: 100%;
-        overflow: hidden;
-    }
+.containerFather{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
 
-    .appDivPadre{
-        display: flex;
-        width: 90%;
-        justify-content: center;
-        align-items: center;
-        gap: 80px;
-    }
+.appDivPadre{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
 
-    .appDivPadreSpan{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-    }
+.appDivPadreSpan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
 
-    .divDescription{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        width: 90%;
-        gap: 0.68rem;
-    }
+.divDescription{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    gap: 0.68rem;
+}
 
-    .spanPlaceHolder{
-        display:flex;
-        align-items: center; 
-        color: #757575;   
-        padding: 6px 12px;
-        width: 100%;
-        border-radius: 0.5rem;
-        text-align: justify;
-    }
+.spanPlaceHolder{
+    display:flex;
+    align-items: center;
+    color: #757575;
+    padding: 6px 12px;
+    width: 100%;
+    border-radius: 0.5rem;
+    text-align: justify;
+}
 
-    .spanTitle {
-        font-size: 1.1em;
-    }
+.spanTitle {
+    font-size: 1.1em;
+}
 
-    .divSonDescription{
-        border: #C2C2C2 1px solid;
-        border-radius: 8px;
-        width: 100%;
-        background-color: #ffff;
-    }
-    .buttons{
-        width: 60px;
-    }
+.divSonDescription{
+    border: #C2C2C2 1px solid;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #ffff;
+}
+#imglike{
+    width: 60px;
+    color: #53C946;
+    font-size: 5rem!important;
+}
+#imgUnlike{
+    width: 60px;
+    color: #E24442;
+    font-size: 5rem!important;
+    color: #53C946;
+    font-size: 5rem!important;
+}
+#imgUnlike{
+    width: 60px;
+    color: #E24442;
+    font-size: 5rem!important;
+}
 /* Aqui termina la parte de vanessa */
 
 /* Empieza parte de johan */
 .container{
-    
+
     display: flex;
     align-items: center;
 }
 
 .containerChatDescr{
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -264,98 +278,107 @@
     justify-content: flex-start;
 }
 
-.buttons:hover {
+#imglike:hover {
     cursor: pointer;
-    filter: saturate(180%);
+    color: #28ac14;
+    transition: all .5s;
+    transform: scale(1.1);
+}
+
+#imgUnlike:hover{
+    cursor: pointer;
+    color: rgb(237, 5, 5);
+    transition: all .3s;
+    transform: scale(1.1);
 }
 /*Aquí termina la parte de Natalia*/
 
 .title-all-chats{
     padding-left: 2.5vh;
     font-size: 2vh;
-  }
-  
-  .interCaja{
+}
+
+.interCaja{
     cursor: pointer;
-  }
-  
-  .interCaja:hover{
+}
+
+.interCaja:hover{
     border: 3px  #F1F4F6;
     background-color: #F1F4F6;
     transition: .3s;
-  }
-  
-  .insertPhotoChat:hover{
+}
+
+.insertPhotoChat:hover{
     transform: scale(1.2);
     transition: .3s;
-  }
-  
-  .insertPhotoChat{
+}
+
+.insertPhotoChat{
     cursor: pointer;
-  }
-  
-  /*Aca termina la partde de Carlos*/
-  
-  /*Aca empieza la parte de olarte*/
-   /* este es el estilo del contenedor que contiene el buscador y los chats  */
-   .father-all-chats{
+}
+
+/*Aca termina la partde de Carlos*/
+
+/*Aca empieza la parte de olarte*/
+/* este es el estilo del contenedor que contiene el buscador y los chats  */
+.father-all-chats{
     height: 100%;
     overflow-x: hidden;
-   }
-  
-   .father-all-chats::-webkit-scrollbar{
-  
+}
+
+.father-all-chats::-webkit-scrollbar{
+
     width: .2rem;
     background-color: #D5D9FF;
-  
-   }
-  
-  /* agegando estilo al contenedor que contiene el buscador */
-  
-  .dadCont{
+
+}
+
+/* agegando estilo al contenedor que contiene el buscador */
+
+.dadCont{
     display: flex;
     justify-content: center;
     align-self: center;
     align-items: center;
     height: 100px;
-    
-  }
-  
-  .padrePadre{
-  
+
+}
+
+.padrePadre{
+
     height: 70%;
-  
-  }
-  
-  .padreAllChat{
+
+}
+
+.padreAllChat{
 
     display: grid;
-  
+
     width: 100%;
     height: 100%;
-  
-  }
-  
-  .searc{
-  
+
+}
+
+.searc{
+
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-  
-    
-  }
-  .lupa{
-  
+
+
+}
+.lupa{
+
     position: absolute;
     width: 30px;
     cursor: pointer;
     height: 30px;
     border: none;
 
-  }
-  .searchContac{
-  
+}
+.searchContac{
+
     display: flex;
     background: #F2F3F5;
     width: 20%;
@@ -366,111 +389,119 @@
     gap: 7px;
     border: none;
     transition: all 1s ease-in-out;
-    
-  }
-  
-  
-  
-  /* Aca termina la parte */
-  
+
+}
+
+
+
+/* Aca termina la parte */
+
 /* Cajas de mensajes (Maria) */
 
 [class*="box-message-"]{
 
     position: relative;
-  
+
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
+
     max-width: 80%;
     padding: 15px 43px 10px 20px;
     border-radius: 10px;
-  
-  }
-  
-  .box-message-verde{
-  
+
+}
+
+.box-message-verde{
+
     background-color: #61C554;
     color: white;
-  
-  }
-  
-  .box-message-gris{
-  
+
+}
+
+.box-message-gris{
+
     background-color: #E8ECEF;
     color: black;
-  
-  }
-  
-  .icon-check{
-      position: absolute;
-      text-align: right;
-      right: 10px;
-      bottom: 0;
-  }
-  
-  .message{
+
+}
+
+.icon-check{
+    position: absolute;
+    text-align: right;
+    right: 10px;
+    bottom: 0;
+}
+
+#icon-doubleCheck{
+    color: #9A9191;
+}
+
+.box-message-verde #icon-doubleCheck{
+    color: #E4D8D8;
+}
+
+.message{
     font-size: 14px;
-  }
-  
-  .double-check-verde{
+}
+
+.double-check-verde{
     width: 15px;
     height: 15px;
     filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(72deg) brightness(104%) contrast(99%)
-  }
-  
-  .double-check-gris{
+}
+
+.double-check-gris{
     width: 15px;
     height: 15px;
     filter: invert(83%) sepia(4%) saturate(6487%) hue-rotate(169deg) brightness(104%) contrast(100%)
-  }
-  
-  .hour{
+}
+
+.hour{
     color: #727272;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: .9rem;
-  }
-  /* Aca acaba la parte de Maria */
-  
-  /*Aca empieza la parte de Orejarena*/
-  
-  .parentParentMid{
+}
+/* Aca acaba la parte de Maria */
+
+/*Aca empieza la parte de Orejarena*/
+
+.parentParentMid{
 
     position: relative;
     width: 100%;
 
-  }
-  
-  .parentTop{
-  
+}
+
+.parentTop{
+
     display: flex;
     align-items: center;
     height: 10%;
     gap: 1rem;
     margin: 0 1rem 1rem;
-  
-  }
-  
-  .contImgTopMid{
-  
+
+}
+
+.contImgTopMid{
+
     display:flex;
     height: 55px;
     width: 55px;
     overflow: hidden;
     border-radius: 50%;
-  
-  }
-  
-  .imgTopMidChat{
-  
+
+}
+
+.imgTopMidChat{
+
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-  
-  }
-  
-  .padreCenter{
-  
+
+}
+
+.padreCenter{
+
     display: flex;
     flex-direction: column;
     height: 74%;
@@ -479,71 +510,71 @@
     padding: 1rem;
     gap: 1rem;
     background-color: #F1F4F7;
-  
-  }
 
-  .padreMensajes{
+}
+
+.padreMensajes{
     display: grid;
     gap: 1rem;
     overflow-x: hidden;
-  }
-  
+}
 
-  .parentMessage-transmitter .hour{
-  
+
+.parentMessage-transmitter .hour{
+
     text-align: right;
-    
-  
-  }
-  
-  .parentMessage-transmitter{
-  
+
+
+}
+
+.parentMessage-transmitter{
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: inherit;
-  
-  }
-  
-  .contInputSend{
-  
+
+}
+
+.contInputSend{
+
     position: absolute;
     bottom: 0;
     justify-content: center;
     display: flex;
     inline-size: 100%;
-  
-  }
-  
-  .inputSendMessage{
-  
+
+}
+
+.inputSendMessage{
+
     border: none;
-      inline-size: 83%;
-      border-radius: 60px;
-      padding: 1rem 1rem 1rem 3rem;
-  
-  }
-  
-  .x{
+    inline-size: 83%;
+    border-radius: 60px;
+    padding: 1rem 1rem 1rem 3rem;
+
+}
+
+.x{
     position: absolute;
     top: 20px;
     right: 27px;
     padding: 0.2rem;
-  }
+}
 
 
-  .x:hover{
+.x:hover{
 
     cursor: pointer;
     transform: scale(1.1);
     transition: all 1s ease-in-out;
 
-  }
+}
 
-  /*Aca termina la parte de Orejarena*/
-  
-  /*Aca empieza la parte de sebastian*/
-  .cont{
+/*Aca termina la parte de Orejarena*/
+
+/*Aca empieza la parte de sebastian*/
+.cont{
     width: 150px;
     height: 150px;
     display: flex ;
@@ -551,95 +582,95 @@
     justify-content: center;
     align-items: center;
     gap: 10%;
-  }
-  .spas{
+}
+.spas{
     text-align: center;
     color: red;
     display: block;
     width: 100%;
     height: 20%;
     cursor: pointer;
-  }
-  /*Aca termina la parte de sebastian*/
-  
-  /* Aquí empieza parte de Yulieth */
-  
-  /* Contact info y about */
-  
-  .info{
+}
+/*Aca termina la parte de sebastian*/
+
+/* Aquí empieza parte de Yulieth */
+
+/* Contact info y about */
+
+.info{
     margin: 30px 0 50px 0;
-  }
-  
-  .info, .about{
+}
+
+.info, .about{
     font-size: 14px;
     text-align: left;
     font-weight: bolder;
-  }
-  
-  /* imagen de perfil */
-  .ellipse{
+}
+
+/* imagen de perfil */
+.ellipse{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-  }
+}
 
-  /* Contenedor de la imagen */
-  .elipCont{
+/* Contenedor de la imagen */
+.elipCont{
 
     border-radius: 50%;
     overflow: hidden;
     width: 100px;
     height: 100px;
 
-  }
+}
 
-  /* Nombre de perfil */
-  .nameProf{
+/* Nombre de perfil */
+.nameProf{
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
     text-align: center;
     margin: 10px 0;
-  }
-  
-  /* Descripción del perfil */
-  .description{
+}
+
+/* Descripción del perfil */
+.description{
     font-size: 14px;
     text-align: center;
     color: #A2A2A2;
-  }
-  /* Aquí termina parte Yulieth */
-  
-  .principal{
-    
+}
+/* Aquí termina parte Yulieth */
+.right{
+    margin: auto;
+    height: 75vh;
+    width: 65%;
+}
+.principal{
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    width: 62%;
+    max-width: 100%;
     transform: translate(0,-200%);
-  }
-  
-  .cont2{
+}
+
+.cont2{
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .childContent {
+}
+
+.childContent {
     background: rgba(0, 0, 0, 0.1);
-      border-radius: 30px;
-      display: flex;
-      justify-content: space-between;
-      gap: 2.1rem;
-      inline-size: fit-content;
-      height: 80vh;
-      width: 100%;
-      padding: 30px;
-      overflow: hidden;
-  }
-  
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2.1rem;
+    inline-size: fit-content;
+    height: 80vh;
+    width: 100%;
+    padding: 30px;
+    overflow: hidden;
+}
+
 
 /*AQUI EMPIEZA LA PARTE DEL PERFIL*/
 /* Aqui empieza La parte de Orejarena */
@@ -647,17 +678,17 @@
 
 .padre{
 
-  background: rgba(0, 0, 0, 0.1);
-  min-width: 60%;
-  border-radius: 30px;
-  display: none;
-  justify-self: center;
-  align-self: center;
-  gap: 2.1rem; 
-  height: 86%;
-  padding: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    min-width: 60%;
+    border-radius: 30px;
+    display: none;
+    justify-self: center;
+    align-self: center;
+    gap: 2.1rem;
+    height: 100%;
+    padding: 30px;
 
-  transform: translate(200%,0);
+    transform: translate(200%,0);
 
 }
 
@@ -667,76 +698,75 @@
 /* Aqui empieza la parte de Jose */
 
 .padre{
-  padding: 5vmin;
-  margin:auto auto auto auto;
+    padding: 5vmin;
+    margin:auto auto auto auto;
 }
 
 
 .profile{
-  display: flex;
-  height: 35vmin;
-  flex-direction: row;
-  justify-content: space-evenly;
-
+    display: flex;
+    height: 35vmin;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .photo{
-  display: flex;
-  border-radius:50%;
-  position: relative;
+    display: flex;
+    border-radius:50%;
+    position: relative;
 
-  width: 35vmin;
-  height: 30vmin;
+    width: 35vmin;
+    height: 30vmin;
 }
 .years{
-  display: flex   ;
-  font-size: 2vh;
-  font-weight: 900;
-  position: absolute;
-  top: 3.5vmin;
-  right: 6vmin;
-  background-color: #fff;
-  box-shadow: 0 0 12px rgba(o,o,o,-2);
-  width: 4vmin;
-  height: 4vmin;
-  z-index: 2;
-  align-items: center;
-  justify-content: center;
-  border: solid 3px rgb(0, 0, 0);
-  border-radius: 50%;
+    display: flex   ;
+    font-size: 2vh;
+    font-weight: 900;
+    position: absolute;
+    top: 3.5vmin;
+    right: 6vmin;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(o,o,o,-2);
+    width: 4vmin;
+    height: 4vmin;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px rgb(0, 0, 0);
+    border-radius: 50%;
 
 }
 .img{
-  width:30vmin ;
-  height: 30vmin;
-  border-radius:50%;
-  background-size: cover;
-  background-position: contain;
-  z-index: 1;
-  object-fit: cover;
-  object-position: center;
+    width:30vmin ;
+    height: 30vmin;
+    border-radius:50%;
+    background-size: cover;
+    background-position: contain;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
 }
 
 .date{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    display: flex;
+    align-items: center;
+justify-content: center;
+    text-align: center;
 }
 .date>div>p{
-  font-size: 2vmin;
-  font-weight: 900;
+    font-size: 2vmin;
+    font-weight: 900;
 }
 h1{
   font-size: 7.5vmin;
   font-weight: 900;
 }
 .eParents{
-  width: 35vmin;
-  display: flex;
-  gap: 1vmin;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 35vmin;
+    display: flex;
+    gap: 1vmin;
+    flex-direction: column;
+    justify-content: space-between;
 }
 h3{
   font-size: 3vmin;
@@ -751,120 +781,101 @@ h3{
 /* parte inferios de la vista */
 
 .profileInf{
-  gap: 2vmin;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
+    gap: 2vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25vh;
 
 
 }
 
 .estudios{
-  width: 35vmin;
-  height: 7.5vmin;
-  display:grid;
-  grid-template-columns: 1fr 7fr 1fr ;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
-  border: solid 3px rgb(0, 0, 0   );
-  border-radius: 1vmin;
-  padding: 1vmin;
-
-  overflow:hidden ;
-
-
+    width: 35vmin;
+    height: 7.5vmin;
+    display:grid;
+    grid-template-columns: 1fr 7fr 1fr ;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    border: solid 3px rgb(0, 0, 0   );
+    border-radius: 1vmin;
+    padding: 1vmin;
+    overflow:hidden ;
 }
 .estudios>*{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .otros{
-  height: 25vmin;
-  width: 35vmin;
-
-  font-weight: 900;
-  border: solid 3px rgb(0, 0, 0   );
-  border-radius: 1vmin;
-  padding: 2vmin 2vmin;
-  overflow-x: hidden;
-
-
-
+    height: 25vmin;
+    width: 35vmin;
+    font-weight: 900;
+    border: solid 3px rgb(0, 0, 0   );
+    border-radius: 1vmin;
+    padding: 2vmin 2vmin;
+    overflow-x: hidden;
 }
 
 .otros>h3{
-  font-size: 2vmin;
-
+    font-size: 2vmin;
 }
 .liDiv{
-  font-size: 1rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-
+    font-size: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-
-
 li{
-
-  font-weight: 900;
-  list-style: none;
-  color: #514c74;
+    font-weight: 900;
+    list-style: none;
+    color: #514c74;
 }
-
 .descriptionProfile{
-  width: 75vmin;
-
-  display: flex;
-  flex-direction: column;
-  border: solid 3px rgb(0, 0, 0   );
-  border-radius: 1vmin;
-  padding: 1vmin;
-  text-align: center;
-
-  font-size: 1rem;
-  font-weight: 900;
-  gap: 1.5vmin;
-
-
+    width: 75vmin;
+    display: flex;
+    flex-direction: column;
+    border: solid 3px rgb(0, 0, 0   );
+    border-radius: 1vmin;
+    padding: 1vmin;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 900;
+    gap: 1.5vmin;
 }
 .descriptionProfile>h3{
-  height: 15%;
-  font-size: 3vmin;
-  font-weight: 900;
-  text-transform: uppercase;
+    height: 15%;
+    font-size: 3vmin;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 
 .descriptionPerfil{
-  height: 80%;
-  width: 100%;
-  color: #514c74;
-  display: flex;
-
-  flex-direction: column;
-  justify-content: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-
+    height: 80%;
+    width: 100%;
+    color: #514c74;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 .descriptionPerfil>P{
-  height: 85%;
+    height: 85%;
 }
 
 /* Aqui termina la parte de Jose */
@@ -873,80 +884,80 @@ li{
 /*Aquí yace la parte de KDOE-117*/
 /*Estructura Registro Empresa Seccion A*/
 .seccionA {
-  display: flex;
-  width: 100%;
-  gap: 70px;
+    display: flex;
+    width: 100%;
+    gap: 70px;
 }
 
 .seccionLogo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
 }
 
 .seccionCredenciales {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 .subSecSup {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
 }
 .subSecInf {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
 }
 .contGeneral {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /*Estilos Registro Empresa Seccion A*/
 .textEdit {
-  cursor: pointer;
-  color: #000;
-  font-weight: bold;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
 }
 
 .textoEmpresa {
-  
-  font-size: 1rem;
+
+    font-size: 1rem;
 }
 .inputEmpresa {
-  font-size: 1.1rem;
-  padding:5px 10px 5px 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid rgb(126, 120, 120)
+    font-size: 1.1rem;
+    padding:5px 10px 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(126, 120, 120)
 }
 
 /*Logos*/
 .contLogo{
 
-  display: flex;
-  width: 16vmin;
-  height: 16vmin;
-  align-items: center;
-  justify-content: center;
-  border-radius: 80%;
-  background-color: white;
+    display: flex;
+    width: 16vmin;
+    height: 16vmin;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80%;
+    background-color: white;
 
 
 }
 .contLogo .LogoRegister {
 
-  min-width: 3rem;
+    min-width: 3rem;
 
 }
 
 .contLogo .contEdit{
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /*Aquí termina la parte de KDOE-117*/
@@ -957,7 +968,7 @@ li{
 
 .seccionB{
 
-  display: grid;
+    display: grid;
 
 }
 
@@ -965,79 +976,79 @@ li{
 
 /* Contenedor de las fechas y ubicacion */
 .container-location{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Texto inicial de los datos */
 .info{
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.15rem;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.15rem;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
 }
 
 /* contenedor padre de los datos de la empresa */
 .info-location{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4rem;
 }
 
 /* contenedor de los datos */
 .div-info{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
 /* label de los datos y descripcion */
 label{
-  font-style: normal;
-  font-size: 1rem;
-  line-height: 20px;
-  display: flex;
-  
-  align-items: center;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 20px;
+    display: flex;
+
+    align-items: center;
 }
 
 /* Estilos input y select */
 #data{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 7px 13px;
-  width: 250px;
-  height: 38px;
-  background: #FFFFFF;
-  border: 2px solid #CED4DA;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 13px;
+    width: 250px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 2px solid #CED4DA;
+    border-radius: 10px;
 }
 
 /* Contenedor de la descripcion de la empresa */
 .container-description{
-  display: grid;
-  flex-direction: column;
-  align-items: flex-start;
+    display: grid;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .container-description label{
-  
-  font-size: 1rem;
+
+    font-size: 1rem;
 
 }
 
 .description{
 
-  height: 5rem;
-  border: 1px solid #C2C2C2;
-  padding: .2rem .5rem;
-  border-radius: .5rem;
+    height: 5rem;
+    border: 1px solid #C2C2C2;
+    padding: .2rem .5rem;
+    border-radius: .5rem;
 
 }
 /*Aquí Finaliza Parte de Yulieth Correa*/
@@ -1046,30 +1057,30 @@ label{
 /* desde aquí empiza los estilos del cuentanos mas sobre tí parte que le tocaba a andres felipe olarte */
 
 .parentInterest{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 15px;
-  border: none;
-  background: #ffffff;
-  
-  border: 1px solid #C2C2C2;
-  border-radius: .8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    border: none;
+    background: #ffffff;
+
+    border: 1px solid #C2C2C2;
+    border-radius: .8rem;
 
 }
 
 .interestBtn{
-  border: none;
-  background: #6171FF;
-  border-radius: 10px;
-  font-size: 16px;
-  color: #ffffff;
-  width: fit-content;
-  padding: .5rem 1rem;
+    border: none;
+    background: #6171FF;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    width: fit-content;
+    padding: .5rem 1rem;
 }
 
 button:hover{
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* aquí finaliza la parte de Andres Felipe Olarte Quintero */
@@ -1080,165 +1091,165 @@ button:hover{
 /* Diseño del modal */
 
 .divFatherUpload{
-  position: absolute;
-  
+    position: absolute;
+
 }
 
 .modalContent{
-  width: 200px;
-  box-sizing: border-box;
-  height: 160px;
-  bottom: 207px;
-  left: -44px;
-  background: #FFFFFF;
-  border: 2px dashed #CECECE;
-  border-radius: 16px;
-  position: relative;
-  z-index: 1;
-  overflow: auto; 
-  display: flex;
-  
-  
+    width: 200px;
+    box-sizing: border-box;
+    height: 160px;
+    bottom: 207px;
+    left: -44px;
+    background: #FFFFFF;
+    border: 2px dashed #CECECE;
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+    display: flex;
+
+
 
 }
 
 img.imageUpload{
-  height: 22px;
-  width: 33px;
-  cursor:pointer;
+    height: 22px;
+    width: 33px;
+    cursor:pointer;
 }
 
 .uploadImage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 
 .modalContent .close{
-  color: red;
-  float: right;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
+    color: red;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
 
 .modalContent .close:hover .close:focus{
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
 
 .textosUpload{
-  font-family: 'Poppins';
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: -0.08px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5px;
-  
+    font-family: 'Poppins';
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.08px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5px;
+
 }
 
 
 
 .modalContent {
-  /* display: flex; */
-  display: block;
-  padding: 30px;
-  /* gap : 20px; */
+    /* display: flex; */
+    display: block;
+    padding: 30px;
+    /* gap : 20px; */
 }
 
 
 .fileInput{
-  display: none;
+    display: none;
 }
 
 /*aca finaliza la parte de pao */
 /* Parte johan*/
 
 .contenedorInputs{
-  display: flex;
+    display: flex;
 
-  width: 100%;
-  height: 30%;
+    width: 100%;
+    height: 30%;
 }
 
 .dateBirth{
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
 }
 .Country{
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
 }
 .city{
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 .inputIcon{
-  position: relative;
- 
-  width: 200px;
+    position: relative;
+
+    width: 200px;
 }
 
 .icons{
-  width: 15px;
+    width: 15px;
 
-  position: absolute;
+    position: absolute;
 
-  right: 30px;
-  top: 50%;
+    right: 30px;
+    top: 50%;
 
-  transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .abajo1{
-  width: 15px;
+    width: 15px;
 
-  position: absolute;
+    position: absolute;
 
-  right: 105px;
-  top: 50%;
+    right: 105px;
+    top: 50%;
 
-  transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .abajo2{
-  width: 15px;
+    width: 15px;
 
-  position: absolute;
+    position: absolute;
 
-  right: 90px;
-  top: 50%;
+    right: 90px;
+    top: 50%;
 
-  transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .title{
-  font-weight: normal;
+    font-weight: normal;
 }
 
 .inputsDate{
-  border: 1px solid gray;
-  border-radius: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
 
 
-  width: 200px;
+    width: 200px;
 
-  padding: 5px 10px 5px 5px;
+    padding: 5px 10px 5px 5px;
 }
 
 /* Fin parte johan */

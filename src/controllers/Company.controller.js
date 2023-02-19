@@ -56,7 +56,6 @@ class CompanyController extends GeneralQuerySql {
         try {
             const respuesta = await Company.All()
             return res.send(respuesta)
-
         } catch (error) {
             return res.send({
                 "status": 404,
@@ -64,6 +63,20 @@ class CompanyController extends GeneralQuerySql {
             })
         }
     }
-
+    static companyUpdate = async (req, response) => {
+        try {
+            const { nit, day_of_founded } = req.body;
+            const res = await Company.update(nit, day_of_founded, req.params.id);
+            return response.send({
+                "status": 200,
+                "message": "Company update succefully"
+            })
+        } catch (error) {
+            return res.send({
+                "status": 404,
+                "message": error.message
+            })
+        }
+    }
 }
 export default CompanyController

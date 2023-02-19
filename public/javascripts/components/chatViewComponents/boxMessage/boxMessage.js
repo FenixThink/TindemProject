@@ -15,9 +15,9 @@ export function boxMessage(color,cargo,content,hour){
     //Creación del p que contiene el double check
     const p2 = document.createElement("p")
     p2.className="icon-check"
-    const image = document.createElement('img')
-    image.src = "/svg/double-check.svg"
-    image.className="double-check-"+color
+    const image = document.createElement('i')
+    image.id = "icon-doubleCheck"
+    image.className="bx bx-check-double bx-sm"
     p2.appendChild(image)
 
     // Creación del div del mensaje

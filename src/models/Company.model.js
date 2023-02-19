@@ -25,6 +25,12 @@ class Company extends GeneralQuerySql {
 
     }
 
+    static async update(nit,day_of_founded,id){
+        const query = "UPDATE company SET nit = ?, day_of_founded = ? WHERE id = ?";
+        const values = [nit,day_of_founded,id];
+        const result = await pool.query(query, values);
+        return result.affectedRows;
+      }
 }
 
 export default Company
