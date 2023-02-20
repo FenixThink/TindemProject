@@ -41,10 +41,9 @@ class CompanyController extends GeneralQuerySql {
             //Await pa hacer el .save() en la bd.
             //await profileAccount.save();
 
-            res.status(202).json({
-                message: 'NiceOne',
-                profileAccount
-            });
+            res.redirect('/')
+
+
         } catch (error) {
             res.status(500).json({
                 message: error.message
