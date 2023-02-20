@@ -9,7 +9,7 @@ const send = document.querySelector('.submitButton')
 send.addEventListener('click',async()=>{
     const spec = [...prueba]
     const body = {
-        especialization: spec
+        specialization: spec
     }
 
     const dataSpecialization = JSON.stringify(body)
