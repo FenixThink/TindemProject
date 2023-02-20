@@ -29,6 +29,7 @@ class Interest_area extends GeneralQuerySql{
     }
     
     static interest = async (params)=>{
+        console.log(params.email)
         const interest = await pool.query('SELECT si.name AS interes, ia.name AS Area FROM specific_interest si  INNER JOIN interest_area ia ON si.id_interest = ia.id INNER JOIN profile_specialization ps ON si.id = ps.id_specialization INNER JOIN profile_account pa ON pa.id = ps.id_profile_account INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email= (?) ',[params.email])
 
         return interest[0]

@@ -15,38 +15,31 @@ class CompanyController extends GeneralQuerySql {
             }
     }
 
-    static getAll =async(req,res)=>{
-        try{
+    static getAll = async (req, res) => {
+        try {
             const respuesta = await Company.All()
             return res.send(respuesta)
-
-        }catch(error){
+        } catch (error) {
             return res.send({
-                "status":404,
-                "message":error.message
+                "status": 404,
+                "message": error.message
             })
-
         }
     }
-
     static companyUpdate = async (req, response) => {
         try {
-            const{nit,day_of_founded} = req.body;
-            const res = await Company.update(nit,day_of_founded, req.params.id);
+            const { nit, day_of_founded } = req.body;
+            const res = await Company.update(nit, day_of_founded, req.params.id);
             return response.send({
-                "status" : 200,
-                "message":"Company update succefully"
+                "status": 200,
+                "message": "Company update succefully"
             })
         } catch (error) {
             return res.send({
-                "status" : 404,
-                "message" : error.message
+                "status": 404,
+                "message": error.message
             })
         }
     }
-
-
 }
-
-
 export default CompanyController

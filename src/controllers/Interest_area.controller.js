@@ -21,12 +21,12 @@ class InterestAreaController extends GeneralQuerySql {
 
     static async getInterestAplicant(req,res){
             try {
+
                 const interest = await Interest_area.interest(req.params);
                 const profile = await Interest_area.indexInteresAplicant(req.params);
                 const element =  await Interest_area.InteresArea(req.params);
-                console.log(profile[0])
                 if(profile.length == 0 || interest.length == 0){
-                 return res.status(500).json({message:"Profile not found"})   
+                    return res.status(500).json({message:"Profile not found"})   
                 };
                 return res.status(200).json([profile[0], element]); 
 
@@ -39,12 +39,12 @@ class InterestAreaController extends GeneralQuerySql {
 
     static async getInterestCompany(req,res){
             try {
+
                 const interest = await Interest_area.interest(req.params);
                 const profile = await Interest_area.indexInteresCompany(req.params);
                 const element =  await Interest_area.InteresArea(req.params);
-                console.log(profile[0])
                 if(profile.length == 0 || interest.length == 0){
-                 return res.status(500).json({message:"Profile not found"})   
+                    return res.status(500).json({message:"Profile not found"})   
                 };
                 return res.status(200).json([profile[0], element]); 
 
@@ -57,6 +57,7 @@ class InterestAreaController extends GeneralQuerySql {
 
     static InteresgetAll =async(req,res)=>{
         try{
+
             const answer = await Interest_area.All()
             if(answer.length === 0){
                 return res.status(404).json({message:"Areas Not Found"})

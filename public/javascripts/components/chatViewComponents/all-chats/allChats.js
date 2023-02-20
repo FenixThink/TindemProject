@@ -21,26 +21,54 @@ export const allChats = async() => {
         const divMessage = document.createElement('div')
         divMessage.className = 'father-all-chats'
         infoMessage.consulta.forEach(async (e,i)=>{
-            let posicition = allMessages.length-1    
-
-
-
-                const allMessage = await fetch(`/getChatscompanyapplicant/${e.idApplicant}/${e.idCompany}`,{
-                    method: 'get'
-                })
-
+   
+            
+            let allMessage, dataChat, position,lastMessage;
 
             if(infoUser.message.rol == 'applicant'){
 
-                if(e.id_company)
-                divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allMessages[posicition].message[0].text,allMessages[posicition].message[0].hour)))
+                allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${e.id_company}`,{
+                    method: 'get'
+                })
+
+                dataChat = await allMessage.json()
+                position = dataChat.Message.length - 1 
+    
+                if(position>=0){
+
+                    if(dataChat.Message[position].message[0].role === 'transmitter'){
+                        lastMessage = `You: ${dataChat.Message[position].message[0].text}`
+                    }else{
+                        lastMessage = dataChat.Message[position].message[0].text
+                    }                    
+
+                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",lastMessage,dataChat.Message[position].message[0].hour)))
+                    
+                }else{
+                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",'','')))
+                }
             
+                    
             }else{
 
-                allMessages[posicition].idCompany
+                allMessage = await fetch(`/getChatscompanyapplicant/${e.id_applicant}/${infoUser.message.id}`,{
+                    method: 'get'
+                })    
 
-                divMessage.appendChild((a(e.id_applicant,e.name_applicant,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allMessages[posicition].message[0].text,allMessages[posicition].message[0].hour)))
+                dataChat = await allMessage.json()
+                position = dataChat.Message.length - 1 
+    
+                if(position>=0){
 
+                    if(dataChat.Message[position].message[0].role === 'transmitter'){
+                        lastMessage = `You: ${dataChat.Message[position].message[0].text}`
+                    }else{
+                        lastMessage = dataChat.Message[position].message[0].text
+                    }                    
+
+                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",lastMessage,dataChat.Message[position].message[0].hour)))
+                    
+                }
             }
         })
 

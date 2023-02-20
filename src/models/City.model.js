@@ -19,6 +19,11 @@ class City extends GeneralQuerySql{
     get name(){ return this.#name }
     get id_country(){ return this.#id_country}
 
+    static async idCity(city){
+      const [cit] = await pool.query('SELECT c.id FROM city c WHERE c.name = (?)',[city]);
+      return cit[0].id;
+  }
+  
 
   async create(){
     const rows = await pool.query(`INSERT INTO city(name,id_Country) VALUES (?,?)`,[this.#name,this.#id_country])

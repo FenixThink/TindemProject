@@ -7,43 +7,60 @@ import { applicant } from "../../userDataCard/userDataCard.js";
 export const rightCreator = (img,dataArea,emails) => {
 
     setTimeout(() => { reloadData(emails) }, 100);
-
+    console.log(dataArea)
     const [data, interestArea] = dataArea
     const array = []
-    const otherArray = []
     
     for (const x in interestArea) {
         array.push(x)
     }
     
+    //Array para traer los intereses de un perfil
+    const areas = Object.values(interestArea);
+    const interestOfArea = []
 
-    for (let  i = 0; i < Object.values(interestArea).length; i++){
-        if (interestArea[array[i]].length > 1){
-            for (let  a = 0; a <= interestArea[array[i]].length; a++){
-                otherArray.push(interestArea[array[i]][a])
-            }
-        }else{
-            otherArray.push(interestArea[array[i]])
-        }
-    }   
+    areas.forEach(area => {
+        area.forEach(interest => {
+            interestOfArea.push(interest)
+        })       
+    });
 
-
+    // for (let  i = 0; i < Object.values(interestArea).length; i++){
+    //     if (interestArea[array[i]].length > 1){
+    //         for (let  a = 0; a <= interestArea[array[i]].length; a++){
+    //             if(interestArea[array[i]][a]){
+    //                 otherArray.push(interestArea[array[i]][a]) 
+    //             }
+    //         }
+    //     }else if(interestArea[array[i]]){
+    //         otherArray.push(interestArea[array[i]])
+    //     }
+    // }   
+    // console.log(otherArray)
 
     const componentAInformation = upperComponents(img, data.name, data.day_of_birth);
-    const componentBDescription = interests(otherArray);
+    const componentBDescription = interests(interestOfArea);
     const componentDescription = Description(data.description);
     const componentCOptions = renderButtons();
     const mainContainerSon = document.createElement('div');
     mainContainerSon.className = "mainContainerSon";
+    const subcontainer = document.createElement('div');
+    subcontainer.className = "subcontainer";
     const footerContainer = document.createElement('div');
     footerContainer.className = "footerContainer";
     const mainContainer = document.createElement('div');
     mainContainer.className = "mainContainer";
+    
+    subcontainer.appendChild(componentDescription);
+    subcontainer.appendChild(componentBDescription);
+
+    componentAInformation.appendChild(footerContainer);
+
     footerContainer.appendChild(componentCOptions);
+
     mainContainerSon.appendChild(componentAInformation);
-    mainContainerSon.appendChild(componentDescription);
-    mainContainerSon.appendChild(componentBDescription);
-    mainContainerSon.appendChild(footerContainer);
+    mainContainerSon.appendChild(subcontainer);
+
     mainContainer.appendChild(mainContainerSon)
     return mainContainer;
 }

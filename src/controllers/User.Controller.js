@@ -89,8 +89,6 @@ class UserController{
                 return res.status(404).json({'message':'user not found'})
             }
             res.send(answer)
-            
-            
 
         }catch(error){
             return res.send({

@@ -9,7 +9,6 @@ class Applicant extends GeneralQuerySql{
     
     constructor(body){
         super();
-        
         this.#lastname = body.lastname
         this.#day_of_birth = body.day_of_birth;
     }

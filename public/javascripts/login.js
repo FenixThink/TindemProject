@@ -31,7 +31,7 @@ btn.addEventListener('click', async (e) => {
         email: email,
         password: psw
     }
-        const response = await fetch('http://localhost:3000/api/login/',{
+        const response = await fetch('/api/login/',{
             method:'post',
             headers:{
                 "Content-type":'application/json'
