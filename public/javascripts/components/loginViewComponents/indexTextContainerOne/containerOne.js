@@ -10,11 +10,11 @@ titleIndex.textContent="Mensaje clave";
 
 const subTitleIndex =document.createElement('span');
 subTitleIndex.className = "subTitleContainerOne";
-subTitleIndex.textContent = "Eslogan de la plataforma"
+subTitleIndex.textContent = "listo para conectar con tu potencial?"
 
 const desIndexContainer = document.createElement('p')
 desIndexContainer.className="descContainerOne"
-desIndexContainer.textContent = "Descripción de la plataforma,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
+desIndexContainer.textContent = "Sistema web creado con el fin de establecer un enlace directo entre personas en busca de empleo y vacantes laborales "
 
 
 
