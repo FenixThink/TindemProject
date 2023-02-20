@@ -15,6 +15,13 @@ import {
 } from "./components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app');
+const containerFather = document.querySelector('.containerFather');
+const carga = document.createElement('div');
+carga.className = 'carga';
+const p = document.createElement('p');
+carga.appendChild(p);
+p.textContent = "cargando...";
+app.appendChild(carga);
 
 export async function fetchQuerys() {
     const data = []
@@ -408,4 +415,5 @@ fetchQuerys().then(async (data) => {
             })
         })
     })
+    carga.style.display = 'none';
 });
