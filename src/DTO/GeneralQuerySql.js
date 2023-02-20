@@ -3,10 +3,7 @@ class GeneralQuerySql{
 
     static async All(){
         const queryAll = await pool.query(`SELECT * FROM ${this.table}`)
-        
         return queryAll[0]
-        
-        
         
     } 
 

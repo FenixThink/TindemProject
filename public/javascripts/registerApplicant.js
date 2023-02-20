@@ -1,8 +1,35 @@
 /* llamar al div general */
+
 import { parentCreator } from "./components/registerViewComponents/parent.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos", "Fecha y lugar de nacimiento","Descripcion del perfil","área de interés laboral"))
+
+const query = async()=>{
+
+    const Countrys = await fetch(`/country/get`,{
+        method: 'get',
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+
+    const City = await fetch(`/city/get`,{
+        method: 'get',
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+    
+    return [City,Countrys]
+}   
+
+const data = await query()
+const City = await data[0].json()
+console.log(City)
+const Countrys = await data[1].json()
+console.log(Countrys) 
+
+app.appendChild(await parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos", "Fecha y lugar de nacimiento","Descripcion del perfil","área de interés laboral",City, Countrys))
 
 const send = document.querySelector('.submitButton')
 //Foreach para la captura y manejo de inputs
