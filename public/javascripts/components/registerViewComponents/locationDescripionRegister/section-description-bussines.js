@@ -10,6 +10,7 @@ export function descriptionBussines(textLabelDescription) {
     description.col = "50"
     description.placeholder = "Placeholder"
     description.className = "description"
+    description.name = "description"
     description.maxLength = "280"
 
     //contenedor de fecha y ubicación
