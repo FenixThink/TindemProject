@@ -8,7 +8,6 @@ class CompanyController extends GeneralQuerySql {
             try {
                 // const company = new Company(req.body)
                 // const data = await company.create()
-                console.log(req.body)
             } catch (error) {
                 res.status(500).json({
                     message: error.message

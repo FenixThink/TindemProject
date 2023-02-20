@@ -7,8 +7,7 @@ class UserController{
         // const dataUser = new User(req.body);
         // const res = await dataUser.createUser()
         // return response.json({'message': res})
-        // console.log(res)
-        
+
         try{
 
         const dataUser= new User(req.body);
@@ -34,7 +33,6 @@ class UserController{
             if(respuesta.length=== 0){
                 return {'message':'users not found'}
             }
-            // console.log(respuesta)
             return (respuesta);
         }catch(error){
             return {
@@ -46,7 +44,7 @@ class UserController{
     }
     static emailCompanies = async (req,res)=>{
     try {
-        const answer = await User.AllEmail('company')
+        const answer = await User.AllEmail(req.params)
         res.status(200).json({message:answer})
         return;
     }catch(error){
@@ -73,7 +71,6 @@ class UserController{
         try{
             const token = req.body.token
             const respuesta = await User.validationToken(token)
-            console.log(respuesta)
             return res.status(200).json({'message':respuesta})
         }catch(error){
             return res.status(500).json({
@@ -91,7 +88,6 @@ class UserController{
             if(answer.length=== 0){
                 return res.status(404).json({'message':'user not found'})
             }
-            // console.log(respuesta)
             res.send(answer)
             
             
@@ -135,7 +131,6 @@ class UserController{
             });
             return;
         }
-        console.log(query2);
         const User = {id:query2.id,email:email,rol:query2.type};
         const accessToken = this.generateAccessToken(User);
 

@@ -48,6 +48,7 @@ export const rightCreator = (img,dataArea,emails) => {
     return mainContainer;
 }
 export const reloadData = (emails) => {
+
     const large = emails.length
     const aleatory = Math.floor(Math.random() * large);
 

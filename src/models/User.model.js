@@ -28,8 +28,7 @@ class User extends GeneralQuerySql{
         const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email, passwordHash])
         
 
-        //console.log(passwordHash)
-        
+
 
         // return({
         //     id: insert.insertId
@@ -41,8 +40,8 @@ class User extends GeneralQuerySql{
         
 
     }
-    static AllEmail = async (type)=>{
-        const search = await pool.query('SELECT email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE profile_account.type = (?)',[type])
+    static AllEmail = async (id)=>{
+        const search = await pool.query('SELECT user_account.email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user INNER JOIN company ON profile_account.type = \'company\' AND profile_account.key_rol = company.id WHERE NOT EXISTS (SELECT * FROM actions WHERE actions.id_company = company.id AND actions.id_applicant = (?))',[id])
         return search[0]
     }
 

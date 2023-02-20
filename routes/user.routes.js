@@ -19,7 +19,7 @@ router.post('/api/login',UserController.auth)
 
 router.post('/api/decode',UserController.validateToken)
 
-router.get('/api/getAllEmailCompanies',UserController.emailCompanies)
+router.get('/api/getAllEmailCompanies/:id',UserController.emailCompanies)
 
 router.get('/api/getAllEmailApplicant',UserController.emailApplicant)
 

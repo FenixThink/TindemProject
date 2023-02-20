@@ -6,6 +6,7 @@ import { parentCreator } from "./components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app');
 
+setInterval
 export async function fetchQuerys() {
     const data = []
     const emails = []
@@ -26,7 +27,7 @@ export async function fetchQuerys() {
     const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant'){
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`,{
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id}`,{
             method: 'get',
             headers: {
                 'autorization': token
@@ -187,7 +188,7 @@ fetchQuerys().then(async(data) => {
     })
 //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
+    document.querySelectorAll('.messageBox').forEach(async (e,i)=>{
 
         const person = people[i]
         father.removeChild( document.querySelector('.principal'))
@@ -249,4 +250,3 @@ fetchQuerys().then(async(data) => {
 
 
 });
-
