@@ -12,7 +12,7 @@ export function modalUpload() {
     /*creacion de contenedor de imagen */
     const image = document.createElement('img');
     image.className = "imageUpload";
-    image.src = '../../../../public/img/Vector.png'
+    image.src = "https://cdn-icons-png.flaticon.com/128/2250/2250093.png"
     /* seccion input*/
     const inputUpload = document.createElement('input')
     inputUpload.type = 'file'

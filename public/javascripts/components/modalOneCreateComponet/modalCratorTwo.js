@@ -5,8 +5,6 @@ export const rolesPerson = []
 let prueba = new Set
 
 export function AreasRolesTwo(btnRolInArea) {
-
-
     const rol = document.createElement("span");
     rol.className = "rolOn"
     rol.textContent = "Rol de  "
@@ -22,65 +20,43 @@ export function AreasRolesTwo(btnRolInArea) {
 
     const add = document.createElement("input")
     add.type = "button"
+    add.id = "agregarCambios"
     add.className = "agregarCambios"
     add.value = "Aplicar Cambios"
-
-
     /* con este evento capturamos los botones seleccionados y los enviamos a la caja necesarioa 
      */
 
     add.onclick = function () {
         const devuelta = document.getElementsByName('active')
-
-
         let Array1 = [...devuelta];
         // console.log(devuelta)
-
-
         let array1Content = []
-
-
-
         Array1.forEach(i => {
             array1Content.push(i.textContent)
             //console.log(i.textContent,'item');
         })
-
-
-
         //nuevo.add(array2Content)
-
         array1Content.forEach(element => {
             prueba.add(element)
         });
-        
-
-
-
         const reset = document.querySelector(".rolesInProfiles")
         while (reset.firstChild) {
             reset.removeChild(reset.firstChild)
         }
         enviar(prueba)
-
-        /*         con este codigo remuevo el hijo que se crea cada que llamamos una area 
+        /*         
+        con este codigo remuevo el hijo que se crea cada que llamamos una area 
          */
         document.querySelector(".modalHijo").remove()
-
     }
-
     /*  para dar un clasname diferente */
     btnRolInArea.forEach(e => {
-
         rolesName.appendChild(createButton(e))
-
     });
-
     const headerRoles = document.createElement("div")
     headerRoles.className = "header"
     headerRoles.appendChild(rol)
     headerRoles.appendChild(area)
-
 
     const footerRoles = document.createElement("div")
     footerRoles.appendChild(add)
@@ -101,29 +77,25 @@ export function AreasRolesTwo(btnRolInArea) {
     return padreRolesOrAreas
 }
 
-export {prueba};
+export { prueba };
 /* creacion de botones por parametros*/
 function createButton(name) {
     let btn = document.createElement("button");
     btn.className = "optionsRoles"
     btn.textContent = name
+    btn.type = "button"
     btn.value = name
     btn.name = "inactive"
-
-
-
-    /*     para cambiar estilos y atributos para selecionarlos
+    /*     
+    para cambiar estilos y atributos para selecionarlos
      */
     btn.onclick = function (params) {
-
-
         if (btn.name == "inactive") {
-
             this.style.background = "#6171FF"
             this.style.color = "#fff"
             this.name = "active"
         } else {
-            this.style.background = "#fff"
+            this.style.background = "#D4D9FF"
             this.style.color = "#4267C7"
             this.name = "inactive"
         }

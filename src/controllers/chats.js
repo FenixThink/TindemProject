@@ -22,8 +22,10 @@ class chatsController{
         try{
 
             const chat = await chatsmodel.find({idCompany:req.params.idCompany,idApplicant:req.params.idApplicant})
+            res.status(200).json({
+                "Message":chat
+            })
             return chat
-
         }catch(e){
             console.log(e)
             res.status(500).json({

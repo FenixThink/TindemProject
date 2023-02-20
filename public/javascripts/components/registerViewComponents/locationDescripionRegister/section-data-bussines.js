@@ -7,7 +7,7 @@ export const dataBussines = async(citys,countrys) => {
     const infoTitle = document.createElement('div');
     infoTitle.textContent = "Fecha y lugar de nacimiento"
     infoTitle.className = "info"
-    
+
     //creacion labels de fecha y ubicación
     const birthLabel = document.createElement('label');
 
@@ -19,16 +19,16 @@ export const dataBussines = async(citys,countrys) => {
 
     //creacion input y selects
     const birth = document.createElement('input');
-    birth.className="inputCorreoEmp inputEmpresa"
-    birth.type='date'
-    birth.placeholder = "Select date" 
-
-    //traer todos los paises
+    birth.className = "inputCorreoEmp inputEmpresa"
+    birth.type = 'date'
+    birth.name = 'date'
+    birth.placeholder = "Select date"
     const option1 = document.createElement('option')
-    option1.textContent="Seleccione pais"
+    option1.textContent = "Seleccione pais"
     option1.defaultSelected
 
     const country = document.createElement('select');
+    country.className = "inputCorreoEmp inputEmpresa"
     country.className = "inputCorreoEmp inputEmpresa"
     country.appendChild(option1)
 
@@ -40,11 +40,12 @@ export const dataBussines = async(citys,countrys) => {
 
 
     const option2 = document.createElement('option')
-    option2.textContent="Seleccione ciudad"
+    option2.textContent = "Seleccione ciudad"
     option2.defaultSelected
      
     const city = document.createElement('select');
-    city.className="inputCorreoEmp inputEmpresa"
+    city.className = "inputCorreoEmp inputEmpresa"
+    city.name = 'city';
     city.appendChild(option2)
     
     citys.respuesta.forEach(e => {
