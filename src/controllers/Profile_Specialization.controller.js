@@ -1,14 +1,32 @@
 import Profile_specialization from "../models/Profile_Specialization.model.js";
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
+import Specific_interest from "../models/Specific_interest.model.js";
+import Profile_account from "../models/Profile_account.model.js";
 
 class ProfileSpecializationController extends GeneralQuerySql {
 
     static CreateSpec = async (req, res) => {
         try {
-            /* const prSpecialization = new Profile_specialization(req.body);
-            const query = await prSpecialization.create();*/
-            console.log("funciona!", req.body);
-            res.status(200).json({ message: query })
+
+            
+            const {specialization} = req.body;
+            console.log(specialization)
+            setTimeout(async ()=>{
+                const lastUserId = await Profile_account.lastRegisterId()
+                specialization.forEach(async (e)=>{
+                    const id = await Specific_interest.findId(e)
+                    const body={
+                        id_profile_account:lastUserId,
+                        id_specialization:id
+                    }
+                        const profileSpecialization = new Profile_specialization(body)
+                        profileSpecialization.create()
+                })
+
+            },1000)
+
+            res.redirect('/home')
+
         } catch (error) {
             console.log(error)
             return res.status(500).json({

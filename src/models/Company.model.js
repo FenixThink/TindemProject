@@ -8,6 +8,7 @@ class Company extends GeneralQuerySql {
     #day_of_founded;
 
     constructor(body) {
+        super();
         this.#NIT = body.NIT;
         this.#day_of_founded = body.day_of_founded;
     }

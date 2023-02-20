@@ -1,4 +1,6 @@
+import User from '../models//User.model.js'
 import Company from "../models/Company.model.js";
+import City from '../models/City.model.js';
 //Inserción de datos al modelo de "ProfileAccount"
 import Profile_account from "../models/Profile_account.model.js";
 
@@ -7,42 +9,36 @@ import GeneralQuerySql from "../DTO/GeneralQuerySql.js";
 class CompanyController extends GeneralQuerySql {
 
     //NO OLVIDAR asignar el async en el metodo al solucionar... GRACIAS!!.
-    static Create(req, res) {
+    static async Create(req, res) {
         try {
-            /*  const company = new Company(req.body) 
-                const data = await company.create() */
-            /* multer.single('image') */
-            const { companyName, companyUsername, companyEmail, dayFounded, companyPassword, description, type, key, city, interest } = req.body;
+        
+            const { name, nitOrLastname, email, date, password, description, city } = req.body;
 
-            let bodyInfo = req.body;
-            console.log("Body Info: ", bodyInfo);
-
-            let infoImage = req.file;
-            console.log("Info: ", infoImage);
-
-            const newCompanyInfo = {
-                name: companyName,
-                NIT: companyUsername,
-                email: companyEmail,
-                day_of_founded: dayFounded,
-                password: companyPassword,
+            const companyInfo = {
+                name: name,
+                NIT: nitOrLastname,
+                email: email,
+                password: password,
+                day_of_founded: date,
                 description: description,
-                type: type,
-                key: key,
+                type: "company",
                 img: req.file.filename,
-                city: city,
-                interest: interest,
             }
-            console.log("NewCompanyInfo", newCompanyInfo);
 
-            //La instanciación que hice está "capot' :c"
-            //const profileAccount = new Profile_account(newCompanyInfo);
-            //console.log("ProfileAccount: ", profileAccount);
-            //Await pa hacer el .save() en la bd.
-            //await profileAccount.save();
+            const user = new User(companyInfo)
+            await user.create() 
+            companyInfo.id_user = await user.lastUser(user.email)
+
+            companyInfo.id_city = await City.idCity(city) 
+
+            const company = new Company(companyInfo)
+            await company.create()
+            companyInfo.key = await Company.lastRegisterId()
+
+           const profile = new Profile_account(companyInfo)
+           await profile.create()
 
             res.redirect('/')
-
 
         } catch (error) {
             res.status(500).json({

@@ -1,12 +1,30 @@
 import { parentCreator } from "./components/registerViewComponents/parent.js"
+import { prueba } from "./components/modalOneCreateComponet/modalCratorTwo.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
+app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados","company"))
 
 const send = document.querySelector('.submitButton')
-const dataForm = document.querySelector('.Padre')
 
-send.addEventListener('click', async (e) => {
+send.addEventListener('click',async()=>{
+    const spec = [...prueba]
+    const body = {
+        specialization: spec
+    }
+
+    const dataSpecialization = JSON.stringify(body)
+
+    fetch('/profileSpecialization/create', {
+        method: 'post',
+        headers: {
+            "content-type": 'application/json'
+        },
+        body: dataSpecialization
+    })
+})
+
+send.addEventListener('submit', async (e) => {
+    
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
     let data = []
@@ -45,21 +63,6 @@ send.addEventListener('click', async (e) => {
             alert(errors.join("\n"));
             return
         }
-        const body = {
-            especialization: prueba
-        }
-
-        console.log(body);
-
-        const post = await fetch('/profileSpecialization/create', {
-            method: 'post',
-            headers: {
-                "content-type": 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-        const data = await post.json()
-        console.log(data);
 
         inputCompanyName.forEach((e, i) => {
             if (i == 5) {
@@ -89,8 +92,4 @@ inputMail.addEventListener('focusout', (e) => {
         }
         bandera = 1
     }
-});
-
-document.querySelector("#inputContraseñaID").addEventListener("focusout", () => {
-
 });

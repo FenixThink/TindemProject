@@ -18,7 +18,7 @@ export function dataBussines() {
     const birth = document.createElement('input');
     birth.className = "inputCorreoEmp inputEmpresa"
     birth.type = 'date'
-    birth.name = 'dayFounded'
+    birth.name = 'date'
     birth.placeholder = "Select date"
     const option1 = document.createElement('option')
     option1.textContent = "Seleccione pais"

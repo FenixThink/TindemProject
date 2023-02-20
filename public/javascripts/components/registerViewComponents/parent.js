@@ -9,7 +9,7 @@ import { AreasRoles } from "../modalOneCreateComponet/modalCreator.js";
 
 let areas = ["Ingenieria de sistemas", "Administracion de empresas", "Comunicacion  social", "Finanzas y negocios internacionales", "Mercadeo y publicidad", "Seguridad", "Servcios generales", "Medicina"]
 
-export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan) => {
+export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan, role) => {
 
     const top = principalFunction(img, firstInput, secondInput)
     const midBot = totalSectionB(date, textLabelDescription)
@@ -25,7 +25,7 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     child.className = "Padre"
     child.name = "Padre"
     //En Revisión
-    child.action = '/company/create'
+    child.action = `/${role}/create`
     child.enctype = 'multipart/form-data'
     child.method = 'post'
     child.appendChild(top)
