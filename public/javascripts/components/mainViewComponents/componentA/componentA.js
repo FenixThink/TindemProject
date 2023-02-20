@@ -1,6 +1,6 @@
 export function upperComponents(img, nombre, valueSpan, introDescription) {
     /* Parte title*/
-    const title = document.createElement('h1')
+    const title = document.createElement('h2')
     title.textContent = nombre
 
     /*Parte span */
