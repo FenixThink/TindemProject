@@ -1,4 +1,4 @@
-import {Router} from 'express'
+import { Router } from 'express'
 import CompanyController from '../src/controllers/Company.controller.js';
 
 const router = Router()

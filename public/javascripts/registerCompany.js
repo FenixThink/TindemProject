@@ -1,23 +1,32 @@
-import {
-    parentCreator
-} from "./components/registerViewComponents/parent.js"
-import {
-    prueba
-} from "./components/modalOneCreateComponet/modalCratorTwo.js"
-
-let specialization = prueba;
+import { parentCreator } from "./components/registerViewComponents/parent.js"
+import { prueba } from "./components/modalOneCreateComponet/modalCratorTwo.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados"))
+app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados","company"))
 
 const send = document.querySelector('.submitButton')
-//Foreach para la captura y manejo de inputs
 
-send.addEventListener('click', async () => {
+send.addEventListener('click',async()=>{
+    const spec = [...prueba]
+    const body = {
+        specialization: spec
+    }
 
+    const dataSpecialization = JSON.stringify(body)
+
+    fetch('/profileSpecialization/create', {
+        method: 'post',
+        headers: {
+            "content-type": 'application/json'
+        },
+        body: dataSpecialization
+    })
+})
+
+send.addEventListener('submit', async (e) => {
+    
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
-
     let data = []
 
     inputCompanyName.forEach((e) => {
@@ -32,15 +41,12 @@ send.addEventListener('click', async () => {
     //Condicional para definir si los campos estan vacios
     let emptyInputsBool = data.some(e => e === "")
 
-    // console.log(emptyInputsBool)
-    // console.log(data.length)
     if (emptyInputsBool == true) {
         alert('Por favor llenar todos los datos requeridos')
     } else {
 
         // Validacion de que la contraseña cumpla con ciertos parametros (Minimo 8 letras, minimo una letra, minimo un digito)
         let p = document.querySelector('#inputContraseñaID').value;
-        let bandera = 0;
         let errors = [];
 
         if (p.length < 8) {
@@ -57,29 +63,6 @@ send.addEventListener('click', async () => {
             alert(errors.join("\n"));
             return
         }
-        const body = {
-            name: data[0],
-            nit: data[1],
-            email: data[2],
-            password: data[3],
-            date_of_founded: data[4],
-            country: data[5],
-            city: data[6],
-            description: data[7]
-        }
-
-        console.log(specialization) //Set of specializations
-
-        const transactionJson = JSON.stringify(body)
-
-        const res = await fetch('/company/create', {
-            method: "post",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: transactionJson
-        })
-
 
         inputCompanyName.forEach((e, i) => {
             if (i == 5) {
@@ -93,13 +76,10 @@ send.addEventListener('click', async () => {
         })
 
         description.value = ''
-        window.location = '/home'
     }
-
 })
 
 //Validacion de que el valor ingresado al input de email si sea un email
-
 
 const inputMail = document.querySelector('#inputMailID')
 
@@ -109,15 +89,7 @@ inputMail.addEventListener('focusout', (e) => {
         let regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(e.target.value);
         if (!regExpEmail) {
             alert("Email invalido");
-
         }
         bandera = 1
-
     }
-});
-
-
-
-document.querySelector("#inputContraseñaID").addEventListener("focusout", () => {
-
 });

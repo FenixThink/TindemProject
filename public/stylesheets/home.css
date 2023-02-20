@@ -746,7 +746,7 @@ h1{
 
 /* Aqui termina la parte de Orejarena */
 
-/* Aqui empieza la parte de caballero */
+/* Aqui empieza la parte de Jose */
 
 .padre{
     padding: 5vmin;
@@ -759,7 +759,6 @@ h1{
     height: 35vmin;
     flex-direction: row;
     justify-content: space-evenly;
-
 }
 
 .photo{
@@ -810,8 +809,8 @@ justify-content: center;
     font-weight: 900;
 }
 h1{
-    font-size: 7.5vmin;
-    font-weight: 900;
+  font-size: 7.5vmin;
+  font-weight: 900;
 }
 .eParents{
     width: 35vmin;
@@ -821,12 +820,12 @@ h1{
     justify-content: space-between;
 }
 h3{
-    font-size: 3vmin;
-    font-weight: 900;
+  font-size: 3vmin;
+  font-weight: 900;
 }
 .descriptionProfile>p{
-    font-size: 2vmin;
-    font-weight: 900;
+  font-size: 2vmin;
+  font-weight: 900;
 }
 
 
@@ -853,10 +852,7 @@ h3{
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
     padding: 1vmin;
-
     overflow:hidden ;
-
-
 }
 .estudios>*{
     display: flex;
@@ -867,51 +863,37 @@ h3{
 .otros{
     height: 25vmin;
     width: 35vmin;
-
     font-weight: 900;
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
     padding: 2vmin 2vmin;
     overflow-x: hidden;
-
-
-
 }
 
 .otros>h3{
     font-size: 2vmin;
-
 }
 .liDiv{
     font-size: 1rem;
     overflow-y: auto;
     overflow-x: hidden;
-
 }
-
-
 li{
-
     font-weight: 900;
     list-style: none;
     color: #514c74;
 }
-
 .descriptionProfile{
     width: 75vmin;
-
     display: flex;
     flex-direction: column;
     border: solid 3px rgb(0, 0, 0   );
     border-radius: 1vmin;
     padding: 1vmin;
     text-align: center;
-
     font-size: 1rem;
     font-weight: 900;
     gap: 1.5vmin;
-
-
 }
 .descriptionProfile>h3{
     height: 15%;
@@ -926,12 +908,10 @@ li{
     width: 100%;
     color: #514c74;
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
-
 }
 
 ::-webkit-scrollbar {

@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 class User extends GeneralQuerySql{
    
     static table = 'user_account';
+    #id_user;
     #email;
     #password;
 
@@ -21,6 +22,13 @@ class User extends GeneralQuerySql{
 
     get email(){ return this.#email }
     get password(){ return this.#password }
+
+    
+    async lastUser(email){
+        const [user] = await pool.query('SELECT u.id FROM user_account u WHERE u.email = (?)',[email]);
+        this.#id_user = user[0].id;
+        return this.#id_user;
+    }
 
     create = async()=>{
 

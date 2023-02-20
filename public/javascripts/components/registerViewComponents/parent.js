@@ -7,9 +7,9 @@ import { buttonCreator } from "../button/button.js";
 import { AreasRoles } from "../modalOneCreateComponet/modalCreator.js";
 
 
-let areas =["Ingenieria de sistemas","Administracion de empresas","Comunicacion  social","Finanzas y negocios internacionales","Mercadeo y publicidad","Seguridad","Servcios generales","Medicina"]
+let areas = ["Ingenieria de sistemas", "Administracion de empresas", "Comunicacion  social", "Finanzas y negocios internacionales", "Mercadeo y publicidad", "Seguridad", "Servcios generales", "Medicina"]
 
-export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan) => {
+export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan, role) => {
 
     const top = principalFunction(img, firstInput, secondInput)
     const midBot = totalSectionB(date, textLabelDescription)
@@ -17,10 +17,17 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     const button = buttonCreator()
     button.className = 'submitButton'
     button.textContent = 'Enviar'
+
+    /* button.type = 'button' */
     button.type = 'submit'
 
-    const child = document.createElement('div')
+    const child = document.createElement('form')
     child.className = "Padre"
+    child.name = "Padre"
+    //En Revisión
+    child.action = `/${role}/create`
+    child.enctype = 'multipart/form-data'
+    child.method = 'post'
     child.appendChild(top)
     child.appendChild(midBot)
     child.appendChild(interest)
@@ -28,7 +35,7 @@ export const parentCreator = (img, firstInput, secondInput, date, textLabelDescr
     child.appendChild(button)
 
     const parent = document.createElement('div')
-    parent.className="PadrePadre"
+    parent.className = "PadrePadre"
     parent.appendChild(child)
 
     return parent

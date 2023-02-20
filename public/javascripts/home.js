@@ -27,10 +27,10 @@ export async function fetchQuerys() {
         'token': token
     }
     //Devolver el token desencriptado
-    const tokenData = await fetch('http://localhost:3000/api/decode/', {
-        method: 'post',
-        headers: {
-            "Content-type": 'application/json'
+    const tokenData = await fetch('/api/decode/',{
+        method:'post',
+        headers:{
+            "Content-type":'application/json'
         },
         body: JSON.stringify(tokenPropio)
     })
@@ -78,9 +78,8 @@ export async function fetchQuerys() {
 
 
     }
-
-
-    const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`, {
+    
+    const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
         method: 'get',
         headers: {
             'autorization': token
@@ -92,15 +91,14 @@ export async function fetchQuerys() {
         window.location = '/'
     }
 
-
-
     data.push(infoUser);
     data.push(dataUser);
     data.push(infoMessage);
     data.push(allmessages);
 
-    for (let i = 0; i < Object.values(infoemails.message).length; i++) {
-        const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`, {
+    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+        const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
             method: 'get',
             headers: {
                 'autorization': token
@@ -120,10 +118,7 @@ fetchQuerys().then(async (data) => {
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-
-    father.appendChild(await allView('', ''));
-
-    // console.log(allmessagesAplicant)
+    father.appendChild(await allView('',''));
 
 
     //Creacion de la animacion del buscador
@@ -206,27 +201,24 @@ fetchQuerys().then(async (data) => {
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    document.querySelectorAll('.messageBox').forEach(async (e, i) => {
-        // console.log(e)
-        let userId, userName;
-        if (infoUser.message.rol === 'applicant') {
+    document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
+        console.log('a')
+            let userId, userName;
+            if(infoUser.message.rol === 'applicant'){
 
-            userId = infoMessage.consulta[i].id_company
-            userName = infoMessage.consulta[i].name_company
-
-            // console.log(infoUser)
-
-
-        } else {
-
-            userId = infoMessage.consulta[i].id_applicant
-            userName = infoMessage.consulta[i].name_applicant
-
-        }
-        // const person = idFetch[i]
-        const person = people[i]
-        father.removeChild(document.querySelector('.principal'))
-        father.appendChild(await allView(userId, userName, person.profileImage, person.description))
+                userId = infoMessage.consulta[i].id_company 
+                userName = infoMessage.consulta[i].name_company      
+                
+            }else{
+                
+                userId = infoMessage.consulta[i].id_applicant
+                userName = infoMessage.consulta[i].name_applicant
+                
+            }
+            // const person = idFetch[i]
+            const person = people[i]
+            father.removeChild(document.querySelector('.principal'))
+            father.appendChild(await allView(userId,userName,person.profileImage,person.description))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()

@@ -1,4 +1,8 @@
 import jwt from "jsonwebtoken";
+
+/*Dependencias para gestionar la base de datos con mongo*/
+import multer from "multer";
+
 class Middelwares {
     Authmidelware = (req,res,next)=>{
         const accessToken =  req.headers['autorization'] || req.query.accessToken;
