@@ -6,7 +6,7 @@ app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre d
 const send = document.querySelector('.submitButton')
 const dataForm = document.querySelector('.Padre')
 
-send.addEventListener('submit', (e) => {
+send.addEventListener('click', async (e) => {
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
     let data = []
@@ -46,27 +46,21 @@ send.addEventListener('submit', (e) => {
             return
         }
         const body = {
-            name: data[0],
-            nit: data[1],
-            email: data[2],
-            password: data[3],
-            date_of_founded: data[4],
-            country: data[5],
-            city: data[6],
-            description: data[7],
-            //nameImg: image,
+            especialization: prueba
         }
 
         console.log(body);
-        /* 
-        fetch('/company/create', {
-        method: 'POST',
-        headers: {
-            "content-type": 'application/json'
-        },
-        body: JSON.stringify(body)
-        }) 
-        */
+
+        const post = await fetch('/profileSpecialization/create', {
+            method: 'post',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        const data = await post.json()
+        console.log(data);
+
         inputCompanyName.forEach((e, i) => {
             if (i == 5) {
                 e.value = 'Seleccione pais'
