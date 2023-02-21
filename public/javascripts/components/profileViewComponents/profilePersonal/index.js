@@ -1,4 +1,3 @@
-
     let positionStudy=0
 
     const date = new Date()
@@ -10,8 +9,8 @@
 
 
     export function createProfileSup(dataUser) {
-
-     const yearUser = dataUser[0].day_of_birth
+    let yearUser;
+    dataUser[0].type=="applicant" ? yearUser = dataUser[0].day_of_birth : yearUser = dataUser[0].day_of_founded
      let caja =yearUser.split('-')
     
         let edadReal

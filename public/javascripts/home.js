@@ -24,8 +24,7 @@ export async function fetchQuerys() {
     const data = []
     const emails = []
     let infoemails = {}
-    let allmessages;
-    let infoMessage;
+    let allmessages, infoMessage, dataUser;
     const token = localStorage.getItem('token')
     const tokenPropio = {
         'token': token
@@ -42,6 +41,8 @@ export async function fetchQuerys() {
     const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant') {
+
+        //Fetch para obtener todas la compañias a mostrar para un aplicante
         const emailsApplicant = await fetch(`/api/getAllEmailCompanies`, {
             method: 'get',
             headers: {
@@ -51,14 +52,20 @@ export async function fetchQuerys() {
 
         infoemails = await emailsApplicant.json();
 
-        //Fetch para traer la info de los mensajes hora etc..
+        //Fetch para obtener toda la informacion de un aplicante
+        const response = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        dataUser = await response.json();
 
+        //Fetch para traer la info de los mensajes hora etc..
         const idApplicant = await fetch(`obtenerChatIDApplicant/${id}`, {
             method: 'get',
         })
-
         allmessages = await idApplicant.json();
-
 
         //Fetch para buscar los match de acuerdo a su id
         const idFetch = await fetch(`allAction/applicant/${id}`, {
@@ -69,9 +76,24 @@ export async function fetchQuerys() {
         });
         infoMessage = await idFetch.json();
 
+        for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+            const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            const UsersData = await emailsInfo.json();
+            emails.push(UsersData)
+        }
+
+
 
     }
     if (infoUser.message.rol === 'company') {
+
+        //Fetch para obtener todas los applicantes a mostrar para una compañia
         const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
             method: 'get',
             headers: {
@@ -79,17 +101,44 @@ export async function fetchQuerys() {
             }
         });
         infoemails = await emailsCompany.json();
+        
+        //Fetch para obtener toda la informacion de una compañia
+        const response = await fetch(`/Interes/company/${infoUser.message.email}`,{
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        dataUser = await response.json();
 
+        //Fetch para traer la info de los mensajes hora etc..
+        const idCompany = await fetch(`obtenerChatIDCompany/${id}`, {
+            method: 'get',
+        })
+        allmessages = await idCompany.json();
+
+        //Fetch para buscar los match de acuerdo a su id
+        const idFetch = await fetch(`allAction/company/${id}`, {
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        infoMessage = await idFetch.json();
+
+        for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+            const emailsInfo = await fetch(`/Interes/applicant/${infoemails.message[i].email}`,{
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            const UsersData = await emailsInfo.json();
+            emails.push(UsersData)
+        }
 
     }
-    
-    const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
-        method: 'get',
-        headers: {
-            'autorization': token
-        }
-    });
-    const dataUser = await response1.json();
 
     if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
         window.location = '/'
@@ -99,19 +148,9 @@ export async function fetchQuerys() {
     data.push(dataUser);
     data.push(infoMessage);
     data.push(allmessages);
-
-    for (let  i = 0; i < Object.values(infoemails.message).length; i++){
-
-        const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
-            method: 'get',
-            headers: {
-                'autorization': token
-            }
-        });
-        const UsersData = await emailsInfo.json();
-        emails.push(UsersData)
-    }
     data.push(emails)
+
+    console.log(data)
 
     return data;
 }
