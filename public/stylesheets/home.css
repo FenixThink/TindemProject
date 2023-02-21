@@ -627,10 +627,10 @@ h1{
 
 /*Aca empieza la parte de sebastian*/
 .cont{
-    width: 150px;
-    height: 150px;
+    width: 292px;
+    height: 164px;
     display: flex ;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10%;
@@ -642,6 +642,7 @@ h1{
     width: 100%;
     height: 20%;
     cursor: pointer;
+    margin-top: 25px;
 }
 /*Aca termina la parte de sebastian*/
 
@@ -654,6 +655,7 @@ h1{
 }
 
 .info, .about{
+    margin-bottom: 20px;
     font-size: 14px;
     text-align: left;
     font-weight: bolder;
@@ -686,11 +688,24 @@ h1{
     margin: 10px 0;
 }
 
+/*parrafo de descripcion perfil*/
+
+.parrafoDescripcion{
+    width: fit-content;
+    font-size: 14px;
+    line-height: 3em;
+}
+
+
+
 /* Descripción del perfil */
 .description{
-    font-size: 14px;
+    
+    width: 16vw;
+    overflow: auto;
     text-align: center;
-    color: #A2A2A2;
+    color: #434141;
+    line-height: 2.5rem;
 }
 /* Aquí termina parte Yulieth */
 .right{
@@ -1097,9 +1112,10 @@ label{
 
 .description{
 
-    height: 5rem;
+    height: 22rem;
     border: 1px solid #C2C2C2;
-    padding: .2rem .5rem;
+    /* padding: .2rem .9rem; */
+    padding: 3% 3%;
     border-radius: .5rem;
 
 }

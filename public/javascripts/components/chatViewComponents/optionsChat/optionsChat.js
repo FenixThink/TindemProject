@@ -16,11 +16,11 @@ export function options() {
 
     //clase para los spans
     span1.className = "spas"
-    span2.className = "spas"
+    // span2.className = "spas"
     span3.className = "spas"
     //añadir texto al span
     span1.textContent = "Block User"
-    span2.textContent = "Report User"
+    // span2.textContent = "Report User"
     span3.textContent = "Delete Chat"
     return padre
 }

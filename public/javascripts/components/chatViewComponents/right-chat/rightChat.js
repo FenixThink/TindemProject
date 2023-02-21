@@ -25,9 +25,14 @@ export function right(name,img,description) {
     about.textContent = "About";
     about.className = "about";
 
+    //parrafoDescripcion
+    const parrafoDescripcion = document.createElement("p")
+    parrafoDescripcion.textContent = description
+
     //Descripción del perfil
     const descriptionDiv = document.createElement("div");
-    descriptionDiv.textContent = description;
+    // descriptionDiv.textContent = description;
+    descriptionDiv.appendChild(parrafoDescripcion)
     descriptionDiv.className = "description";
 
     //Contenedor

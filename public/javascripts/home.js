@@ -215,6 +215,7 @@ fetchQuerys().then(async (data) => {
                 profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
                     method:'get'
                 });
+                
                 profileData = await profile.json()
 
             }else{
