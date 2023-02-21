@@ -13,7 +13,7 @@ class CompanyController extends GeneralQuerySql {
         try {
         
             const { name, nitOrLastname, email, date, password, description, city } = req.body;
-
+            console.log(password)
             const companyInfo = {
                 name: name,
                 NIT: nitOrLastname,
@@ -41,6 +41,7 @@ class CompanyController extends GeneralQuerySql {
             res.redirect('/')
 
         } catch (error) {
+            console.log(error)
             res.status(500).json({
                 message: error.message
             });

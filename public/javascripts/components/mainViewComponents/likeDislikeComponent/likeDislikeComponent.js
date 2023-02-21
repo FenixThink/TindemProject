@@ -13,7 +13,7 @@ export const renderButtons = () => {
     span1.id = "unlikeVector"
     const img = document.createElement("i")
     img.id = "imgUnlike"
-    img.className = "bx bxs-dislike bx-lg"
+    img.className = "fa fa-close"
     const p = document.createElement("p")
     p.classList = "appDivPadreSpanImgP"
     p.textContent = "No me gusta"
@@ -25,7 +25,7 @@ export const renderButtons = () => {
     span2.id = "likeVector"
     const img2 = document.createElement("i")
     img2.id = "imglike"
-    img2.className = 'bx bxs-like bx-lg'
+    img2.className = 'fa fa-check'
     const p2 = document.createElement("p")
     p2.classList = "appDivPadreSpanImgP"
     p2.textContent = "Me gusta"

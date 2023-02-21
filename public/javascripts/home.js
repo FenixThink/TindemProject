@@ -1,10 +1,27 @@
-import { TotalFunctionView } from "./components/mainViewComponents/totalComponet/totalComponent.js";
-import { allView } from "./components/chatViewComponents/allView/totalsection.js";
-import { people } from "./components/chatViewComponents/partLeftChat/unionPartsLeft.js";
-import { boxMessage } from "./components/chatViewComponents/boxMessage/boxMessage.js";
-import { parentCreator } from "./components/profileViewComponents/parent.js"
+import {
+    TotalFunctionView
+} from "./components/mainViewComponents/totalComponet/totalComponent.js";
+import {
+    allView
+} from "./components/chatViewComponents/allView/totalsection.js";
+import {
+    people
+} from "./components/chatViewComponents/partLeftChat/unionPartsLeft.js";
+import {
+    boxMessage
+} from "./components/chatViewComponents/boxMessage/boxMessage.js";
+import {
+    parentCreator
+} from "./components/profileViewComponents/parent.js"
 
 const app = document.querySelector('#app');
+const containerFather = document.querySelector('.containerFather');
+const carga = document.createElement('div');
+carga.className = 'carga';
+const p = document.createElement('p');
+carga.appendChild(p);
+p.textContent = "cargando...";
+app.appendChild(carga);
 
 export async function fetchQuerys() {
     const data = []
@@ -13,7 +30,9 @@ export async function fetchQuerys() {
     let allmessages;
     let infoMessage;
     const token = localStorage.getItem('token')
-    const tokenPropio = {'token':token}
+    const tokenPropio = {
+        'token': token
+    }
     //Devolver el token desencriptado
     const tokenData = await fetch('/api/decode/',{
         method:'post',
@@ -25,8 +44,8 @@ export async function fetchQuerys() {
     const infoUser = await tokenData.json();
     const id = infoUser.message.id
 
-    if (infoUser.message.rol === 'applicant'){
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`,{
+    if (infoUser.message.rol === 'applicant') {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -37,7 +56,7 @@ export async function fetchQuerys() {
 
         //Fetch para traer la info de los mensajes hora etc..
 
-        const idApplicant = await fetch (`obtenerChatIDApplicant/${id}`,{
+        const idApplicant = await fetch(`obtenerChatIDApplicant/${id}`, {
             method: 'get',
         })
 
@@ -45,7 +64,7 @@ export async function fetchQuerys() {
 
 
         //Fetch para buscar los match de acuerdo a su id
-        const idFetch = await fetch(`allAction/applicant/${id}`,{
+        const idFetch = await fetch(`allAction/applicant/${id}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -55,8 +74,8 @@ export async function fetchQuerys() {
 
 
     }
-    if (infoUser.message.rol === 'company'){
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant`,{
+    if (infoUser.message.rol === 'company') {
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -64,7 +83,7 @@ export async function fetchQuerys() {
         });
         infoemails = await emailsCompany.json();
 
-        
+
     }
     
     const response1 = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
@@ -75,7 +94,7 @@ export async function fetchQuerys() {
     });
     const dataUser = await response1.json();
 
-    if (dataUser.message === "Access Denied" || dataUser.message ==="access denied, token expired or incorrect"){
+    if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
         window.location = '/'
     }
 
@@ -100,23 +119,23 @@ export async function fetchQuerys() {
     return data;
 }
 
-fetchQuerys().then(async(data) => {
-    const [infoUser, dataUser,infoMessage,allmessagesAplicant,emails] = data
-    app.appendChild(await TotalFunctionView(emails[0],emails));
+fetchQuerys().then(async (data) => {
+    const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
+    app.appendChild(await TotalFunctionView(emails[0], emails));
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
     father.appendChild(await allView('',''));
 
 
-//Creacion de la animacion del buscador
+    //Creacion de la animacion del buscador
 
     const search = document.querySelector('.searchContac')
     const lupa = document.querySelector('.lupa')
     const sercCont = document.querySelector('.searc')
 
-//Cuando tiene el mouse encima
-    sercCont.addEventListener('mouseover',(e)=>{
+    //Cuando tiene el mouse encima
+    sercCont.addEventListener('mouseover', (e) => {
 
         search.style.width = '100%'
         lupa.style.transition = 'transform 1s ease-in-out'
@@ -125,8 +144,8 @@ fetchQuerys().then(async(data) => {
 
     })
 
-//Cuando quita el mouse de encima
-    sercCont.addEventListener('mouseout',(e)=>{
+    //Cuando quita el mouse de encima
+    sercCont.addEventListener('mouseout', (e) => {
 
         search.removeAttribute('style')
 
@@ -136,7 +155,7 @@ fetchQuerys().then(async(data) => {
     })
 
 
-    document.querySelector('.leftProfile').addEventListener('click',()=>{
+    document.querySelector('.leftProfile').addEventListener('click', () => {
 
         //Animacion en si
         const main = document.querySelector('.mainContainer')
@@ -150,20 +169,20 @@ fetchQuerys().then(async(data) => {
         main.style.transition = 'transform .25s ease-in-out'
         main.style.transform = 'translate(0,-200%)'
 
-        setTimeout(()=>{
-            profile.style.display='grid'
-            main.style.display='none'
-            chat.style.display='none'
-            setTimeout(()=>{
+        setTimeout(() => {
+            profile.style.display = 'grid'
+            main.style.display = 'none'
+            chat.style.display = 'none'
+            setTimeout(() => {
 
                 profile.style.transition = 'transform .25s ease-in-out'
                 profile.style.transform = 'translate(0,0)'
 
-            },10)
-        },250)
+            }, 10)
+        }, 250)
 
-        document.querySelectorAll('.x').forEach(e=>{
-            e.addEventListener('click',()=>{
+        document.querySelectorAll('.x').forEach(e => {
+            e.addEventListener('click', () => {
 
                 const main = document.querySelector('.mainContainer')
                 const profile = document.querySelector('.padre')
@@ -172,20 +191,20 @@ fetchQuerys().then(async(data) => {
                 profile.style.transform = 'translate(200%,0)'
                 chat.style.transform = 'translate(0,-200%)'
 
-                setTimeout(()=>{
-                    main.style.display='flex'
-                    setTimeout(()=>{
+                setTimeout(() => {
+                    main.style.display = 'flex'
+                    setTimeout(() => {
 
                         main.style.transition = 'transform .25s ease-in-out'
                         main.style.transform = 'translate(0,0)'
 
-                    },10)
-                },250)
+                    }, 10)
+                }, 250)
             })
         })
 
     })
-    
+
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
@@ -208,17 +227,19 @@ fetchQuerys().then(async(data) => {
             father.removeChild(document.querySelector('.principal'))
             father.appendChild(await allView(userId,userName,person.profileImage,person.description))
 
-        document.querySelectorAll('.boxM').forEach(e=>{e.remove()})
+        document.querySelectorAll('.boxM').forEach(e => {
+            e.remove()
+        })
         //Configurando la actualizacion de los mensajes respecto al chat seleccionado
         const messageFather = document.querySelector('.padreMensajes')
-        person.messages.forEach(e=>{
+        person.messages.forEach(e => {
             let color = ''
-            e.role=='transmitter' ? color = 'verde' : color = 'gris'
-            messageFather.appendChild(boxMessage(color,e.role,e.message,e.hour))
+            e.role == 'transmitter' ? color = 'verde' : color = 'gris'
+            messageFather.appendChild(boxMessage(color, e.role, e.message, e.hour))
         })
 
 
-        e.addEventListener('click',async (ev)=>{
+        e.addEventListener('click', async (ev) => {
             //Animacion en si
             const main = document.querySelector('.mainContainer')
             const profile = document.querySelector('.padre')
@@ -226,42 +247,173 @@ fetchQuerys().then(async(data) => {
 
 
 
-            chat.style.display='block'
+            chat.style.display = 'block'
             //chat.style.width='800px'
-            setTimeout(()=>{
+            setTimeout(() => {
 
-                main.style.display='none'
-                profile.style.display='none'
+                main.style.display = 'none'
+                profile.style.display = 'none'
                 chat.style.transform = 'translate(0,0)'
 
 
-            },100)
+            }, 100)
 
 
             //Evento de la x para volver a ver las tarjeticas
-            document.querySelectorAll('.x').forEach(e=>{
-                e.addEventListener('click',()=>{
+            document.querySelectorAll('.x').forEach(e => {
+                e.addEventListener('click', () => {
 
                     const main = document.querySelector('.mainContainer')
                     const chat = document.querySelector('.principal')
 
                     chat.style.transform = 'translate(0,-200%)'
 
-                    setTimeout(()=>{
-                        main.style.display='block'
-                        setTimeout(()=>{
+                    setTimeout(() => {
+                        main.style.display = 'block'
+                        setTimeout(() => {
 
                             main.style.transition = 'transform .25s ease-in-out'
                             main.style.transform = 'translate(0,0)'
                             chat.style.display = 'none'
-                        },10)
-                    },250)
+                        }, 10)
+                    }, 250)
                 })
             })
         })
     })
 
+    //Evento de los botones inferiores
 
+    //Botón del home 
+    document.querySelector('.home-icon').addEventListener('click', () => {
 
+        const main = document.querySelector('.mainContainer')
+        const profile = document.querySelector('.padre')
+        const chat = document.querySelector('.principal')
+
+        chat.style.transform = 'translate(0,-200%)'
+
+        setTimeout(() => {
+            main.style.display = 'block'
+            setTimeout(() => {
+
+                main.style.transition = 'transform .25s ease-in-out'
+                main.style.transform = 'translate(0,0)'
+                chat.style.display = 'none'
+                profile.style.display = 'none'
+            }, 10)
+        }, 250)
+    })
+
+    //Botón del perfil
+    document.querySelector('.profile-icon').addEventListener('click', () => {
+
+        //Animacion en si
+        const main = document.querySelector('.mainContainer')
+        const profile = document.querySelector('.padre')
+        const chat = document.querySelector('.principal')
+
+        chat.style.transition = 'transform .25s ease-in-out'
+        chat.style.transform = 'translate(0,-200%)'
+
+        main.style.transition = 'transform .25s ease-in-out'
+        main.style.transform = 'translate(0,-200%)'
+
+        setTimeout(() => {
+            profile.style.display = 'grid'
+            main.style.display = 'none'
+            chat.style.display = 'none'
+            setTimeout(() => {
+
+                profile.style.transition = 'transform .25s ease-in-out'
+                profile.style.transform = 'translate(0,0)'
+
+            }, 10)
+        }, 250)
+    })
+
+    document.querySelectorAll('.x').forEach(e => {
+        e.addEventListener('click', () => {
+
+            const main = document.querySelector('.mainContainer')
+            const profile = document.querySelector('.padre')
+            const chat = document.querySelector('.principal')
+
+            profile.style.transform = 'translate(200%,0)'
+            chat.style.transform = 'translate(0,-200%)'
+
+            setTimeout(() => {
+                main.style.display = 'flex'
+                setTimeout(() => {
+
+                    main.style.transition = 'transform .25s ease-in-out'
+                    main.style.transform = 'translate(0,0)'
+
+                }, 10)
+            }, 250)
+        })
+    })
+
+    //Botón del chat
+    document.querySelector('.chat-icon').addEventListener('click', async () => {
+        let userId, userName;
+
+        if (infoUser.message.rol === 'applicant') {
+            userId = infoMessage.consulta[0].id_company
+            userName = infoMessage.consulta[0].name_company
+        } else {
+            userId = infoMessage.consulta[0].id_applicant
+            userName = infoMessage.consulta[0].name_applicant
+        }
+
+        const person = people[0]
+        father.removeChild(document.querySelector('.principal'))
+        father.appendChild(await allView(userId, userName, person.profileImage, person.description))
+
+        document.querySelectorAll('.boxM').forEach(e => {
+            e.remove()
+        })
+        
+        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
+        const messageFather = document.querySelector('.padreMensajes')
+        person.messages.forEach(e => {
+            let color = ''
+            e.role == 'transmitter' ? color = 'verde' : color = 'gris'
+            messageFather.appendChild(boxMessage(color, e.role, e.message, e.hour))
+        })
+
+        //Animacion en si
+        const main = document.querySelector('.mainContainer')
+        const profile = document.querySelector('.padre')
+        const chat = document.querySelector('.principal')
+
+        chat.style.display = 'block'
+        //chat.style.width='800px'
+        setTimeout(() => {
+            main.style.display = 'none'
+            profile.style.display = 'none'
+            chat.style.transform = 'translate(0,0)'
+        }, 100)
+
+        //Evento de la x para volver a ver las tarjeticas
+        document.querySelectorAll('.x').forEach(e => {
+            e.addEventListener('click', () => {
+                const main = document.querySelector('.mainContainer')
+                const chat = document.querySelector('.principal')
+
+                chat.style.transform = 'translate(0,-200%)'
+
+                setTimeout(() => {
+                    main.style.display = 'block'
+                    setTimeout(() => {
+
+                        main.style.transition = 'transform .25s ease-in-out'
+                        main.style.transform = 'translate(0,0)'
+                        chat.style.display = 'none'
+                    }, 10)
+                }, 250)
+            })
+        })
+    })
+    carga.style.display = 'none';
 });
-

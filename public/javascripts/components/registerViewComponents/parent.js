@@ -9,10 +9,10 @@ import { AreasRoles } from "../modalOneCreateComponet/modalCreator.js";
 
 let areas = ["Ingenieria de sistemas", "Administracion de empresas", "Comunicacion  social", "Finanzas y negocios internacionales", "Mercadeo y publicidad", "Seguridad", "Servcios generales", "Medicina"]
 
-export const parentCreator = (img, firstInput, secondInput, date, textLabelDescription, interestSpan, role) => {
+export const parentCreator = async (img, firstInput, secondInput, date, textLabelDescription, interestSpan,city,country,role) => {
 
     const top = principalFunction(img, firstInput, secondInput)
-    const midBot = totalSectionB(date, textLabelDescription)
+    const midBot = await totalSectionB(date, textLabelDescription,city,country)
     const interest = contentDad(interestSpan)
     const button = buttonCreator()
     button.className = 'submitButton'
