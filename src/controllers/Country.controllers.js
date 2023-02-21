@@ -34,9 +34,12 @@ class CountryController{
      static getAll =async(req,res)=>{
         try{
             const respuesta = await Country.All()
-            res.send(respuesta)
+            return res.status(200).json({
+                respuesta
+            })
 
         }catch(error){
+
             return res.send({
                 "status":404,
                 "message":error.message
