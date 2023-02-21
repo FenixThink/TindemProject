@@ -1,5 +1,6 @@
 import Company from "../models/Company.model.js";
 import City from '../models/City.model.js';
+import User from '../models/User.model.js';
 //Inserción de datos al modelo de "ProfileAccount"
 import Profile_account from "../models/Profile_account.model.js";
 
@@ -66,7 +67,7 @@ class CompanyController extends GeneralQuerySql {
                 "message": "Company update succefully"
             })
         } catch (error) {
-            return res.send({
+            return response.send({
                 "status": 404,
                 "message": error.message
             })

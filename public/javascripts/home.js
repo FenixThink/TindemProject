@@ -114,7 +114,7 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-    app.appendChild(await TotalFunctionView(emails[0], emails));
+    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser));
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));

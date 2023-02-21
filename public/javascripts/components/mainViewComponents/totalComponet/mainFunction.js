@@ -4,9 +4,9 @@ import { Description } from "../descriptionComponent/descriptionComponent.js";
 import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
-export const rightCreator = (img,dataArea,emails) => {
+export const rightCreator = (img,dataArea,emails,id) => {
 
-    setTimeout(() => { reloadData(emails) }, 100);
+    setTimeout(() => { reloadData(emails,id) }, 100);
     console.log(dataArea)
     const [data, interestArea] = dataArea
     const array = []
@@ -64,7 +64,7 @@ export const rightCreator = (img,dataArea,emails) => {
     mainContainer.appendChild(mainContainerSon)
     return mainContainer;
 }
-export const reloadData = (emails) => {
+export const reloadData = (emails,id) => {
 
     const large = emails.length
     const aleatory = Math.floor(Math.random() * large);
@@ -74,13 +74,15 @@ export const reloadData = (emails) => {
     const vectorLike = document.querySelector("#likeVector");
     const vectorDislike = document.querySelector("#imgUnlike");
     vectorLike.addEventListener('click', () => {
+
         mainContainer.remove()
+        console.log(emails[aleatory][0].img)
         const right = document.querySelector('.right')
-        right.appendChild(rightCreator(objectApplicant[0].profile_image, emails[aleatory],emails))
+        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`, emails[aleatory],emails))
     },);
     vectorDislike.addEventListener('click', () => {
         mainContainer.remove()
         const right = document.querySelector('.right')
-        right.appendChild(rightCreator('https://upload.wikimedia.org/wikipedia/commons/d/d9/Accor_Logo_2020.png',emails[aleatory],emails))
+        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`,emails[aleatory],emails))
     },);
 }
