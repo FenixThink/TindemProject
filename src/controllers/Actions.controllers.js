@@ -64,7 +64,7 @@ class ActionController {
             })
         }
     }
-
+    
     static FindOneC = async(req, res) => {
         try {
             const respuesta = await Actions.FindOneC(req.params.id)

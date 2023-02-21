@@ -32,6 +32,14 @@ class Company extends GeneralQuerySql {
         const result = await pool.query(query, values);
         return result.affectedRows;
       }
+
+      static async FindOne(id){
+
+        const company = await pool.query('SELECT DISTINCT pa.key_rol AS id, pa.name, co.nit AS nit ,pa.img, pa.description, c.name AS city,p.name AS Country, date_format(co.day_of_founded, "%d-%m-%Y") AS day_of_founded, pa.type FROM profile_account pa INNER JOIN company co ON pa.key_rol= co.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE pa.type="company" AND pa.key_rol = (?) ',[id])
+        return company[0]
+
+    }
+    
 }
 
 export default Company

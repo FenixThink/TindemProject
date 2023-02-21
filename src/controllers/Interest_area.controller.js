@@ -9,7 +9,6 @@ class InterestAreaController extends GeneralQuerySql {
                    const area = new Interest_area(req.body);
                    let result = await area.create();
                     result.affectedRows = 0
-                   console.log(result.affectedRows);
 
                    res.status(201).json({message:"Area Created Successfully"})
 

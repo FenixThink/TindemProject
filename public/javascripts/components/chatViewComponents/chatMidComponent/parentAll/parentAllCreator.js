@@ -2,7 +2,6 @@ import { headerChatCreator } from "../headerChatMid/headerChatMid.js";
 import { centerCreator } from "../parentCenter/parentCenter.js"
 import { inputCreator } from "../../../input/input.js"
 import { boxMessage } from "../../boxMessage/boxMessage.js"
-import { people } from "../../partLeftChat/unionPartsLeft.js";
 import { fetchQuerys } from "../../../../home.js";
 
 

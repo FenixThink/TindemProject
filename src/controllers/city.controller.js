@@ -18,12 +18,15 @@ class CityController extends GeneralQuerySql {
     static getAll =async(req,res)=>{
         try{
             const respuesta = await City.All()
-            res.send(respuesta)
+            return res.status(200).json({
+                respuesta
+            })
+
 
         }catch(error){
             return res.send({
                 "status":404,
-                "message":"perros"
+                "message":error.message
             })
 
         }

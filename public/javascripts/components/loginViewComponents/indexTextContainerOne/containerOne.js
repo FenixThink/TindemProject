@@ -6,7 +6,7 @@ const contOneCreator = () =>{
 
 const titleIndex = document.createElement('h1');
 titleIndex.className = "titleContainerOne";
-titleIndex.textContent="Mensaje clave";
+titleIndex.textContent="¿Listo para conectar con tu potencial?";
 
 const subTitleIndex =document.createElement('span');
 subTitleIndex.className = "subTitleContainerOne";
@@ -21,7 +21,7 @@ desIndexContainer.textContent = "Sistema web creado con el fin de establecer un 
 const subContainer = document.createElement('div');
 subContainer.className="subContainer"
 subContainer.appendChild(titleIndex);
-subContainer.appendChild(subTitleIndex);
+// subContainer.appendChild(subTitleIndex);
 subContainer.appendChild(desIndexContainer)
 
 

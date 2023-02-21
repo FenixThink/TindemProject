@@ -1,9 +1,9 @@
 import { dataBussines } from "./section-data-bussines.js"
 import { descriptionBussines } from "./section-description-bussines.js"
 
-export const totalSectionB = (date, textLabelDescription) => {
+export const totalSectionB = async (date, textLabelDescription,city,country) => {
 
-    const datosEmpresa = dataBussines(date);
+    const datosEmpresa = await dataBussines(city,country);
     const descripcionEmpresa = descriptionBussines(textLabelDescription);
 
     const divFather = document.createElement('div');

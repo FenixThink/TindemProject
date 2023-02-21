@@ -34,7 +34,7 @@
     create table user_account(
         id int(11) primary key auto_increment,
         email varchar(40) not null unique,
-        password varchar(30) not null 
+        password varchar(50) not null 
     );
 
     create table profile_account(

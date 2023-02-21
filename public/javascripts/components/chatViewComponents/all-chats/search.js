@@ -1,4 +1,4 @@
-import { people } from "../partLeftChat/unionPartsLeft.js"
+
 export function divSearch(){
 
     const searchContac=document.createElement('input') //creando el input de busqueda
@@ -7,7 +7,7 @@ export function divSearch(){
 
     //Configurando el input para realizar la busqueda de algun chat
     searchContac.addEventListener('keyup',(e)=>{
-        for (let i = 1; i <= Object.keys(people).length; i++) {
+        /* for (let i = 1; i <= Object.keys(people).length; i++) {
             if(searchContac.value!=''){
                 let name = people[i].name.toLowerCase()
                 let searchName = searchContac.value.toLowerCase()
@@ -18,7 +18,7 @@ export function divSearch(){
                 document.getElementById(Object.keys(people)[i-1]).style.display='flex'
 
             }
-        }
+        } */
     })
 
 

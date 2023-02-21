@@ -2,7 +2,33 @@ import { parentCreator } from "./components/registerViewComponents/parent.js"
 import { prueba } from "./components/modalOneCreateComponet/modalCratorTwo.js"
 
 const app = document.querySelector('#app')
-app.appendChild(parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados","company"))
+
+const query = async()=>{
+
+    const Countrys = await fetch(`/country/get`,{
+        method: 'get',
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+
+    const City = await fetch(`/city/get`,{
+        method: 'get',
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+    
+    return [City,Countrys]
+}   
+
+const data = await query()
+const City = await data[0].json()
+console.log(City)
+const Countrys = await data[1].json()
+console.log(Countrys) 
+
+app.appendChild(await parentCreator("https://i.ibb.co/5BTC7Tn/UserLogo.png", "Nombre de la empresa", "Nombre de usuario", "Fecha y lugar de surgimiento", "Descripcion de la empresa", "Perfiles profesionales deseados",City,Countrys,"company"))
 
 const send = document.querySelector('.submitButton')
 
