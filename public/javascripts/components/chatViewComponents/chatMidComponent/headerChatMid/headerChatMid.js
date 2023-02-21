@@ -1,9 +1,9 @@
-export const headerChatCreator = (id,nameUser,src)=>{
+export const headerChatCreator = (id,nameUser,photo)=>{
 
     //Creacion de la imagen
     const img = document.createElement('img')
     img.className = 'imgTopMidChat'
-    img.src = src
+    img.src = `/img/${photo}`
 
     //Creacion del div de la imagen
     const imgContainer = document.createElement('div')

@@ -13,8 +13,6 @@
 
      const yearUser = dataUser[0].day_of_birth
      let caja =yearUser.split('-')
-     
-    
     
         let edadReal
    
@@ -43,7 +41,7 @@ photo.className='photo';
 const img = document.createElement('img');
 
 img.className='img';
-img.src = 'https://as01.epimg.net/meristation/imagenes/2022/05/19/noticias/1652944408_523527_1652944740_noticia_normal_recorte1.jpg';
+img.src = `img/${dataUser[0].img}`;
 
 photo.appendChild(years);
 photo.appendChild(img);

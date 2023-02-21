@@ -50,7 +50,7 @@ class Profile_account extends GeneralQuerySql{
         const result = await pool.query(query,values)
         return result.affectedRows;
     }
-    
+
 }
 
 export default Profile_account;

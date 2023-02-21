@@ -1,12 +1,10 @@
 import {a} from "../preMessage/preMessageChat.js"
-import { people } from "../partLeftChat/unionPartsLeft.js"
 import { fetchQuerys } from "../../../home.js"
 
 
 
 
-export const allChats = async() => {
-    const holaMundo = await fetchQuerys().then(async (data) => {
+export const allChats = async(data) => {
         const [infoUser, dataUser,infoMessage,allMessages] = data;
 
         /*Creacion titulo all chats*/
@@ -23,9 +21,14 @@ export const allChats = async() => {
         infoMessage.consulta.forEach(async (e,i)=>{
    
             
-            let allMessage, dataChat, position,lastMessage;
+            let company, companyData, allMessage, dataChat, position,lastMessage;
 
             if(infoUser.message.rol == 'applicant'){
+
+                company = await fetch(`/company/${e.id_company}`,{
+                    method: 'get'
+                })
+                companyData = await company.json()
 
                 allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${e.id_company}`,{
                     method: 'get'
@@ -33,7 +36,7 @@ export const allChats = async() => {
 
                 dataChat = await allMessage.json()
                 position = dataChat.Message.length - 1 
-    
+
                 if(position>=0){
 
                     if(dataChat.Message[position].message[0].role === 'transmitter'){
@@ -42,10 +45,10 @@ export const allChats = async() => {
                         lastMessage = dataChat.Message[position].message[0].text
                     }                    
 
-                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",lastMessage,dataChat.Message[position].message[0].hour)))
+                    divMessage.appendChild((a(companyData.id,companyData.name,companyData.img,lastMessage,dataChat.Message[position].message[0].hour)))
                     
                 }else{
-                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",'','')))
+                    divMessage.appendChild((a(companyData.id,companyData.name,companyData.img,'','')))
                 }
             
                     
@@ -111,6 +114,5 @@ export const allChats = async() => {
         div.appendChild(divAllChats)
 
        return div
-    })
-    return holaMundo
+
 }

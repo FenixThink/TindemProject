@@ -34,7 +34,7 @@ export const a = function mesaje(id,name1,photo,inboxUser,hour) {
     //Creacion de la imagen
     const insertPhotoChat = document.createElement("img");
     insertPhotoChat.className='profileImg'
-    insertPhotoChat.src=photo;
+    insertPhotoChat.src=`img/${photo}`;
     
     //Creacion del contenedor que tendra la imagen
     const contImg = document.createElement('div')

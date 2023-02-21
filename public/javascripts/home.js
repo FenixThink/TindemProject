@@ -5,9 +5,6 @@ import {
     allView
 } from "./components/chatViewComponents/allView/totalsection.js";
 import {
-    people
-} from "./components/chatViewComponents/partLeftChat/unionPartsLeft.js";
-import {
     boxMessage
 } from "./components/chatViewComponents/boxMessage/boxMessage.js";
 import {
@@ -121,7 +118,7 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-    app.appendChild(await TotalFunctionView(emails[0], emails));
+    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
@@ -209,37 +206,54 @@ fetchQuerys().then(async (data) => {
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
     document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
-        console.log('a')
-            let userId, userName;
+        
+            let userId, userName, profile, profileData;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company      
-                
+                profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
+                    method:'get'
+                });
+                profileData = await profile.json()
+
             }else{
                 
                 userId = infoMessage.consulta[i].id_applicant
                 userName = infoMessage.consulta[i].name_applicant
-                
+                /* profile = await fetch(`/applicant/${infoMessage.consulta[i].id_applicant}`,{
+                    method:'get'
+                });
+
+                profileData = await profile.json() */
+
             }
             // const person = idFetch[i]
-            const person = people[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(userId,userName,person.profileImage,person.description))
+            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()
         })
-        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-        const messageFather = document.querySelector('.padreMensajes')
-        person.messages.forEach(e => {
-            let color = ''
-            e.role == 'transmitter' ? color = 'verde' : color = 'gris'
-            messageFather.appendChild(boxMessage(color, e.role, e.message, e.hour))
+        
+        const allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${userId}`,{
+            method: 'get'
         })
 
+        const dataChat = await allMessage.json()
+        const messages = dataChat.Message
 
+        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
+        const messageFather = document.querySelector('.padreMensajes')
+        messages.forEach(e => {
+            let color = ''
+            e.message[0].role == 'transmitter' ? color = 'verde' : color = 'gris'
+            messageFather.appendChild(boxMessage(color, e.message[0].role, e.message[0].text, e.message[0].hour))
+        })
+        
         e.addEventListener('click', async (ev) => {
+            
+
             //Animacion en si
             const main = document.querySelector('.mainContainer')
             const profile = document.querySelector('.padre')
@@ -356,32 +370,7 @@ fetchQuerys().then(async (data) => {
 
     //Botón del chat
     document.querySelector('.chat-icon').addEventListener('click', async () => {
-        let userId, userName;
-
-        if (infoUser.message.rol === 'applicant') {
-            userId = infoMessage.consulta[0].id_company
-            userName = infoMessage.consulta[0].name_company
-        } else {
-            userId = infoMessage.consulta[0].id_applicant
-            userName = infoMessage.consulta[0].name_applicant
-        }
-
-        const person = people[0]
-        father.removeChild(document.querySelector('.principal'))
-        father.appendChild(await allView(userId, userName, person.profileImage, person.description))
-
-        document.querySelectorAll('.boxM').forEach(e => {
-            e.remove()
-        })
         
-        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-        const messageFather = document.querySelector('.padreMensajes')
-        person.messages.forEach(e => {
-            let color = ''
-            e.role == 'transmitter' ? color = 'verde' : color = 'gris'
-            messageFather.appendChild(boxMessage(color, e.role, e.message, e.hour))
-        })
-
         //Animacion en si
         const main = document.querySelector('.mainContainer')
         const profile = document.querySelector('.padre')

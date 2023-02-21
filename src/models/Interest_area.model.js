@@ -29,7 +29,6 @@ class Interest_area extends GeneralQuerySql{
     }
     
     static interest = async (params)=>{
-        console.log(params.email)
         const interest = await pool.query('SELECT si.name AS interes, ia.name AS Area FROM specific_interest si  INNER JOIN interest_area ia ON si.id_interest = ia.id INNER JOIN profile_specialization ps ON si.id = ps.id_specialization INNER JOIN profile_account pa ON pa.id = ps.id_profile_account INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email= (?) ',[params.email])
 
         return interest[0]
@@ -37,7 +36,7 @@ class Interest_area extends GeneralQuerySql{
         
     static indexInteresAplicant = async (params)=>{
         
-        const profile = await pool.query('SELECT DISTINCT pa.id_user AS ID, pa.name, a.lastname,pa.description, c.name AS city,p.name AS Country, date_format(a.day_of_birth, "%d-%m-%Y") AS day_of_birth, pa.type FROM profile_account pa INNER JOIN applicant a ON pa.key_rol= a.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email =  (?)',[params.email]);
+        const profile = await pool.query('SELECT DISTINCT pa.id_user AS ID, pa.name,pa.img, a.lastname,pa.description, c.name AS city,p.name AS Country, date_format(a.day_of_birth, "%d-%m-%Y") AS day_of_birth, pa.type FROM profile_account pa INNER JOIN applicant a ON pa.key_rol= a.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email =  (?)',[params.email]);
 
         return profile[0]
     }

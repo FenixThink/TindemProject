@@ -8,7 +8,7 @@ export function right(name,img,description) {
     //Imagen de perfil
     const image = document.createElement('img');
     image.className = "ellipse";
-    image.src = img;
+    image.src = `/img/${img}`;
     image.alt = "ellipse";
 
     const imageCont = document.createElement('div')
