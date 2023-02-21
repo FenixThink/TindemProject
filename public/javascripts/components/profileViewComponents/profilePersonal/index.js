@@ -94,7 +94,7 @@ export function createProfileInf(dataUser){
     const otros = document.createElement('div')
     otros.className='otros';
 const textOtros= document.createElement('h3')
-textOtros.textContent='Especializacion'
+textOtros.textContent='Especializaciones'
     otros.appendChild(textOtros)
 
    const liDiv = document.createElement('div')
@@ -117,7 +117,7 @@ textOtros.textContent='Especializacion'
  
     const titleDescription=document.createElement('h3');
     titleDescription.className='titleDescription';
-    titleDescription.textContent='descripcion del Usuario'
+    titleDescription.textContent='Descripcion del Usuario'
 
 
     const descriptionPadre = document.createElement('div');
