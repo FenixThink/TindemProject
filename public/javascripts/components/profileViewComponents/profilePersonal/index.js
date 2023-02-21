@@ -1,4 +1,3 @@
-
     let positionStudy=0
 
     const date = new Date()
@@ -10,8 +9,8 @@
 
 
     export function createProfileSup(dataUser) {
-
-     const yearUser = dataUser[0].day_of_birth
+    let yearUser;
+    dataUser[0].type=="applicant" ? yearUser = dataUser[0].day_of_birth : yearUser = dataUser[0].day_of_founded
      let caja =yearUser.split('-')
     
         let edadReal
@@ -95,7 +94,7 @@ export function createProfileInf(dataUser){
     const otros = document.createElement('div')
     otros.className='otros';
 const textOtros= document.createElement('h3')
-textOtros.textContent='Especializacion'
+textOtros.textContent='Especializaciones'
     otros.appendChild(textOtros)
 
    const liDiv = document.createElement('div')
@@ -118,7 +117,7 @@ textOtros.textContent='Especializacion'
  
     const titleDescription=document.createElement('h3');
     titleDescription.className='titleDescription';
-    titleDescription.textContent='descripcion del Usuario'
+    titleDescription.textContent='Descripcion del Usuario'
 
 
     const descriptionPadre = document.createElement('div');
