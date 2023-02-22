@@ -12,7 +12,10 @@ export const TotalFunctionView = async(dataArea,emails,dataUser,data) => {
    const right = document.createElement('div');
    right.className = "right";
    //Componente del header de la izquierda
-   const left = await partLeft(`${dataUser[0].name} ${dataUser[0].lastname}`, dataUser[0].img,data)
+   let name;
+   dataUser[0].type=='applicant' ?  name = `${dataUser[0].name} ${dataUser[0].lastname}` : name = dataUser[0].name
+   
+   const left = await partLeft(name, dataUser[0].img,data)
    divFather.appendChild(left)
 
    divFather.appendChild(right);

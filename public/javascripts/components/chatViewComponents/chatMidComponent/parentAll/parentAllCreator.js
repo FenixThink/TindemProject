@@ -5,7 +5,7 @@ import { boxMessage } from "../../boxMessage/boxMessage.js"
 import { fetchQuerys } from "../../../../home.js";
 
 
-export const parentParentCreator = async (id,profileName,photo)=>{
+export const parentParentCreator = async (id,profileName,photo,data)=>{
     
     const holaMundo = await fetchQuerys().then(data => {
         

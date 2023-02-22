@@ -51,7 +51,7 @@ export async function fetchQuerys() {
         });
 
         infoemails = await emailsApplicant.json();
-
+        
         //Fetch para obtener toda la informacion de un aplicante
         const response = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
             method: 'get',
@@ -60,6 +60,7 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
+        console.log(dataUser[0])
 
         //Fetch para traer la info de los mensajes hora etc..
         const idApplicant = await fetch(`obtenerChatIDApplicant/${id}`, {
@@ -75,6 +76,7 @@ export async function fetchQuerys() {
             }
         });
         infoMessage = await idFetch.json();
+
 
         for (let  i = 0; i < Object.values(infoemails.message).length; i++){
 
@@ -112,13 +114,13 @@ export async function fetchQuerys() {
         dataUser = await response.json();
 
         //Fetch para traer la info de los mensajes hora etc..
-        const idCompany = await fetch(`obtenerChatIDCompany/${id}`, {
+        const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
             method: 'get',
         })
         allmessages = await idCompany.json();
 
         //Fetch para buscar los match de acuerdo a su id
-        const idFetch = await fetch(`allAction/company/${id}`, {
+        const idFetch = await fetch(`allAction/company/${dataUser[0].ID}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -149,9 +151,7 @@ export async function fetchQuerys() {
     data.push(infoMessage);
     data.push(allmessages);
     data.push(emails)
-
-    console.log(data)
-
+    
     return data;
 }
 
