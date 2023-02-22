@@ -171,20 +171,27 @@ fetchQuerys().then(async (data) => {
     const sercCont = document.querySelector('.searc')
 
     //Cuando tiene el mouse encima
-    sercCont.addEventListener('mouseover', (e) => {
+    lupa.addEventListener('click', (e) => {
 
         search.style.width = '100%'
         lupa.style.transition = 'transform 1s ease-in-out'
-        lupa.style.transform = 'translate(-200%,0)'
+        lupa.style.transform = 'translate(-250%,0)'
 
 
     })
 
+    search.addEventListener('focus', (e) => {
+
+        search.style.width = '100%'
+        lupa.style.transition = 'transform 1s ease-in-out'
+        lupa.style.transform = 'translate(-250%,0)'
+
+
+    })  
     //Cuando quita el mouse de encima
-    sercCont.addEventListener('mouseout', (e) => {
+    search.addEventListener('blur', (e) => {
 
         search.removeAttribute('style')
-
         lupa.style.transition = 'transform 1s ease-in-out'
         lupa.style.transform = 'translate(0,0)'
 
