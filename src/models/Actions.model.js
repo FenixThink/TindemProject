@@ -58,6 +58,30 @@ export class Actions extends GeneralQuerySql{
         return "Eliminado exitoso"
     } 
 
+    static async BlockUser(id){
+        const id_applicant = id.id_applicant;
+        const id_company = id.id_company;
+
+        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 1 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
+        return "Actualizado exitoso"
+    }
+
+    static async DesblockUser(id){
+        const id_applicant = id.id_applicant;
+        const id_company = id.id_company;
+
+        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 0 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
+        return "Actualizado exitoso"    
+    }
+
+    static async Rblock(id){
+        const id_applicant = id.id_applicant;
+        const id_company = id.id_company;
+
+        const rows = await pool.query(`SELECT a.blocked_status FROM actions a WHERE a.id_applicant = (?) AND a.id_company = (?) AND a.action_match = 1`, [id_applicant, id_company])
+        return rows[0]
+    }
+
 }
 
 export default Actions

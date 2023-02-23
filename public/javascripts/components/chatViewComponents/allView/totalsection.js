@@ -3,10 +3,10 @@ import { Description } from "../../mainViewComponents/descriptionComponent/descr
 import { parentParentCreator } from "../chatMidComponent/parentAll/parentAllCreator.js"
 
 
-export const allView = async(id, profileName, photo, description) => {
+export const allView = async(id, profileName, photo, description, idA,data) => {
 
-    const mainChat = sectionChat(profileName, photo, description)
-    const midPart = await parentParentCreator(id, profileName, photo)
+    const mainChat = await sectionChat(profileName, photo, description, idA)
+    const midPart = await parentParentCreator(id, profileName, photo,data)
 
     const mainContainer = document.createElement('div')
 

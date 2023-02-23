@@ -5,7 +5,7 @@ import { boxMessage } from "../../boxMessage/boxMessage.js"
 import { fetchQuerys } from "../../../../home.js";
 
 
-export const parentParentCreator = async (id,profileName,photo)=>{
+export const parentParentCreator = async (id,profileName,photo,data)=>{
     
     const holaMundo = await fetchQuerys().then(data => {
         
@@ -19,9 +19,11 @@ export const parentParentCreator = async (id,profileName,photo)=>{
         const input = inputCreator()
         input.placeholder = "Type a message"
         input.className = "inputSendMessage"
+        input.id = "inputMessage"
         //Contenedor para el input
         const inputCont = document.createElement('div')
         inputCont.className = 'contInputSend'
+        
         inputCont.appendChild(input)
         
 //Configuracion de la agregacion del contenedor del mensaje al chat
@@ -87,9 +89,6 @@ inputCont.addEventListener('keyup',async (e)=>{
                
             }, 1000);
             
-            
-            
-
 
             
             let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
