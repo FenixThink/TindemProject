@@ -161,7 +161,7 @@ fetchQuerys().then(async (data) => {
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-    father.appendChild(await allView('',''));
+    father.appendChild(await allView('','',"","",infoUser.message.id,data));
 
 
     //Creacion de la animacion del buscador
@@ -277,7 +277,7 @@ fetchQuerys().then(async (data) => {
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description))
+            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,infoUser.message.id,data))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()
@@ -417,6 +417,7 @@ fetchQuerys().then(async (data) => {
 
     //Botón del chat
     document.querySelector('.chat-icon').addEventListener('click', async () => {
+        
         
         //Animacion en si
         const main = document.querySelector('.mainContainer')
