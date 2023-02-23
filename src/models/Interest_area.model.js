@@ -36,14 +36,14 @@ class Interest_area extends GeneralQuerySql{
         
     static indexInteresAplicant = async (params)=>{
         
-        const profile = await pool.query('SELECT DISTINCT pa.id_user AS ID, pa.name,pa.img, a.lastname,pa.description, c.name AS city,p.name AS Country, date_format(a.day_of_birth, "%d-%m-%Y") AS day_of_birth, pa.type FROM profile_account pa INNER JOIN applicant a ON pa.key_rol= a.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email =  (?)',[params.email]);
+        const profile = await pool.query('SELECT DISTINCT a.id AS ID, pa.name,pa.img, a.lastname,pa.description, c.name AS city,p.name AS Country, date_format(a.day_of_birth, "%d-%m-%Y") AS day_of_birth, pa.type FROM profile_account pa INNER JOIN applicant a ON pa.key_rol= a.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email =  (?)',[params.email]);
 
         return profile[0]
     }
 
     static indexInteresCompany = async (params)=>{
 
-        const interest = await pool.query('SELECT DISTINCT pa.id_user AS ID, pa.name, co.nit AS nit ,pa.description, c.name AS city,p.name AS Country, date_format(co.day_of_founded, "%d-%m-%Y") AS day_of_founded, pa.type FROM profile_account pa INNER JOIN company co ON pa.key_rol= co.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email = (?) ',[params.email])
+        const interest = await pool.query('SELECT DISTINCT co.id AS ID, pa.name, pa.img, co.nit AS nit ,pa.description, c.name AS city,p.name AS Country, date_format(co.day_of_founded, "%d-%m-%Y") AS day_of_founded, pa.type FROM profile_account pa INNER JOIN company co ON pa.key_rol= co.id INNER JOIN city c ON pa.id_city = c.id INNER JOIN country p ON c.id_country = p.id INNER JOIN user_account ua ON pa.id_user = ua.id WHERE ua.email = (?) ',[params.email])
 
         return interest[0]
     }
