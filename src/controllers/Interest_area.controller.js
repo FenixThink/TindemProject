@@ -58,6 +58,7 @@ class InterestAreaController extends GeneralQuerySql {
         try{
 
             const answer = await Interest_area.All()
+            console.log(answer)
             if(answer.length === 0){
                 return res.status(404).json({message:"Areas Not Found"})
             }

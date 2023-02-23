@@ -31,7 +31,7 @@ export const parentCreator = async (img, firstInput, secondInput, date, textLabe
     child.appendChild(top)
     child.appendChild(midBot)
     child.appendChild(interest)
-    child.appendChild(AreasRoles(areas))
+    child.appendChild( await AreasRoles(areas))
     child.appendChild(button)
 
     const parent = document.createElement('div')

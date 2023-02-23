@@ -102,8 +102,7 @@ body{
     }
     
    
-    .containerRolesAndAreas input , .profileRoles input{
-       
+    .containerRolesAndAreas input , .profileRoles input, .rolesname button{
         color:#4267C7;
         border: solid 0px ;
         border-radius: 10px;
