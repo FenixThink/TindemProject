@@ -249,7 +249,11 @@ fetchQuerys().then(async (data) => {
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
+    
+    const cajas =document.querySelectorAll('.messageBox')
+    
+    cajas.forEach(async  (e,i)=>{
+    let indice=cajas.length-1
         
         e.addEventListener('click', async (ev) => {
         let userId, userName, profileData;
@@ -257,30 +261,29 @@ fetchQuerys().then(async (data) => {
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company      
-                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
+                const profile = await fetch(`/company/${infoMessage.consulta[indice-i].id_company}`,{
                     method:'get'
                 });
                 
                 profileData = await profile.json()
+                console.log(profileData,'jejejej')
 
-            }else{
+            }else {
                 
                 userId = infoMessage.consulta[i].id_applicant
                 userName = infoMessage.consulta[i].name_applicant
-                /* profile = await fetch(`/applicant/${infoMessage.consulta[i].id_applicant}`,{
+                 profile = await fetch(`/applicant/${infoMessage.consulta[indice-i].id_applicant}`,{
                     method:'get'
                 });
 
-                profileData = await profile.json() */
+                profileData = await profile.json() 
 
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
             father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,infoUser.message.id,data))
 
-        document.querySelectorAll('.boxM').forEach(e => {
-            e.remove()
-        })
+      
         
         const allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${userId}`,{
             method: 'get'
@@ -339,6 +342,7 @@ fetchQuerys().then(async (data) => {
                 })
             })
         })
+        
     })
 
     //Evento de los botones inferiores

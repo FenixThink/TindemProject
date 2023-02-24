@@ -6,13 +6,14 @@ import { fetchQuerys } from "../../../home.js"
 
 export const allChats = async(data) => {
         const [infoUser, dataUser,infoMessage,allMessages] = data;
+        console.log(infoMessage)
 
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')
         h1.className = 'TitleallChats'
         h1.textContent = 'All Chat'
 
-        console.log(infoMessage)
+        
         
         //Objeto infor chats
         
@@ -55,7 +56,7 @@ export const allChats = async(data) => {
                     
             }else{
 
-                console.log(e.id_applicant, infoUser.message.id)
+              
                 allMessage = await fetch(`/getChatscompanyapplicant/${e.id_applicant}/${infoUser.message.id}`,{
                     method: 'get'
                 })    

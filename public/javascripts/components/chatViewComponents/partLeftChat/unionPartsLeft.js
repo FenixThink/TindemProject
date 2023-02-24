@@ -38,6 +38,7 @@ export const partLeft = async(topName,topProfileImg,data) =>{
     profile.appendChild(search)
 
     const chats = await allChats(data)
+    console.log(data)
 
 
 
