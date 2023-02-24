@@ -37,7 +37,7 @@ export const rightCreator = (img,dataArea,emails,dataUser) => {
     // }   
     // console.log(otherArray)
 
-    const componentAInformation = upperComponents(img, data.name, data.day_of_birth);
+    const componentAInformation = upperComponents(img, data.name, data);
     const componentBDescription = interests(interestOfArea);
     const componentDescription = Description(data.description);
     const componentCOptions = renderButtons();

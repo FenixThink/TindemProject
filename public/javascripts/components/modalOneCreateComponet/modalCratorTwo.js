@@ -4,7 +4,12 @@ import {
 export const rolesPerson = []
 let prueba = new Set
 
-export function AreasRolesTwo(btnRolInArea) {
+export async  function AreasRolesTwo() {
+    const roles = await fetch('/specificInterest',{method:'get'})
+    const dataRoles = await roles.json()
+    console.log(dataRoles)
+
+    
     const rol = document.createElement("span");
     rol.className = "rolOn"
     rol.textContent = "Rol de  "

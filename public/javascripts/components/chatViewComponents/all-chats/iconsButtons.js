@@ -24,15 +24,14 @@ export function iconsButtons(){
 
   //Agregar los íconos a los botones
   homeButton.appendChild(iconHome)
-  profileButton.appendChild(iconProfile)
-  chatButton.appendChild(iconChat)
+  profileButton.appendChild(iconProfile)/* 
+  chatButton.appendChild(iconChat) */
 
   // Creción del div contenedor de los iconos
   const parent = document.createElement('div')
   parent.className = "parent-icons"
   parent.appendChild(homeButton)
   parent.appendChild(profileButton)
-  parent.appendChild(chatButton)
 
   return parent
 }

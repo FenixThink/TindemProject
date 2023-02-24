@@ -9,7 +9,7 @@ export function credentialContainer(firstInput, secondInput) {
     /*Creación de la etiqueta INPUT referente al nombre de la empresa*/
     const inputCompanyName = inputCreator();
     inputCompanyName.className = "inputNombreEmp inputEmpresa";
-    inputCompanyName.placeholder = "Placeholder_input";
+    inputCompanyName.placeholder = "Nombre";
     inputCompanyName.name = "name"
     inputCompanyName.size = "25";
 
@@ -36,7 +36,7 @@ export function credentialContainer(firstInput, secondInput) {
     inputCompanyEmail.className = "inputCorreoEmp inputEmpresa";
     inputCompanyEmail.name = "email"
     inputCompanyEmail.id = "inputMailID";
-    inputCompanyEmail.placeholder = "Placeholder_input";
+    inputCompanyEmail.placeholder = "Correo Electrónico";
     inputCompanyEmail.size = "25";
 
     /*Creación de la etiqueta P referente a la contraseña de la empresa*/
@@ -49,7 +49,7 @@ export function credentialContainer(firstInput, secondInput) {
     inputCompanyPassword.className = "inputContraseñaEmp inputEmpresa";
     inputCompanyPassword.name = "password"
     inputCompanyPassword.id = "inputContraseñaID";
-    inputCompanyPassword.placeholder = "Placeholder_input";
+    inputCompanyPassword.placeholder = "Contraseña";
     inputCompanyPassword.size = "25";
     /*Aquí TERMINA la creación de etiquetas de la sección INFERIOR del CONTENEDOR de credenciales*/
 

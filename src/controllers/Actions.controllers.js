@@ -129,6 +129,56 @@ class ActionController {
     }
 
 
+    static BlockUser = async(req, res ) => {
+        try {
+            console.log("a")
+            const respuesta = await Actions.BlockUser(req.params.id_applicant,req.params.id_company)
+            if (res.length <= 0) res.status(404).json({
+                message: 'Action not valided'
+            })
+            res.status(200).json({
+                "message":"Actualizado"
+            })
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "status": 404,
+                "message": error.message
+            });
+        }
+    }
+
+    static DesblockUser = async(req, res ) => {
+        try {
+            const respuesta = await Actions.DesblockUser(req.params.id_applicant,req.params.id_company)
+            if (res.length <= 0) res.status(404).json({
+                message: 'Action not valided'
+            })
+            res.send(respuesta)
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "status": 404,
+                "message": error.message
+            });
+        }
+    }
+
+    static Rblock = async(req, res ) => {
+        try {
+            const respuesta = await Actions.Rblock(req.params)
+            if (res.length <= 0) res.status(404).json({
+                message: 'Action not valided'
+            })
+            res.json(respuesta)
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "status": 404,
+                "message": error.message
+            });
+        }
+    }
     
 }
 

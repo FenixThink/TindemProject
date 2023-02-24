@@ -22,6 +22,7 @@ import actionRouter from './routes/actions.routes.js'
 import countryRouter from './routes/country.routes.js'
 import cityRouter from './routes/city.routes.js'
 import profileSpecializationRouter from './routes/profile_Specialization.routes.js'
+import specific_interestRouter from './routes/specific_interest.routes.js';
 
 var app = express();
 
@@ -58,6 +59,8 @@ app.use(actionRouter)
 app.use(countryRouter)
 app.use(cityRouter)
 app.use(profileSpecializationRouter)
+app.use(specific_interestRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

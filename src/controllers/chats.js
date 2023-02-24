@@ -14,6 +14,7 @@ class chatsController{
     }
 
     static getChatIdUserCompany = async (req,res)=>{
+        console.log(req.params)
         const chat = await chatsmodel.find({idCompany:req.params.idCompany})
         res.send(chat)
     }
