@@ -9,22 +9,21 @@ export  function divSearch(){
     //Configurando el input para realizar la busqueda de algun chat
     
     async function chat (){
-        let chat = await fetchQuerys()
     
         
         searchContac.addEventListener('keyup',(e)=>{
-            for (let i = 1; i <= chat[2].consulta.length; i++) {
-               if(searchContac.value!=''){
-                    let name = chat[2].consulta[i-1].name_company.toLowerCase()
-                   let searchName = searchContac.value.toLowerCase()
-                   if(!name.startsWith(searchName)){
-                       document.getElementById(chat[2].consulta[i-1].id_company).style.display='none'
-                   }
-               }else{
-                   document.getElementById(chat[2].consulta[i-1].id_company).style.display='flex'
+        //     for (let i = 1; i <= chat[2].consulta.length; i++) {
+        //        if(searchContac.value!=''){
+        //             let name = chat[2].consulta[i-1].name_company.toLowerCase()
+        //            let searchName = searchContac.value.toLowerCase()
+        //            if(!name.startsWith(searchName)){
+        //                document.getElementById(chat[2].consulta[i-1].id_company).style.display='none'
+        //            }
+        //        }else{
+        //            document.getElementById(chat[2].consulta[i-1].id_company).style.display='flex'
 
-               }
-           } 
+        //        }
+        //    } 
        })
         
     }

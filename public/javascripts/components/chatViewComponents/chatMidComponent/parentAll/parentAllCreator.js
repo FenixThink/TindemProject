@@ -19,9 +19,11 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         const input = inputCreator()
         input.placeholder = "Type a message"
         input.className = "inputSendMessage"
+        input.id = "inputMessage"
         //Contenedor para el input
         const inputCont = document.createElement('div')
         inputCont.className = 'contInputSend'
+        
         inputCont.appendChild(input)
         
 //Configuracion de la agregacion del contenedor del mensaje al chat
@@ -87,9 +89,6 @@ inputCont.addEventListener('keyup',async (e)=>{
                
             }, 1000);
             
-            
-            
-
 
             
             let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;

@@ -47,12 +47,27 @@ class SpecificInterestController{
     }
 
 
+
     static async findUserSpecializations (req,res){
         try{
             const answer = await SpecificInterest.findUserSpecializations(req.params)
             const {specific_interest,findUserSpe} = answer
             // res.send(answer)
             return res.status(200).json([specific_interest[0],findUserSpe[0]]);
+            
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+        }
+    }
+    static async findinteresArea (req,res){
+        try{
+            const answer = await SpecificInterest.findinteresArea(req.params)
+            
+            // res.send(answer)
+            return res.status(200).json(answer[0]);
             
         }catch(error){
             return res.send({

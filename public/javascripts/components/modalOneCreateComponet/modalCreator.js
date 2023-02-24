@@ -4,17 +4,13 @@ import { AreasRolesTwo } from "./modalCratorTwo.js";
 
 
 
-let abc= [["Inteligencia artificial y algoritmia","Sistemas digitales","Product manager","Backend","Diseño en redes ","Arquitectura de Sorftware"],
-["a","b"],
-["comucacion","social"],
-["sinanzas","negocios","internacionales"],
-["mercadeo","publicidad"],
-["seguridad"],
-["servicios","generales"],
-["mediciina"]
-]
 
-export function AreasRoles(btnAreasOrRoles) {
+
+export async function  AreasRoles(btnAreasOrRoles) {
+
+    const areas  = await fetch('/Area', {method:'get'})
+    const dataAreas = await areas.json()
+    console.log(dataAreas)
     
     const rol = document.createElement("span");
     rol.className="rolOn"
@@ -32,8 +28,8 @@ export function AreasRoles(btnAreasOrRoles) {
 
 /*  para dar un clasname diferente */   
 /* creacion de botones de areas con sus debidos indices
- */    btnAreasOrRoles.forEach((e,i) => {
-        rolesName.appendChild(createButton(e,i))
+ */    dataAreas.forEach((e) => {
+        rolesName.appendChild(createButton(e.name,e.id))
         
         
         
@@ -76,16 +72,20 @@ export function AreasRoles(btnAreasOrRoles) {
     return padreRolesOrAreas
 }
 /* creacion de botones por parametros*/
-function createButton(name,i){
+  function createButton(name,i){
     let btn = document.createElement("input");
     btn.type='button'
     btn.className="optionsAreas"
     btn.value=name
     btn.id=i
 /*     llamamos al segundo modal y escondemos el padre
- */     btn.onclick= function (params) {
+ */     btn.onclick= async function () {
 
-        document.querySelector(".Padre").appendChild(AreasRolesTwo(abc[i]))
+
+        
+
+
+        document.querySelector(".Padre").appendChild( await AreasRolesTwo())
         document.querySelector(".modalPadre").style.display="none"
         
      }

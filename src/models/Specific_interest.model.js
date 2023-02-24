@@ -37,6 +37,12 @@ class Specific_interest extends GeneralQuerySql{
         const [idSpecialization] = await pool.query('SELECT id FROM specific_interest WHERE name = ?',[name]);
         return idSpecialization[0].id
     }
+    
+    static async findinteresArea(id){
+        const queryId = await pool.query(`SELECT *  FROM specific_interest WHERE id_interest = (?)`, [id])
+        return queryId[0]
+    }
+
 
 
 }
