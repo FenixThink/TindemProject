@@ -9,7 +9,7 @@ export const sectionChat = async (name,img,description,id) => {
     exit.className = 'x'
     exit.textContent = 'X'
 
-    const sectionA =  await right(name,img,description);
+    const sectionA =  right(name,img,description);
     const sectionB =  await options(id);
 
 

@@ -110,6 +110,7 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
+        console.log(dataUser)
 
         //Fetch para traer la info de los mensajes hora etc..
         const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
@@ -140,7 +141,7 @@ export async function fetchQuerys() {
 
     }
 
-    if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
+    if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect ") {
         window.location = '/'
     }
 
@@ -159,7 +160,7 @@ fetchQuerys().then(async (data) => {
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-    father.appendChild(await allView('','',"","",infoUser.message.id,data));
+    father.appendChild(await allView('','',"","",dataUser[0].ID,data));
 
 
     //Creacion de la animacion del buscador
@@ -252,7 +253,7 @@ fetchQuerys().then(async (data) => {
     document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
         
         e.addEventListener('click', async (ev) => {
-        let userId, userName, profileData;
+        let userId, userName, profileData, dataChat;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
@@ -263,41 +264,64 @@ fetchQuerys().then(async (data) => {
                 
                 profileData = await profile.json()
 
+                const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`,{
+                    method: 'get'
+                })
+        
+                dataChat = await allMessage.json()
+
             }else{
                 
                 userId = infoMessage.consulta[i].id_applicant
                 userName = infoMessage.consulta[i].name_applicant
-                /* profile = await fetch(`/applicant/${infoMessage.consulta[i].id_applicant}`,{
+                const profile = await fetch(`/aspirant/${infoMessage.consulta[i].id_applicant}`,{
                     method:'get'
                 });
 
-                profileData = await profile.json() */
+                profileData = await profile.json()
 
+                const allMessage = await fetch(`/getChatscompanyapplicant/${userId}/${dataUser[0].ID}`,{
+                    method: 'get'
+                })
+        
+                dataChat = await allMessage.json()
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,infoUser.message.id,data))
+            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,dataUser[0],data))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()
         })
         
-        const allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${userId}`,{
-            method: 'get'
-        })
-
-        const dataChat = await allMessage.json()
+        
         const messages = dataChat.Message
 
         //Configurando la actualizacion de los mensajes respecto al chat seleccionado
         const messageFather = document.querySelector('.padreMensajes')
         messages.forEach(e => {
-            let color = ''
-            e.message[0].role == 'transmitter' ? color = 'verde' : color = 'gris'
-            messageFather.appendChild(boxMessage(color, e.message[0].role, e.message[0].text, e.message[0].hour))
+            let color,cargo;
+            if(infoUser.message.rol == 'applicant'){
+                if(e.message[0].role == 'applicant'){
+                    color = 'verde';
+                    cargo = 'applicant-right'    
+                }else{
+
+                    color = 'gris'
+                }
+
+            }else{
+                if(e.message[0].role == 'company'){
+                    color = 'verde';
+                    cargo = 'company-right'    
+                }else{
+
+                    color = 'gris'
+                }
+            }
+            messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
         })
-        
-            
+
 
             //Animacion en si
             const main = document.querySelector('.mainContainer')
@@ -410,44 +434,6 @@ fetchQuerys().then(async (data) => {
 
                 }, 10)
             }, 250)
-        })
-    })
-
-    //Botón del chat
-    document.querySelector('.chat-icon').addEventListener('click', async () => {
-        
-        
-        //Animacion en si
-        const main = document.querySelector('.mainContainer')
-        const profile = document.querySelector('.padre')
-        const chat = document.querySelector('.principal')
-
-        chat.style.display = 'block'
-        //chat.style.width='800px'
-        setTimeout(() => {
-            main.style.display = 'none'
-            profile.style.display = 'none'
-            chat.style.transform = 'translate(0,0)'
-        }, 100)
-
-        //Evento de la x para volver a ver las tarjeticas
-        document.querySelectorAll('.x').forEach(e => {
-            e.addEventListener('click', () => {
-                const main = document.querySelector('.mainContainer')
-                const chat = document.querySelector('.principal')
-
-                chat.style.transform = 'translate(0,-200%)'
-
-                setTimeout(() => {
-                    main.style.display = 'block'
-                    setTimeout(() => {
-
-                        main.style.transition = 'transform .25s ease-in-out'
-                        main.style.transform = 'translate(0,0)'
-                        chat.style.display = 'none'
-                    }, 10)
-                }, 250)
-            })
         })
     })
     carga.style.display = 'none';

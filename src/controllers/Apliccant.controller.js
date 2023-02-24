@@ -49,7 +49,8 @@ class ApplicantController{
            if (res <= 0) {
             response.send("No record found with this id");
         } else {
-            response.send(res);
+            console.log(res[0])
+            response.send(res[0]);
         }
         } catch (error) {
             response.send({

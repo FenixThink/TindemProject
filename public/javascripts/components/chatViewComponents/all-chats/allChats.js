@@ -11,9 +11,6 @@ export const allChats = async(data) => {
         const h1 = document.createElement('h3')
         h1.className = 'TitleallChats'
         h1.textContent = 'All Chat'
-
-        console.log(infoMessage)
-        
         //Objeto infor chats
         
         //Creacion del contenedor de chats
@@ -22,16 +19,16 @@ export const allChats = async(data) => {
         infoMessage.consulta.forEach(async (e,i)=>{
    
             
-            let company, companyData, allMessage, dataChat, position,lastMessage;
+            let user, userData, allMessage, dataChat, position,lastMessage;
 
             if(infoUser.message.rol == 'applicant'){
 
-                company = await fetch(`/company/${e.id_company}`,{
+                user = await fetch(`/company/${e.id_company}`,{
                     method: 'get'
                 })
-                companyData = await company.json()
-
-                allMessage = await fetch(`/getChatscompanyapplicant/${infoUser.message.id}/${e.id_company}`,{
+                userData = await user.json()
+                
+                allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${e.id_company}`,{
                     method: 'get'
                 })
 
@@ -40,39 +37,45 @@ export const allChats = async(data) => {
 
                 if(position>=0){
 
-                    if(dataChat.Message[position].message[0].role === 'transmitter'){
+                    if(dataChat.Message[position].message[0].role === infoUser.message.rol){
                         lastMessage = `You: ${dataChat.Message[position].message[0].text}`
                     }else{
                         lastMessage = dataChat.Message[position].message[0].text
                     }                    
 
-                    divMessage.appendChild((a(companyData.id,companyData.name,companyData.img,lastMessage,dataChat.Message[position].message[0].hour)))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour)))
                     
                 }else{
-                    divMessage.appendChild((a(companyData.id,companyData.name,companyData.img,'','')))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','')))
                 }
             
                     
             }else{
 
-                console.log(e.id_applicant, infoUser.message.id)
-                allMessage = await fetch(`/getChatscompanyapplicant/${e.id_applicant}/${infoUser.message.id}`,{
+                user = await fetch(`/aspirant/${e.id_applicant}`,{
                     method: 'get'
-                })    
+                })
+                userData = await user.json()
+                
+                allMessage = await fetch(`/getChatscompanyapplicant/${e.id_applicant}/${dataUser[0].ID}`,{
+                    method: 'get'
+                })  
+
                 dataChat = await allMessage.json()
-                console.log(dataChat)
                 position = dataChat.Message.length - 1 
     
                 if(position>=0){
 
-                    if(dataChat.Message[position].message[0].role === 'transmitter'){
+                    if(dataChat.Message[position].message[0].role === infoUser.message.rol){
                         lastMessage = `You: ${dataChat.Message[position].message[0].text}`
                     }else{
                         lastMessage = dataChat.Message[position].message[0].text
                     }                    
 
-                    divMessage.appendChild((a(e.id_company,e.name_company,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",lastMessage,dataChat.Message[position].message[0].hour)))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour)))
                     
+                }else{
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','')))
                 }
             }
         })
