@@ -79,13 +79,14 @@ export async function  AreasRoles(btnAreasOrRoles) {
     btn.value=name
     btn.id=i
 /*     llamamos al segundo modal y escondemos el padre
- */     btn.onclick= async function () {
+ */     btn.onclick= async function (e) {
 
 
         
 
 
-        document.querySelector(".Padre").appendChild( await AreasRolesTwo())
+    console.log(e.target.id)
+        document.querySelector(".Padre").appendChild( await AreasRolesTwo(e.target.id))
         document.querySelector(".modalPadre").style.display="none"
         
      }

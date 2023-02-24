@@ -4,8 +4,8 @@ import {
 export const rolesPerson = []
 let prueba = new Set
 
-export async  function AreasRolesTwo() {
-    const roles = await fetch('/specificInterest',{method:'get'})
+export async  function AreasRolesTwo(id) {
+    const roles = await fetch(`/specificInterestOfArea/${id}`,{method:'get'})
     const dataRoles = await roles.json()
     console.log(dataRoles)
 
@@ -31,7 +31,7 @@ export async  function AreasRolesTwo() {
     /* con este evento capturamos los botones seleccionados y los enviamos a la caja necesarioa 
      */
 
-    add.onclick = function () {
+    add.onclick = function (e) {
         const devuelta = document.getElementsByName('active')
         let Array1 = [...devuelta];
         // console.log(devuelta)
@@ -55,8 +55,8 @@ export async  function AreasRolesTwo() {
         document.querySelector(".modalHijo").remove()
     }
     /*  para dar un clasname diferente */
-    btnRolInArea.forEach(e => {
-        rolesName.appendChild(createButton(e))
+    dataRoles.forEach(e => {
+        rolesName.appendChild(createButton(e.name))
     });
     const headerRoles = document.createElement("div")
     headerRoles.className = "header"

@@ -47,7 +47,6 @@ class SpecificInterestController{
     }
 
 
-
     static async findUserSpecializations (req,res){
         try{
             const answer = await SpecificInterest.findUserSpecializations(req.params)
@@ -64,10 +63,10 @@ class SpecificInterestController{
     }
     static async findinteresArea (req,res){
         try{
-            const answer = await SpecificInterest.findinteresArea(req.params)
+            const answer = await SpecificInterest.findinteresArea(req.params.id)
             
             // res.send(answer)
-            return res.status(200).json(answer[0]);
+            return res.status(200).json(answer);
             
         }catch(error){
             return res.send({

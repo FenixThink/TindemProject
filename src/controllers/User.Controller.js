@@ -10,7 +10,7 @@ class UserController{
         // console.log(res)
         
         try{
-
+            console.log(req.body)
         const dataUser= new User(req.body);
             const res = await dataUser.create()
             if(res.affectedRows>0){

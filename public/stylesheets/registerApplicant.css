@@ -463,10 +463,9 @@ input:hover{
     
  }
 
- .
-
  .fileInput{
     display: none;
+    visibility: hidden;
 }
 
 /*aca finaliza la parte de pao */

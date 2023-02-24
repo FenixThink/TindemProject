@@ -102,8 +102,7 @@ body{
     }
     
    
-    .containerRolesAndAreas input , .profileRoles input{
-       
+    .containerRolesAndAreas input , .profileRoles input, .rolesname button{
         color:#4267C7;
         border: solid 0px ;
         border-radius: 10px;
@@ -262,6 +261,11 @@ body{
 }
 .tellAboutSpan {
     font-size: 1rem;
+    font-weight: 500;
+    
+}
+.rolesInProfiles{
+    margin-top: 1rem;
 }
 /*Aquí termina la parte de KDOE-117*/
 
@@ -359,8 +363,8 @@ label{
 
 .description{
 
-    height: 5.5rem;
-    border: 1px solid #C2C2C2;
+    height: 3.5rem;
+    border: 1px solid #bf4040;
     padding: .2rem .5rem;
     border-radius: .5rem;  
     resize: none;
@@ -461,6 +465,7 @@ input:hover{
 
  .fileInput{
     display: none;
+    visibility: hidden;
 }
 
 /*aca finaliza la parte de pao */
