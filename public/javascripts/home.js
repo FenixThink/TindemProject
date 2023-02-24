@@ -251,12 +251,13 @@ fetchQuerys().then(async (data) => {
 
     document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
         
-            let userId, userName, profile, profileData;
+        e.addEventListener('click', async (ev) => {
+        let userId, userName, profileData;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company      
-                profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
+                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
                     method:'get'
                 });
                 
@@ -296,7 +297,6 @@ fetchQuerys().then(async (data) => {
             messageFather.appendChild(boxMessage(color, e.message[0].role, e.message[0].text, e.message[0].hour))
         })
         
-        e.addEventListener('click', async (ev) => {
             
 
             //Animacion en si
