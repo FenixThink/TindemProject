@@ -9,10 +9,41 @@ class ActionController {
             if (result.affectedRows <= 0) res.status(404).json({
                 message: 'missing fields to fill'
             })
-            res.send("success full")
+            res.status(200).json({
+                message: 'success full'
+            })
         } catch (error) {
-            console.log(error)
-            res.send(error.message)
+            res.status(500).json({
+                message: error.message
+            })
+        }
+    }
+    static updateActionMatch = async (req,res) =>{
+        try {
+            const result = await Actions.updateAM(req.params);
+        }catch (error){
+            res.status(500).json({
+                message: error.message
+            })
+        }
+    }
+    static FindOneAC = async (req,res) =>{
+        try {
+            const result = await Actions.FindOneCA(req.params);
+            if (result.length <= 0){
+                res.status(404).json({
+                message: 'Actions not found'
+                })
+                return
+            }
+            res.status(200).json({
+                message: result
+            })
+            return
+        }catch (error){
+            res.status(500).json({
+                message: 'errocito marica'
+            })
         }
     }
 

@@ -43,7 +43,7 @@ export async function fetchQuerys() {
     if (infoUser.message.rol === 'applicant') {
 
         //Fetch para obtener todas la compañias a mostrar para un aplicante
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`, {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -51,7 +51,6 @@ export async function fetchQuerys() {
         });
 
         infoemails = await emailsApplicant.json();
-
         //Fetch para obtener toda la informacion de un aplicante
         const response = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
             method: 'get',
@@ -156,6 +155,7 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
+
     app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
     const father = document.querySelector('.right');
 

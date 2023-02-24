@@ -4,9 +4,9 @@ import { Description } from "../descriptionComponent/descriptionComponent.js";
 import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
-export const rightCreator = (img,dataArea,emails,id) => {
+export const rightCreator = (img,dataArea,emails,dataUser) => {
 
-    setTimeout(() => { reloadData(emails,id) }, 100);
+    setTimeout(() => { reloadData(emails,dataUser,dataArea) }, 100);
     const [data, interestArea] = dataArea
     const array = []
     
@@ -63,25 +63,55 @@ export const rightCreator = (img,dataArea,emails,id) => {
     mainContainer.appendChild(mainContainerSon)
     return mainContainer;
 }
-export const reloadData = (emails,id) => {
+export const reloadData = (emails,dataUser,dataArea) => {
 
     const large = emails.length
     const aleatory = Math.floor(Math.random() * large);
+    const token = localStorage.getItem('token')
 
     const objectApplicant = Object.values(applicant);
     const mainContainer = document.querySelector('.mainContainer');
     const vectorLike = document.querySelector("#likeVector");
     const vectorDislike = document.querySelector("#imgUnlike");
-    vectorLike.addEventListener('click', () => {
+    vectorLike.addEventListener('click', async () => {
+        const dataSaveAction = {
+            action:'like',
+            action_author:dataUser[0].type,
+            action_match:0,
+            id_applicant:dataUser[0].ID,
+            id_company:dataArea[0].ID
+        }
 
+        const answerFetchHavingActions = await fetch(`/allAction/${dataArea[0].ID}/${dataUser[0].ID}`,{
+            method:'get'
+        })
+        const response = await answerFetchHavingActions.json()
+        //console.log(response)
+        if (response.message == 'Actions not found'){
+           fetch('/ActionsCreate',{
+               method:'post',
+               headers:{
+                   "Content-type":'application/json'
+               },
+               body: JSON.stringify(dataSaveAction)
+           })
+        }
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${dataUser[0].ID}`, {
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+
+        const infoemails = await emailsApplicant.json();
+        console.log(infoemails)
         mainContainer.remove()
-        console.log(emails[aleatory][0].img)
         const right = document.querySelector('.right')
-        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`, emails[aleatory],emails))
+        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`, emails[aleatory],emails,dataUser,dataArea))
     },);
     vectorDislike.addEventListener('click', () => {
         mainContainer.remove()
         const right = document.querySelector('.right')
-        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`,emails[aleatory],emails))
+        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`,emails[aleatory],emails,dataUser,dataArea))
     },);
 }

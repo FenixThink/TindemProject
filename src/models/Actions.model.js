@@ -12,7 +12,7 @@ export class Actions extends GeneralQuerySql{
     #id_company;
 
     constructor(body) {
-        this.#action_time = body.action_time,
+        super()
         this.#action = body.action
         this.#action_author = body.action_author,
         this.#action_match = body.action_match
@@ -35,7 +35,15 @@ export class Actions extends GeneralQuerySql{
     get id_company(){ return this.#id_company }
 
     create = async ()=>{
-        const rows = await pool.query('INSERT INTO actions (action_time, action, action_author, action_match, id_applicant, id_company) VALUES (?, ?, ?, ?, ?, ?)', [this.#action_time, this.#action, this.#action_author, this.#action_match, this.#id_applicant, this.#id_company])
+        const rows = await pool.query('INSERT INTO actions (action, action_author, action_match, id_applicant, id_company) VALUES (?, ?, ?, ?, ?)', [this.#action, this.#action_author, this.#action_match, this.#id_applicant, this.#id_company])
+        return rows[0]
+    }
+    static updateAM = async (params)=>{
+        const rows = await pool.query('UPDATE actions a SET a.action_match = 1 WHERE a.id_applicant = (?) && a.id_company = (?)', [params.idApplicant, params.idCompany])
+        return rows[0]
+    }
+    static FindOneCA = async (params)=>{
+        const rows = await pool.query('SELECT * FROM actions a WHERE a.id_applicant = (?) && a.id_company = (?)', [params.idApplicant, params.idCompany])
         return rows[0]
     }
 
