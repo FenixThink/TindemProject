@@ -12,6 +12,7 @@ export const allChats = async(data) => {
         h1.className = 'TitleallChats'
         h1.textContent = 'All Chat'
 
+        console.log(infoMessage)
         
         //Objeto infor chats
         
@@ -54,11 +55,12 @@ export const allChats = async(data) => {
                     
             }else{
 
+                console.log(e.id_applicant, infoUser.message.id)
                 allMessage = await fetch(`/getChatscompanyapplicant/${e.id_applicant}/${infoUser.message.id}`,{
                     method: 'get'
                 })    
-
                 dataChat = await allMessage.json()
+                console.log(dataChat)
                 position = dataChat.Message.length - 1 
     
                 if(position>=0){

@@ -9,13 +9,14 @@ class chatsController{
 
 
     static getChatIdUserApplicant = async (req,res)=>{
-        const chat = await chatsmodel.find({idApplicant:req.params})
+        const chat = await chatsmodel.find({idApplicant:req.params.idApplicant})
         res.send(chat)
     }
 
     static getChatIdUserCompany = async (req,res)=>{
         console.log(req.params)
-        const chat = await chatsmodel.find({idCompany:req.params})
+        const chat = await chatsmodel.find({idCompany:req.params.idCompany})
+        console.log(chat)
         res.send(chat)
     }
 

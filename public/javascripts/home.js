@@ -38,7 +38,6 @@ export async function fetchQuerys() {
         body: JSON.stringify(tokenPropio)
     })
     const infoUser = await tokenData.json();
-    const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant') {
 
@@ -60,16 +59,15 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-        console.log(dataUser[0])
 
         //Fetch para traer la info de los mensajes hora etc..
-        const idApplicant = await fetch(`obtenerChatIDApplicant/${id}`, {
+        const idApplicant = await fetch(`obtenerChatIDApplicant/${dataUser[0].ID}`, {
             method: 'get',
         })
         allmessages = await idApplicant.json();
 
         //Fetch para buscar los match de acuerdo a su id
-        const idFetch = await fetch(`allAction/applicant/${id}`, {
+        const idFetch = await fetch(`allAction/applicant/${dataUser[0].ID}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -151,7 +149,7 @@ export async function fetchQuerys() {
     data.push(infoMessage);
     data.push(allmessages);
     data.push(emails)
-    
+
     return data;
 }
 
