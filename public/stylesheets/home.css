@@ -102,7 +102,7 @@
     align-items: center;
     max-width: 100%;
     gap: 1.7rem;
-    border-radius: 30px;
+   
     box-shadow: 2px 2px 10px gray;
     background-color: #E8E6E6;
     padding: 20px;
@@ -724,6 +724,7 @@ h1{
     width: 60%;
 }
 .principal{
+    background-color: rgb(255, 255, 255);
     display: none;
     max-width: 100%;
     transform: translate(0,-200%);
@@ -737,7 +738,7 @@ h1{
 
 .childContent {
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
+   
     display: flex;
     justify-content: space-between;
     gap: 2.1rem;
@@ -755,16 +756,16 @@ h1{
 
 .padre{
 
-    background: rgba(0, 0, 0, 0.1);
+    background:#E8E6E6;
     min-width: 60%;
-    border-radius: 30px;
+   
     display: none;
     justify-self: center;
     align-self: center;
     gap: 2.1rem;
     height: 100%;
     padding: 30px;
-
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
     transform: translate(200%,0);
 
 }
@@ -783,6 +784,7 @@ h1{
 .profile{
     display: flex;
     height: 35vmin;
+    gap: 40px;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -1388,3 +1390,32 @@ img.imageUpload{
     align-items: center;
     justify-content: center;
   }
+
+  #app{
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+}
+.appBackground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://s3-alpha-sig.figma.com/img/d727/fdf9/c0f8a550b40737ceb1bbb1606e1faea9?Expires=1672012800&Signature=DG66pqrCxz5pMq0EI~iUfJClZv6IAPL16vbIzMZUxNhrtKrxP1Omak1ULiTvZjGZXSJEwsjhRKHMzUTVgLg4sglPIMJ-J58TeqvhkqKKEm-Ieqr6KgAr6~wyPrwG~T4v-ymnxP7TshshOcVs0VGu4UJ8JTEgMYLDGtNtcuBpbiWh7sifP1cZyEXl0zyc8cvLji9kTB3yem9LhkgLdsBXjRIDT3juBhmtbD2YXOf3o73GQj~JE76bWR5IsVjFDjVQgkIDoRe726cB9eJGaMT85-9Liykg~4HaLFIZQRHi-4tcwX8gXTN6mNdd6WauKJCwInPxU~eRPk-a1-SRiGAhAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    min-height: 100%;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(50px);
+    z-index: -10;     
+}
+.totalpartLeft, .mainContainer {
+    background-color: #E8E6E6;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
+}
+.childContent {
+    background-color: #E8E6E6;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
+}
+.contInputSend>input{
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
+}

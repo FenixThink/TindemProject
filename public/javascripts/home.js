@@ -250,7 +250,11 @@ fetchQuerys().then(async (data) => {
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    document.querySelectorAll('.messageBox').forEach(async  (e,i)=>{
+    
+    const cajas =document.querySelectorAll('.messageBox')
+    
+    cajas.forEach(async  (e,i)=>{
+    let indice=cajas.length-1
         
         e.addEventListener('click', async (ev) => {
         let userId, userName, profileData, dataChat;
@@ -258,11 +262,12 @@ fetchQuerys().then(async (data) => {
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company      
-                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
+                const profile = await fetch(`/company/${infoMessage.consulta[indice-i].id_company}`,{
                     method:'get'
                 });
                 
                 profileData = await profile.json()
+                console.log(profileData,'jejejej')
 
                 const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`,{
                     method: 'get'
@@ -288,7 +293,7 @@ fetchQuerys().then(async (data) => {
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,dataUser[0],data))
+            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,infoUser.message.id,data))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()
@@ -363,6 +368,7 @@ fetchQuerys().then(async (data) => {
                 })
             })
         })
+        
     })
 
     //Evento de los botones inferiores

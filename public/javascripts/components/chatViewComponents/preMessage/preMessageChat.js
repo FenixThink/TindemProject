@@ -1,5 +1,6 @@
 
 export const a = function mesaje(id,name1,photo,inboxUser,hour) {
+   
 
     // aca ingresa el nombre
     const insetNameChat = document.createElement("span");
