@@ -5,19 +5,21 @@ export  function divSearch(infoMessage){
         searchContac.placeholder="Search chat"
 
     //Configurando el input para realizar la busqueda de algun chat
-    
+
     async function chat (infoMessage){
         
         searchContac.addEventListener('keyup',(e)=>{
             for (let i = 1; i <= infoMessage.length; i++) {
+                let id = document.getElementById((infoMessage[i-1].id_company) || (infoMessage[i-1].id_applicant))
                if(searchContac.value!=''){
-                    let name = infoMessage[i-1].name_company.toLowerCase()
+                let name = infoMessage[i-1].name_company ??= infoMessage[i-1].name_applicant;
+                name = name.toLowerCase()
                    let searchName = searchContac.value.toLowerCase()
                    if(!name.startsWith(searchName)){
-                       document.getElementById(infoMessage[i-1].id_company).style.display='none'
+                       id.style.display='none'
                    }
                }else{
-                   document.getElementById(infoMessage[i-1].id_company).style.display='flex'
+                   id.style.display='flex'
                }
            } 
        })
