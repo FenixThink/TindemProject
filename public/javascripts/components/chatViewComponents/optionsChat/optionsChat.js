@@ -28,15 +28,7 @@ export async function options (userData){
 
     span1.addEventListener('click', async() => {
 
-        let id_applicant, id_company
-            if(userData.type=="applicant"){
-                id_applicant = userData.ID;
-                id_company = document.querySelector('.nameTopChat').id;             
-            }else{
-                id_applicant = document.querySelector('.nameTopChat').id;
-                id_company = userData.ID;   
-            }
-
+            
         if (!alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer bloquearlo?',
@@ -50,11 +42,19 @@ export async function options (userData){
                 if (result.isConfirmed) {
                     //----------------------
                     
-                    console.log(id_applicant, id_company)
+                let id_applicant, id_company
+                console.log(userData)
+                if(userData.type=="applicant"){
+                    id_applicant = userData;
+                        id_company = document.querySelector('.nameTopChat').id;             
+                    }else{
+                        id_applicant = document.querySelector('.nameTopChat').id;
+                        id_company = userData;   
+                    }
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });
-                   
+                   console.log(DBblock)
                     inputMessage.style.display = 'none';
 
                     span1.setAttribute('disabled', true);
@@ -77,14 +77,14 @@ export async function options (userData){
 
         let id_applicant, id_company
             if(userData.type=="applicant"){
-                id_applicant = userData.ID;
+                id_applicant = userData;
                 id_company = document.querySelector('.nameTopChat').id;             
             }else{
                 id_applicant = document.querySelector('.nameTopChat').id;
-                id_company = userData.ID;   
+                id_company = userData;   
             }
 
-
+            
         if (alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer desbloquearlo?',
@@ -97,7 +97,7 @@ export async function options (userData){
                 
             }).then( async(result) => {
                 if (result.isConfirmed) {
-
+                    console.log(id_applicant,id_company)
                     const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {
                         method: 'get'
                    });

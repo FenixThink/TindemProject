@@ -88,7 +88,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
                 localStorage.setItem('numMessage',JSON.stringify(CantMessage))
 
             }
-        },1000)
+        },3000)
                 
 //Configuracion de la agregacion del contenedor del mensaje al chat
 inputCont.addEventListener('keyup',async (e)=>{

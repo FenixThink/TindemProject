@@ -61,6 +61,7 @@ export class Actions extends GeneralQuerySql{
     } 
 
     static async BlockUser(id_applicant,id_company){
+        console.log(id_applicant,id_company)
         const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 1 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
         return "Actualizado exitoso"
     }

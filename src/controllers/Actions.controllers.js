@@ -100,7 +100,7 @@ class ActionController {
 
     static BlockUser = async(req, res ) => {
         try {
-            console.log("a")
+        
             const respuesta = await Actions.BlockUser(req.params.id_applicant,req.params.id_company)
             if (res.length <= 0) res.status(404).json({
                 message: 'Action not valided'

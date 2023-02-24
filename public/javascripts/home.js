@@ -262,7 +262,7 @@ fetchQuerys().then(async (data) => {
 
                 userId = infoMessage.consulta[i].id_company 
                 userName = infoMessage.consulta[i].name_company      
-                const profile = await fetch(`/company/${infoMessage.consulta[indice-i].id_company}`,{
+                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
                     method:'get'
                 });
                 
