@@ -3,7 +3,7 @@ import { divSearch } from '../all-chats/search.js'
 import { iconsButtons }  from '../all-chats/iconsButtons.js'
 
 export const partLeft = async(topName,topProfileImg,data) =>{
-    
+
     //Creacion de la imagen
     const img = document.createElement('img')
     img.className='profileImg'
@@ -26,7 +26,8 @@ export const partLeft = async(topName,topProfileImg,data) =>{
     imgName.appendChild(name)
     
     //Creaion del search de los chat
-    const search = divSearch()
+    const infoMessage = data[2].consulta;
+    const search = divSearch(infoMessage)
 
     //Importando el div de los íconos
     const buttons = iconsButtons()
