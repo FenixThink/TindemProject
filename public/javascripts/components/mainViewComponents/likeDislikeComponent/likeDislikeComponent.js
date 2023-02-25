@@ -10,7 +10,7 @@ export const renderButtons = () => {
     span1.classList = "appDivPadreSpan"
     span1.id = "unlikeVector"
     const img = document.createElement("img")
-    img.src = "/public/svg/VectorUnlike.svg"
+    img.append("<i class='bx bx-like'></i>")
     img.id = "imgUnlike"
     img.alt = "Unlike svg"
     img.className = "buttons"
