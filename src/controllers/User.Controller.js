@@ -1,5 +1,6 @@
 import User from '../models/User.model.js';
 import jwt from "jsonwebtoken";
+import { compare } from "../helpers/Bcrypt.helper.js";
 
 class UserController{
 
@@ -106,46 +107,65 @@ class UserController{
     }
 
 
+
+
+
     static auth = async (req,res)=>{
+        try {
+            const {email,password} = req.body;
+    
+            const user = new User(email,password);
+        
+            const query = await this.getAll();
+        
+            let status = false
+        
+             query.forEach(async(e)=>{
+                const checkPassword = await compare(password, e.password)
+        
+                console.log(checkPassword)
+                // console.log(e.email)
+                // console.log(email)
+        
+                if (e.email === email && checkPassword == true){
+                    status = true
+        
+                    //console.log(status)
+    
+                    if (status){
+                        console.log("entro aqui")
+                        const [query2] = await user.searchType(email);
+                
+                        
+                         if(query2 === undefined)
+                        {
+                            return res.status(404).json({
+                                message: 'user not Found'
 
-    const {email,password} = req.body;
-
-    const user = new User(email,password);
-
-    const query = await this.getAll();
-
-    let status = false
-
-     query.forEach((e)=>{
-        if (e.email === email && e.password === password){
-            status = true
+                            });
+                            
+                        }
+                        console.log(query2);
+                        const User = {id:query2.id,email:email,rol:query2.type};
+                        const accessToken = this.generateAccessToken(User);
+                
+                        res.status(200).header('autorization',accessToken).json({
+                            message: 'user atutenticado',
+                            token:accessToken
+                
+                        });
+                        return;
+                    }
+                }
+                // console.log(status)
+            })
+        } catch (error) {
+            return res.status(500).json({
+                message: false
+            })
         }
-    })
-    if (status){
-        const [query2] = await user.searchType(email);
-
-        if (query2 === undefined)
-        {
-            res.status(404).json({
-                message: 'user not Found'
-            });
-            return;
         }
-        console.log(query2);
-        const User = {id:query2.id,email:email,rol:query2.type};
-        const accessToken = this.generateAccessToken(User);
-
-        res.status(200).header('autorization',accessToken).json({
-            message: 'user atutenticado',
-            token:accessToken
-
-        });
-        return;
-    }
-    res.status(500).json({
-        message: false
-    });
-    }
+        
 
     static userUpdate = async (req, response) => {
         try {
