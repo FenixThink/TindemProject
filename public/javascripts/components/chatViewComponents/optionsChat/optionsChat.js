@@ -43,14 +43,22 @@ export async function options (userData){
                     //----------------------
                     
                 let id_applicant, id_company
-                console.log(userData)
+                // console.log(userData)
+
                 if(userData.type=="applicant"){
-                    id_applicant = userData;
+                        id_applicant = userData.ID;
                         id_company = document.querySelector('.nameTopChat').id;             
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
-                        id_company = userData;   
+                        id_company = userData.ID;   
+
+                        
                     }
+                    // console.log(id_applicant)
+                    console.log(id_applicant)
+                    console.log(id_company)
+                   
+
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });
