@@ -1,14 +1,39 @@
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth()+1
+const day = date.getDate()
+const how =[year,  day,month]
+
 export function upperComponents(img, nombre, valueSpan, introDescription) {
     /* Parte title*/
-    const title = document.createElement('h3')
+    const title = document.createElement('h2')
     title.textContent = nombre
 
     /*Parte span */
     const spanText = document.createElement('span')
     spanText.textContent = "Edad: "
 
+    let edadReal
+    if(valueSpan.type=="applicant"){
+
+        const yearUser = valueSpan.day_of_birth
+        let caja =yearUser.split('-')
+        
+        
+        if(caja[1]<=month){
+            if(caja[0]<=day){
+                edadReal=year-caja[2]
+            }else{
+                edadReal=((year-caja[2])-1)
+            }
+        }else{
+            edadReal=year-caja[2]-1
+        }
+    } 
+
+
     const spanCero = document.createElement('span')
-    spanCero.textContent = valueSpan
+    spanCero.textContent = edadReal || valueSpan.day_of_founded
 
     const spanDescription = document.createElement('span')
 

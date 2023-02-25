@@ -7,15 +7,17 @@ const btn = document.querySelector('#sendBtn')
 
 //  Validacion de que lo ingresado en el input email si sea un email
 document.querySelector("#email").addEventListener("focusout", (e) => {
-
+    let email = document.getElementById('email');
     let bandera = 0;
     if (bandera == 0) {
 
         let regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(e.target.value);
 
         if (!regExpEmail) {
-            alert("Email invalido");
+            email.style.border = "solid 3px red";
             bandera = 1
+        }else{
+            email.style.border = "solid 3px green";
         }
     }
 });
@@ -29,7 +31,7 @@ btn.addEventListener('click', async (e) => {
         email: email,
         password: psw
     }
-        const response = await fetch('http://localhost:3000/api/login/',{
+        const response = await fetch('/api/login/',{
             method:'post',
             headers:{
                 "Content-type":'application/json'
@@ -49,7 +51,9 @@ btn.addEventListener('click', async (e) => {
         
         if (data.message == "user atutenticado") {
             localStorage.setItem("token",  (data.token))
+            window.location = '/home'
         }
+
 }
 
 

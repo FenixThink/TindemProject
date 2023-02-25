@@ -1,23 +1,46 @@
-import { response } from "express";
+import User from '../models/User.model.js'
 import  Applicant from "../models/Applicant.model.js"
-import User from '../models/Applicant.model.js'
+import City from "../models/City.model.js";
+import Profile_account from "../models/Profile_account.model.js";
 
 
 class ApplicantController{
-    static applicantCreate = async(req,response)=>{
+    static applicantCreate = async(req,res)=>{
         try {
+        
+            const { name, nitOrLastname, email, date, password, description, city } = req.body;
 
-            console.log(req.body)
-            /* const user = new User(req.body)
-            const applicant = new Applicant(req.body)
-           const res = await applicant.create();  */
-           response.send(res.affectedRows);
+            const applicantInfo = {
+                name: name,
+                lastname: nitOrLastname,
+                email: email,
+                password: password,
+                day_of_birth: date,
+                description: description,
+                type: "applicant",
+                img: req.file.filename
+            }
+
+            const user = new User(applicantInfo)
+            await user.create() 
+            applicantInfo.id_user = await user.lastUser(user.email)
+
+            applicantInfo.id_city = await City.idCity(city) 
+
+            const applicant = new Applicant(applicantInfo)
+            await applicant.create()
+            applicantInfo.key = await Applicant.lastRegisterId()
+
+            const profile = new Profile_account(applicantInfo)
+            await profile.create() 
+
+            res.redirect('/')
+
         } catch (error) {
-            response.send({
-                "status" : 404,
-                "message" : error.message
+            res.status(500).json({
+                message: error.message
             });
-        };
+        }
     };
 
     static applicantId = async(req, response) => {
@@ -26,7 +49,8 @@ class ApplicantController{
            if (res <= 0) {
             response.send("No record found with this id");
         } else {
-            response.send(res);
+            console.log(res[0])
+            response.send(res[0]);
         }
         } catch (error) {
             response.send({
@@ -48,6 +72,16 @@ class ApplicantController{
 
         }
     }
+
+    static applicantUpdate = async(req, response) => {
+        try {
+          const { lastname, day_of_birth } = req.body;
+          const res = await Applicant.update(lastname, day_of_birth, req.params.id);
+        return response.send({ "status": 200, "message": "Applicant updated successfully." });
+        } catch (error) {
+          return response.send({ "status": 404, "message": error.message });
+        }
+      } 
 }
 
 export default ApplicantController;

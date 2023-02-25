@@ -3,7 +3,8 @@ import { totalSectionB } from './locationDescripionRegister/totalSection.js'
 import { contentDad } from './tellUsAboutYourselfRegister/contentDad.js'
 import {createProfileSup,createProfileInf} from './profilePersonal/index.js'
 
-export const parentCreator = (img, firstInput, secondInput, name, userName, email, psw, textTarea, textLabelDescription, interestSpan) => {
+
+export const parentCreator = (dataUser) => {
     const obj1 = {
         Profile:{
             id:1,
@@ -65,10 +66,6 @@ export const parentCreator = (img, firstInput, secondInput, name, userName, emai
             }
         ]
     }
-    
-    const top = principalFunction(img, firstInput, secondInput, name, userName, email, psw, textTarea)
-    const midBot = totalSectionB(textLabelDescription,textTarea)
-    const interest = contentDad(interestSpan)
 
     const exit = document.createElement('span')
     exit.className='x'
@@ -77,8 +74,8 @@ export const parentCreator = (img, firstInput, secondInput, name, userName, emai
     const child = document.createElement('div')
     child.className = "padre"
     child.appendChild(exit)
-    child.appendChild(createProfileSup(obj1))
-    child.appendChild(createProfileInf(obj1))
+    child.appendChild(createProfileSup(dataUser))
+    child.appendChild(createProfileInf(dataUser))
 
     
 

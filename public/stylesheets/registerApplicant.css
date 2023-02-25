@@ -29,6 +29,7 @@ body{
     justify-content: center;
     align-items: center;    
     height: 100vh;
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
 
 }
 
@@ -39,13 +40,14 @@ body{
 }
 
 .Padre{
-    background: rgba(0, 0, 0, 0.1);
-    width: fit-content;
-    border-radius: 30px;
+    background: white;
+    width: 100vmin;
     display: grid;
     gap: 1.2rem;
     padding: 30px;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
 }
+
 
 .submitButton{
 
@@ -57,77 +59,19 @@ body{
     border: none;
     border-radius: 1rem;
 
-    background-color: #6171FF;
+    background-color: #4267C7;
     color: white;
 
 }
 
 /* Aqui termina la parte de Orejarena */
-/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* Aqui empieza la parte de Jose */
-.modalPadre, .modalHijo{
-    position: absolute;
-    top: 0px;
-    right: 0;
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-    background-color: rgba(0, 0, 0, 0.301);
-}
-
-.containerRolesAndAreas{
-    
-        padding: 1.5rem;
-    border-radius: 0.5rem;
-    width:37%;
-    height: fit-content;
-    background-color:white ;
-    }
-    
-    
-    .header{
-       
-        font-size: 1.3rem;
-    
-        font-weight: 600;
-       padding: 0.3rem;
-       margin-bottom: 12px;
-    }
-    
-   
-    .containerRolesAndAreas button , .profileRoles button{
-       
-        color:#4267C7;
-        border: solid 0px ;
-        border-radius: 10px;
-        padding: 8px 12px 8px 12px;
-        margin: 5px 10px 5px 1px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        background-color: #D4D9FF;
-    
-    }
-    .agregarCambios{
-       
-        color:#fff;
-        border: solid 0px ;
-        border-radius: 10px;
-        padding: 8px 12px 8px 12px;
-        margin: 12px 10px 5px 1px;
-    font-weight: 500;
-        font-size: 0.9rem;
-        background-color: #6171FF;
-    }
-    .containerRolesAndAreas button:hover, .agregarCambios:hover{
-        cursor: pointer;
-    }
 
 
 
 /* estilos para el modal de registro  */
 
-.modalPadre{
+.modalPadre , .modalHijo{
     position: absolute;
     top: 0px;
     right: 0;
@@ -158,8 +102,7 @@ body{
     }
     
    
-    .containerRolesAndAreas button , .profileRoles button{
-       
+    .containerRolesAndAreas input , .profileRoles input, .rolesname button{
         color:#4267C7;
         border: solid 0px ;
         border-radius: 10px;
@@ -170,27 +113,27 @@ body{
         background-color: #D4D9FF;
     
     }
-    .agregarCambios{
-       
-        color:#fff;
-        border: solid 0px ;
-        border-radius: 10px;
-        padding: 8px 12px 8px 12px;
-        margin: 12px 10px 5px 1px;
-    font-weight: 500;
-        font-size: 0.9rem;
-        background-color: #6171FF;
-    }
-    .containerRolesAndAreas button:hover, .agregarCambios:hover{
+    #agregarCambios{
+           
+            color:#fff;
+            border: solid 0px ;
+            border-radius: 10px;
+            padding: 8px 12px 8px 12px;
+            margin: 12px 10px 5px 1px;
+        font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #4267C7;
+          
+        }
+    .containerRolesAndAreas input:hover, .agregarCambios:hover{
         cursor: pointer;
     }
 
 /* este es el header de los componenetes */
 .contHeader{
-    display:flex;
+     display:flex;
     gap: 1rem;
     padding-bottom: 30px;
-    
 }
 
 .contHeader a{
@@ -218,6 +161,7 @@ body{
 /*Estructura Registro Empresa Seccion A*/
 .seccionA {
     display: flex;
+    width: 100%;
     gap: 70px;
 }
 
@@ -273,24 +217,27 @@ body{
 
 /*Logos*/
 .contLogo{
-
-    padding: 1.7rem 2.1rem;
-    border-radius: 80%;
-    background-color: white;
-    width: 58%;
-    /* height: 79%; */
-    overflow: hidden;
-    display: flex;
-    justify-content: center; 
-
-    align-items: center;
+   width: 70%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .contLogo .LogoRegister {
-
-    min-width: 3rem;
-    
+    background-color: white;
+    border-radius: 0.5rem;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 160px;
+    object-position: center;
+    /* machetazos salvajes ugh *cara vomitando*
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    min-width: 100%;
+    */
 }
+
 .profileImage {
     border-radius: 16px;
 }
@@ -298,12 +245,14 @@ body{
 .contLogo .contEdit{
     cursor: pointer;
 }
-.tellAboutTitle {
-    font-size: 1.1rem;
-    font-weight: bold;
+
+.textEdit{
+    color:#4267C7
 }
-.tellAboutSpan {
-    font-size: 1rem;
+
+.textEdit:hover{
+    color:#4267C7;
+    text-decoration: underline;
 }
 
 .tellAboutTitle {
@@ -312,6 +261,11 @@ body{
 }
 .tellAboutSpan {
     font-size: 1rem;
+    font-weight: 500;
+    
+}
+.rolesInProfiles{
+    margin-top: 1rem;
 }
 /*Aquí termina la parte de KDOE-117*/
 
@@ -409,10 +363,10 @@ label{
 
 .description{
 
-    height: 5.5rem;
-    border: 1px solid #C2C2C2;
+    height: 3.5rem;
+    border: 1px solid #bf4040;
     padding: .2rem .5rem;
-    border-radius: .5rem;
+    border-radius: .5rem;  
     resize: none;
 
 }
@@ -428,7 +382,6 @@ label{
     padding: 15px;
     gap: 0.7rem;
     border: none;
-    border: 1px solid #C2C2C2;
     background: #ffffff;
     border: 1px solid #C2C2C2;
     border-radius: .8rem;
@@ -437,7 +390,7 @@ label{
 
 .interestBtn{
     border: none;
-    background: #6171FF;
+    background: #4267C7;
     border-radius: 10px;
     font-size: 16px;
     color: #ffffff;
@@ -445,7 +398,7 @@ label{
     padding: .5rem 1rem;
 }
 
-button:hover{
+input:hover{
     cursor: pointer;
 }
 
@@ -469,8 +422,6 @@ button:hover{
     border: 2px dashed #CECECE;
     border-radius: 16px;
     position: absolute;
-    
-
  }
 
  img.imageUpload{
@@ -512,36 +463,105 @@ button:hover{
     
  }
 
- 
- .modalContent .close{
-    color: red;
-    float: right;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
- }
- .modalContent .close:hover .close:focus{
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
- }
- .textosUpload{
-    font-family: 'Poppins';
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 20px;
-    letter-spacing: -0.08px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5px;
-    
- }
-
-
  .fileInput{
     display: none;
+    visibility: hidden;
 }
 
 /*aca finaliza la parte de pao */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.container{
+    
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100%;
+}
+.contenedorInputs{
+    display: flex;
+    
+    gap: 20px;
+
+    width: 100%;
+    height: 30%;
+}
+
+.dateBirth{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.Country{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.city{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.inputIcon{
+    position: relative;
+   
+    width: 200px;
+}
+
+.icons{
+    width: 15px;
+
+    position: absolute;
+
+    right: 30px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.abajo1{
+    width: 15px;
+
+    position: absolute;
+
+    right: 105px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.abajo2{
+    width: 15px;
+
+    position: absolute;
+
+    right: 90px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.title{
+    font-weight: normal;
+}
+
+.inputsDate{
+    border: 1px solid gray;
+    border-radius: 5px;
+
+
+    width: 200px;
+
+    padding: 5px 10px 5px 5px;
+}
+
+        

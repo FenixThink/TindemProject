@@ -28,14 +28,24 @@ class Specific_interest extends GeneralQuerySql{
     static  findUserSpecializations = async (params)=>{
 
         const specific_interest = await pool.query('SELECT specific_interest.name AS specific_interest FROM specific_interest  WHERE specific_interest.id = (?)',[params.id])
-        
          const findUserSpe = await pool.query(`SELECT  profile_account.name AS profile FROM specific_interest INNER JOIN profile_specialization ON specific_interest.id = profile_specialization.id_specialization INNER JOIN profile_account ON profile_account.id = profile_specialization.id_profile_account WHERE specific_interest.id = (?)`,[params.id] )
 
         return {specific_interest,findUserSpe}
     }
 
+    static findId = async(name) =>{
+        const [idSpecialization] = await pool.query('SELECT id FROM specific_interest WHERE name = ?',[name]);
+        return idSpecialization[0].id
+    }
+    
+    static async findinteresArea(id){
+        const queryId = await pool.query(`SELECT *  FROM specific_interest WHERE id_interest = (?)`, [id])
+        return queryId[0]
+    }
 
 
+
+    
 }
 
 export default Specific_interest

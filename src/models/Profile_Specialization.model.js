@@ -20,13 +20,9 @@ class Profile_specialization extends GeneralQuerySql{
     get id_specialization(){ return this.#id_specialization }
 
     async create(){
-        const rows = await pool.query('INSERT INTO Profile_Specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_profile_account, this.#id_specialization]);
+        const rows = await pool.query('INSERT INTO profile_specialization(id_profile_account, id_specialization) VALUES (?, ?)',[this.#id_profile_account, this.#id_specialization]);
         return rows[0];
     }
-
-   
-
-
 }
 
 export default Profile_specialization

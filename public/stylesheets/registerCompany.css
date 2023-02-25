@@ -29,6 +29,7 @@ body{
     justify-content: center;
     align-items: center;    
     height: 100vh;
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
 
 }
 
@@ -39,13 +40,14 @@ body{
 }
 
 .Padre{
-    background: rgba(0, 0, 0, 0.1);
-    width: fit-content;
-    border-radius: 30px;
+    background: white;
+    width: 100vmin;
     display: grid;
     gap: 1.2rem;
     padding: 30px;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
 }
+
 
 .submitButton{
 
@@ -57,7 +59,7 @@ body{
     border: none;
     border-radius: 1rem;
 
-    background-color: #6171FF;
+    background-color: #4267C7;
     color: white;
 
 }
@@ -100,8 +102,7 @@ body{
     }
     
    
-    .containerRolesAndAreas button , .profileRoles button{
-       
+    .containerRolesAndAreas input , .profileRoles input, .rolesname button{
         color:#4267C7;
         border: solid 0px ;
         border-radius: 10px;
@@ -112,18 +113,19 @@ body{
         background-color: #D4D9FF;
     
     }
-    .agregarCambios{
-       
-        color:#fff;
-        border: solid 0px ;
-        border-radius: 10px;
-        padding: 8px 12px 8px 12px;
-        margin: 12px 10px 5px 1px;
-    font-weight: 500;
-        font-size: 0.9rem;
-        background-color: #6171FF;
-    }
-    .containerRolesAndAreas button:hover, .agregarCambios:hover{
+    #agregarCambios{
+           
+            color:#fff;
+            border: solid 0px ;
+            border-radius: 10px;
+            padding: 8px 12px 8px 12px;
+            margin: 12px 10px 5px 1px;
+        font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #4267C7;
+          
+        }
+    .containerRolesAndAreas input:hover, .agregarCambios:hover{
         cursor: pointer;
     }
 
@@ -244,12 +246,26 @@ body{
     cursor: pointer;
 }
 
+.textEdit{
+    color:#4267C7
+}
+
+.textEdit:hover{
+    color:#4267C7;
+    text-decoration: underline;
+}
+
 .tellAboutTitle {
     font-size: 1.1rem;
     font-weight: bold;
 }
 .tellAboutSpan {
     font-size: 1rem;
+    font-weight: 500;
+    
+}
+.rolesInProfiles{
+    margin-top: 1rem;
 }
 /*Aquí termina la parte de KDOE-117*/
 
@@ -347,8 +363,8 @@ label{
 
 .description{
 
-    height: 5.5rem;
-    border: 1px solid #C2C2C2;
+    height: 3.5rem;
+    border: 1px solid #bf4040;
     padding: .2rem .5rem;
     border-radius: .5rem;  
     resize: none;
@@ -374,7 +390,7 @@ label{
 
 .interestBtn{
     border: none;
-    background: #6171FF;
+    background: #4267C7;
     border-radius: 10px;
     font-size: 16px;
     color: #ffffff;
@@ -382,7 +398,7 @@ label{
     padding: .5rem 1rem;
 }
 
-button:hover{
+input:hover{
     cursor: pointer;
 }
 
@@ -449,6 +465,7 @@ button:hover{
 
  .fileInput{
     display: none;
+    visibility: hidden;
 }
 
 /*aca finaliza la parte de pao */
@@ -546,3 +563,5 @@ button:hover{
 
     padding: 5px 10px 5px 5px;
 }
+
+        

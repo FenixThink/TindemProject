@@ -4,16 +4,7 @@ import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.j
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 
-    async function fetchMoviesJSON() {
-       const response = await fetch('http://localhost:3000/api/allaspirant');
-       const movies = await response.json();
-       return movies;
-    }
-export const TotalFunctionView = () => {
-   fetchMoviesJSON().then(movies => {
-      console.log(movies); // fetched movies
-   });
-
+export const TotalFunctionView = async(dataArea,emails,dataUser,data) => {
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales
    const divFather = document.createElement('div');
@@ -21,11 +12,14 @@ export const TotalFunctionView = () => {
    const right = document.createElement('div');
    right.className = "right";
    //Componente del header de la izquierda
-   const left = partLeft('Pepsi', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+   let name;
+   dataUser[0].type=='applicant' ?  name = `${dataUser[0].name} ${dataUser[0].lastname}` : name = dataUser[0].name
+   
+   const left = await partLeft(name, dataUser[0].img,data)
    divFather.appendChild(left)
 
    divFather.appendChild(right);
-
-   right.appendChild(rightCreator(objectApplicant[0].profile_image, objectApplicant[0].name, objectApplicant[0].day_of_birth, "Descripcion Laboral", objectApplicant[0].description, objectApplicant[1][0].Especializaciones))
+   console.log(dataUser[0])
+   right.appendChild(rightCreator(objectApplicant[0].profile_image,dataArea,emails))
    return divFather;
 }

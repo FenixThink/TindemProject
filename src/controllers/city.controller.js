@@ -1,5 +1,6 @@
 import City from '../models/City.model.js';
 import GeneralQuerySql from "../DTO/GeneralQuerySql.js"
+import { response } from 'express';
 
 
 
@@ -17,7 +18,10 @@ class CityController extends GeneralQuerySql {
     static getAll =async(req,res)=>{
         try{
             const respuesta = await City.All()
-            res.send(respuesta)
+            return res.status(200).json({
+                respuesta
+            })
+
 
         }catch(error){
             return res.send({
@@ -27,7 +31,5 @@ class CityController extends GeneralQuerySql {
 
         }
     }
-
-    
 }
 export default CityController;

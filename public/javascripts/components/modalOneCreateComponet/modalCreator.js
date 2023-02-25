@@ -4,17 +4,13 @@ import { AreasRolesTwo } from "./modalCratorTwo.js";
 
 
 
-let abc= [["Inteligencia artificial y algoritmia","Sistemas digitales","Product manager","Backend","Diseño en redes ","Arquitectura de Sorftware"],
-["a","b"],
-["comucacion","social"],
-["sinanzas","negocios","internacionales"],
-["mercadeo","publicidad"],
-["seguridad"],
-["servicios","generales"],
-["mediciina"]
-]
 
-export function AreasRoles(btnAreasOrRoles) {
+
+export async function  AreasRoles(btnAreasOrRoles) {
+
+    const areas  = await fetch('/Area', {method:'get'})
+    const dataAreas = await areas.json()
+    console.log(dataAreas)
     
     const rol = document.createElement("span");
     rol.className="rolOn"
@@ -32,8 +28,8 @@ export function AreasRoles(btnAreasOrRoles) {
 
 /*  para dar un clasname diferente */   
 /* creacion de botones de areas con sus debidos indices
- */    btnAreasOrRoles.forEach((e,i) => {
-        rolesName.appendChild(createButton(e,i))
+ */    dataAreas.forEach((e) => {
+        rolesName.appendChild(createButton(e.name,e.id))
         
         
         
@@ -69,22 +65,28 @@ export function AreasRoles(btnAreasOrRoles) {
     
     
     
-    const b=document.querySelectorAll(".optionsRoles")
+
     
 
 
     return padreRolesOrAreas
 }
 /* creacion de botones por parametros*/
-function createButton(name,i){
-    let btn = document.createElement("button");
+  function createButton(name,i){
+    let btn = document.createElement("input");
+    btn.type='button'
     btn.className="optionsAreas"
-    btn.textContent=name
-    btn.value=i
+    btn.value=name
+    btn.id=i
 /*     llamamos al segundo modal y escondemos el padre
- */     btn.onclick= function (params) {
+ */     btn.onclick= async function (e) {
 
-        document.querySelector(".Padre").appendChild(AreasRolesTwo(abc[i]))
+
+        
+
+
+    console.log(e.target.id)
+        document.querySelector(".Padre").appendChild( await AreasRolesTwo(e.target.id))
         document.querySelector(".modalPadre").style.display="none"
         
      }

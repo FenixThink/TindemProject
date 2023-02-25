@@ -49,20 +49,38 @@ class ProfileAccountController{
     static findOne = async(req, res) => {
         try {
            const rows = await Profile_account.FindOne(req.params.id); 
-
+            console.log(rows)
             if(!rows.length){  
                 return res.status(404).json({
                     message: "Profile not found"
                 });            
             }
             
-            res.send(rows);
+            res.status(200).json({
+                "result":rows[0]
+            });
 
         } catch (error) {
             res.status(500).json({
                 message: error.message
             });
         };
+    }
+
+    static update = async (req, response) => {
+        try {
+            const{name,description,id_city} = req.body;
+            const res = await Profile_account.update(name,description,id_city, req.params.id);
+            return response.send({
+                "status" : 200,
+                "message":"Profile account update succefully"
+            })
+        } catch (error) {
+            return res.send({
+                "status" : 404,
+                "message" : error.message
+            })
+        }
     }
 }
 

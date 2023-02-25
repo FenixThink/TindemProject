@@ -23,6 +23,7 @@
 #app{
     position: relative;
     min-height: 100vh;
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
 }
 .padre{
     position: absolute;
@@ -45,17 +46,18 @@
     height: 100vh;
     width: 100vw;
     animation-duration: 2s;
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
     animation-name: slidein;
 }
 .cont{
-    padding: 2%;
     width: 65%;
-    background-color: rgba(170, 143, 143, 0.281);
-    border-radius: 30px;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.688);
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    gap: 6rem;
+    background-image: url('.././img/login.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
 }
 
 /*Aca termina la parte de Sebastian  */
@@ -70,47 +72,43 @@
 /*     para la caja de areas y roles que esta ne la vista de registro 
  */
 max-height: 100px;
-
-
-
 }
-
 
 .subContainer{
-
+    padding: 2% 8%;
     width: 69%;
-    height: 90%;
-    color: #4267C7;
-   display: flex;
-   flex-direction: column;
-
-   
-   
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
 .titleContainerOne{
     width: 110%;
     font-weight: bold;
     letter-spacing: 2%;
-    font-size: 3.5rem;
-    
-    margin-top: 10%;
-   
+    font-size: 2rem;    
+    /* margin-top: 5%;    */
 }
 
 .subTitleContainerOne{
     padding-top: 15px;
-  font-weight: bold;
+    font-weight: bold;
     letter-spacing: -1%;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-bottom: 8%;
 
 }
 .descContainerOne{
     font-weight: bold;
     letter-spacing: -1%;
-    font-size: 1.4rem;
+    font-size: 1rem;
     white-space: normal;
     word-break: normal;
+    margin-top: 10%;
 }
 .total-card{
     padding: 0% 7%;
@@ -172,7 +170,6 @@ max-height: 100px;
     justify-content: center;
     align-items: center;
     background-color: white;
-    border-radius: 8%;
     width: 45%;
     padding-block:6%;
     
@@ -183,7 +180,7 @@ max-height: 100px;
 .button{
     margin-top: 20px;
     padding: 8px 20px 8px 20px;
-    background-color: #6170FC;
+    background-color: #4267c7;
     color: white;
     font-size: 16px;
     border: none;

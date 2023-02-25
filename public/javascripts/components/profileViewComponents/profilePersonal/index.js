@@ -1,58 +1,3 @@
-const obj1 = {
-    "Profile":{
-        id:1,
-        name:"Jose Miguel",
-        lasname:" Orejarena Correa",
-        descriprion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-        city:"Bucaramanga",
-        Country:"Colombia",
-        type:"Applicant",
-        day_of_birth:"1999/10/12"
-    },
-    "Estudios":[
-        {
-            Area:"abc",
-            Especializaciones:[
-                {
-                    id:1,
-                    name:"Tecnico"
-                },
-                {
-                    id:2,
-                    name:"Programador"
-                },
-                {
-                    id:3,
-                    name:"Jugador de lol"
-                }
-            ]
-        },
-        {
-            Area:"111",
-            Especializaciones:[
-                {
-                    id:3,
-                    name:"Enfermer@"
-                },
-                {
-                    id:4,
-                    name:"Cirujano"
-                }
-            ]
-        },
-        {
-            Area:"jj",
-            Especializaciones:[
-                {
-                    id:5,
-                    name:"Jurado"
-                }
-            ]
-        }
-    ]
-}
-
-
     let positionStudy=0
 
     const date = new Date()
@@ -60,20 +5,24 @@ const obj1 = {
     const month = date.getMonth()+1
     const day = date.getDate()
     const how =[year,  day,month]
-    export function createProfileSup(body) {
-     const yearUser = body.Profile.day_of_birth
-    let caja =yearUser.split('/')
+
+
+
+    export function createProfileSup(dataUser) {
+    let yearUser;
+    dataUser[0].type=="applicant" ? yearUser = dataUser[0].day_of_birth : yearUser = dataUser[0].day_of_founded
+     let caja =yearUser.split('-')
     
-let edadReal
+        let edadReal
    
        if(caja[1]<=month){
-        if(caja[2]<=day){
-            edadReal=year-caja[0]
+        if(caja[0]<=day){
+            edadReal=year-caja[2]
          }else{
-            edadReal=((year-caja[0])-1)
+            edadReal=((year-caja[2])-1)
          }
      }else{
-        edadReal=year-caja[0]-1
+        edadReal=year-caja[2]-1
      }
 
 
@@ -91,7 +40,7 @@ photo.className='photo';
 const img = document.createElement('img');
 
 img.className='img';
-img.src = 'https://as01.epimg.net/meristation/imagenes/2022/05/19/noticias/1652944408_523527_1652944740_noticia_normal_recorte1.jpg';
+img.src = `img/${dataUser[0].img}`;
 
 photo.appendChild(years);
 photo.appendChild(img);
@@ -106,9 +55,9 @@ const name = document.createElement('h1');
 const lastName = document.createElement('h3');
 const from = document.createElement('p');
 ;
-from.textContent=`${body.Profile.city} - ${body.Profile.Country}`;
-name.textContent =body.Profile.name
-lastName.textContent =body.Profile.lasname
+from.textContent=`${dataUser[0].city} - Colombia`;
+name.textContent =dataUser[0].name
+lastName.textContent =dataUser[0].lastname
 
 date.className='date';
 name.className='name';
@@ -131,7 +80,11 @@ return padre;
 
 
 
-export function createProfileInf(body){
+export function createProfileInf(dataUser){
+    const array = []
+    for (const x in dataUser[1]) {
+        array.push(x)
+    }
 
     const padre2 = document.createElement('div');
     padre2.className='profileInf';
@@ -141,17 +94,17 @@ export function createProfileInf(body){
     const otros = document.createElement('div')
     otros.className='otros';
 const textOtros= document.createElement('h3')
-textOtros.textContent='Especializacion'
+textOtros.textContent='Especializaciones'
     otros.appendChild(textOtros)
 
    const liDiv = document.createElement('div')
         liDiv.className='liDiv'
 
-        body.Estudios[0].Especializaciones.forEach(element => {
-    
+        dataUser[1][array[0]].forEach(element => {
+   
             const li = document.createElement('li');
             li.className='li';
-            li.textContent=element.name
+            li.textContent=element
             
             liDiv.appendChild(li);
             
@@ -164,14 +117,16 @@ textOtros.textContent='Especializacion'
  
     const titleDescription=document.createElement('h3');
     titleDescription.className='titleDescription';
-    titleDescription.textContent='descripcion del Usuario'
+    titleDescription.textContent='Descripcion del Usuario'
+
 
     const descriptionPadre = document.createElement('div');
     descriptionPadre.className='descriptionPerfil';
     const textDescription = document.createElement('p');
     textDescription.className='textDescription';
-    textDescription.textContent=body.Profile.descriprion
+    textDescription.textContent=dataUser[0].description
     
+  
     
     const description = document.createElement('div');
     description.className='descriptionProfile';
@@ -191,8 +146,7 @@ descriptionPadre.appendChild(textDescription);
     estudios.className='estudios';
     const estudio = document.createElement('p')
     estudio.className='estudio';
-    
-    estudio.textContent= body.Estudios[0].Area
+    estudio.textContent= array[positionStudy]
    
     
     // botones que determinan el estudio 
@@ -202,6 +156,11 @@ descriptionPadre.appendChild(textDescription);
     next.classList='nextImg'
     
     next.src='https://i.ibb.co/s6yngJd/928.png';
+
+    if (array.length==1) {
+        
+        next.style.display = 'none';
+    }
     next.onclick=function(){
        
        
@@ -225,7 +184,7 @@ descriptionPadre.appendChild(textDescription);
                 
                 }, 100);
                 setTimeout(() => {
-                    estudio.textContent=body.Estudios[positionStudy].Area;
+                    estudio.textContent=array[positionStudy];
                     
                     estudio.style.transition = 'transform.25s ease-in-out'
                             estudio.style.transform = 'translate(0,0)'
@@ -239,11 +198,10 @@ descriptionPadre.appendChild(textDescription);
                             liDiv.style.transform = 'translate(0%,0)'
                            
                 },100)
-            body.Estudios[positionStudy].Especializaciones.forEach(element => {
-
+                dataUser[1][array[1]].forEach(element => {
                 const li = document.createElement('li');
                 li.className='li';
-                li.textContent=element.name
+                li.textContent=element
                 li.style.transform = 'translate(200%,0)'
                 
                 liDiv.appendChild(li);
@@ -256,14 +214,12 @@ descriptionPadre.appendChild(textDescription);
             
             
         });
-       
-        
-        if ((body.Estudios.length-1)==positionStudy) {
+        if ((positionStudy==array.length-1)) {
             next.style.display = 'none';
-            
         }
-    
+
     }
+
     const beforeDiv = document.createElement('div');
     beforeDiv.className='before';
     const before = document.createElement('img');
@@ -292,7 +248,7 @@ descriptionPadre.appendChild(textDescription);
                 
                 }, 100);
                 setTimeout(() => {
-                    estudio.textContent=body.Estudios[positionStudy].Area;
+                    estudio.textContent=array[positionStudy];
                     
                     estudio.style.transition = 'transform.25s ease-in-out'
                             estudio.style.transform = 'translate(0,0)'
@@ -310,11 +266,11 @@ descriptionPadre.appendChild(textDescription);
         },100)
         
 
-        body.Estudios[positionStudy].Especializaciones.forEach(element => {
+        dataUser[1][array].forEach(element => {
     
             const li = document.createElement('li');
             li.className='li';
-            li.textContent=element.name
+            li.textContent=element
             li.style.transform = 'translate(-200%,0)'
                 liDiv.appendChild(li);
                 setTimeout(()=>{

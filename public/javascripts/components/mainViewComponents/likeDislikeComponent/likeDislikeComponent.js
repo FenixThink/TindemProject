@@ -1,3 +1,5 @@
+
+
 export const renderButtons = () => {
     /* Elemento Padre */
     const divPadre = document.createElement("div")
@@ -9,11 +11,9 @@ export const renderButtons = () => {
     const span1 = document.createElement("span")
     span1.classList = "appDivPadreSpan"
     span1.id = "unlikeVector"
-    const img = document.createElement("img")
-    img.append("<i class='bx bx-like'></i>")
+    const img = document.createElement("i")
     img.id = "imgUnlike"
-    img.alt = "Unlike svg"
-    img.className = "buttons"
+    img.className = "fa fa-close"
     const p = document.createElement("p")
     p.classList = "appDivPadreSpanImgP"
     p.textContent = "No me gusta"
@@ -23,11 +23,9 @@ export const renderButtons = () => {
     const span2 = document.createElement("span")
     span2.classList = "appDivPadreSpan"
     span2.id = "likeVector"
-    const img2 = document.createElement("img")
-    img2.src = "/public/svg/VectorLike.svg"
+    const img2 = document.createElement("i")
     img2.id = "imglike"
-    img2.alt = "like svg"
-    img2.className = "buttons"
+    img2.className = 'fa fa-check'
     const p2 = document.createElement("p")
     p2.classList = "appDivPadreSpanImgP"
     p2.textContent = "Me gusta"

@@ -17,12 +17,12 @@ export function interests(interestItems) {
     const containerbutton = document.createElement('div')
     containerbutton.className = "containerbutton"
 
-    
     interestItems.forEach(e => {
         //botones
+
         const boton = document.createElement('button')
         boton.className = "interestButtons"
-        boton.textContent = e.name
+        boton.textContent = e
         containerbutton.appendChild(boton)
     });
     

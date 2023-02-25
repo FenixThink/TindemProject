@@ -61,6 +61,20 @@ class SpecificInterestController{
             })
         }
     }
+    static async findinteresArea (req,res){
+        try{
+            const answer = await SpecificInterest.findinteresArea(req.params.id)
+            
+            // res.send(answer)
+            return res.status(200).json(answer);
+            
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+        }
+    }
 
 }
 
