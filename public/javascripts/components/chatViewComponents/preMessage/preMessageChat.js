@@ -1,6 +1,6 @@
 
 export const a = function mesaje(id,name1,photo,inboxUser,hour,idA) {
-
+    
     // aca ingresa el nombre
     const insetNameChat = document.createElement("span");
     insetNameChat.textContent=name1
@@ -11,7 +11,6 @@ export const a = function mesaje(id,name1,photo,inboxUser,hour,idA) {
      hourChat.textContent=hour
      hourChat.style.alignSelf="center"
      hourChat.style.color="#757575"
-    
     
     // aca se inserta el ultimo mensaje
     const inboxChat =document.createElement("p");
@@ -57,45 +56,11 @@ export const a = function mesaje(id,name1,photo,inboxUser,hour,idA) {
     caja.className = 'messageBox'
     caja.id = id
 
-
-
-    caja.addEventListener('click', async()=>{
-        console.log(idA)
-        console.log(id)
-
-
-            //fecth y su respuesta
-       const Rblock = await fetch(`/allAction/RenderizadoBlock/${idA}/${id}`, {
-            method: 'get'
-        }).then(response => response.json())
-        
-        const statusBlock = Rblock[0].blocked_status.data[0]
-        console.log ('statusBlock' + statusBlock)
-
-        if (statusBlock == 1){
-            console.log('hola')
-
-           // deshabilitar input y span
-            const inputMessage = document.getElementById('inputMessage');
-            const span1 = document.getElementById('blockUser');
-
-            console.log(inputMessage)
-            console.log('se intento')
-            
-            inputMessage.remove()
-            inputMessage.ariaPlaceholder = 'hola'
-
-            alert ('hola esta entrando')
-         
-        }
-    })
-    
     caja.appendChild(contImg)
     caja.appendChild(interCaja)
     
-    
-    
         return caja
+        
     }
     
 

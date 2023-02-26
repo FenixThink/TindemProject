@@ -11,7 +11,7 @@ export async function options (userData){
 
     //------------- SPAN 1 -----------------------------------
     const span1 = document.createElement("span")
-    let alreadyBlocked = false;
+    span1.dataset.stateBlockBtn = false;
 
     setTimeout(() => {
         const inputMessage = document.getElementById('inputMessage');
@@ -27,9 +27,8 @@ export async function options (userData){
 
 
     span1.addEventListener('click', async() => {
-
-            
-        if (!alreadyBlocked) {
+        
+        if (!span1.dataset.stateBlockBtn) {
             Swal.fire({
                 title: '¿Estás seguro de querer bloquearlo?',
                 text: "¡Luego no podrás revertir esto!",
@@ -58,28 +57,21 @@ export async function options (userData){
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });
-                   console.log(DBblock)
-                    inputMessage.style.display = 'none';
 
-                    span1.setAttribute('disabled', true);
-                    alreadyBlocked = true;
+                    inputMessage.style.display = 'none';
+                    span1.dataset.stateBlockBtn = true;
+                    
+                    span1.textContent = "desblock User";    
                     Swal.fire(
                         'Bloqueado!',
                         '', 
                         'success',
-                        span1.textContent = "desblock User",
-    
     
                     )   
                 }
             });
-        }
-    });
+        }else{
 
-
-    span1.addEventListener('click', () => {
-            
-        if (alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer desbloquearlo?',
                 text: "¡Luego no podrás revertir esto!",
@@ -103,27 +95,25 @@ export async function options (userData){
                         
                     }
 
-                    console.log(id_applicant)
-                    console.log(id_company)
-                    
-
                     const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {
                         method: 'get'
                    });
 
                     inputMessage.style.display = 'block';
-                    // span1.setAttribute('disabled', true);
-                    alreadyBlocked = false;
+                    span1.removeAttribute('data-state-block-btn')
+                    
+                    span1.textContent = "Block User"
                     Swal.fire(
                         'Desbloquedo!',
                         '', 
                         'success',
-                        span1.textContent = "Block User",
                     )   
                 }
             });
+
         }
     });
+
     //--------------------------------------------------------------------
     const span2 = document.createElement("span")
 

@@ -122,12 +122,6 @@ class UserController {
             query.forEach(async (e) => {
 
                 const checkPassword = await compare(password, e.password)
-<<<<<<< HEAD
-                
-                console.log(checkPassword)
-=======
-
->>>>>>> 18fdeb55637388dc73425b3fa93f63aa3a896a5b
                 // console.log(e.email)
                 // console.log(email)
 

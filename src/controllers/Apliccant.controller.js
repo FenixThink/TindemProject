@@ -7,9 +7,12 @@ import Profile_account from "../models/Profile_account.model.js";
 class ApplicantController{
     static applicantCreate = async(req,res)=>{
         try {
-        
             const { name, nitOrLastname, email, date, password, description, city } = req.body;
-
+            if(!req.file){
+                return res.status(404).json({
+                    "message":"photo not found"
+                })
+            }
             const applicantInfo = {
                 name: name,
                 lastname: nitOrLastname,
@@ -38,7 +41,7 @@ class ApplicantController{
 
         } catch (error) {
             res.status(500).json({
-                message: error.message
+                "error": error.message
             });
         }
     };

@@ -260,7 +260,8 @@ fetchQuerys().then(async (data) => {
     let indice=cajas.length-1
         
         e.addEventListener('click', async (ev) => {
-        let userId, userName, profileData, dataChat;
+
+        let userId, userName, profileData, dataChat, statusBlock;
             if(infoUser.message.rol === 'applicant'){
 
                 userId = infoMessage.consulta[i].id_company 
@@ -278,6 +279,12 @@ fetchQuerys().then(async (data) => {
         
                 dataChat = await allMessage.json()
 
+                const Rblock = await fetch(`/allAction/RenderizadoBlock/${dataUser[0].ID}/${userId}`, {
+                    method: 'get'
+                }).then(response => response.json())
+                
+                statusBlock = Rblock[0].blocked_status.data[0]
+
             }else{
                 
                 userId = infoMessage.consulta[i].id_applicant
@@ -293,10 +300,35 @@ fetchQuerys().then(async (data) => {
                 })
         
                 dataChat = await allMessage.json()
+
+                const Rblock = await fetch(`/allAction/RenderizadoBlock/${userId}/${dataUser[0].ID}`, {
+                    method: 'get'
+                }).then(response => response.json())
+                
+                statusBlock = Rblock[0].blocked_status.data[0]
+
             }
+
+
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
             father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,dataUser[0],data))
+
+            
+              //fecth y su respuesta
+              if (statusBlock == 1){
+                console.log('hola')
+
+            // deshabilitar input y span
+                const inputMessage = document.querySelector('.inputSendMessage');
+                const span1 = document.getElementById('blockUser');
+
+                span1.textContent = 'desblock User'
+                span1.dataset.stateBlockBtn = 'false'
+                inputMessage.style.display = 'none';
+            
+            } 
+
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()
