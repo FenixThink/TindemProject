@@ -1,201 +1,281 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
-    font-family: "Poppins";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins";
 }
 /*Animación Inicial*/
 @keyframes slidein {
-    from {
-      opacity: 0;
-      margin-left: -50%;
-    }
-  
-    to {
-        opacity: 1;
-      margin-left: 0%;
-    }
+  from {
+    opacity: 0;
+    margin-left: -50%;
   }
+
+  to {
+    opacity: 1;
+    margin-left: 0%;
+  }
+}
 
 /*Aca empieza la parte de Sebastian  */
 
-#app{
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+#app {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(
+    90deg,
+    hsla(233, 100%, 90%, 1) 0%,
+    hsla(0, 0%, 89%, 1) 100%
+  );
 }
-.padre{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url('https://s3-alpha-sig.figma.com/img/d727/fdf9/c0f8a550b40737ceb1bbb1606e1faea9?Expires=1672012800&Signature=DG66pqrCxz5pMq0EI~iUfJClZv6IAPL16vbIzMZUxNhrtKrxP1Omak1ULiTvZjGZXSJEwsjhRKHMzUTVgLg4sglPIMJ-J58TeqvhkqKKEm-Ieqr6KgAr6~wyPrwG~T4v-ymnxP7TshshOcVs0VGu4UJ8JTEgMYLDGtNtcuBpbiWh7sifP1cZyEXl0zyc8cvLji9kTB3yem9LhkgLdsBXjRIDT3juBhmtbD2YXOf3o73GQj~JE76bWR5IsVjFDjVQgkIDoRe726cB9eJGaMT85-9Liykg~4HaLFIZQRHi-4tcwX8gXTN6mNdd6WauKJCwInPxU~eRPk-a1-SRiGAhAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
-    min-height: 100%;
-    min-width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: blur(50px);
-    z-index: -10;     
+.padre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://s3-alpha-sig.figma.com/img/d727/fdf9/c0f8a550b40737ceb1bbb1606e1faea9?Expires=1672012800&Signature=DG66pqrCxz5pMq0EI~iUfJClZv6IAPL16vbIzMZUxNhrtKrxP1Omak1ULiTvZjGZXSJEwsjhRKHMzUTVgLg4sglPIMJ-J58TeqvhkqKKEm-Ieqr6KgAr6~wyPrwG~T4v-ymnxP7TshshOcVs0VGu4UJ8JTEgMYLDGtNtcuBpbiWh7sifP1cZyEXl0zyc8cvLji9kTB3yem9LhkgLdsBXjRIDT3juBhmtbD2YXOf3o73GQj~JE76bWR5IsVjFDjVQgkIDoRe726cB9eJGaMT85-9Liykg~4HaLFIZQRHi-4tcwX8gXTN6mNdd6WauKJCwInPxU~eRPk-a1-SRiGAhAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+  min-height: 100%;
+  min-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(50px);
+  z-index: -10;
 }
 
-.contpadre{    
-    display: grid;
-    place-items: center;
-    min-height: 100%;
-    min-width: 100%;
-    height: 100vh;
-    width: 100vw;
-    animation-duration: 2s;
-    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
-    animation-name: slidein;
+.contpadre {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  min-width: 100%;
+  height: 100vh;
+  width: 100vw;
+  animation-duration: 2s;
+  background: linear-gradient(
+    90deg,
+    hsla(233, 100%, 90%, 1) 0%,
+    hsla(0, 0%, 89%, 1) 100%
+  );
+  animation-name: slidein;
 }
-.cont{
-    width: 65%;
-    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.688);
-    display: flex;
-    flex-direction: row;
-    background-image: url('.././img/login.png'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 80vh;
+.cont {
+  width: 65%;
+  box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.688);
+  display: flex;
+  flex-direction: row;
+  background-image: url(".././img/login.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
 }
 
 /*Aca termina la parte de Sebastian  */
 
 /* aca empieza la parte de jose caballero */
 
-
-
-
-
-.parentInterest{
-/*     para la caja de areas y roles que esta ne la vista de registro 
+.parentInterest {
+  /*     para la caja de areas y roles que esta ne la vista de registro 
  */
-max-height: 100px;
+  max-height: 100px;
 }
 
-.subContainer{
-    padding: 2% 8%;
-    width: 69%;
-    height: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.subContainer {
+  padding: 2% 8%;
+  width: 69%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.titleContainerOne{
-    width: 110%;
-    font-weight: bold;
-    letter-spacing: 2%;
-    font-size: 2rem;    
-    /* margin-top: 5%;    */
+.titleContainerOne {
+  width: 110%;
+  font-weight: bold;
+  letter-spacing: 2%;
+  font-size: 2rem;
+  /* margin-top: 5%;    */
 }
 
-.subTitleContainerOne{
-    padding-top: 15px;
-    font-weight: bold;
-    letter-spacing: -1%;
-    font-size: 1rem;
-    margin-bottom: 8%;
-
+.subTitleContainerOne {
+  padding-top: 15px;
+  font-weight: bold;
+  letter-spacing: -1%;
+  font-size: 1rem;
+  margin-bottom: 8%;
 }
-.descContainerOne{
-    font-weight: bold;
-    letter-spacing: -1%;
-    font-size: 1rem;
-    white-space: normal;
-    word-break: normal;
-    margin-top: 10%;
+.descContainerOne {
+  font-weight: bold;
+  letter-spacing: -1%;
+  font-size: 1rem;
+  white-space: normal;
+  word-break: normal;
+  margin-top: 10%;
 }
-.total-card{
-    padding: 0% 7%;
+.total-card {
+  padding: 0% 7%;
 }
 /* aca termina la parte de jose caballero */
-
-
-
-
-
 
 /* Aca empieza la parte de Natalia */
 
 /*Credenciales*/
 
-.credentials-login{
-    display: grid;
- width: 100%;
-
+.credentials-login {
+  display: grid;
+  width: 100%;
 }
 
-.input{
-    padding: .3rem;
-    margin: 8px 0;
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    
-    
-
+.input {
+  padding: 0.3rem;
+  margin: 8px 0;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 /*Título*/
 
-.title-login-card{
-    display: flex;
-    justify-content: center;    
-    font-weight: bold;
-    font-size: 100px;
-   
+.title-login-card {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 100px;
 }
 
-.blue-text{
-    color: #4267C7;
-    font-size: 4.5rem;
+.blue-text {
+  color: #4267c7;
+  font-size: 4.5rem;
 }
 
-.red-text{
-    color: #D35499;
-    font-size: 4.5rem;
+.red-text {
+  color: #d35499;
+  font-size: 4.5rem;
 }
 
 /*Card */
-.total-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 45%;
-    padding-block:6%;
-    
+.total-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 45%;
+  padding-block: 6%;
 }
 
 /*Button*/
 
-.button{
-    margin-top: 20px;
-    padding: 8px 20px 8px 20px;
-    background-color: #4267c7;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 0.5rem;
+.button {
+  margin-top: 20px;
+  padding: 8px 20px 8px 20px;
+  background-color: #4267c7;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 0.5rem;
 }
 
-.button-div{
-    text-align: center;
+.button-div {
+  text-align: center;
 }
 
 /*Texto login*/
 
-.text-login{
-    display: flex;
-    gap: 1rem;
+.text-login {
+  display: flex;
+  gap: 1rem;
 }
 
 /* Aca termina la parte de Natalia */
+
+/*<768*/
+@media only screen and (max-width: 767px) {
+  .titleContainerOne {
+    font-size: 20px;
+  }
+
+  .descContainerOne {
+    font-size: 10px;
+  }
+
+  .blue-text {
+    font-size: 40px;
+  }
+
+  .red-text {
+    font-size: 40px;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  input {
+    margin: 5px 0;
+    max-width: 180px;
+    max-height: 20px;
+    font-size: 8px;
+    margin-bottom: 0px;
+  }
+
+  span {
+    font-size: 10px;
+  }
+
+  a {
+    font-size: 10px;
+  }
+
+  .button {
+    padding: 4px 10px 4px 10px;
+    font-size: 10px;
+  }
+}
+
+/*768px - 1023px*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .titleContainerOne {
+    font-size: 20px;
+  }
+
+  .descContainerOne {
+    font-size: 10px;
+  }
+
+  .blue-text {
+    font-size: 40px;
+  }
+
+  .red-text {
+    font-size: 40px;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  input {
+    margin: 5px 0;
+    max-width: 180px;
+    max-height: 20px;
+    font-size: 8px;
+    margin-bottom: 0px;
+  }
+
+  span {
+    font-size: 10px;
+  }
+
+  a {
+    font-size: 10px;
+  }
+
+  .button {
+    padding: 4px 10px 4px 10px;
+    font-size: 10px;
+  }
+}
