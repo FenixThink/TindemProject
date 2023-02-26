@@ -26,69 +26,69 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         
         inputCont.appendChild(input)
         
-        setInterval(async(e)=>{
-            const personId = document.querySelector('.nameTopChat').id
-            if(personId){
+        // setInterval(async(e)=>{
+        //     const personId = document.querySelector('.nameTopChat').id
+        //     if(personId){
             
-            let id_applicant, id_company;
-            if(infoUser.message.rol === 'applicant'){
-                id_applicant = dataUser[0].ID;
-                id_company = personId;
-            }else{
-                id_applicant = personId;
-                id_company = dataUser[0].ID;
-                }
-                const chat = await fetch(`/getChatscompanyapplicant/${id_applicant}/${id_company}`,{
-                    method: 'get'
-                })
+        //     let id_applicant, id_company;
+        //     if(infoUser.message.rol === 'applicant'){
+        //         id_applicant = dataUser[0].ID;
+        //         id_company = personId;
+        //     }else{
+        //         id_applicant = personId;
+        //         id_company = dataUser[0].ID;
+        //         }
+        //         const chat = await fetch(`/getChatscompanyapplicant/${id_applicant}/${id_company}`,{
+        //             method: 'get'
+        //         })
                 
-                const chatData = await chat.json()
-                let lastMessageObject = chatData.Message.length 
+        //         const chatData = await chat.json()
+        //         let lastMessageObject = chatData.Message.length 
                 
-                const local = localStorage.getItem('numMessage') || lastMessageObject
-                const num = JSON.parse(local)
+        //         const local = localStorage.getItem('numMessage') || lastMessageObject
+        //         const num = JSON.parse(local)
 
-                if(num.value != lastMessageObject ){
+        //         if(num.value != lastMessageObject ){
                     
-                    const padreCentro = document.querySelector('.padreMensajes')
-                    const messages = document.querySelectorAll('.message')
-                    const last = messages.length - 1
-                    console.log(chatData.Message[lastMessageObject - 1].message[0])
-                    if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){   
+        //             const padreCentro = document.querySelector('.padreMensajes')
+        //             const messages = document.querySelectorAll('.message')
+        //             const last = messages.length - 1
+        //             console.log(chatData.Message[lastMessageObject - 1].message[0])
+        //             if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){   
 
-                        let color,cargo;
+        //                 let color,cargo;
 
-                    if(infoUser.message.rol == 'applicant'){
-                        if(chatData.Message[lastMessageObject - 1].message[0].role == 'applicant'){
-                            color = 'verde';
-                            cargo = 'applicant-right'    
-                        }else{
-                            color = 'gris'
-                        }
+        //             if(infoUser.message.rol == 'applicant'){
+        //                 if(chatData.Message[lastMessageObject - 1].message[0].role == 'applicant'){
+        //                     color = 'verde';
+        //                     cargo = 'applicant-right'    
+        //                 }else{
+        //                     color = 'gris'
+        //                 }
 
-                    }else{
-                        if(chatData.Message[lastMessageObject - 1].message[0].role == 'company'){
-                            color = 'verde';
-                            cargo = 'company-right'    
-                        }else{
-                            color = 'gris'
-                        }
-                    }
+        //             }else{
+        //                 if(chatData.Message[lastMessageObject - 1].message[0].role == 'company'){
+        //                     color = 'verde';
+        //                     cargo = 'company-right'    
+        //                 }else{
+        //                     color = 'gris'
+        //                 }
+        //             }
                     
-                        padreCentro.appendChild(boxMessage('verde',cargo,chatData.Message[lastMessageObject-1].message[0].text,chatData.Message[lastMessageObject-1].message[0].hour))
-                        let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
-                        padreCentro.scrollTop+=diEnd
-                    }
+        //                 padreCentro.appendChild(boxMessage('verde',cargo,chatData.Message[lastMessageObject-1].message[0].text,chatData.Message[lastMessageObject-1].message[0].hour))
+        //                 let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
+        //                 padreCentro.scrollTop+=diEnd
+        //             }
 
-            } 
+        //     } 
 
-                const CantMessage = {
-                    value:lastMessageObject
-                }
-                localStorage.setItem('numMessage',JSON.stringify(CantMessage))
+        //         const CantMessage = {
+        //             value:lastMessageObject
+        //         }
+        //         localStorage.setItem('numMessage',JSON.stringify(CantMessage))
 
-            }
-        },3000)
+        //     }
+        // },3000)
                 
 //Configuracion de la agregacion del contenedor del mensaje al chat
 inputCont.addEventListener('keyup',async (e)=>{

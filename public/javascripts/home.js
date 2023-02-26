@@ -160,7 +160,9 @@ fetchQuerys().then(async (data) => {
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-    father.appendChild(await allView('','',"","",dataUser[0].ID,data));
+    console.log(dataUser[0])
+    father.appendChild(await allView('','',"","",dataUser[0],data));
+
 
 
     //Creacion de la animacion del buscador
@@ -293,7 +295,7 @@ fetchQuerys().then(async (data) => {
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,infoUser.message.id,data))
+            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,dataUser[0],data))
 
         document.querySelectorAll('.boxM').forEach(e => {
             e.remove()

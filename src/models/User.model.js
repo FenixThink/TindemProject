@@ -33,7 +33,8 @@ class User extends GeneralQuerySql{
     create = async()=>{
 
         const passwordHash = await encrypt(this.#password)
-        const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email, this.#password])
+        console.log(passwordHash)
+        const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email, passwordHash])
         
 
         //console.log(passwordHash)
