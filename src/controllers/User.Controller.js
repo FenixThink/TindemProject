@@ -1,6 +1,6 @@
 import User from '../models/User.model.js';
 import jwt from "jsonwebtoken";
-import { compare } from "../helpers/Bcrypt.helper.js";
+import { encrypt, compare } from "../helpers/Bcrypt.helper.js";
 
 class UserController {
 
@@ -162,7 +162,6 @@ class UserController {
         }
     }
 
-
     static userUpdate = async (req, response) => {
         try {
             const { email, password } = req.body;
@@ -176,6 +175,28 @@ class UserController {
                 "status": 404,
                 "message": error.message
             })
+        }
+    }
+
+    static hasheado = async (req, res) => {
+        try {
+            const { answer } = req.body
+            console.log (answer)
+
+            const password = await encrypt(answer)
+            console.log(password)
+
+            return res.send({
+                "status": 200,
+                "message": password
+            })
+
+        } catch (error) {
+            return res.send({
+                "status": 404,
+                "message": error.message
+            })
+
         }
     }
 
