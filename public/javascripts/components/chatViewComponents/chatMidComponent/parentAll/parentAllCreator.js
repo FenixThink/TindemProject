@@ -23,6 +23,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         //Contenedor para el input
         const inputCont = document.createElement('div')
         inputCont.className = 'contInputSend'
+        inputCont.id = "contInputSend"
         
         inputCont.appendChild(input)
         

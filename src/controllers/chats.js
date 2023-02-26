@@ -2,7 +2,7 @@ import chatsmodel from "../models/Chats.js"
 
 class chatsController{
 
-    static getAllChats = async (req,res)=>{
+    static get = async (req,res)=>{
         const chat = await chatsmodel.find()
         res.send(chat)
     }
