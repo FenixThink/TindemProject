@@ -59,13 +59,13 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-
+        console.log(dataUser[0])
         //Fetch para traer la info de los mensajes hora etc..
         const idApplicant = await fetch(`obtenerChatIDApplicant/${dataUser[0].ID}`, {
             method: 'get',
         })
         allmessages = await idApplicant.json();
-
+      
         //Fetch para buscar los match de acuerdo a su id
         const idFetch = await fetch(`allAction/applicant/${dataUser[0].ID}`, {
             method: 'get',
@@ -156,7 +156,8 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
+    // console.log(dataUser[0].ID)
+    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data,dataUser[0].ID));
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
@@ -445,4 +446,7 @@ fetchQuerys().then(async (data) => {
         })
     })
     carga.style.display = 'none';
+
+  
+
 });

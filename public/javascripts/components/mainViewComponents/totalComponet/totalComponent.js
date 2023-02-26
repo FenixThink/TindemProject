@@ -4,7 +4,7 @@ import { partLeft } from "../../chatViewComponents/partLeftChat/unionPartsLeft.j
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 
-export const TotalFunctionView = async(dataArea,emails,dataUser,data) => {
+export const TotalFunctionView = async(dataArea,emails,dataUser,data,idA) => {
    const objectApplicant = Object.values(applicant);
    //Contenedores de contenido principales
    const divFather = document.createElement('div');
@@ -15,7 +15,7 @@ export const TotalFunctionView = async(dataArea,emails,dataUser,data) => {
    let name;
    dataUser[0].type=='applicant' ?  name = `${dataUser[0].name} ${dataUser[0].lastname}` : name = dataUser[0].name
    
-   const left = await partLeft(name, dataUser[0].img,data)
+   const left = await partLeft(name, dataUser[0].img,data,idA)
    divFather.appendChild(left)
 
    divFather.appendChild(right);

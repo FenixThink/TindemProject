@@ -4,9 +4,13 @@ import { fetchQuerys } from "../../../home.js"
 
 
 
-export const allChats = async(data) => {
+export const allChats = async(data,idA) => {
+    
         const [infoUser, dataUser,infoMessage,allMessages] = data;
-        console.log(infoMessage)
+        const id_apli = data[0,1][0].ID
+        // console.log(data[0,1][0].ID)
+        // // console.log(data[1].message.id)
+        // console.log(id_apli)
 
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')
@@ -20,7 +24,7 @@ export const allChats = async(data) => {
         infoMessage.consulta.forEach(async (e,i)=>{
    
             
-            let user, userData, allMessage, dataChat, position,lastMessage;
+            let user, userData, allMessage, dataChat, position,lastMessage, aplicante;
 
             if(infoUser.message.rol == 'applicant'){
 
@@ -36,6 +40,8 @@ export const allChats = async(data) => {
                 dataChat = await allMessage.json()
                 position = dataChat.Message.length - 1 
 
+                aplicante = data[0,1][0].ID
+
                 if(position>=0){
 
                     if(dataChat.Message[position].message[0].role === infoUser.message.rol){
@@ -44,10 +50,10 @@ export const allChats = async(data) => {
                         lastMessage = dataChat.Message[position].message[0].text
                     }                    
 
-                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour)))
-                    
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
+                    // console.log(aplicante)
                 }else{
-                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','')))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','',aplicante)))
                 }
             
                     
@@ -64,7 +70,7 @@ export const allChats = async(data) => {
 
                 dataChat = await allMessage.json()
                 position = dataChat.Message.length - 1 
-    
+                
                 if(position>=0){
 
                     if(dataChat.Message[position].message[0].role === infoUser.message.rol){
@@ -73,10 +79,12 @@ export const allChats = async(data) => {
                         lastMessage = dataChat.Message[position].message[0].text
                     }                    
 
-                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour)))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
+
+                    
                     
                 }else{
-                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','')))
+                    divMessage.appendChild((a(userData.id,userData.name,userData.img,'','','',aplicante)))
                 }
             }
         })
