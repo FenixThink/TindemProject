@@ -23,6 +23,8 @@ router.get('/api/getAllEmailCompanies',UserController.emailCompanies)
 
 router.get('/api/getAllEmailApplicant',UserController.emailApplicant)
 
+router.post('/api/hasheado',userController.hasheado)
+
 
 router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
     res.json({

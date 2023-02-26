@@ -1,6 +1,6 @@
 import User from '../models/User.model.js';
 import jwt from "jsonwebtoken";
-import { compare } from "../helpers/Bcrypt.helper.js";
+import { encrypt, compare } from "../helpers/Bcrypt.helper.js";
 
 class UserController {
 
@@ -122,12 +122,6 @@ class UserController {
             query.forEach(async (e) => {
 
                 const checkPassword = await compare(password, e.password)
-<<<<<<< HEAD
-                
-                console.log(checkPassword)
-=======
-
->>>>>>> 18fdeb55637388dc73425b3fa93f63aa3a896a5b
                 // console.log(e.email)
                 // console.log(email)
 
@@ -168,7 +162,6 @@ class UserController {
         }
     }
 
-
     static userUpdate = async (req, response) => {
         try {
             const { email, password } = req.body;
@@ -182,6 +175,28 @@ class UserController {
                 "status": 404,
                 "message": error.message
             })
+        }
+    }
+
+    static hasheado = async (req, res) => {
+        try {
+            const { answer } = req.body
+            console.log (answer)
+
+            const password = await encrypt(answer)
+            console.log(password)
+
+            return res.send({
+                "status": 200,
+                "message": password
+            })
+
+        } catch (error) {
+            return res.send({
+                "status": 404,
+                "message": error.message
+            })
+
         }
     }
 
