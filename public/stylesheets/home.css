@@ -722,6 +722,7 @@ h1{
     margin: auto;
     height: 80vh;
     width: 60%;
+    font-size: 16px;
 }
 .principal{
     background-color: rgb(255, 255, 255);
@@ -757,16 +758,24 @@ h1{
 .padre{
 
     background:#E8E6E6;
-    min-width: 60%;
-   
+    
+    height:50em;
+
     display: none;
     justify-self: center;
     align-self: center;
-    gap: 2.1rem;
-    height: 100%;
-    padding: 30px;
-    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
+    gap: 2em;
+   
+    padding: 1em;
+    box-shadow: 0.3125rem 0.3125rem 1.25rem rgba(15, 15, 15, 0.3);
     transform: translate(200%,0);
+
+
+    transition: transform 0.25s ease-in-out 0s;
+    transform: translate(0px, 100%);
+    
+    margin:auto auto auto auto;
+    font-size: 1vw;
 
 }
 
@@ -775,18 +784,17 @@ h1{
 
 /* Aqui empieza la parte de Jose */
 
-.padre{
-    transition: transform 0.25s ease-in-out 0s;
-    transform: translate(0px, 100%);
-    padding: 5vmin;
-    margin:auto auto auto auto;
-}
 
+
+
+.name {
+    font-size: 3em;
+}
 
 .profile{
     display: flex;
-    height: 35vmin;
-    gap: 40px;
+    height: 20em;
+    gap: 2.5em;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -796,30 +804,30 @@ h1{
     border-radius:50%;
     position: relative;
 
-    width: 35vmin;
-    height: 30vmin;
+    width: 20em;
+    height:20em;
 }
 .years{
     display: flex   ;
-    font-size: 2vh;
+    font-size: 1.3em;
     font-weight: 900;
     position: absolute;
-    top: 3.5vmin;
-    right: 6vmin;
+    top: 2.6em;
+    right: 0.8em;
     background-color: #fff;
-    box-shadow: 0 0 12px rgba(o,o,o,-2);
-    width: 4vmin;
-    height: 4vmin;
+    box-shadow: 0 0 0.75rem rgba(o,o,o,-2);
+    width: 2em;
+    height: 2em;
     z-index: 2;
     align-items: center;
     justify-content: center;
-    border: solid 3px rgb(0, 0, 0);
+    border: solid 0.175rem rgb(0, 0, 0);
     border-radius: 50%;
 
 }
 .img{
-    width:30vmin ;
-    height: 30vmin;
+    width: 20em;
+    height:20em;
     border-radius:50%;
     background-size: cover;
     background-position: contain;
@@ -831,12 +839,15 @@ h1{
 .date{
     display: flex;
     align-items: center;
-justify-content: center;
+    justify-content: center;
     text-align: center;
+}
+.date>div>h3{
+    font-size: 1.8em;
 }
 .date>div>p{
     background: linear-gradient(90deg, hsl(233deg 100% 92%) 0%, #d5d9ff 100%);
-    font-size: 2vmin;
+    font-size: 1.3em;
     padding: 0.7rem;
     font-weight: 900;
     border-radius: 3.2rem;
@@ -846,7 +857,7 @@ h1{
   font-weight: 900;
 }
 .eParents{
-    width: 35vmin;
+    width: 22em;
     display: flex;
     gap: 1vmin;
     flex-direction: column;
@@ -857,7 +868,7 @@ h3{
   text-align: center;
 }
 .descriptionProfile>p{
-  font-size: 2vmin;
+  font-size: 2em;
   font-weight: 900;
 }
 
@@ -865,54 +876,63 @@ h3{
 /* parte inferios de la vista */
 
 .profileInf{
-    gap: 2vmin;
+    gap: 2em;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 25vh;
+    height: 20em;
+    font-size: 1vw;
 }
 
 .estudios{
-    width: 35vmin;
-    height: 7.5vmin;
+    width: 23em;
+    height: 3.8em;
     display: grid;
     grid-template-columns: 1fr 7fr 1fr;
     justify-content: center;
-    font-size: 1rem;
-    box-shadow: 5px 5px 20px rgb(15 15 15 / 30%);
+    font-size: 1em;
+    box-shadow: 0.3125rem 0.3125rem 1.25rem rgb(15 15 15 / 30%);
     font-weight: 800;
     /* border: solid 3px rgb(0, 0, 0 ); */
     /* background: linear-gradient(173deg, hsl(233deg 2000% 86%) 0%, hsla(0, 0%, 92%, 1) 100%); */
-    border-radius: 1vmin;
-    padding: 1vmin;
+    border-radius: 0.5em;
+    padding: 0.3em;
     overflow: hidden;
+}
+.estudio{
+    font-size: 0.7;
 }
 .estudios>*{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vmin;
+    font-size:1em;
 }
-
+.nextImg, .beforeImg{
+    width: 1.8em;
+}
+.nextImg:hover,.beforeImg:hover{
+    cursor: pointer;
+}
 .otros{
-    height: 25vmin;
+    width: 23em;
+    height: 18em;
     display: grid;
-    /* box-shadow: 5px 5px 20px rgb(15 15 15 / 30%); */
-    width: 35vmin;
+  
     font-weight: 900;
     background: linear-gradient(90deg, hsl(233deg 100% 92%) 0%, #d5d9ff 100%);
-    /* border: solid 3px rgb(0, 0, 0 ); */
-    /* border-radius: 1vmin; */
-    padding: 2vmin 2vmin;
+    box-shadow: 0.3125rem 0.3125rem 1.25rem rgb(15 15 15 / 30%);
+   
+    padding: 1em 1em;
     overflow-x: hidden;
 }
 
 .otros>h3{
-    font-size: 2.5vmin;
-    margin-bottom: 10px;
+    font-size: 1.3em;
+    margin-bottom: 0.625rem;
 }
 .liDiv{
-    font-size: 1rem;
+    font-size: 1.2em;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -925,17 +945,17 @@ li{
     display: flex;
     overflow: auto;
     flex-direction: column;
-    box-shadow: 5px 5px 20px rgb(15 15 15 / 30%);
+    box-shadow: 0.3125rem 0.3125rem 1.25rem rgb(15 15 15 / 30%);
     padding-block: 3vmin;
     text-align: center;
-    gap: 1.5vmin;
+    gap: 1em;
 }
 .descriptionProfile>h3{
     display: flex;
     /* height: 15%; */
     justify-content: center;
     align-items: center;
-    font-size: 2.5vmin;
+    font-size: 1.8em;
     padding-inline: 0.8rem;
     color: #3f49e7;
     font-weight: 900;
@@ -943,8 +963,8 @@ li{
 
 
 .descriptionPerfil{
-        /* height: 80%; */
-        width: 100%;
+       
+        width: 30em;
         color: #000000;
         display: flex;
         flex-direction: column;
