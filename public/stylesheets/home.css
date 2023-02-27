@@ -243,7 +243,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    width: 21em;
 }
 
 .containerParagraphs{
@@ -473,12 +473,10 @@ h1{
 }
 
 [class*="-right"]{
-
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: inherit;
-
 }
 
 .box-message-verde{
@@ -511,7 +509,7 @@ h1{
 }
 
 .message{
-    font-size: 14px;
+    font-size: 1.5em;
 }
 
 .double-check-verde{
@@ -538,20 +536,21 @@ h1{
 .parentParentMid{
 
     position: relative;
-    width: 100%;
+    width: 25em;
 
 }
 
 .parentTop{
-
     display: flex;
     align-items: center;
     height: 10%;
     gap: 1rem;
     margin: 0 1rem 1rem;
-
+    font-size: 1em;
 }
-
+.parentTop .nameTopChat{
+    font-size: 2em;
+}
 .contImgTopMid{
 
     display:flex;
@@ -572,10 +571,10 @@ h1{
 }
 
 .padreCenter{
-
     display: flex;
     flex-direction: column;
-    height: 74%;
+    height: 60%;
+    width: 23em;
     border-radius: 1rem;
     justify-content: space-between;
     padding: 1rem;
@@ -618,7 +617,6 @@ h1{
 }
 
 .inputSendMessage{
-
     border: none;
     inline-size: 83%;
     border-radius: 60px;
@@ -646,8 +644,8 @@ h1{
 
 /*Aca empieza la parte de sebastian*/
 .cont{
-    width: 292px;
-    height: 164px;
+    width: 24em;
+    height: 14em;
     display: flex ;
     flex-direction: row;
     justify-content: center;
@@ -658,10 +656,11 @@ h1{
     text-align: center;
     color: red;
     display: block;
-    width: 100%;
-    height: 20%;
+    width: 3em;
+    height: 3em;
     cursor: pointer;
     margin-top: 25px;
+    font-size: 2em;
 }
 /*Aca termina la parte de sebastian*/
 
@@ -674,8 +673,8 @@ h1{
 }
 
 .info, .about{
-    margin-bottom: 20px;
-    font-size: 14px;
+    margin-bottom: 1.25em;
+    font-size: 1.5em;
     text-align: left;
     font-weight: bolder;
 }
@@ -701,10 +700,10 @@ h1{
 /* Nombre de perfil */
 .nameProf{
     font-weight: 700;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 1.5em;
+    line-height: .2em;
     text-align: center;
-    margin: 10px 0;
+    margin: .2em 0;
 }
 
 /*parrafo de descripcion perfil*/
@@ -719,12 +718,12 @@ h1{
 
 /* Descripción del perfil */
 .description{
-    
     width: 16vw;
     overflow: auto;
     text-align: center;
     color: #434141;
     line-height: 2.5rem;
+    font-size: 1.5em;
 }
 /* Aquí termina parte Yulieth */
 .right{
@@ -744,11 +743,12 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 26em;
 }
 
 .childContent {
     background: rgba(0, 0, 0, 0.1);
-   
+    font-size: 1vw;
     display: flex;
     justify-content: space-between;
     gap: 2.1rem;
@@ -1106,7 +1106,7 @@ li{
     font-style: normal;
     font-weight: 500;
     font-size: 1.15rem;
-    line-height: 20px;
+    line-height: .5em;
     display: flex;
     align-items: center;
 }
