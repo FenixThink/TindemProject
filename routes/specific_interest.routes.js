@@ -10,5 +10,6 @@ router.get('/specificInterest/:id',SpecificInterestController.getOne)
 router.get('/specificInterestOfArea/:id',SpecificInterestController.findinteresArea)
 
 router.get("/findUserSpecializations/:id",SpecificInterestController.findUserSpecializations)
+router.get("/findAllApplicantsEmailWithSameInterest/:specialization/",SpecificInterestController.findAllApplicantsEmailWithSameInterest)
 
 export default router

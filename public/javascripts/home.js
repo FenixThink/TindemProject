@@ -93,15 +93,6 @@ export async function fetchQuerys() {
     }
     if (infoUser.message.rol === 'company') {
 
-        //Fetch para obtener todas los applicantes a mostrar para una compañia
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
-            method: 'get',
-            headers: {
-                'autorization': token
-            }
-        });
-        infoemails = await emailsCompany.json();
-        
         //Fetch para obtener toda la informacion de una compañia
         const response = await fetch(`/Interes/company/${infoUser.message.email}`,{
             method: 'get',
@@ -111,6 +102,16 @@ export async function fetchQuerys() {
         });
         dataUser = await response.json();
         console.log(dataUser)
+
+        //Fetch para obtener todas los applicantes a mostrar para una compañia
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
+            method: 'get',
+            headers: {
+                'autorization': token
+            }
+        });
+        infoemails = await emailsCompany.json();
+        console.log(infoemails)
 
         //Fetch para traer la info de los mensajes hora etc..
         const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
@@ -140,6 +141,15 @@ export async function fetchQuerys() {
         }
 
     }
+    console.log(dataUser[0].ID)
+    const userSpecialization = await fetch(`/findUserSpecializations/${dataUser[0].ID}`, {
+        method: 'get',
+        headers: {
+            'autorization': token
+        }
+    });
+    const specialization = await userSpecialization.json();
+    console.log(specialization)
 
     if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect ") {
         window.location = '/'
@@ -150,7 +160,7 @@ export async function fetchQuerys() {
     data.push(infoMessage);
     data.push(allmessages);
     data.push(emails)
-
+    console.log(data[4])
     return data;
 }
 

@@ -11,7 +11,6 @@ export async function options (userData){
 
     //------------- SPAN 1 -----------------------------------
     const span1 = document.createElement("span")
-    span1.dataset.stateBlockBtn = false;
 
     setTimeout(() => {
         const inputMessage = document.getElementById('inputMessage');

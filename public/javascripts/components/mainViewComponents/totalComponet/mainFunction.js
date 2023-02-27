@@ -5,7 +5,7 @@ import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 export const rightCreator = (img,dataArea,emails) => {
-
+    console.log(dataArea)
     setTimeout(() => { reloadData(emails) }, 100);
     const [data, interestArea] = dataArea
     const array = []

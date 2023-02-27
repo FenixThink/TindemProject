@@ -43,7 +43,10 @@ class Specific_interest extends GeneralQuerySql{
         return queryId[0]
     }
 
-
+    static async findAllApplicantsEmailWithSameInterest(specialization){
+        const queryId = await pool.query(`SELECT applicant.id as id, u.email, profile_account.name, applicant.lastname, date_format(applicant.day_of_birth, "%d-%m-%Y") as day_of_birth, profile_account.img, profile_account.description, city.name as city FROM specific_interest INNER JOIN profile_specialization ON specific_interest.id = profile_specialization.id_specialization INNER JOIN profile_account ON profile_account.id = profile_specialization.id_profile_account INNER JOIN user_account as u ON profile_account.id_user = u.id INNER JOIN applicant ON profile_account.key_rol = applicant.id INNER JOIN city ON profile_account.id_city = city.id WHERE specific_interest.name = (?) AND profile_account.type='applicant'`, [specialization])
+        return queryId[0]
+    }
 
     
 }

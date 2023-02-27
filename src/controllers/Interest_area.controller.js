@@ -26,7 +26,6 @@ class InterestAreaController extends GeneralQuerySql {
                 const element =  await Interest_area.InteresArea(req.params);
 
                 // console.log (interest)
-                console.log(profile)
                 // console.log(element)
 
                 if(profile.length == 0 || interest.length == 0){

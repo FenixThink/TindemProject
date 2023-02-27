@@ -1,4 +1,5 @@
 import SpecificInterest from '../models/Specific_interest.model.js'
+import Interest_area from '../models/Interest_area.model.js';
 
 class SpecificInterestController{
     static createSpecificInterest = async (req, res) => {
@@ -64,6 +65,22 @@ class SpecificInterestController{
     static async findinteresArea (req,res){
         try{
             const answer = await SpecificInterest.findinteresArea(req.params.id)
+            
+            // res.send(answer)
+            return res.status(200).json(answer);
+            
+        }catch(error){
+            return res.send({
+                "status":404,
+                "message":error.message
+            })
+        }
+    }
+
+    static async findAllApplicantsEmailWithSameInterest(req,res){
+        try{
+            
+            const answer = await SpecificInterest.findAllApplicantsEmailWithSameInterest(req.params.specialization)
             
             // res.send(answer)
             return res.status(200).json(answer);

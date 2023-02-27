@@ -19,7 +19,7 @@ export const TotalFunctionView = async(dataArea,emails,dataUser,data,idA) => {
    divFather.appendChild(left)
 
    divFather.appendChild(right);
-   console.log(dataUser[0])
+   console.log(data)
    right.appendChild(rightCreator(objectApplicant[0].profile_image,dataArea,emails))
    return divFather;
 }
