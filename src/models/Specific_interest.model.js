@@ -45,6 +45,7 @@ class Specific_interest extends GeneralQuerySql{
 
 
 
+    
 }
 
 export default Specific_interest

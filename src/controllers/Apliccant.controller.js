@@ -14,8 +14,8 @@ class ApplicantController{
                 name: name,
                 lastname: nitOrLastname,
                 email: email,
-                password: date,
-                day_of_birth: password,
+                password: password,
+                day_of_birth: date,
                 description: description,
                 type: "applicant",
                 img: req.file.filename

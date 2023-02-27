@@ -25,10 +25,10 @@
 
 body{
 
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;    
-    height: 100vh;
+    align-items: center;     */
+    /* height: 100vh; */
     background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
 
 }
@@ -36,18 +36,25 @@ body{
 .PadrePadre{
     animation-duration: 1.5s;
     animation-name: slidein;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px
 }
 
 .Padre{
     background: white;
-    width: 100vmin;
-    display: grid;
-    gap: 1.2rem;
-    padding: 30px;
-    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
-}
+    border-radius: 10px;
+    /* width: 100vmin; */
+    /* max-width: 50%; */
 
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    /* gap: 5px; */
+    padding: 20px;
+    box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
+    /* overflow-y: scroll; */
+}
 
 .submitButton{
 
@@ -77,7 +84,8 @@ body{
     right: 0;
     width: 100%;
     height: 100vh;
-    display: grid;
+    /* display: grid; */
+    overflow: hidden;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.301);
 }
@@ -162,7 +170,9 @@ body{
 .seccionA {
     display: flex;
     width: 100%;
-    gap: 70px;
+    /* margin-top: 20px; */
+    height: 80%;
+    /* gap: 70px; */
 }
 
 .seccionLogo {
@@ -264,21 +274,19 @@ body{
     font-weight: 500;
     
 }
-.rolesInProfiles{
+/* .rolesInProfiles{
     margin-top: 1rem;
-}
+} */
 /*Aquí termina la parte de KDOE-117*/
 
 
 /*Aqui empieza la parte de Julieth*/
 /* Estilos del contenedor padre */
-
+/* 
 .seccionB{
-
     display: grid;
     gap: 1.8rem;
-
-}
+} */
 
 .container{
     display: grid;
@@ -379,11 +387,13 @@ label{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 15px;
-    gap: 0.7rem;
-    border: none;
+    flex-wrap: wrap;
+    /* padding: 15px; */
+    gap: 5px;
+    /* border: none; */
     background: #ffffff;
-    border: 1px solid #C2C2C2;
+    /* border: 2px solid purple; */
+    /* border: 1px solid #C2C2C2; */
     border-radius: .8rem;
 
 }
@@ -463,10 +473,9 @@ input:hover{
     
  }
 
- .
-
  .fileInput{
     display: none;
+    visibility: hidden;
 }
 
 /*aca finaliza la parte de pao */

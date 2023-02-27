@@ -776,7 +776,6 @@ h1{
 /* Aqui empieza la parte de Jose */
 
 .padre{
-    display: grid;
     transition: transform 0.25s ease-in-out 0s;
     transform: translate(0px, 100%);
     padding: 5vmin;

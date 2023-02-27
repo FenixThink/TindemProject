@@ -124,16 +124,16 @@
     INSERT INTO city VALUES ( null,"Valledupar",1);
 
 
-    INSERT INTO user_account VALUES ( null,"atorresgarcia92@gmail.com","m5jK7fP8z" );
-    INSERT INTO user_account VALUES ( null,"pmendozaortiz84@outlook.com","t7pG9nF2c" );
-    INSERT INTO user_account VALUES ( null,"sjimenezcastro80@gmail.com","W8dL2hN9k" );
-    INSERT INTO user_account VALUES ( null,"lhernandezramos93@yahoo.com","q3rD5sT6y" );
-    INSERT INTO user_account VALUES ( null,"mgonzalezsanchez89@hotmail.com","F6mJ9cP2b" );
-    INSERT INTO user_account VALUES ( null,"eramirezvargas86@gmail.com","v7nH8kY3t" );
-    INSERT INTO user_account VALUES ( null,"vcastrojimenez87@yahoo.com","Z9cR5bL2j" );
-    INSERT INTO user_account VALUES ( null,"jmorenoortiz91@outlook.com","T6gX5fN1m" );
-    INSERT INTO user_account VALUES ( null,"kgarciavega85@gmail.com","b3hY7sJ4t" );
-    INSERT INTO user_account VALUES ( null,"slopezbeltran94@hotmail.com","s4qW8zK9c" );
+    INSERT INTO user_account VALUES ( null,"atorresgarcia92@gmail.com","$2a$10$eYcMKEyIPOOJWb0DsgpP9uIaODky89wIYahQBT7FOkn/01oHIwUF." );
+    INSERT INTO user_account VALUES ( null,"pmendozaortiz84@outlook.com","$2a$10$nZZjFQtf9DmCeL5cvm3neeAPewpVw1tNTzINFymY687ZpL4ueZhAe" );
+    INSERT INTO user_account VALUES ( null,"sjimenezcastro80@gmail.com","$2a$10$lUlfZD2foqe17mhaCXszwutXc4OnPo/1aOhZQAzYXu3w2J5H0Rn9C" );
+    INSERT INTO user_account VALUES ( null,"lhernandezramos93@yahoo.com","$2a$10$86yF8LWwM59XciE6YsoUE.syBei4kDS2bT/Gm./uBV9N9WvcM4AnK" );
+    INSERT INTO user_account VALUES ( null,"mgonzalezsanchez89@hotmail.com","$2a$10$JbjjqSaPPwTb0zHpq7w.VurIk1J.qZqDY76IgwzX7BCIZZfcyTa96" );
+    INSERT INTO user_account VALUES ( null,"eramirezvargas86@gmail.com","$2a$10$8g5fREpGeylIuMyC030P4uM8ZaOOP9C.uCFOc8VUyzZ.VuL9fHIK." );
+    INSERT INTO user_account VALUES ( null,"vcastrojimenez87@yahoo.com","$2a$10$dTIn5KPhPL1cW7zx.kC50.41eyeL/8Aac4/KG2qoKS9bcmusrsZ62" );
+    INSERT INTO user_account VALUES ( null,"jmorenoortiz91@outlook.com","$2a$10$36xr/9sng3k501KttBsE/uXH7h4msT0dfK.KKyEZ9oh7fra86bGc2" );
+    INSERT INTO user_account VALUES ( null,"kgarciavega85@gmail.com","$2a$10$zWTOE537lK79N3R3H.s1DOSMB1qh/I.kVATn9BcJEzlWbJVIvM1Wm" );
+    INSERT INTO user_account VALUES ( null,"slopezbeltran94@hotmail.com","$2a$10$ng4q.h/PcSTjquWl7FaTpOPPDxIbp7nN8Dg2HLwPakmbfo/oIT0ju" );
     INSERT INTO user_account VALUES ( null,"nperezmoreno83@yahoo.com","P9lS2nF6t" );
     INSERT INTO user_account VALUES ( null,"dsanchezrivas88@outlook.com","d7fN2kT6j" );
     INSERT INTO user_account VALUES ( null,"mfloresgarcia81@gmail.com","x8pJ9cM4b" );
@@ -156,16 +156,16 @@
     INSERT INTO user_account VALUES ( null,"vmorenoperez87@hotmail.com","f3bG9sT7r" );
 
 
-    INSERT INTO user_account VALUES ( null,"info@ecopetrol.com","K8fP2cT7r" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@claro.com.co","s9jN5kC1m" );
-    INSERT INTO user_account VALUES ( null,"contactenos@terpel.com","F2gP5yL7z" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@exito.com","b7nK3mT8f" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@epm.com.co","v9hJ2zR5t" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@alkosto.com.co","M6kT8jC5n" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@d1.com.co","d5fH9pG3s" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@olimpica.com","L7sZ3mF9n" );
-    INSERT INTO user_account VALUES ( null,"contactenos@suraeps.com.co","P8rT2gC5j" );
-    INSERT INTO user_account VALUES ( null,"recursoshumanos@codensa.com.co","Q6yN4kS9t" );
+    INSERT INTO user_account VALUES ( null,"info@ecopetrol.com","$2a$10$eYcMKEyIPOOJWb0DsgpP9uIaODky89wIYahQBT7FOkn/01oHIwUF." );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@claro.com.co","$2a$10$nZZjFQtf9DmCeL5cvm3neeAPewpVw1tNTzINFymY687ZpL4ueZhAe" );
+    INSERT INTO user_account VALUES ( null,"contactenos@terpel.com","$2a$10$lUlfZD2foqe17mhaCXszwutXc4OnPo/1aOhZQAzYXu3w2J5H0Rn9C" );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@exito.com","$2a$10$86yF8LWwM59XciE6YsoUE.syBei4kDS2bT/Gm./uBV9N9WvcM4AnK" );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@epm.com.co","$2a$10$JbjjqSaPPwTb0zHpq7w.VurIk1J.qZqDY76IgwzX7BCIZZfcyTa96" );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@alkosto.com.co","$2a$10$8g5fREpGeylIuMyC030P4uM8ZaOOP9C.uCFOc8VUyzZ.VuL9fHIK." );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@d1.com.co","$2a$10$dTIn5KPhPL1cW7zx.kC50.41eyeL/8Aac4/KG2qoKS9bcmusrsZ62" );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@olimpica.com","$2a$10$36xr/9sng3k501KttBsE/uXH7h4msT0dfK.KKyEZ9oh7fra86bGc2" );
+    INSERT INTO user_account VALUES ( null,"contactenos@suraeps.com.co","$2a$10$zWTOE537lK79N3R3H.s1DOSMB1qh/I.kVATn9BcJEzlWbJVIvM1Wm" );
+    INSERT INTO user_account VALUES ( null,"recursoshumanos@codensa.com.co","$2a$10$ng4q.h/PcSTjquWl7FaTpOPPDxIbp7nN8Dg2HLwPakmbfo/oIT0ju" );
     INSERT INTO user_account VALUES ( null,"recursoshumanos@sanitas.com.co","V5nB2hL7f" );
     INSERT INTO user_account VALUES ( null,"info@drummondltd.com","x7cF3mJ5t" );
     INSERT INTO user_account VALUES ( null,"recursoshumanos@bavaria.com.co","Z9zG8fH1p" );

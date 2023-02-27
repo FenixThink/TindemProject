@@ -27,6 +27,8 @@ router.get('/api/updateActionMatch/:idApplicant/:idCompany',UserController.updat
 
 router.get('/api/validateMatch/:idApplicant/:idCompany',UserController.validateMatch)
 
+router.post('/api/hasheado',userController.hasheado)
+
 
 router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
     res.json({

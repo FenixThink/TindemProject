@@ -28,14 +28,6 @@ export async function options (userData){
 
     span1.addEventListener('click', async() => {
 
-        let id_applicant, id_company
-            if(userData.type=="applicant"){
-                id_applicant = userData.ID;
-                id_company = document.querySelector('.nameTopChat').id;             
-            }else{
-                id_applicant = document.querySelector('.nameTopChat').id;
-                id_company = userData.ID;   
-            }
 
         if (!alreadyBlocked) {
             Swal.fire({
@@ -50,6 +42,19 @@ export async function options (userData){
                 if (result.isConfirmed) {
                     //----------------------
                     
+                let id_applicant, id_company
+                // console.log(userData)
+
+                if(userData.type=="applicant"){
+                        id_applicant = userData.ID;
+                        id_company = document.querySelector('.nameTopChat').id;
+                    }else{
+                        id_applicant = document.querySelector('.nameTopChat').id;
+                        id_company = userData.ID;
+
+
+                    }
+                    // console.log(id_applicant)
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });
@@ -74,16 +79,6 @@ export async function options (userData){
 
     span1.addEventListener('click', () => {
 
-        let id_applicant, id_company
-            if(userData.type=="applicant"){
-                id_applicant = userData.ID;
-                id_company = document.querySelector('.nameTopChat').id;             
-            }else{
-                id_applicant = document.querySelector('.nameTopChat').id;
-                id_company = userData.ID;   
-            }
-
-
         if (alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer desbloquearlo?',
@@ -96,6 +91,21 @@ export async function options (userData){
                 
             }).then( async(result) => {
                 if (result.isConfirmed) {
+                    let id_applicant, id_company
+
+                    if(userData.type=="applicant"){
+                        id_applicant = userData.ID;
+                        id_company = document.querySelector('.nameTopChat').id;
+                    }else{
+                        id_applicant = document.querySelector('.nameTopChat').id;
+                        id_company = userData.ID;
+
+
+                    }
+
+                    console.log(id_applicant)
+                    console.log(id_company)
+
 
                     const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {
                         method: 'get'

@@ -12,7 +12,7 @@ export class Actions extends GeneralQuerySql{
     #id_company;
 
     constructor(body) {
-        super()
+        this.#action_time = body.action_time,
         this.#action = body.action
         this.#action_author = body.action_author,
         this.#action_match = body.action_match
@@ -35,27 +35,21 @@ export class Actions extends GeneralQuerySql{
     get id_company(){ return this.#id_company }
 
     create = async ()=>{
-        const rows = await pool.query('INSERT INTO actions (action, action_author, action_match, id_applicant, id_company) VALUES (?, ?, ?, ?, ?)', [this.#action, this.#action_author, this.#action_match, this.#id_applicant, this.#id_company])
-        return rows[0]
-    }
-    static updateAM = async (params)=>{
-        const rows = await pool.query('UPDATE actions a SET a.action_match = 1 WHERE a.id_applicant = (?) && a.id_company = (?)', [params.idApplicant, params.idCompany])
-        return rows[0]
-    }
-    static FindOneCA = async (params)=>{
-        const rows = await pool.query('SELECT * FROM actions a WHERE a.id_applicant = (?) && a.id_company = (?)', [params.idApplicant, params.idCompany])
+        const rows = await pool.query('INSERT INTO actions (action_time, action, action_author, action_match, id_applicant, id_company) VALUES (?, ?, ?, ?, ?, ?)', [this.#action_time, this.#action, this.#action_author, this.#action_match, this.#id_applicant, this.#id_company])
         return rows[0]
     }
 
     static async FindOneA(id){
         const [queryname] = await pool.query(`SELECT p.name FROM profile_account p WHERE key_rol = (?) AND p.type = "applicant"`, [id])
-        const queryId = await pool.query(`SELECT ac.action, p.name AS name_company, co.id AS id_company  FROM actions ac INNER JOIN profile_account p ON ac.id_company = p.key_rol AND p.type = "company" AND action_match = 1 INNER JOIN applicant ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.id_applicant = (?) LIMIT 1`, [id])
+        const queryId = await pool.query(`SELECT ac.action, p.name AS name_company, co.id AS id_company  FROM actions ac INNER JOIN profile_account p ON ac.id_company = p.key_rol AND p.type = "company" AND action_match = 1 INNER JOIN applicant ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.id_applicant = (?)`, [id])
         return {name:queryname[0], consulta:queryId[0]}
     }
 
     static async FindOneC(id){
         const [queryname] = await pool.query(`SELECT p.name  FROM profile_account p  WHERE key_rol = (?) AND p.type = "company"`, [id])
-        const queryId = await pool.query(`SELECT ac.action, p.name AS name_applicant,ap.id AS id_applicant  FROM actions ac INNER JOIN profile_account p ON ac.id_applicant = p.key_rol AND p.type = "applicant" AND action_match = 1 INNER JOIN company ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.blocked_status = 0 AND ac.id_company = (?) LIMIT 1`, [id])
+        console.log(id)
+        const queryId = await pool.query(`SELECT ac.action, p.name AS name_applicant,ap.id AS id_applicant  FROM actions ac INNER JOIN profile_account p ON ac.id_applicant = p.key_rol AND p.type = "applicant" AND action_match = 1 INNER JOIN company ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.id_company = (?)`, [id])
+        console.log(queryId[0])
         return {name:queryname[0], consulta:queryId[0]}
 
     }
@@ -67,6 +61,7 @@ export class Actions extends GeneralQuerySql{
     } 
 
     static async BlockUser(id_applicant,id_company){
+        console.log(id_applicant,id_company)
         const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 1 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
         return "Actualizado exitoso"
     }

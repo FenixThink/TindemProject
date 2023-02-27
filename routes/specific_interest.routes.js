@@ -7,7 +7,7 @@ router.post("/specificInterest", SpecificInterestController.createSpecificIntere
 router.get('/specificInterest',SpecificInterestController.getAll)
 
 router.get('/specificInterest/:id',SpecificInterestController.getOne)
-
+router.get('/specificInterestOfArea/:id',SpecificInterestController.findinteresArea)
 
 router.get("/findUserSpecializations/:id",SpecificInterestController.findUserSpecializations)
 
