@@ -5,7 +5,18 @@ import { renderButtons } from "../likeDislikeComponent/likeDislikeComponent.js";
 //Importe de los datos de usuario 
 import { applicant } from "../../userDataCard/userDataCard.js";
 export const rightCreator = (img,dataArea,emails,dataUser) => {
-
+    if (img === null){
+        const mainContainer = document.createElement('div');
+        mainContainer.className = "mainContainer";
+        mainContainer.className += " textCenter";
+        let h1 = document.createElement("h1")
+        h1.textContent = "Por el momento no tenemos usuarios que mostrarte"
+        let p = document.createElement("p")
+        p.textContent = "Lamentamos los inconvenientes, Estamos trabajando para mejorar nuestro servicio"
+        mainContainer.appendChild(h1)
+        mainContainer.appendChild(p)
+        return mainContainer
+    }
     setTimeout(() => { reloadData(emails,dataUser,dataArea) }, 100);
     const [data, interestArea] = dataArea
     const array = []
@@ -192,6 +203,10 @@ export const reloadData = (emails,dataUser,dataArea) => {
 
         mainContainer.remove()
         const right = document.querySelector('.right')
+        if (emailsAll == undefined || dataArea == undefined || dataUser == undefined || emailsAll[aleatory] == undefined){
+            right.appendChild(rightCreator(null))
+            return
+        }
         right.appendChild(rightCreator(`../../../../img/${emailsAll[aleatory][0].img}`, emailsAll[aleatory],emailsAll,dataUser,dataArea))
     },);
     vectorDislike.addEventListener('click', async () => {
@@ -275,12 +290,7 @@ export const reloadData = (emails,dataUser,dataArea) => {
         mainContainer.remove()
         const right = document.querySelector('.right')
         if (emailsAll == undefined || dataArea == undefined || dataUser == undefined || emailsAll[aleatory] == undefined){
-            let h1 = document.createElement("h1")
-            h1.textContent = "Por el momento no tenemos usuarios que mostrarte"
-            let p = document.createElement("p")
-            p.textContent = "Lamentamos los inconvenientes, Estamos tratando de mejorar nuestro servicio"
-            right.appendChild(h1)
-            right.appendChild(p)
+            right.appendChild(rightCreator(null))
             return
         }
         right.appendChild(rightCreator(`../../../../img/${emailsAll[aleatory][0].img}`,emailsAll[aleatory],emailsAll,dataUser,dataArea))

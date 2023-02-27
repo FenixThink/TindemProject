@@ -101,7 +101,7 @@ class UserController{
     }
 
     static generateAccessToken(user){
-        return jwt.sign(user,process.env.SECRET,{expiresIn: '1m'})
+        return jwt.sign(user,process.env.SECRET,{expiresIn: '100m'})
     }
 
 

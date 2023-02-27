@@ -59,6 +59,9 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
+        if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
+            window.location = '/'
+        }
 
         //Fetch para traer la info de los mensajes hora etc..
         const idApplicant = await fetch(`obtenerChatIDApplicant/${dataUser[0].ID}`, {
@@ -108,7 +111,9 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-
+        if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
+            window.location = '/'
+        }
         //Fetch para traer la info de los mensajes hora etc..
         const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
             method: 'get',
@@ -138,9 +143,6 @@ export async function fetchQuerys() {
 
     }
 
-    if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect ") {
-        window.location = '/'
-    }
 
     data.push(infoUser);
     data.push(dataUser);
