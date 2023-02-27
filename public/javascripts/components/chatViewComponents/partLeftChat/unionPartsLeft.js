@@ -1,5 +1,5 @@
 import { allChats } from '../all-chats/allChats.js'
-import { divSearch } from '../all-chats/search.js'
+
 import { iconsButtons }  from '../all-chats/iconsButtons.js'
 
 export const partLeft = async(topName,topProfileImg,data,idA) =>{
@@ -27,7 +27,6 @@ export const partLeft = async(topName,topProfileImg,data,idA) =>{
     
     //Creaion del search de los chat
     const infoMessage = data[2].consulta;
-    const search = divSearch(infoMessage)
 
     //Importando el div de los íconos
     const buttons = iconsButtons()
@@ -36,11 +35,11 @@ export const partLeft = async(topName,topProfileImg,data,idA) =>{
     const profile = document.createElement('div')
     profile.className = 'profileCont'
     profile.appendChild(imgName)
-    profile.appendChild(search)
+   
 
     // console.log(idA)
 
-    const chats = await allChats(data,idA)
+    const chats = await allChats(data,idA,infoMessage)
     // console.log(data[1,0].message.id)
 
 

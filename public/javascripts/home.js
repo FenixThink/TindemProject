@@ -174,32 +174,31 @@ fetchQuerys().then(async (data) => {
     const sercCont = document.querySelector('.searc')
 
     //Cuando tiene el mouse encima
-    lupa.addEventListener('click', (e) => {
+    // lupa.addEventListener('click', (e) => {
 
-        search.style.width = '100%'
-        lupa.style.transition = 'transform 1s ease-in-out'
-        lupa.style.transform = 'translate(-250%,0)'
-
-
-    })
-
-    search.addEventListener('focus', (e) => {
-
-        search.style.width = '100%'
-        lupa.style.transition = 'transform 1s ease-in-out'
-        lupa.style.transform = 'translate(-250%,0)'
+    //     search.style.width = '100%'
+    //     lupa.style.transition = 'transform 1s ease-in-out'
+    //     lupa.style.transform = 'translate(-250%,0)'
 
 
-    })
-    //Cuando quita el mouse de encima
-    search.addEventListener('blur', (e) => {
+    // })
 
-        search.removeAttribute('style')
+    // search.addEventListener('focus', (e) => {
+    //     search.style.width = '90%'
+    //     lupa.style.transition = 'transform 1s ease-in-out'
+    //     lupa.style.transform = 'translate(-250%,0)'
 
-        lupa.style.transition = 'transform 1s ease-in-out'
-        lupa.style.transform = 'translate(0,0)'
 
-    })
+    // })
+    // //Cuando quita el mouse de encima
+    // search.addEventListener('blur', (e) => {
+        
+    //     search.removeAttribute('style')
+
+    //     lupa.style.transition = 'transform 1s ease-in-out'
+    //     lupa.style.transform = 'translate(0,0)'
+
+    // })
 
 
     document.querySelector('.leftProfile').addEventListener('click', () => {
