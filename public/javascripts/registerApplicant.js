@@ -21,7 +21,6 @@ const query = async () => {
 
     return [City, Countrys]
 }
-
 const data = await query()
 const City = await data[0].json()
 const Countrys = await data[1].json()
@@ -30,95 +29,157 @@ app.appendChild(await parentCreator("https://i.ibb.co/0tYZSpb/image.png", "Nombr
 
 //Validación de campos en el formulario
 const formCompany = document.getElementById('formCompany')
-const send = document.querySelector('.submitButton')
+const inputs = document.querySelectorAll('#formCompany input')
 
 
 
-send.addEventListener('click', async () => {
-    const spec = [...prueba]
-    const body = {
-        specialization: spec
-    }
 
-    const dataSpecialization = JSON.stringify(body)
+const expresiones = {
+    username: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{4,35}$/,
+    password: /^(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,15}$/,
+    email: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
+    date: /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
+    inputUsuarioEmp: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{8,35}$/,
+    surname: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{8,35}$/
+}
 
-    fetch('/profileSpecialization/create', {
-        method: 'post',
-        headers: {
-            "content-type": 'application/json'
-        },
-        body: dataSpecialization
-    })
-})
+//Parametros para validar el formulario
+const parametros = {
+    name: false,
+    nitOrLastname: false,
+    email: false,
+    password: false
+}
 
-
-send.addEventListener('submit', async (e) => {
-
-    const inputCompanyName = document.querySelectorAll('.inputEmpresa')
-    let description = document.querySelector('.description')
-    let data = []
-
-    inputCompanyName.forEach((e) => {
-        if (e.value == 'Seleccione pais' || e.value == 'Seleccione ciudad') {
-            data.push('')
-            return
-        }
-        data.push(e.value)
-    })
-    data.push(description.value)
-
-    //Condicional para definir si los campos estan vacios
-    let emptyInputsBool = data.some(e => e === "")
-
-    if (emptyInputsBool == true) {
-        alert('Por favor llenar todos los datos requeridos')
-    } else {
-
-        // Validacion de que la contraseña cumpla con ciertos parametros (Minimo 8 letras, minimo una letra, minimo un digito)
-        let p = document.querySelector('#inputContraseñaID').value;
-        let errors = [];
-
-        if (p.length < 8) {
-            errors.push("Tu contraseña debe contener al menos ocho caracteres");
-        } else if (p.search(/[a-z]/i) < 0) {
-            errors.push("Tu contraseña debe contener al menos un carácter");
-        }
-
-        if (p.search(/[0-9]/) < 0) {
-            errors.push("Tu contraseña debe contener al menos un número.");
-        }
-
-        if (errors.length > 0) {
-            alert(errors.join("\n"));
-            return
-        }
-
-        inputCompanyName.forEach((e, i) => {
-            if (i == 5) {
-                e.value = 'Seleccione pais'
-                return
-            } else if (i == 6) {
-                e.value = 'Seleccione ciudad'
-                return
+const validarForm = (e) => {
+    console.log("Validando Form");
+    switch (e.target.name) {
+        case "name":
+            if (expresiones.username.test(e.target.value)) {
+                document.getElementById('inputNameID').classList.remove("registerCompanyForm-incorrect")
+                document.getElementById('inputNameID').classList.add("registerCompanyForm-correct");
+                document.querySelector('#inputErrorID').hidden = true;
+                document.querySelector('#inputErrorID').classList.remove("inputErrorActivo");
+                parametros[e.target.name] = true;
+            } else {
+                document.getElementById('inputNameID').classList.remove("registerCompanyForm-correct");
+                document.getElementById('inputNameID').classList.add("registerCompanyForm-incorrect");
+                document.querySelector('#inputErrorID').hidden = false;
+                document.querySelector('#inputErrorID').classList.add("inputErrorActivo");
+                parametros[e.target.name] = false;
             }
-            e.value = ''
-        })
+            break;
+        case "nitOrLastname":
+            if (expresiones.surname.test(e.target.value)) {
+                document.getElementById('inputNitID').classList.remove("registerCompanyForm-incorrect");
+                document.getElementById('inputNitID').classList.add("registerCompanyForm-correct");
+                document.querySelector('#nitErrorID').hidden = true;
+                document.querySelector('#nitErrorID').classList.remove("inputErrorActivo");
+                parametros[e.target.name] = true;
+                console.log("Entra?");
+            } else {
+                document.getElementById('inputNitID').classList.remove("registerCompanyForm-correct");
+                document.getElementById('inputNitID').classList.add("registerCompanyForm-incorrect");
+                document.querySelector('#nitErrorID').hidden = false;
+                document.querySelector('#nitErrorID').classList.add("inputErrorActivo");
+                parametros[e.target.name] = false;
+                console.log("noHOy");
+            }
+            break;
+        case "email":
+            if (expresiones.email.test(e.target.value)) {
+                document.getElementById('inputMailID').classList.remove("registerCompanyForm-incorrect");
+                document.getElementById('inputMailID').classList.add("registerCompanyForm-correct");
+                document.querySelector('#emailErrorID').hidden = true;
+                document.querySelector('#emailErrorID').classList.remove("inputErrorActivo");
+                parametros[e.target.name] = true;
+            } else {
+                document.getElementById('inputMailID').classList.remove("registerCompanyForm-correct");
+                document.getElementById('inputMailID').classList.add("registerCompanyForm-incorrect");
+                document.querySelector('#emailErrorID').hidden = false;
+                document.querySelector('#emailErrorID').classList.add("inputErrorActivo");
+                parametros[e.target.name] = false;
+            }
+            break;
+        case "password":
+            if (expresiones.password.test(e.target.value)) {
+                document.getElementById('inputContraseñaID').classList.remove("registerCompanyForm-incorrect");
+                document.getElementById('inputContraseñaID').classList.add("registerCompanyForm-correct");
+                document.querySelector('#passwordErrorID').hidden = true;
+                document.querySelector('#passwordErrorID').classList.remove("inputErrorActivo");
+                parametros[e.target.name] = true;
+            } else {
+                document.getElementById('inputContraseñaID').classList.remove("registerCompanyForm-correct");
+                document.getElementById('inputContraseñaID').classList.add("registerCompanyForm-incorrect");
+                document.querySelector('#passwordErrorID').hidden = false;
+                document.querySelector('#passwordErrorID').classList.add("inputErrorActivo");
+                parametros[e.target.name] = false;
+            }
+            break;
+    }
+}
 
-        description.value = ''
+//Gran Hermano, que escucha cada tecla y click en los inputs.
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarForm);
+    input.addEventListener('blur', validarForm);
+});
+
+formCompany.addEventListener('submit', async (e) => {
+    const archivoInput = document.getElementById('archivoInput')
+    const choosedFile = archivoInput.files[0];
+    const exist = (parametros.name && parametros.password && parametros.nitOrLastname && parametros.email)
+    console.log("Estado Exist?", exist);
+    console.log("Parametros", parametros);
+    console.log("Estado IMG", choosedFile);
+    if (exist == true && choosedFile) {
+        console.log("Pasando");
+        const aviso = {
+            message: "userCreate"
+        }
+        localStorage.setItem('aviso', JSON.stringify(aviso));
+        const spec = [...prueba]
+        const body = {
+            specialization: spec
+        }
+        const dataSpecialization = JSON.stringify(body)
+        let timerInterval
+        Swal.fire({
+            title: 'Bienvenid@ a Tindem!',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+            }
+        })
+        fetch('/profileSpecialization/create', {
+            method: 'post',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: dataSpecialization
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Completa todos los campos!'
+        })
+        e.preventDefault()
+        console.log("No se ingresarón todos los campos!");
     }
 })
 
-//Validacion de que el valor ingresado al input de email si sea un email
 
-const inputMail = document.querySelector('#inputMailID')
 
-inputMail.addEventListener('focusout', (e) => {
-    let bandera = 0;
-    if (bandera == 0) {
-        let regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(e.target.value);
-        if (!regExpEmail) {
-            alert("Email invalido");
-        }
-        bandera = 1
-    }
-});

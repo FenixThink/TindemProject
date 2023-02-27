@@ -33,12 +33,12 @@ const formCompany = document.getElementById('formCompany')
 const inputs = document.querySelectorAll('#formCompany input')
 //Expresiones implementadas para verificar la validez de los campos en el formulario
 const expresiones = {
-    username: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{8,35}$/,
+    username: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{4,35}$/,
     password: /^(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,15}$/,
     email: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
     date: /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
     nit: /^([0-9]){8,11}$/,
-    surname: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0-9_-]{8,35}$/,
+
 }
 
 //Parametros para validar el formulario
@@ -46,8 +46,7 @@ const parametros = {
     name: false,
     nitOrLastname: false,
     email: false,
-    password: false,
-    surname: false
+    password: false
 }
 //Función para validar el formulario
 const validarFormulario = (e) => {
@@ -121,31 +120,25 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
-const send = document.querySelector('.submitButton')
-
 
 formCompany.addEventListener('submit', async (e) => {
-
     const archivoInput = document.getElementById('archivoInput')
     const choosedFile = archivoInput.files[0];
     const exist = (parametros.name && parametros.password && parametros.nitOrLastname && parametros.email)
     console.log("Estado Exist?", exist);
     console.log("Parametros", parametros);
     console.log("Estado IMG", choosedFile);
-
     if (exist == true && choosedFile) {
         console.log("Pasando");
         const aviso = {
             message: "userCreate"
         }
         localStorage.setItem('aviso', JSON.stringify(aviso));
-
         const spec = [...prueba]
         const body = {
             specialization: spec
         }
         const dataSpecialization = JSON.stringify(body)
-
         let timerInterval
         Swal.fire({
             title: 'Bienvenid@ a Tindem!',
@@ -183,40 +176,3 @@ formCompany.addEventListener('submit', async (e) => {
         console.log("No se ingresarón todos los campos!");
     }
 })
-
-/*
-formCompany.onsubmit =
-send.addEventListener('click', async (e) => {
-    const archivoInput = document.getElementById('archivoInput')
-    const choosedFile = archivoInput.files[0];
-    const exist = (parametros.name && parametros.password && parametros.nitOrLastname && parametros.email)
-    console.log("Estado Exist?", exist);
-
-    if (choosedFile) {
-        console.log("TRU'");
-        if (exist == true) {
-            console.log("Pasando");
-            const aviso = {
-                message: "userCreate"
-            }
-            localStorage.setItem('aviso', JSON.stringify(aviso));
-            const spec = [...prueba]
-            const body = {
-                specialization: spec
-            }
-            const dataSpecialization = JSON.stringify(body)
-            fetch('/profileSpecialization/create', {
-                method: 'post',
-                headers: {
-                    "content-type": 'application/json'
-                },
-                body: dataSpecialization
-            })
-        } else {
-    alert("Infinite")
-}
-    } else {
-    alert("La IMAGEN!")
-}
-})
-*/
