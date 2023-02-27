@@ -3,34 +3,38 @@ import { prueba } from "./components/modalOneCreateComponet/modalCratorTwo.js"
 
 const app = document.querySelector('#app')
 
-const query = async()=>{
+const query = async () => {
 
-    const Countrys = await fetch(`/country/get`,{
+    const Countrys = await fetch(`/country/get`, {
         method: 'get',
-        headers:{
-            "Content-type":"application/json"
+        headers: {
+            "Content-type": "application/json"
         }
     });
 
-    const City = await fetch(`/city/get`,{
+    const City = await fetch(`/city/get`, {
         method: 'get',
-        headers:{
-            "Content-type":"application/json"
+        headers: {
+            "Content-type": "application/json"
         }
     });
-    
-    return [City,Countrys]
-}   
+
+    return [City, Countrys]
+}
 
 const data = await query()
 const City = await data[0].json()
 const Countrys = await data[1].json()
 
-app.appendChild(await parentCreator("https://i.ibb.co/0tYZSpb/image.png","Nombres","Apellidos", "Fecha y lugar de nacimiento","Descripcion del perfil","área de interés laboral",City, Countrys,"applicant"))
+app.appendChild(await parentCreator("https://i.ibb.co/0tYZSpb/image.png", "Nombres", "Apellidos", "Fecha y lugar de nacimiento", "Descripcion del perfil", "área de interés laboral", City, Countrys, "applicant"))
 
+//Validación de campos en el formulario
+const formCompany = document.getElementById('formCompany')
 const send = document.querySelector('.submitButton')
 
-send.addEventListener('click',async()=>{
+
+
+send.addEventListener('click', async () => {
     const spec = [...prueba]
     const body = {
         specialization: spec
@@ -49,7 +53,7 @@ send.addEventListener('click',async()=>{
 
 
 send.addEventListener('submit', async (e) => {
-    
+
     const inputCompanyName = document.querySelectorAll('.inputEmpresa')
     let description = document.querySelector('.description')
     let data = []
