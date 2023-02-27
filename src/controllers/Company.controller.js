@@ -1,6 +1,6 @@
-import User from '../models//User.model.js'
 import Company from "../models/Company.model.js";
 import City from '../models/City.model.js';
+import User from '../models/User.model.js';
 //Inserción de datos al modelo de "ProfileAccount"
 import Profile_account from "../models/Profile_account.model.js";
 
@@ -11,7 +11,7 @@ class CompanyController extends GeneralQuerySql {
     //NO OLVIDAR asignar el async en el metodo al solucionar... GRACIAS!!.
     static async Create(req, res) {
         try {
-        
+
             const { name, nitOrLastname, email, date, password, description, city } = req.body;
 
             const companyInfo = {
@@ -26,10 +26,10 @@ class CompanyController extends GeneralQuerySql {
             }
 
             const user = new User(companyInfo)
-            await user.create() 
+            await user.create()
             companyInfo.id_user = await user.lastUser(user.email)
 
-            companyInfo.id_city = await City.idCity(city) 
+            companyInfo.id_city = await City.idCity(city)
 
             const company = new Company(companyInfo)
             await company.create()
@@ -41,7 +41,6 @@ class CompanyController extends GeneralQuerySql {
             res.redirect('/')
 
         } catch (error) {
-            console.log(error)
             res.status(500).json({
                 message: error.message
             });
@@ -63,7 +62,6 @@ class CompanyController extends GeneralQuerySql {
     static findOne = async (req, res) => {
         try {
             const [respuesta] = await Company.FindOne(req.params.id)
-            console.log(respuesta)
             return res.send(respuesta)
         } catch (error) {
             return res.send({
@@ -82,7 +80,7 @@ class CompanyController extends GeneralQuerySql {
                 "message": "Company update succefully"
             })
         } catch (error) {
-            return res.send({
+            return response.send({
                 "status": 404,
                 "message": error.message
             })

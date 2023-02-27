@@ -38,11 +38,12 @@ export async function fetchQuerys() {
         body: JSON.stringify(tokenPropio)
     })
     const infoUser = await tokenData.json();
+    const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant') {
 
         //Fetch para obtener todas la compañias a mostrar para un aplicante
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies`, {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id-31}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -50,7 +51,6 @@ export async function fetchQuerys() {
         });
 
         infoemails = await emailsApplicant.json();
-        
         //Fetch para obtener toda la informacion de un aplicante
         const response = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
             method: 'get',
@@ -59,13 +59,16 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-        console.log(dataUser[0])
+        if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
+            window.location = '/'
+        }
+
         //Fetch para traer la info de los mensajes hora etc..
         const idApplicant = await fetch(`obtenerChatIDApplicant/${dataUser[0].ID}`, {
             method: 'get',
         })
         allmessages = await idApplicant.json();
-      
+
         //Fetch para buscar los match de acuerdo a su id
         const idFetch = await fetch(`allAction/applicant/${dataUser[0].ID}`, {
             method: 'get',
@@ -92,16 +95,14 @@ export async function fetchQuerys() {
 
     }
     if (infoUser.message.rol === 'company') {
-
         //Fetch para obtener todas los applicantes a mostrar para una compañia
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id-30}`, {
             method: 'get',
             headers: {
                 'autorization': token
             }
         });
         infoemails = await emailsCompany.json();
-        
         //Fetch para obtener toda la informacion de una compañia
         const response = await fetch(`/Interes/company/${infoUser.message.email}`,{
             method: 'get',
@@ -110,8 +111,9 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-        console.log(dataUser)
-
+        if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect") {
+            window.location = '/'
+        }
         //Fetch para traer la info de los mensajes hora etc..
         const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
             method: 'get',
@@ -151,19 +153,18 @@ export async function fetchQuerys() {
     data.push(allmessages);
     data.push(emails)
 
+
     return data;
 }
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-    // console.log(dataUser[0].ID)
-    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data,dataUser[0].ID));
+    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
+
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-    console.log(dataUser[0])
-    father.appendChild(await allView('','',"","",dataUser[0],data));
-
+    father.appendChild(await allView('','',"","",dataUser[0].ID,data));
 
 
     //Creacion de la animacion del buscador
@@ -189,11 +190,12 @@ fetchQuerys().then(async (data) => {
         lupa.style.transform = 'translate(-250%,0)'
 
 
-    })  
+    })
     //Cuando quita el mouse de encima
     search.addEventListener('blur', (e) => {
 
         search.removeAttribute('style')
+
         lupa.style.transition = 'transform 1s ease-in-out'
         lupa.style.transform = 'translate(0,0)'
 
@@ -253,12 +255,12 @@ fetchQuerys().then(async (data) => {
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-    
+
     const cajas =document.querySelectorAll('.messageBox')
-    
+
     cajas.forEach(async  (e,i)=>{
     let indice=cajas.length-1
-        
+
         e.addEventListener('click', async (ev) => {
         let userId, userName, profileData, dataChat;
             if(infoUser.message.rol === 'applicant'){
@@ -275,7 +277,7 @@ fetchQuerys().then(async (data) => {
                 const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`,{
                     method: 'get'
                 })
-        
+
                 dataChat = await allMessage.json()
 
             }else{
@@ -291,7 +293,7 @@ fetchQuerys().then(async (data) => {
                 const allMessage = await fetch(`/getChatscompanyapplicant/${userId}/${dataUser[0].ID}`,{
                     method: 'get'
                 })
-        
+
                 dataChat = await allMessage.json()
             }
             // const person = idFetch[i]
@@ -302,7 +304,7 @@ fetchQuerys().then(async (data) => {
             e.remove()
         })
         
-        
+
         const messages = dataChat.Message
 
         //Configurando la actualizacion de los mensajes respecto al chat seleccionado
@@ -312,7 +314,7 @@ fetchQuerys().then(async (data) => {
             if(infoUser.message.rol == 'applicant'){
                 if(e.message[0].role == 'applicant'){
                     color = 'verde';
-                    cargo = 'applicant-right'    
+                    cargo = 'applicant-right'
                 }else{
 
                     color = 'gris'
@@ -321,7 +323,7 @@ fetchQuerys().then(async (data) => {
             }else{
                 if(e.message[0].role == 'company'){
                     color = 'verde';
-                    cargo = 'company-right'    
+                    cargo = 'company-right'
                 }else{
 
                     color = 'gris'
@@ -446,7 +448,4 @@ fetchQuerys().then(async (data) => {
         })
     })
     carga.style.display = 'none';
-
-  
-
 });
