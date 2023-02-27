@@ -91,6 +91,7 @@ export const allChats = async(data,idA) => {
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,'','','',aplicante)))
                 }
             }
+
         })
 
 
