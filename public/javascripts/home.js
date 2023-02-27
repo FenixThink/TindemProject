@@ -242,8 +242,8 @@ fetchQuerys().then(async (data) => {
                     main.style.display = 'flex'
                     setTimeout(() => {
 
-                        main.style.transition = 'transform .25s ease-in-out'
-                        main.style.transform = 'translate(0,0)'
+                        // main.style.transition = 'transform .25s ease-in-out'
+                        // main.style.transform = 'translate(0,0)'
 
                     }, 10)
                 }, 250)
@@ -362,11 +362,11 @@ fetchQuerys().then(async (data) => {
                     chat.style.transform = 'translate(0,-200%)'
 
                     setTimeout(() => {
-                        main.style.display = 'block'
+                        // main.style.display = 'block'
                         setTimeout(() => {
 
-                            main.style.transition = 'transform .25s ease-in-out'
-                            main.style.transform = 'translate(0,0)'
+                            // main.style.transition = 'transform .25s ease-in-out'
+                            // main.style.transform = 'translate(0,0)'
                             chat.style.display = 'none'
                         }, 10)
                     }, 250)
@@ -388,11 +388,11 @@ fetchQuerys().then(async (data) => {
         chat.style.transform = 'translate(0,-200%)'
 
         setTimeout(() => {
-            main.style.display = 'block'
+            // main.style.display = 'block'
             setTimeout(() => {
 
-                main.style.transition = 'transform .25s ease-in-out'
-                main.style.transform = 'translate(0,0)'
+                // main.style.transition = 'transform .25s ease-in-out'
+                // main.style.transform = 'translate(0,0)'
                 chat.style.display = 'none'
                 profile.style.display = 'none'
             }, 10)
