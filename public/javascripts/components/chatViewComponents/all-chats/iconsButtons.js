@@ -13,7 +13,8 @@ export function iconsButtons(){
   SignOff.className='SignOff-icon icons-buttons'
 
   SignOff.addEventListener('click', () =>{
-    alert('UwU');
+    localStorage.setItem('token','empty');
+    location = "/"
   })
 
   //Creación de íconos

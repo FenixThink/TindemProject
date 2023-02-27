@@ -29,6 +29,7 @@ export async function fetchQuerys() {
     const tokenPropio = {
         'token': token
     }
+    console.log(tokenPropio)
     //Devolver el token desencriptado
     const tokenData = await fetch('/api/decode/', {
         method: 'post',
@@ -38,6 +39,9 @@ export async function fetchQuerys() {
         body: JSON.stringify(tokenPropio)
     })
     const infoUser = await tokenData.json();
+    if (infoUser.message === `Invalid token specified: Cannot read properties of undefined (reading 'replace')`){
+        location = '/'
+    }
     const id = infoUser.message.id
 
     if (infoUser.message.rol === 'applicant') {

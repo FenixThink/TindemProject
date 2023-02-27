@@ -75,7 +75,6 @@ class UserController {
             return res.status(200).json({ 'message': respuesta })
         } catch (error) {
             return res.status(500).json({
-                "status": 404,
                 "message": error.message
             })
 
