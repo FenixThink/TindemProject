@@ -61,6 +61,7 @@ const validarForm = (e) => {
                 document.querySelector('#inputErrorID').hidden = true;
                 document.querySelector('#inputErrorID').classList.remove("inputErrorActivo");
                 parametros[e.target.name] = true;
+                console.log(parametros);
             } else {
                 document.getElementById('inputNameID').classList.remove("registerCompanyForm-correct");
                 document.getElementById('inputNameID').classList.add("registerCompanyForm-incorrect");
@@ -76,14 +77,12 @@ const validarForm = (e) => {
                 document.querySelector('#nitErrorID').hidden = true;
                 document.querySelector('#nitErrorID').classList.remove("inputErrorActivo");
                 parametros[e.target.name] = true;
-                console.log("Entra?");
             } else {
                 document.getElementById('inputNitID').classList.remove("registerCompanyForm-correct");
                 document.getElementById('inputNitID').classList.add("registerCompanyForm-incorrect");
                 document.querySelector('#nitErrorID').hidden = false;
                 document.querySelector('#nitErrorID').classList.add("inputErrorActivo");
                 parametros[e.target.name] = false;
-                console.log("noHOy");
             }
             break;
         case "email":

@@ -120,7 +120,6 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
-
 formCompany.addEventListener('submit', async (e) => {
     const archivoInput = document.getElementById('archivoInput')
     const choosedFile = archivoInput.files[0];
@@ -129,7 +128,6 @@ formCompany.addEventListener('submit', async (e) => {
     console.log("Parametros", parametros);
     console.log("Estado IMG", choosedFile);
     if (exist == true && choosedFile) {
-        console.log("Pasando");
         const aviso = {
             message: "userCreate"
         }

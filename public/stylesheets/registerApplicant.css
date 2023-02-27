@@ -302,11 +302,11 @@ body{
 
 /*Aqui empieza la parte de Julieth*/
 /* Estilos del contenedor padre */
-/* 
+
 .seccionB{
     display: grid;
     gap: 1.8rem;
-} */
+}
 
 .container{
     display: grid;
