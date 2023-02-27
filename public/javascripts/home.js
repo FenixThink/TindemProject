@@ -268,7 +268,7 @@ fetchQuerys().then(async (data) => {
         let indice = cajas.length - 1
 
         e.addEventListener('click', async (ev) => {
-
+        
         let userId, userName, profileData, dataChat, statusBlock;
             if(infoUser.message.rol === 'applicant'){
 
@@ -343,32 +343,33 @@ fetchQuerys().then(async (data) => {
         
         
         const messages = dataChat.Message
-
-            //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-            const messageFather = document.querySelector('.padreMensajes')
-            messages.forEach(e => {
-                let color, cargo;
-                if (infoUser.message.rol == 'applicant') {
-                    if (e.message[0].role == 'applicant') {
-                        color = 'verde';
+        
+        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
+        const messageFather = document.querySelector('.padreMensajes')
+        let diEnd, padreCentro;
+        messages.forEach(e => {
+            let color, cargo;
+            if (infoUser.message.rol == 'applicant') {
+                if (e.message[0].role == 'applicant') {
+                    color = 'verde';
                         cargo = 'applicant-right'
                     } else {
-
                         color = 'gris'
                     }
-
+                    
                 } else {
                     if (e.message[0].role == 'company') {
                         color = 'verde';
                         cargo = 'company-right'
                     } else {
-
                         color = 'gris'
                     }
                 }
-                console.log(e.message[0])
                 messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
+                
+                padreCentro = document.querySelector('.padreMensajes')
             })
+        
             //Animacion en si
             const main = document.querySelector('.mainContainer')
             const profile = document.querySelector('.padre')
@@ -379,6 +380,9 @@ fetchQuerys().then(async (data) => {
                 main.style.display = 'none'
                 profile.style.display = 'none'
                 chat.style.transform = 'translate(0,0)'
+                
+                diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
+                padreCentro.scrollTop+=diEnd
             }, 100)
             //Evento de la x para volver a ver las tarjeticas
             document.querySelectorAll('.x').forEach(e => {
