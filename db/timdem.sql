@@ -34,7 +34,7 @@
     create table user_account(
         id int(11) primary key auto_increment,
         email varchar(40) not null unique,
-        password varchar(50) not null
+        password varchar(60) not null
     );
 
     create table profile_account(
@@ -724,16 +724,22 @@
 
     ALTER TABLE `actions` CHANGE `action_time` `action_time` TIMESTAMP NOT NULL;
 
-    DROP PROCEDURE IF EXISTS update_match;
-    DELIMITER $$
-    CREATE PROCEDURE update_match(
-     	IN id_applicant_param INT,
-        IN id_company_param INT)
-    BEGIN
-        UPDATE actions AS a1
-        INNER JOIN actions AS a2
-        ON a1.id_applicant = a2.id_applicant AND a1.id_company = a2.id_company
-        SET a1.action_match = 1
-        WHERE a1.action = 'like' AND a2.action = 'like' AND a1.id = (SELECT id FROM actions WHERE actions.id_applicant = id_applicant_param 	AND actions.id_company = id_company_param LIMIT 1);
-    END$$
-    DELIMITER ;
+DROP PROCEDURE IF EXISTS update_match;
+DELIMITER $$
+CREATE PROCEDURE update_match(
+ 	IN id_applicant_param INT,
+    IN id_company_param INT)
+BEGIN
+	UPDATE actions as a SET a.action_match = 1 WHERE
+    a.id_applicant = id_applicant_param AND
+    a.id_company = id_company_param AND
+    a.action =
+    (SELECT actions.action FROM actions WHERE
+     actions.action_author = 'company' AND actions.id_applicant = id_applicant_param AND actions.id_company = id_company_param)
+    AND a.action =
+    (SELECT actions.action FROM actions WHERE
+     actions.action_author = 'applicant' AND
+     actions.id_applicant = id_applicant_param AND actions.id_company = id_company_param);
+
+END$$
+DELIMITER ;

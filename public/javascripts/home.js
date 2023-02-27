@@ -43,7 +43,7 @@ export async function fetchQuerys() {
     if (infoUser.message.rol === 'applicant') {
 
         //Fetch para obtener todas la compañias a mostrar para un aplicante
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id}`, {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id-31}`, {
             method: 'get',
             headers: {
                 'autorization': token
