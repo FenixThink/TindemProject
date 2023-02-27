@@ -51,10 +51,11 @@ const textName = document.createElement('div')
 const date = document.createElement('div');
 date.appendChild(textName);
 
-const name = document.createElement('h1');
+const name = document.createElement('h2');
 const lastName = document.createElement('h3');
 const from = document.createElement('p');
-;
+from.className='from'
+
 from.textContent=`${dataUser[0].city} - Colombia`;
 name.textContent =dataUser[0].name
 lastName.textContent =dataUser[0].lastname
@@ -198,7 +199,7 @@ descriptionPadre.appendChild(textDescription);
                             liDiv.style.transform = 'translate(0%,0)'
                            
                 },100)
-                dataUser[1][array[1]].forEach(element => {
+                dataUser[1][array[positionStudy]].forEach(element => {
                 const li = document.createElement('li');
                 li.className='li';
                 li.textContent=element
@@ -266,7 +267,7 @@ descriptionPadre.appendChild(textDescription);
         },100)
         
 
-        dataUser[1][array].forEach(element => {
+        dataUser[1][array[positionStudy]].forEach(element => {
     
             const li = document.createElement('li');
             li.className='li';
