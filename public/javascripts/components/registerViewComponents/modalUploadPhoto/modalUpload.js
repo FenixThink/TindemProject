@@ -6,7 +6,7 @@ export function modalUpload() {
     span.textContent = 'X'
     span.className = 'close'
     span.addEventListener('click', () => {
-        modalContent.style.display = 'none'
+        modalContent.style.visibility = 'hidden'
         // body.style.position = 'inherit'
         // body.style.height = '100%'
         // body.style.overflow = 'hidden'
@@ -23,18 +23,22 @@ export function modalUpload() {
     inputUpload.name = 'img'
     inputUpload.setAttribute('id', 'archivoInput')
     inputUpload.addEventListener('change', () => {
+
         /*funcion -----------------------*/
         const inputFile = document.getElementById('archivoInput')
         const img = document.querySelector('.LogoRegister');
         const choosedFile = inputFile.files[0];
         //nameImg = inputFile.files[0].name;
         if (choosedFile) {
+            const status = true;
             const reader = new FileReader();
-            modalContent.style.display = 'none'
+            modalContent.style.visibility = 'hidden'
             reader.addEventListener('load', function () {
                 img.setAttribute('src', reader.result);
             });
             reader.readAsDataURL(choosedFile);
+            console.log("ModalUpload change", status);
+
         }
     })
     /*----------------------------------*/
@@ -71,7 +75,7 @@ export function modalUpload() {
     modalContent.appendChild(span)
     modalContent.appendChild(uploadImage)
     modalContent.appendChild(divText)
-    modalContent.style.display = 'none'
+    modalContent.style.visibility = 'hidden'
 
     return modalContent
 }

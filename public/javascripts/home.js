@@ -30,10 +30,10 @@ export async function fetchQuerys() {
         'token': token
     }
     //Devolver el token desencriptado
-    const tokenData = await fetch('/api/decode/',{
-        method:'post',
-        headers:{
-            "Content-type":'application/json'
+    const tokenData = await fetch('/api/decode/', {
+        method: 'post',
+        headers: {
+            "Content-type": 'application/json'
         },
         body: JSON.stringify(tokenPropio)
     })
@@ -43,7 +43,7 @@ export async function fetchQuerys() {
     if (infoUser.message.rol === 'applicant') {
 
         //Fetch para obtener todas la compañias a mostrar para un aplicante
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id-31}`, {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id - 31}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -52,7 +52,7 @@ export async function fetchQuerys() {
 
         infoemails = await emailsApplicant.json();
         //Fetch para obtener toda la informacion de un aplicante
-        const response = await fetch(`/Interes/applicant/${infoUser.message.email}`,{
+        const response = await fetch(`/Interes/applicant/${infoUser.message.email}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -79,9 +79,9 @@ export async function fetchQuerys() {
         infoMessage = await idFetch.json();
 
 
-        for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+        for (let i = 0; i < Object.values(infoemails.message).length; i++) {
 
-            const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
+            const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`, {
                 method: 'get',
                 headers: {
                     'autorization': token
@@ -96,7 +96,7 @@ export async function fetchQuerys() {
     }
     if (infoUser.message.rol === 'company') {
         //Fetch para obtener todas los applicantes a mostrar para una compañia
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id-30}`, {
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id - 30}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -104,7 +104,7 @@ export async function fetchQuerys() {
         });
         infoemails = await emailsCompany.json();
         //Fetch para obtener toda la informacion de una compañia
-        const response = await fetch(`/Interes/company/${infoUser.message.email}`,{
+        const response = await fetch(`/Interes/company/${infoUser.message.email}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -129,9 +129,9 @@ export async function fetchQuerys() {
         });
         infoMessage = await idFetch.json();
 
-        for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+        for (let i = 0; i < Object.values(infoemails.message).length; i++) {
 
-            const emailsInfo = await fetch(`/Interes/applicant/${infoemails.message[i].email}`,{
+            const emailsInfo = await fetch(`/Interes/applicant/${infoemails.message[i].email}`, {
                 method: 'get',
                 headers: {
                     'autorization': token
@@ -159,12 +159,12 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-    app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
+    app.appendChild(await TotalFunctionView(emails[0], emails, dataUser, data));
 
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
-    father.appendChild(await allView('','',"","",dataUser[0].ID,data));
+    father.appendChild(await allView('', '', "", "", dataUser[0].ID, data));
 
 
     //Creacion de la animacion del buscador
@@ -226,7 +226,7 @@ fetchQuerys().then(async (data) => {
 
             }, 10)
         }, 250)
-
+        /*
         document.querySelectorAll('.x').forEach(e => {
             e.addEventListener('click', () => {
 
@@ -248,48 +248,46 @@ fetchQuerys().then(async (data) => {
                 }, 250)
             })
         })
-
+        */
     })
 
 
     //Evento de las cajas de texto para que aparezca el chat cuando le de click a alguno
 
-
-    const cajas =document.querySelectorAll('.messageBox')
-
-    cajas.forEach(async  (e,i)=>{
-    let indice=cajas.length-1
+    const cajas = document.querySelectorAll('.messageBox')
+    cajas.forEach(async (e, i) => {
+        let indice = cajas.length - 1
 
         e.addEventListener('click', async (ev) => {
-        let userId, userName, profileData, dataChat;
-            if(infoUser.message.rol === 'applicant'){
+            let userId, userName, profileData, dataChat;
+            if (infoUser.message.rol === 'applicant') {
 
-                userId = infoMessage.consulta[i].id_company 
-                userName = infoMessage.consulta[i].name_company      
-                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`,{
-                    method:'get'
+                userId = infoMessage.consulta[i].id_company
+                userName = infoMessage.consulta[i].name_company
+                const profile = await fetch(`/company/${infoMessage.consulta[i].id_company}`, {
+                    method: 'get'
                 });
-                
-                profileData = await profile.json()
-                console.log(profileData,'jejejej')
 
-                const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`,{
+                profileData = await profile.json()
+                console.log(profileData, 'jejejej')
+
+                const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`, {
                     method: 'get'
                 })
 
                 dataChat = await allMessage.json()
 
-            }else{
-                
+            } else {
+
                 userId = infoMessage.consulta[i].id_applicant
                 userName = infoMessage.consulta[i].name_applicant
-                const profile = await fetch(`/aspirant/${infoMessage.consulta[i].id_applicant}`,{
-                    method:'get'
+                const profile = await fetch(`/aspirant/${infoMessage.consulta[i].id_applicant}`, {
+                    method: 'get'
                 });
 
                 profileData = await profile.json()
 
-                const allMessage = await fetch(`/getChatscompanyapplicant/${userId}/${dataUser[0].ID}`,{
+                const allMessage = await fetch(`/getChatscompanyapplicant/${userId}/${dataUser[0].ID}`, {
                     method: 'get'
                 })
 
@@ -297,73 +295,59 @@ fetchQuerys().then(async (data) => {
             }
             // const person = idFetch[i]
             father.removeChild(document.querySelector('.principal'))
-            father.appendChild(await allView(profileData.id,profileData.name,profileData.img,profileData.description,dataUser[0],data))
+            father.appendChild(await allView(profileData.id, profileData.name, profileData.img, profileData.description, dataUser[0], data))
 
-        document.querySelectorAll('.boxM').forEach(e => {
-            e.remove()
-        })
-        
+            document.querySelectorAll('.boxM').forEach(e => {
+                e.remove()
+            })
 
-        const messages = dataChat.Message
 
-        //Configurando la actualizacion de los mensajes respecto al chat seleccionado
-        const messageFather = document.querySelector('.padreMensajes')
-        messages.forEach(e => {
-            let color,cargo;
-            if(infoUser.message.rol == 'applicant'){
-                if(e.message[0].role == 'applicant'){
-                    color = 'verde';
-                    cargo = 'applicant-right'
-                }else{
+            const messages = dataChat.Message
 
-                    color = 'gris'
+            //Configurando la actualizacion de los mensajes respecto al chat seleccionado
+            const messageFather = document.querySelector('.padreMensajes')
+            messages.forEach(e => {
+                let color, cargo;
+                if (infoUser.message.rol == 'applicant') {
+                    if (e.message[0].role == 'applicant') {
+                        color = 'verde';
+                        cargo = 'applicant-right'
+                    } else {
+
+                        color = 'gris'
+                    }
+
+                } else {
+                    if (e.message[0].role == 'company') {
+                        color = 'verde';
+                        cargo = 'company-right'
+                    } else {
+
+                        color = 'gris'
+                    }
                 }
-
-            }else{
-                if(e.message[0].role == 'company'){
-                    color = 'verde';
-                    cargo = 'company-right'
-                }else{
-
-                    color = 'gris'
-                }
-            }
-            messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
-        })
-
-
+                messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
+            })
             //Animacion en si
             const main = document.querySelector('.mainContainer')
             const profile = document.querySelector('.padre')
             const chat = document.querySelector('.principal')
-
-
-
             chat.style.display = 'block'
             //chat.style.width='800px'
             setTimeout(() => {
-
                 main.style.display = 'none'
                 profile.style.display = 'none'
                 chat.style.transform = 'translate(0,0)'
-
-
             }, 100)
-
-
             //Evento de la x para volver a ver las tarjeticas
             document.querySelectorAll('.x').forEach(e => {
                 e.addEventListener('click', () => {
-
                     const main = document.querySelector('.mainContainer')
                     const chat = document.querySelector('.principal')
-
                     chat.style.transform = 'translate(0,-200%)'
-
                     setTimeout(() => {
                         main.style.display = 'block'
                         setTimeout(() => {
-
                             main.style.transition = 'transform .25s ease-in-out'
                             main.style.transform = 'translate(0,0)'
                             chat.style.display = 'none'
@@ -372,11 +356,9 @@ fetchQuerys().then(async (data) => {
                 })
             })
         })
-        
     })
 
     //Evento de los botones inferiores
-
     //Botón del home 
     document.querySelector('.home-icon').addEventListener('click', () => {
 
@@ -387,7 +369,7 @@ fetchQuerys().then(async (data) => {
         chat.style.transform = 'translate(0,-200%)'
 
         setTimeout(() => {
-            main.style.display = 'block'
+            main.style.display = ''
             setTimeout(() => {
 
                 main.style.transition = 'transform .25s ease-in-out'
