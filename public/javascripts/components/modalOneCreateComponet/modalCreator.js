@@ -10,8 +10,7 @@ export async function  AreasRoles(btnAreasOrRoles) {
 
     const areas  = await fetch('/Area', {method:'get'})
     const dataAreas = await areas.json()
-    console.log(dataAreas)
-    
+
     const rol = document.createElement("span");
     rol.className="rolOn"
     rol.textContent="Area de  "

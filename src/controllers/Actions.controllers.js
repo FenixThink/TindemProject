@@ -55,7 +55,6 @@ class ActionController {
         }) 
            res.send(result);
         } catch (error) {
-            console.log(error)
             res.send({
                 "status" : 404,
                 "message" : error.message
@@ -71,7 +70,6 @@ class ActionController {
             })
             res.send(respuesta)
         }catch(error){
-            console.log(error)
             return res.send({
                 "status":404,
                 "message":error.message
@@ -88,7 +86,6 @@ class ActionController {
             })
             res.send(respuesta)
         }catch(error){
-            console.log(error)
             return res.send({
                 "status":404,
                 "message":error.message
@@ -104,7 +101,6 @@ class ActionController {
             })
             res.send(respuesta)
         } catch (error) {
-            console.log(error)
             res.send({
                 "status": 404,
                 "message": error.message
@@ -120,7 +116,6 @@ class ActionController {
             })
             res.send(respuesta)
         } catch (error) {
-            console.log(error)
             res.send({
                 "status": 404,
                 "message": error.message
@@ -131,7 +126,6 @@ class ActionController {
 
     static BlockUser = async(req, res ) => {
         try {
-            console.log("a")
             const respuesta = await Actions.BlockUser(req.params.id_applicant,req.params.id_company)
             if (res.length <= 0) res.status(404).json({
                 message: 'Action not valided'
@@ -140,7 +134,6 @@ class ActionController {
                 "message":"Actualizado"
             })
         } catch (error) {
-            console.log(error)
             res.send({
                 "status": 404,
                 "message": error.message
@@ -156,7 +149,6 @@ class ActionController {
             })
             res.send(respuesta)
         } catch (error) {
-            console.log(error)
             res.send({
                 "status": 404,
                 "message": error.message
@@ -172,7 +164,6 @@ class ActionController {
             })
             res.json(respuesta)
         } catch (error) {
-            console.log(error)
             res.send({
                 "status": 404,
                 "message": error.message

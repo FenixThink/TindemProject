@@ -44,7 +44,7 @@ class UserController{
     }
     static emailCompanies = async (req,res)=>{
     try {
-        const answer = await User.AllEmail(req.params)
+        const answer = await User.AllEmailCompany(req.params.id)
         res.status(200).json({message:answer})
         return;
     }catch(error){
@@ -57,8 +57,9 @@ class UserController{
 
     static emailApplicant = async (req,res)=>{
         try {
-            const answer = await User.AllEmail('Applicant')
+            const answer = await User.AllEmailApplicant(req.params.id)
             res.status(200).json({message:answer})
+            return;
         }catch(error){
             res.status(500).json({
                 "message":error.message
@@ -100,7 +101,7 @@ class UserController{
     }
 
     static generateAccessToken(user){
-        return jwt.sign(user,process.env.SECRET,{expiresIn: '120m'})
+        return jwt.sign(user,process.env.SECRET,{expiresIn: '1m'})
     }
 
 
@@ -144,11 +145,11 @@ class UserController{
     });
     }
 
-    static userUpdate = async (req, response) => {
+    static userUpdate = async (req, res) => {
         try {
             const{email,password} = req.body;
             const res = await User.update(email,password, req.params.id);
-            return response.send({
+            return res.send({
                 "status" : 200,
                 "message":"User update succefully"
             })
@@ -159,6 +160,35 @@ class UserController{
             })
         }
     }
+    static updateMatch = async (req,res)=>{
+        try {
+            const query = await User.updateMatch(req.params);
+            res.status(200).json({
+                "message":"Procedimiento almacenado bien"
+            });
+            return;
+        } catch (error) {
+            res.status(200).json({
+                "message":error
+            });
+            return;
+        }
+    }
+    static validateMatch = async (req,res)=>{
+        try {
+            const query = await User.validateMatch(req.params);
+            res.status(200).json({
+                "message":query
+            });
+            return;
+        } catch (error) {
+            res.status(200).json({
+                "message":error
+            });
+            return;
+        }
+    }
+
 
 }
 

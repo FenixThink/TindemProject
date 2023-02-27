@@ -19,7 +19,15 @@ export const TotalFunctionView = async(dataArea,emails,dataUser,data) => {
    divFather.appendChild(left)
 
    divFather.appendChild(right);
-
+   if (dataArea == undefined || dataArea == undefined || emails == undefined || dataUser == undefined){
+      let h1 = document.createElement("h1")
+      h1.textContent = "Por el momento no tenemos usuarios que mostrarte"
+      let p = document.createElement("p")
+      p.textContent = "Lamentamos los inconvenientes, Estamos tratando de mejorar nuestro servicio"
+      right.appendChild(h1)
+      right.appendChild(p)
+      return divFather
+   }
    right.appendChild(rightCreator(`../../../../img/${dataArea[0].img}`,dataArea,emails,dataUser ))
    return divFather;
 }

@@ -92,16 +92,14 @@ export async function fetchQuerys() {
 
     }
     if (infoUser.message.rol === 'company') {
-
         //Fetch para obtener todas los applicantes a mostrar para una compañia
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant`, {
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id-30}`, {
             method: 'get',
             headers: {
                 'autorization': token
             }
         });
         infoemails = await emailsCompany.json();
-
         //Fetch para obtener toda la informacion de una compañia
         const response = await fetch(`/Interes/company/${infoUser.message.email}`,{
             method: 'get',
@@ -110,7 +108,6 @@ export async function fetchQuerys() {
             }
         });
         dataUser = await response.json();
-        console.log(dataUser)
 
         //Fetch para traer la info de los mensajes hora etc..
         const idCompany = await fetch(`obtenerChatIDCompany/${dataUser[0].ID}`, {
@@ -157,8 +154,8 @@ export async function fetchQuerys() {
 
 fetchQuerys().then(async (data) => {
     const [infoUser, dataUser, infoMessage, allmessagesAplicant, emails] = data
-
     app.appendChild(await TotalFunctionView(emails[0], emails,dataUser,data));
+
     const father = document.querySelector('.right');
 
     father.appendChild(parentCreator(dataUser));
@@ -270,7 +267,6 @@ fetchQuerys().then(async (data) => {
                 });
                 
                 profileData = await profile.json()
-                console.log(profileData,'jejejej')
 
                 const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`,{
                     method: 'get'

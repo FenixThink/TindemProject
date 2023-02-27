@@ -10,7 +10,6 @@ class ProfileSpecializationController extends GeneralQuerySql {
 
             
             const {specialization} = req.body;
-            console.log(specialization)
             setTimeout(async ()=>{
                 const lastUserId = await Profile_account.lastRegisterId()
                 specialization.forEach(async (e)=>{
@@ -28,7 +27,6 @@ class ProfileSpecializationController extends GeneralQuerySql {
             res.redirect('/home')
 
         } catch (error) {
-            console.log(error)
             return res.status(500).json({
                 message: error.message
             });

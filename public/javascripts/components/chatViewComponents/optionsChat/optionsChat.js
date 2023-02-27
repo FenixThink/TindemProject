@@ -23,7 +23,7 @@ export async function options (userData){
     // });
 
 /*     const [rows] = await connection.execute('SELECT * FROM usuarios');
-    console.log(rows); */
+     */
 
 
     span1.addEventListener('click', async() => {
@@ -50,7 +50,6 @@ export async function options (userData){
                 if (result.isConfirmed) {
                     //----------------------
                     
-                    console.log(id_applicant, id_company)
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });

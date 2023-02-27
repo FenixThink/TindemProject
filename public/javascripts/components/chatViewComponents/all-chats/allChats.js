@@ -6,7 +6,6 @@ import { fetchQuerys } from "../../../home.js"
 
 export const allChats = async(data) => {
         const [infoUser, dataUser,infoMessage,allMessages] = data;
-        console.log(infoMessage)
 
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')

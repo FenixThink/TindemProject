@@ -41,7 +41,6 @@ class CompanyController extends GeneralQuerySql {
             res.redirect('/')
 
         } catch (error) {
-            console.log(error)
             res.status(500).json({
                 message: error.message
             });
@@ -63,7 +62,6 @@ class CompanyController extends GeneralQuerySql {
     static findOne = async (req, res) => {
         try {
             const [respuesta] = await Company.FindOne(req.params.id)
-            console.log(respuesta)
             return res.send(respuesta)
         } catch (error) {
             return res.send({

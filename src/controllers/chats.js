@@ -14,7 +14,6 @@ class chatsController{
     }
 
     static getChatIdUserCompany = async (req,res)=>{
-        console.log(req.params)
         const chat = await chatsmodel.find({idCompany:req.params.idCompany})
         res.send(chat)
     }
@@ -28,7 +27,6 @@ class chatsController{
             })
             return chat
         }catch(e){
-            console.log(e)
             res.status(500).json({
                 "Messsage":"Something goes wrong"
             })

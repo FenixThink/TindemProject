@@ -24,19 +24,6 @@ export const rightCreator = (img,dataArea,emails,dataUser) => {
         })       
     });
 
-    // for (let  i = 0; i < Object.values(interestArea).length; i++){
-    //     if (interestArea[array[i]].length > 1){
-    //         for (let  a = 0; a <= interestArea[array[i]].length; a++){
-    //             if(interestArea[array[i]][a]){
-    //                 otherArray.push(interestArea[array[i]][a]) 
-    //             }
-    //         }
-    //     }else if(interestArea[array[i]]){
-    //         otherArray.push(interestArea[array[i]])
-    //     }
-    // }   
-    // console.log(otherArray)
-
     const componentAInformation = upperComponents(img, data.name, data);
     const componentBDescription = interests(interestOfArea);
     const componentDescription = Description(data.description);
@@ -69,49 +56,233 @@ export const reloadData = (emails,dataUser,dataArea) => {
     const aleatory = Math.floor(Math.random() * large);
     const token = localStorage.getItem('token')
 
-    const objectApplicant = Object.values(applicant);
     const mainContainer = document.querySelector('.mainContainer');
     const vectorLike = document.querySelector("#likeVector");
     const vectorDislike = document.querySelector("#imgUnlike");
     vectorLike.addEventListener('click', async () => {
-        const dataSaveAction = {
-            action:'like',
+
+        const emailsAll = []
+        if (dataUser[0].type === 'applicant') {
+            const  dataSaveAction = {
+                action:'like',
+                action_author:dataUser[0].type,
+                action_match:0,
+                id_applicant:dataUser[0].ID,
+                id_company:dataArea[0].ID
+            }
+            await fetch('/ActionsCreate',{
+                method:'post',
+                headers:{
+                    "Content-type":'application/json'
+                },
+                body: JSON.stringify(dataSaveAction)
+            })
+            const validate = await fetch(`/api/updateActionMatch/${dataUser[0].ID}/${dataArea[0].ID}`,{
+                method:'get',
+                headers:{
+                    "Content-type":'application/json'
+                }
+            });
+            const hola = await fetch(`/api/validateMatch/${dataUser[0].ID}/${dataArea[0].ID}`,{
+                method:'get',
+                headers:{
+                    "Content-type":'application/json'
+                }
+            })
+            const response = await hola.json()
+            if (response.message[0].action_match.data[0] != 0){
+                Swal.fire({
+                    title: 'MATCH!',
+                    text: `Haz hecho match exitoso con ${dataArea[0].name}`,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+                let button
+                setInterval(() => {
+                    button = Swal.isVisible()
+                    console.log(button)
+                    if (button == false) {
+                        location = "/home"
+                    }
+                }, 100);
+
+            }
+            const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${dataUser[0].ID}`, {
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            const infoemails = await emailsApplicant.json();
+            for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+                const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
+                    method: 'get',
+                    headers: {
+                        'autorization': token
+                    }
+                });
+                const UsersData = await emailsInfo.json();
+                emailsAll.push(UsersData)
+            }
+        }
+
+        if (dataUser[0].type === 'company') {
+            const  dataSaveAction = {
+                action:'like',
+                action_author:dataUser[0].type,
+                action_match:0,
+                id_applicant:dataArea[0].ID,
+                id_company:dataUser[0].ID
+            }
+            await fetch('/ActionsCreate',{
+                method:'post',
+                headers:{
+                    "Content-type":'application/json'
+                },
+                body: JSON.stringify(dataSaveAction)
+            })
+            await fetch(`/api/updateActionMatch/${dataArea[0].ID}/${dataUser[0].ID}`,{
+                method:'get',
+                headers:{
+                    "Content-type":'application/json'
+                }
+            });
+            const validate = await fetch(`/api/validateMatch/${dataArea[0].ID}/${dataUser[0].ID}`,{
+                method:'get',
+                headers:{
+                    "Content-type":'application/json'
+                }
+            })
+            const response = await validate.json()
+            if (response.message[0].action_match.data[0] != 0){
+                Swal.fire({
+                    title: `MATCH EXITOSO CON ${dataArea[0].name}!`,
+                    text: `Se recargará la pagina para que todo funcione correctamente`,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+                let button
+                setInterval(() => {
+                    button = Swal.isVisible()
+                    console.log(button)
+                    if (button == false) {
+                        location = "/home"
+                    }
+                }, 100);
+            }
+            const emailsCompany = await fetch(`/api/getAllEmailApplicant/${dataUser[0].ID}`, {
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            let infoemails = await emailsCompany.json();
+            for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+                const emailsInfo = await fetch(`/Interes/applicant/${infoemails.message[i].email}`,{
+                    method: 'get',
+                    headers: {
+                        'autorization': token
+                    }
+                });
+                const UsersData = await emailsInfo.json();
+                emailsAll.push(UsersData)
+            }
+        }
+
+        mainContainer.remove()
+        const right = document.querySelector('.right')
+        right.appendChild(rightCreator(`../../../../img/${emailsAll[aleatory][0].img}`, emailsAll[aleatory],emailsAll,dataUser,dataArea))
+    },);
+    vectorDislike.addEventListener('click', async () => {
+        let SaveAction
+        (dataUser[0].type === 'applicant') ?  SaveAction = {
+            action:'dislike',
             action_author:dataUser[0].type,
             action_match:0,
             id_applicant:dataUser[0].ID,
             id_company:dataArea[0].ID
+        } :  SaveAction = {
+            action:'dislike',
+            action_author:dataUser[0].type,
+            action_match:0,
+            id_applicant:dataArea[0].ID,
+            id_company:dataUser[0].ID
         }
 
-        const answerFetchHavingActions = await fetch(`/allAction/${dataArea[0].ID}/${dataUser[0].ID}`,{
-            method:'get'
+        await fetch('/ActionsCreate',{
+            method:'post',
+            headers:{
+                "Content-type":'application/json'
+            },
+            body: JSON.stringify(SaveAction)
         })
-        const response = await answerFetchHavingActions.json()
-        //console.log(response)
-        if (response.message == 'Actions not found'){
-           fetch('/ActionsCreate',{
-               method:'post',
-               headers:{
-                   "Content-type":'application/json'
-               },
-               body: JSON.stringify(dataSaveAction)
-           })
-        }
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${dataUser[0].ID}`, {
-            method: 'get',
-            headers: {
-                'autorization': token
+        const validate = await fetch(`/api/updateActionMatch/${dataUser[0].ID}/${dataArea[0].ID}`,{
+            method:'get',
+            headers:{
+                "Content-type":'application/json'
             }
         });
+        await fetch(`/api/validateMatch/${dataUser[0].ID}/${dataArea[0].ID}`,{
+            method:'get',
+            headers:{
+                "Content-type":'application/json'
+            }
+        })
 
-        const infoemails = await emailsApplicant.json();
-        console.log(infoemails)
+        let emailsAll = []
+        if (dataUser[0].type === 'applicant') {
+            const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${dataUser[0].ID}`, {
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            const infoemails = await emailsApplicant.json();
+            for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+                const emailsInfo = await fetch(`/Interes/company/${infoemails.message[i].email}`,{
+                    method: 'get',
+                    headers: {
+                        'autorization': token
+                    }
+                });
+                const UsersData = await emailsInfo.json();
+                emailsAll.push(UsersData)
+            }
+        }
+
+        if (dataUser[0].type === 'company') {
+            const emailsCompany = await fetch(`/api/getAllEmailApplicant/${dataUser[0].ID}`, {
+                method: 'get',
+                headers: {
+                    'autorization': token
+                }
+            });
+            let infoemails = await emailsCompany.json();
+            for (let  i = 0; i < Object.values(infoemails.message).length; i++){
+
+                const emailsInfo = await fetch(`/Interes/applicant/${infoemails.message[i].email}`,{
+                    method: 'get',
+                    headers: {
+                        'autorization': token
+                    }
+                });
+                const UsersData = await emailsInfo.json();
+                emailsAll.push(UsersData)
+            }
+        }
+
         mainContainer.remove()
         const right = document.querySelector('.right')
-        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`, emails[aleatory],emails,dataUser,dataArea))
-    },);
-    vectorDislike.addEventListener('click', () => {
-        mainContainer.remove()
-        const right = document.querySelector('.right')
-        right.appendChild(rightCreator(`../../../../img/${emails[aleatory][0].img}`,emails[aleatory],emails,dataUser,dataArea))
+        if (emailsAll == undefined || dataArea == undefined || dataUser == undefined || emailsAll[aleatory] == undefined){
+            let h1 = document.createElement("h1")
+            h1.textContent = "Por el momento no tenemos usuarios que mostrarte"
+            let p = document.createElement("p")
+            p.textContent = "Lamentamos los inconvenientes, Estamos tratando de mejorar nuestro servicio"
+            right.appendChild(h1)
+            right.appendChild(p)
+            return
+        }
+        right.appendChild(rightCreator(`../../../../img/${emailsAll[aleatory][0].img}`,emailsAll[aleatory],emailsAll,dataUser,dataArea))
     },);
 }

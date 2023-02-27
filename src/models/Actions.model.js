@@ -55,9 +55,7 @@ export class Actions extends GeneralQuerySql{
 
     static async FindOneC(id){
         const [queryname] = await pool.query(`SELECT p.name  FROM profile_account p  WHERE key_rol = (?) AND p.type = "company"`, [id])
-        console.log(id)
         const queryId = await pool.query(`SELECT ac.action, p.name AS name_applicant,ap.id AS id_applicant  FROM actions ac INNER JOIN profile_account p ON ac.id_applicant = p.key_rol AND p.type = "applicant" AND action_match = 1 INNER JOIN company ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.blocked_status = 0 AND ac.id_company = (?)`, [id])
-        console.log(queryId[0])
         return {name:queryname[0], consulta:queryId[0]}
 
     }

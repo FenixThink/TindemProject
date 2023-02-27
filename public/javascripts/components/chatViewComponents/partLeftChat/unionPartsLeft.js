@@ -3,7 +3,6 @@ import { divSearch } from '../all-chats/search.js'
 import { iconsButtons }  from '../all-chats/iconsButtons.js'
 
 export const partLeft = async(topName,topProfileImg,data) =>{
-    
     //Creacion de la imagen
     const img = document.createElement('img')
     img.className='profileImg'
@@ -38,7 +37,6 @@ export const partLeft = async(topName,topProfileImg,data) =>{
     profile.appendChild(search)
 
     const chats = await allChats(data)
-    console.log(data)
 
 
 

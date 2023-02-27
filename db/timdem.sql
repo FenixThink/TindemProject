@@ -1,6 +1,6 @@
     DROP DATABASE IF EXISTS Tindem;
     CREATE DATABASE IF NOT EXISTS Tindem;
-    
+
     USE Tindem;
 
     DROP DATABASE IF EXISTS Tindem;
@@ -34,7 +34,7 @@
     create table user_account(
         id int(11) primary key auto_increment,
         email varchar(40) not null unique,
-        password varchar(50) not null 
+        password varchar(50) not null
     );
 
     create table profile_account(
@@ -722,12 +722,18 @@
     INSERT INTO actions VALUES ( null,"2023-05-25","like","company",0,0,27,16);
     INSERT INTO actions VALUES ( null,"2023-07-22","like","applicant",1,0,27,16);
 
+    ALTER TABLE `actions` CHANGE `action_time` `action_time` TIMESTAMP NOT NULL;
 
-
-  select * from actions
-
-
-
-
-
-
+    DROP PROCEDURE IF EXISTS update_match;
+    DELIMITER $$
+    CREATE PROCEDURE update_match(
+     	IN id_applicant_param INT,
+        IN id_company_param INT)
+    BEGIN
+        UPDATE actions AS a1
+        INNER JOIN actions AS a2
+        ON a1.id_applicant = a2.id_applicant AND a1.id_company = a2.id_company
+        SET a1.action_match = 1
+        WHERE a1.action = 'like' AND a2.action = 'like' AND a1.id = (SELECT id FROM actions WHERE actions.id_applicant = id_applicant_param 	AND actions.id_company = id_company_param LIMIT 1);
+    END$$
+    DELIMITER ;

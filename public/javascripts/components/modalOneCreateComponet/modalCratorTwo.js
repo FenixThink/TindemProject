@@ -7,7 +7,6 @@ let prueba = new Set
 export async  function AreasRolesTwo() {
     const roles = await fetch('/specificInterest',{method:'get'})
     const dataRoles = await roles.json()
-    console.log(dataRoles)
 
     
     const rol = document.createElement("span");
@@ -34,11 +33,9 @@ export async  function AreasRolesTwo() {
     add.onclick = function () {
         const devuelta = document.getElementsByName('active')
         let Array1 = [...devuelta];
-        // console.log(devuelta)
         let array1Content = []
         Array1.forEach(i => {
             array1Content.push(i.textContent)
-            //console.log(i.textContent,'item');
         })
         //nuevo.add(array2Content)
         array1Content.forEach(element => {

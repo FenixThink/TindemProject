@@ -49,8 +49,7 @@ class ProfileAccountController{
     static findOne = async(req, res) => {
         try {
            const rows = await Profile_account.FindOne(req.params.id); 
-            console.log(rows)
-            if(!rows.length){  
+            if(!rows.length){
                 return res.status(404).json({
                     message: "Profile not found"
                 });            

@@ -21,7 +21,11 @@ router.post('/api/decode',UserController.validateToken)
 
 router.get('/api/getAllEmailCompanies/:id',UserController.emailCompanies)
 
-router.get('/api/getAllEmailApplicant',UserController.emailApplicant)
+router.get('/api/getAllEmailApplicant/:id',UserController.emailApplicant)
+
+router.get('/api/updateActionMatch/:idApplicant/:idCompany',UserController.updateMatch)
+
+router.get('/api/validateMatch/:idApplicant/:idCompany',UserController.validateMatch)
 
 
 router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
@@ -50,12 +54,10 @@ router.get('/api/data',middelwares.Authmidelware,(req,res)=>{
 export default router;
 
 router.post('/',async (req,res)=>{
-    console.log(req.body)
 
 //     const query = await User.All()
 //     query.forEach(e=>{
 //         if(e.email == req.body.email && e.userPassword == req.body.userPassword){
-//             console.log('Done')
 
 //         }
 //     })
