@@ -22,7 +22,7 @@ export async function options (userData){
     // });
 
 /*     const [rows] = await connection.execute('SELECT * FROM usuarios');
-    console.log(rows); */
+     */
 
 
     span1.addEventListener('click', async() => {
@@ -45,12 +45,12 @@ export async function options (userData){
 
                 if(userData.type=="applicant"){
                         id_applicant = userData.ID;
-                        id_company = document.querySelector('.nameTopChat').id;             
+                        id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
-                        id_company = userData.ID;   
+                        id_company = userData.ID;
 
-                        
+
                     }
                     // console.log(id_applicant)
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
@@ -86,12 +86,12 @@ export async function options (userData){
 
                     if(userData.type=="applicant"){
                         id_applicant = userData.ID;
-                        id_company = document.querySelector('.nameTopChat').id;             
+                        id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
-                        id_company = userData.ID;   
+                        id_company = userData.ID;
 
-                        
+
                     }
 
                     const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {

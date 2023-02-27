@@ -1,21 +1,26 @@
 import {a} from "../preMessage/preMessageChat.js"
 import { fetchQuerys } from "../../../home.js"
+import { divSearch } from '../all-chats/search.js'
 
 
 
 
 export const allChats = async(data,idA) => {
-    
+
         const [infoUser, dataUser,infoMessage,allMessages] = data;
         const id_apli = data[0,1][0].ID
-        // console.log(data[0,1][0].ID)
-        // // console.log(data[1].message.id)
-        // console.log(id_apli)
 
         /*Creacion titulo all chats*/
-        const h1 = document.createElement('h3')
+        const titleChats = document.createElement('div');
+        titleChats.className='titleChats';
+
+
+        const title = document.createElement('div');
+        title.className='title'
+        const h1 = document.createElement('p')
         h1.className = 'TitleallChats'
         h1.textContent = 'All Chat'
+        
         //Objeto infor chats
         
         //Creacion del contenedor de chats
@@ -51,7 +56,6 @@ export const allChats = async(data,idA) => {
                     }                    
 
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
-                    // console.log(aplicante)
                 }else{
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,'','',aplicante)))
                 }
@@ -70,7 +74,7 @@ export const allChats = async(data,idA) => {
 
                 dataChat = await allMessage.json()
                 position = dataChat.Message.length - 1 
-                
+
                 if(position>=0){
 
                     if(dataChat.Message[position].message[0].role === infoUser.message.rol){
@@ -81,7 +85,7 @@ export const allChats = async(data,idA) => {
 
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
 
-                    
+
                     
                 }else{
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,'','','',aplicante)))
@@ -112,14 +116,20 @@ export const allChats = async(data,idA) => {
         // divMessage.appendChild((a(infoMessage.consulta[0].id_company,infoMessage.consulta[0].nombrecompany,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gof12o_hZ7iwwBkfp4MLpuQqfZ610ZmAV6805F24&s",allmessagesAplicant[posicition-1].message[0].text,allmessagesAplicant[posicition-1].message[0].hour)))
 
 
-
+        
+        const search = divSearch(infoMessage)
         
         
         //Creacion del contenedor que tendra el titulo all chats y el contenedor de los mensjes
         const divAllChats = document.createElement('div')
 
         divAllChats.className="padreAllChat"
-        divAllChats.appendChild(h1)
+
+        title.appendChild(h1)
+        titleChats.appendChild(title)
+        titleChats.appendChild(search)
+        divAllChats.appendChild(titleChats)
+        
         divAllChats.appendChild(divMessage)
         
 

@@ -25,10 +25,10 @@
 
 body{
 
-    display: flex;
+    /*display: flex;
     justify-content: center;
     align-items: center;    
-    height: 100vh;
+    height: 100vh;*/
     background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
 
 }
@@ -36,13 +36,18 @@ body{
 .PadrePadre{
     animation-duration: 1.5s;
     animation-name: slidein;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px
 }
 
 .Padre{
     background: white;
-    width: 100vmin;
+    border-radius: 10px;
+    /*width: 100vmin;*/
     display: grid;
+    grid-template-rows: repeat(3, 1fr);
     gap: 1.2rem;
     padding: 30px;
     box-shadow: 5px 5px 20px rgba(15, 15, 15, 0.3);
@@ -267,6 +272,26 @@ body{
 .rolesInProfiles{
     margin-top: 1rem;
 }
+/*Estilos Formulario*/
+/*Estilo "Correcto"*/
+.registerCompanyForm-correct {
+    color: green;
+    opacity: 1;
+}
+/*Estilo "Incorrecto"*/
+.registerCompanyForm-incorrect {
+    color: red;
+}
+
+.inputErrorActivo {
+    visibility: show;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: red;
+    max-width: 300px;
+    max-height: 100%;
+}
+
 /*Aquí termina la parte de KDOE-117*/
 
 
@@ -563,5 +588,3 @@ input:hover{
 
     padding: 5px 10px 5px 5px;
 }
-
-        

@@ -15,18 +15,17 @@ export function imageContainer(img) {
   const contText = document.createElement('div');
   contText.className = "contEdit";
   contText.appendChild(textEdit);
-  
+
+  /*Evento que despliega el modal*/
   textEdit.addEventListener('click', () => {
-    
-    document.querySelector('.modalContent').style.display = 'block'
-  
-      
-    })
-    /*contenedor del logo*/
-    const contLogo = document.createElement('div');
-    contLogo.className = "contLogo";
-    contLogo.appendChild(image);
-    contLogo.appendChild(modalUpload())
+    document.querySelector('.modalContent').style.display = ""
+    document.querySelector('.modalContent').style.visibility = "visible";
+  })
+  /*contenedor del logo*/
+  const contLogo = document.createElement('div');
+  contLogo.className = "contLogo";
+  contLogo.appendChild(image);
+  contLogo.appendChild(modalUpload())
   /* funcionamiento agregar img*/
   contLogo.setAttribute('id', 'divProfilePhoto')
 

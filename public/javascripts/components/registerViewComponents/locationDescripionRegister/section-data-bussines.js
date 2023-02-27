@@ -1,5 +1,5 @@
-export const dataBussines = async(citys,countrys) => {
-    
+export const dataBussines = async (citys, countrys) => {
+
     const emails = []
     let allCountrys = {}
 
@@ -22,19 +22,22 @@ export const dataBussines = async(citys,countrys) => {
     birth.className = "inputCorreoEmp inputEmpresa"
     birth.type = 'date'
     birth.name = 'date'
+    birth.required = true
     birth.placeholder = "Select date"
     const option1 = document.createElement('option')
     option1.textContent = "Seleccione pais"
     option1.defaultSelected
+    option1.value = ""
+
 
     const country = document.createElement('select');
     country.className = "inputCorreoEmp inputEmpresa"
-    country.className = "inputCorreoEmp inputEmpresa"
+    country.required = true
     country.appendChild(option1)
 
     countrys.respuesta.forEach(e => {
         const option = document.createElement('option')
-        option.textContent=e.name
+        option.textContent = e.name
         country.appendChild(option)
     });
 
@@ -42,15 +45,18 @@ export const dataBussines = async(citys,countrys) => {
     const option2 = document.createElement('option')
     option2.textContent = "Seleccione ciudad"
     option2.defaultSelected
-     
+    option2.value = ""
+
+
     const city = document.createElement('select');
     city.className = "inputCorreoEmp inputEmpresa"
     city.name = 'city';
+    city.required = true;
     city.appendChild(option2)
-    
+
     citys.respuesta.forEach(e => {
         const option = document.createElement('option')
-        option.textContent=e.name
+        option.textContent = e.name
         city.appendChild(option)
     });
 
