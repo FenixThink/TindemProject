@@ -272,6 +272,26 @@ body{
 .rolesInProfiles{
     margin-top: 1rem;
 }
+/*Estilos Formulario*/
+/*Estilo "Correcto"*/
+.registerCompanyForm-correct {
+    color: green;
+    opacity: 1;
+}
+/*Estilo "Incorrecto"*/
+.registerCompanyForm-incorrect {
+    color: red;
+}
+
+.inputErrorActivo {
+    visibility: show;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: red;
+    max-width: 300px;
+    max-height: 100%;
+}
+
 /*Aquí termina la parte de KDOE-117*/
 
 
