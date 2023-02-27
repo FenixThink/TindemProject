@@ -5,6 +5,6 @@ build:
   builder: 'npm'
   language: 'node'
   run:
-    release: 'npm run start'
+    release: 'npm run build'
 start:
   web: 'node ./bin/www.js'
