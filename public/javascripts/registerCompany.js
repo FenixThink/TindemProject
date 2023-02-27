@@ -47,8 +47,7 @@ const parametros = {
     name: false,
     nitOrLastname: false,
     email: false,
-    password: false,
-    status: false
+    password: false
 }
 //Función para validar el formulario
 const validarFormulario = (e) => {
@@ -131,32 +130,58 @@ formCompany.addEventListener('submit', async (e) => {
     const choosedFile = archivoInput.files[0];
     const exist = (parametros.name && parametros.password && parametros.nitOrLastname && parametros.email)
     console.log("Estado Exist?", exist);
+    console.log("Parametros", parametros);
+    console.log("Estado IMG", choosedFile);
 
-    if (exist == true) {
+    if (exist == true && choosedFile) {
         console.log("Pasando");
         const aviso = {
             message: "userCreate"
         }
         localStorage.setItem('aviso', JSON.stringify(aviso));
+
         const spec = [...prueba]
         const body = {
             specialization: spec
         }
         const dataSpecialization = JSON.stringify(body)
-        fetch('/profileSpecialization/create', {
-            method: 'post',
-            headers: {
-                "content-type": 'application/json'
+
+        let timerInterval
+        Swal.fire({
+            title: 'Bienvenid@ a Tindem!',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
             },
-            body: dataSpecialization
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                fetch('/profileSpecialization/create', {
+                    method: 'post',
+                    headers: {
+                        "content-type": 'application/json'
+                    },
+                    body: dataSpecialization
+                })
+            }
+
         })
-        if (choosedFile) {
-            console.log("TRU'");
-        } else {
-            alert("Infinite")
-        }
     } else {
-        alert("La IMAGEN!")
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Completa todos los campos!'
+        })
+        e.preventDefault()
+        console.log("No se ingresarón todos los campos!");
     }
 })
 
