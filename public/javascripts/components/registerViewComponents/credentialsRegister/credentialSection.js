@@ -39,7 +39,7 @@ export function credentialContainer(firstInput, secondInput) {
     const errorNitField = document.createElement('p');
     errorNitField.id = "nitErrorID"
     errorNitField.className = "inputNitError";
-    errorNitField.textContent = "El nit debe ser superior a 8 y menor a 11 dígitos, asegurese de digitar SOLO números y el NIT de su empresa."
+    errorNitField.textContent = "El campo debe ser superior a 8 dígitos y menor a 11 dígitos";
     errorNitField.hidden = true
     /*Aquí TERMINA la creación de etiquetas de la sección SUPERIOR del CONTENEDOR de credenciales*/
 
