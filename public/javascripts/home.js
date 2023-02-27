@@ -366,6 +366,7 @@ fetchQuerys().then(async (data) => {
                         color = 'gris'
                     }
                 }
+                console.log(e.message[0])
                 messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
             })
             //Animacion en si

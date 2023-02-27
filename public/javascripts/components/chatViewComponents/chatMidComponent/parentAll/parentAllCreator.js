@@ -8,7 +8,7 @@ import { fetchQuerys } from "../../../../home.js";
 export const parentParentCreator = async (id,profileName,photo,data)=>{
     
     const holaMundo = await fetchQuerys().then(data => {
-
+        
         const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
 
         const center = centerCreator()
@@ -57,8 +57,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
                      if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){
 
                          let color,cargo;
-
-                     if(infoUser.message.rol == 'applicant'){
+                     if(dataUser[0].type == 'applicant'){
                          if(chatData.Message[lastMessageObject - 1].message[0].role == 'applicant'){
                              color = 'verde';
                              cargo = 'applicant-right'
@@ -75,7 +74,11 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
                          }
                      }
                     
-                         padreCentro.appendChild(boxMessage('verde',cargo,chatData.Message[lastMessageObject-1].message[0].text,chatData.Message[lastMessageObject-1].message[0].hour))
+                         padreCentro.appendChild(boxMessage(color,cargo,chatData.Message[lastMessageObject-1].message[0].text,chatData.Message[lastMessageObject-1].message[0].hour))
+                         const lastMessage = document.querySelector('.lastMessage')
+
+                        lastMessage.textContent = `${chatData.Message[lastMessageObject-1].message[0].text}`; 
+
                          let diEnd = padreCentro.scrollHeight - padreCentro.clientHeight;
                          padreCentro.scrollTop+=diEnd
                      }

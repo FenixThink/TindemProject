@@ -14,6 +14,7 @@ export const a = function mesaje(id,name1,photo,inboxUser,hour,idA) {
     
     // aca se inserta el ultimo mensaje
     const inboxChat =document.createElement("p");
+    inboxChat.className = 'lastMessage'
     inboxChat.textContent=inboxUser
     inboxChat.style.width="100%"
     inboxChat.style.whiteSpace="nowrap"
