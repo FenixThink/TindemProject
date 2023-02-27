@@ -7,4 +7,4 @@ build:
   run:
     release: 'npm run build'
 start:
-  web: 'node app.js'
+  web: 'node app.mjs'
