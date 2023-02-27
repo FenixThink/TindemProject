@@ -1,0 +1,10 @@
+name: tindem
+env:
+  NODE_ENV: production
+build:
+  builder: 'npm'
+  language: 'node'
+  run:
+    release: 'npm run start'
+start:
+  web: 'node app.js'

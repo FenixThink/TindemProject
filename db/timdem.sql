@@ -1,10 +1,5 @@
     DROP DATABASE IF EXISTS Tindem;
     CREATE DATABASE IF NOT EXISTS Tindem;
-
-    USE Tindem;
-
-    DROP DATABASE IF EXISTS Tindem;
-    CREATE DATABASE IF NOT EXISTS Tindem;
     use Tindem;
 
     create table  country (
