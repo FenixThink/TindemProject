@@ -5,10 +5,6 @@ import { createProfileSup, createProfileInf } from './profilePersonal/index.js'
 
 
 export const parentCreator = (dataUser) => {
-<<<<<<< HEAD
-    
-=======
->>>>>>> 16a4e2c868fff81646cf9157af4221f2c9a8c019
 
     /* const exit = document.createElement('span')
     exit.className='x'
