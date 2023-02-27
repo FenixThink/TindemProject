@@ -164,15 +164,14 @@ formCompany.addEventListener('submit', async (e) => {
         }).then((result) => {
             /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
-                fetch('/profileSpecialization/create', {
-                    method: 'post',
-                    headers: {
-                        "content-type": 'application/json'
-                    },
-                    body: dataSpecialization
-                })
             }
-
+        })
+        fetch('/profileSpecialization/create', {
+            method: 'post',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: dataSpecialization
         })
     } else {
         Swal.fire({
