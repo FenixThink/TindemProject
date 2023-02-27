@@ -21,6 +21,11 @@ export const dataBussines = async (citys, countrys) => {
     const birth = document.createElement('input');
     birth.className = "inputCorreoEmp inputEmpresa"
     birth.type = 'date'
+
+    const year = new Date()
+    const fullYear = year.getFullYear()
+    birth.max = `${fullYear - 18}-12-31`
+    
     birth.name = 'date'
     birth.required = true
     birth.placeholder = "Select date"
