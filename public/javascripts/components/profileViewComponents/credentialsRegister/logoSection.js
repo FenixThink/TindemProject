@@ -18,7 +18,6 @@ export function imageContainer(img) {
   let bandera = 0
   textEdit.addEventListener('click', () => {
     contText.appendChild(miFunction())
-    // console.log(bandera)
     // if(bandera==0){
     //     contText.appendChild(miFunction())
     // }

@@ -10,7 +10,6 @@ export function right(name,img,description) {
     image.className = "ellipse";
     image.src = `/img/${img}`;
     image.alt = "ellipse";
-
     const imageCont = document.createElement('div')
     imageCont.className='elipCont'
     imageCont.appendChild(image)

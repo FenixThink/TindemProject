@@ -10,8 +10,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
     const holaMundo = await fetchQuerys().then(data => {
 
         const [infoUser, dataUser,infoMessage,allmessagesAplicant] = data
-        //console.log(infoMessage.consulta[1].id_company)
-        
+
         const center = centerCreator()
         const top = headerChatCreator(id,profileName,photo)
         
@@ -24,7 +23,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         const inputCont = document.createElement('div')
         inputCont.className = 'contInputSend'
         inputCont.id = "contInputSend"
-        
+
         inputCont.appendChild(input)
         
         // setInterval(async(e)=>{
@@ -44,7 +43,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         //         })
                 
         //         const chatData = await chat.json()
-        //         let lastMessageObject = chatData.Message.length 
+        //         let lastMessageObject = chatData.Message.length
                 
         //         const local = localStorage.getItem('numMessage') || lastMessageObject
         //         const num = JSON.parse(local)
@@ -55,14 +54,14 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         //             const messages = document.querySelectorAll('.message')
         //             const last = messages.length - 1
         //             console.log(chatData.Message[lastMessageObject - 1].message[0])
-        //             if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){   
+        //             if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){
 
         //                 let color,cargo;
 
         //             if(infoUser.message.rol == 'applicant'){
         //                 if(chatData.Message[lastMessageObject - 1].message[0].role == 'applicant'){
         //                     color = 'verde';
-        //                     cargo = 'applicant-right'    
+        //                     cargo = 'applicant-right'
         //                 }else{
         //                     color = 'gris'
         //                 }
@@ -70,7 +69,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         //             }else{
         //                 if(chatData.Message[lastMessageObject - 1].message[0].role == 'company'){
         //                     color = 'verde';
-        //                     cargo = 'company-right'    
+        //                     cargo = 'company-right'
         //                 }else{
         //                     color = 'gris'
         //                 }
@@ -81,7 +80,7 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
         //                 padreCentro.scrollTop+=diEnd
         //             }
 
-        //     } 
+        //     }
 
         //         const CantMessage = {
         //             value:lastMessageObject

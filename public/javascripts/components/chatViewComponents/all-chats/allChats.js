@@ -5,12 +5,9 @@ import { fetchQuerys } from "../../../home.js"
 
 
 export const allChats = async(data,idA) => {
-    
+
         const [infoUser, dataUser,infoMessage,allMessages] = data;
         const id_apli = data[0,1][0].ID
-        // console.log(data[0,1][0].ID)
-        // // console.log(data[1].message.id)
-        // console.log(id_apli)
 
         /*Creacion titulo all chats*/
         const h1 = document.createElement('h3')
@@ -51,7 +48,6 @@ export const allChats = async(data,idA) => {
                     }                    
 
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
-                    // console.log(aplicante)
                 }else{
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,'','',aplicante)))
                 }
@@ -70,7 +66,7 @@ export const allChats = async(data,idA) => {
 
                 dataChat = await allMessage.json()
                 position = dataChat.Message.length - 1 
-                
+
                 if(position>=0){
 
                     if(dataChat.Message[position].message[0].role === infoUser.message.rol){
@@ -81,7 +77,7 @@ export const allChats = async(data,idA) => {
 
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,lastMessage,dataChat.Message[position].message[0].hour,aplicante)))
 
-                    
+
                     
                 }else{
                     divMessage.appendChild((a(userData.id,userData.name,userData.img,'','','',aplicante)))

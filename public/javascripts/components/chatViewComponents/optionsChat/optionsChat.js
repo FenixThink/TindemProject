@@ -23,12 +23,12 @@ export async function options (userData){
     // });
 
 /*     const [rows] = await connection.execute('SELECT * FROM usuarios');
-    console.log(rows); */
+     */
 
 
     span1.addEventListener('click', async() => {
 
-            
+
         if (!alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer bloquearlo?',
@@ -47,18 +47,18 @@ export async function options (userData){
 
                 if(userData.type=="applicant"){
                         id_applicant = userData.ID;
-                        id_company = document.querySelector('.nameTopChat').id;             
+                        id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
-                        id_company = userData.ID;   
+                        id_company = userData.ID;
 
-                        
+
                     }
                     // console.log(id_applicant)
                     const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
                                         method: 'get'
                                     });
-                   console.log(DBblock)
+                   
                     inputMessage.style.display = 'none';
 
                     span1.setAttribute('disabled', true);
@@ -78,7 +78,7 @@ export async function options (userData){
 
 
     span1.addEventListener('click', () => {
-            
+
         if (alreadyBlocked) {
             Swal.fire({
                 title: '¿Estás seguro de querer desbloquearlo?',
@@ -95,17 +95,17 @@ export async function options (userData){
 
                     if(userData.type=="applicant"){
                         id_applicant = userData.ID;
-                        id_company = document.querySelector('.nameTopChat').id;             
+                        id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
-                        id_company = userData.ID;   
+                        id_company = userData.ID;
 
-                        
+
                     }
 
                     console.log(id_applicant)
                     console.log(id_company)
-                    
+
 
                     const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {
                         method: 'get'

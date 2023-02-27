@@ -33,12 +33,10 @@ class User extends GeneralQuerySql{
     create = async()=>{
 
         const passwordHash = await encrypt(this.#password)
-        console.log(passwordHash)
         const insert = await pool.query('INSERT INTO user_account(email,password) VALUES(?,?)',[this.#email, passwordHash])
         
 
-        //console.log(passwordHash)
-        
+
 
         // return({
         //     id: insert.insertId
@@ -50,10 +48,15 @@ class User extends GeneralQuerySql{
         
 
     }
-    static AllEmail = async (type)=>{
-        const search = await pool.query('SELECT email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE profile_account.type = (?)',[type])
+    static AllEmailCompany = async (id)=>{
+        const search = await pool.query('SELECT DISTINCT user_account.email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user INNER JOIN company ON company.id = profile_account.key_rol WHERE profile_account.type = \'company\' AND user_account.email NOT IN (SELECT DISTINCT email FROM actions INNER JOIN company ON actions.id_company = company.id INNER JOIN profile_account ON company.id = profile_account.key_rol INNER JOIN user_account ON profile_account.id_user = user_account.id WHERE actions.id_applicant = (?) AND actions.action IN (\'like\', \'dislike\') AND profile_account.type = \'company\' AND actions.action_author = \'applicant\');',[id])
         return search[0]
     }
+    static AllEmailApplicant = async (id)=>{
+        const search = await pool.query('SELECT DISTINCT user_account.email FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user INNER JOIN company ON company.id = profile_account.key_rol WHERE profile_account.type = \'applicant\' AND user_account.email NOT IN (SELECT DISTINCT email AS showmeEmailsApplicant FROM actions INNER JOIN applicant ON actions.id_applicant = applicant.id INNER JOIN profile_account ON applicant.id = profile_account.key_rol INNER JOIN user_account ON profile_account.id_user = user_account.id WHERE actions.id_company = (?) AND actions.action IN (\'like\', \'dislike\') AND profile_account.type = \'applicant\' AND actions.action_author = \'company\');',[id])
+        return search[0]
+    }
+
 
     searchType = async (email)=>{
         const search = await pool.query('SELECT user_account.id,type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
@@ -70,6 +73,14 @@ class User extends GeneralQuerySql{
         const values = [email,password,id];
         const result = await pool.query(query, values);
         return result.affectedRows;
+    }
+    static updateMatch = async (params)=>{
+        const query = await pool.query('CALL update_match((?),(?));',[params.idApplicant,params.idCompany]);
+        return query[0]
+    }
+    static validateMatch = async (params)=>{
+        const query = await pool.query('SELECT action_match FROM `actions` WHERE id_applicant = (?) AND id_company = (?) ',[params.idApplicant,params.idCompany]);
+        return query[0]
     }
 }
 
