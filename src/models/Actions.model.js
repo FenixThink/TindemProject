@@ -48,9 +48,7 @@ export class Actions extends GeneralQuerySql{
 
     static async FindOneC(id){
         const [queryname] = await pool.query(`SELECT p.name  FROM profile_account p  WHERE key_rol = (?) AND p.type = "company"`, [id])
-        console.log(id)
         const queryId = await pool.query(`SELECT ac.action, p.name AS name_applicant,ap.id AS id_applicant  FROM actions ac INNER JOIN profile_account p ON ac.id_applicant = p.key_rol AND p.type = "applicant" AND action_match = 1 INNER JOIN company ap ON ap.id = ac.id_applicant INNER JOIN company co ON co.id = ac.id_company WHERE ac.id_company = (?) LIMIT 1`, [id])
-        console.log(queryId[0])
         return {name:queryname[0], consulta:queryId[0]}
 
     }
@@ -61,23 +59,23 @@ export class Actions extends GeneralQuerySql{
         return "Eliminado exitoso"
     } 
 
-    static async BlockUser(id_applicant,id_company){
-        console.log(id_applicant,id_company)
-        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 1 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
+    static async BlockUser(id_applicant,id_company,type){
+        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 1 WHERE a.id_applicant = (?) AND a.id_company = (?) AND action_author = (?)`, [id_applicant, id_company,type])
         return "Actualizado exitoso"
     }
 
-    static async DesblockUser(id_applicant,id_company){
+    static async DesblockUser(id_applicant,id_company,type){
 
-        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 0 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company])
+        const rows = await pool.query(`UPDATE actions a SET a.blocked_status = 0 WHERE a.id_applicant = (?) AND a.id_company = (?)`, [id_applicant, id_company,type])
         return "Actualizado exitoso"    
     }
 
     static async Rblock(id){
         const id_applicant = id.id_applicant;
         const id_company = id.id_company;
+        const type = id.type;
 
-        const rows = await pool.query(`SELECT a.blocked_status FROM actions a WHERE a.id_applicant = (?) AND a.id_company = (?) AND a.action_match = 1`, [id_applicant, id_company])
+        const rows = await pool.query(`SELECT a.blocked_status FROM actions a WHERE a.id_applicant = (?) AND a.id_company = (?) AND a.action_match = 1 AND action_author = (?)`, [id_applicant, id_company,type])
         return rows[0]
     }
 

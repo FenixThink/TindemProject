@@ -51,7 +51,6 @@ const parametros = {
 }
 //Función para validar el formulario
 const validarFormulario = (e) => {
-    console.log("validando Formulario");
     switch (e.target.name) {
         case "name":
             if (expresiones.username.test(e.target.value)) {
@@ -129,12 +128,9 @@ formCompany.addEventListener('submit', async (e) => {
     const archivoInput = document.getElementById('archivoInput')
     const choosedFile = archivoInput.files[0];
     const exist = (parametros.name && parametros.password && parametros.nitOrLastname && parametros.email)
-    console.log("Estado Exist?", exist);
-    console.log("Parametros", parametros);
-    console.log("Estado IMG", choosedFile);
+
 
     if (exist == true && choosedFile) {
-        console.log("Pasando");
         const aviso = {
             message: "userCreate"
         }
@@ -180,7 +176,6 @@ formCompany.addEventListener('submit', async (e) => {
             text: 'Completa todos los campos!'
         })
         e.preventDefault()
-        console.log("No se ingresarón todos los campos!");
     }
 })
 

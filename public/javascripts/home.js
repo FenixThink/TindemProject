@@ -43,7 +43,7 @@ export async function fetchQuerys() {
     if (infoUser.message.rol === 'applicant') {
 
         //Fetch para obtener todas la compañias a mostrar para un aplicante
-        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id - 31}`, {
+        const emailsApplicant = await fetch(`/api/getAllEmailCompanies/${id}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -96,7 +96,7 @@ export async function fetchQuerys() {
     }
     if (infoUser.message.rol === 'company') {
         //Fetch para obtener todas los applicantes a mostrar para una compañia
-        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id - 30}`, {
+        const emailsCompany = await fetch(`/api/getAllEmailApplicant/${id}`, {
             method: 'get',
             headers: {
                 'autorization': token
@@ -142,7 +142,6 @@ export async function fetchQuerys() {
         }
 
     }
-    console.log(dataUser[0].ID)
     const userSpecialization = await fetch(`/findUserSpecializations/${dataUser[0].ID}`, {
         method: 'get',
         headers: {
@@ -150,7 +149,6 @@ export async function fetchQuerys() {
         }
     });
     const specialization = await userSpecialization.json();
-    console.log(specialization)
 
     if (dataUser.message === "Access Denied" || dataUser.message === "access denied, token expired or incorrect ") {
         window.location = '/'
@@ -279,7 +277,6 @@ fetchQuerys().then(async (data) => {
                 });
 
                 profileData = await profile.json()
-                console.log(profileData, 'jejejej')
 
                 const allMessage = await fetch(`/getChatscompanyapplicant/${dataUser[0].ID}/${userId}`, {
                     method: 'get'
@@ -287,7 +284,7 @@ fetchQuerys().then(async (data) => {
 
                 dataChat = await allMessage.json()
 
-                const Rblock = await fetch(`/allAction/RenderizadoBlock/${dataUser[0].ID}/${userId}`, {
+                const Rblock = await fetch(`/allAction/RenderizadoBlock/${dataUser[0].ID}/${userId}/${infoUser.message.rol}`, {
                     method: 'get'
                 }).then(response => response.json())
                 
@@ -309,10 +306,10 @@ fetchQuerys().then(async (data) => {
 
                 dataChat = await allMessage.json()
 
-                const Rblock = await fetch(`/allAction/RenderizadoBlock/${userId}/${dataUser[0].ID}`, {
+                const Rblock = await fetch(`/allAction/RenderizadoBlock/${userId}/${dataUser[0].ID}/${infoUser.message.rol}`, {
                     method: 'get'
                 }).then(response => response.json())
-                
+                console.log(Rblock)
                 statusBlock = Rblock[0].blocked_status.data[0]
 
             }
@@ -366,7 +363,6 @@ fetchQuerys().then(async (data) => {
                         color = 'gris'
                     }
                 }
-                console.log(e.message[0])
                 messageFather.appendChild(boxMessage(color, cargo, e.message[0].text, e.message[0].hour))
             })
             //Animacion en si

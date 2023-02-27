@@ -84,7 +84,6 @@ export async function  AreasRoles(btnAreasOrRoles) {
         
 
 
-    console.log(e.target.id)
         document.querySelector(".Padre").appendChild( await AreasRolesTwo(e.target.id))
         document.querySelector(".modalPadre").style.display="none"
         

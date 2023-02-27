@@ -37,7 +37,6 @@ export function modalUpload() {
                 img.setAttribute('src', reader.result);
             });
             reader.readAsDataURL(choosedFile);
-            console.log("ModalUpload change", status);
 
         }
     })

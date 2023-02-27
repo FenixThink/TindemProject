@@ -40,20 +40,21 @@ export async function options (userData){
                 if (result.isConfirmed) {
                     //----------------------
                     
-                let id_applicant, id_company
-                // console.log(userData)
+                let id_applicant, id_company,type
 
                 if(userData.type=="applicant"){
                         id_applicant = userData.ID;
+                        type = userData.type
                         id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
                         id_company = userData.ID;
+                        type = userData.type
 
 
                     }
                     // console.log(id_applicant)
-                    const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}`, {
+                    const DBblock = await fetch(`/allAction/block/${id_applicant}/${id_company}/${type}`, {
                                         method: 'get'
                                     });
 
@@ -82,19 +83,21 @@ export async function options (userData){
                 
             }).then( async(result) => {
                 if (result.isConfirmed) {
-                    let id_applicant, id_company
+                    let id_applicant, id_company,type
 
                     if(userData.type=="applicant"){
                         id_applicant = userData.ID;
+                        type = userData.type;
                         id_company = document.querySelector('.nameTopChat').id;
                     }else{
                         id_applicant = document.querySelector('.nameTopChat').id;
                         id_company = userData.ID;
+                        type = userData.type;
 
 
                     }
 
-                    const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}`, {
+                    const DBdesblock = await fetch(`/allAction/desblock/${id_applicant}/${id_company}/${type}`, {
                         method: 'get'
                    });
 

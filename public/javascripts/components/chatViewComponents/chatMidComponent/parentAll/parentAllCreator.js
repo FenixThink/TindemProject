@@ -53,7 +53,6 @@ export const parentParentCreator = async (id,profileName,photo,data)=>{
                      const padreCentro = document.querySelector('.padreMensajes')
                      const messages = document.querySelectorAll('.message')
                      const last = messages.length - 1
-                     console.log(chatData.Message[lastMessageObject - 1].message[0])
                      if(messages[last].textContent != chatData.Message[lastMessageObject - 1].message[0].text){
 
                          let color,cargo;
@@ -117,7 +116,6 @@ inputCont.addEventListener('keyup',async (e)=>{
             //Actualizacion del ultimo mensaje de la barra lateral izquierda del chat
             const boxChat = document.querySelectorAll('.boxMessageAllChat')
             boxChat.forEach(e=>{
-                console.log(e.parentElement.id, personId)
                 if(e.parentElement.id==personId){
                     e.lastChild.textContent = 'You: ' + input.value 
                 }
@@ -134,7 +132,6 @@ inputCont.addEventListener('keyup',async (e)=>{
                     idCompany = dataUser[0].ID;
                     idApplicant = idRecep
                 }
-                console.log(idApplicant, idCompany)
                 const body ={
                    "idApplicant":idApplicant,
                    "idCompany":idCompany,

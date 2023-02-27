@@ -126,7 +126,7 @@ class ActionController {
 
     static BlockUser = async(req, res ) => {
         try {
-            const respuesta = await Actions.BlockUser(req.params.id_applicant,req.params.id_company)
+            const respuesta = await Actions.BlockUser(req.params.id_applicant,req.params.id_company,req.params.type)
             if (res.length <= 0) res.status(404).json({
                 message: 'Action not valided'
             })
@@ -143,7 +143,7 @@ class ActionController {
 
     static DesblockUser = async(req, res ) => {
         try {
-            const respuesta = await Actions.DesblockUser(req.params.id_applicant,req.params.id_company)
+            const respuesta = await Actions.DesblockUser(req.params.id_applicant,req.params.id_company,res.params.type)
             if (res.length <= 0) res.status(404).json({
                 message: 'Action not valided'
             })

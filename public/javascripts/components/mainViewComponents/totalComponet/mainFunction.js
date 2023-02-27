@@ -111,7 +111,6 @@ export const reloadData = (emails,dataUser,dataArea) => {
                 let button
                 setInterval(() => {
                     button = Swal.isVisible()
-                    console.log(button)
                     if (button == false) {
                         location = "/home"
                     }
@@ -175,7 +174,6 @@ export const reloadData = (emails,dataUser,dataArea) => {
                 let button
                 setInterval(() => {
                     button = Swal.isVisible()
-                    console.log(button)
                     if (button == false) {
                         location = "/home"
                     }

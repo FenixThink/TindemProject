@@ -8,7 +8,6 @@ class UserController {
         // const dataUser = new User(req.body);
         // const res = await dataUser.createUser()
         // return response.json({'message': res})
-        // console.log(res)
 
         try {
             const dataUser = new User(req.body);
@@ -34,7 +33,6 @@ class UserController {
             if (respuesta.length === 0) {
                 return { 'message': 'users not found' }
             }
-            // console.log(respuesta)
             return (respuesta);
         } catch (error) {
             return {
@@ -123,13 +121,10 @@ class UserController {
             query.forEach(async (e) => {
 
                 const checkPassword = await compare(password, e.password)
-                // console.log(e.email)
-                // console.log(email)
 
                 if (e.email === email && checkPassword == true) {
                     status = true
 
-                    //console.log(status)
 
                     if (status) {
 
@@ -143,7 +138,8 @@ class UserController {
                             });
 
                         }
-                        const User = { id: query2.id, email: email, rol: query2.type };
+                        const [id] = await user.searchId(query2.type, email);
+                        const User = { id: id.id, email: email, rol: query2.type };
                         const accessToken = this.generateAccessToken(User);
 
                         res.status(200).header('autorization', accessToken).json({
@@ -154,7 +150,6 @@ class UserController {
                         return;
                     }
                 }
-                // console.log(status)
             })
         } catch (error) {
             return res.status(500).json({
@@ -182,10 +177,8 @@ class UserController {
     static hasheado = async (req, res) => {
         try {
             const { answer } = req.body
-            console.log (answer)
 
             const password = await encrypt(answer)
-            console.log(password)
 
             return res.send({
                 "status": 200,

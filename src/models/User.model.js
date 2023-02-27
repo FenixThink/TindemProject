@@ -62,6 +62,10 @@ class User extends GeneralQuerySql{
         const search = await pool.query('SELECT user_account.id,type FROM user_account INNER JOIN profile_account ON user_account.id = profile_account.id_user WHERE user_account.email = (?)',[email])
         return search[0]
     }
+    searchId = async (type,email)=>{
+            const search = await pool.query( `SELECT ${type}.id FROM user_account INNER JOIN profile_account ON profile_account.id_user = user_account.id INNER JOIN ${type} ON ${type}.id = profile_account.key_rol WHERE user_account.email = '${email}';`)
+            return search[0]
+}
     static validationToken = async (tokencito)=>{
         const token = tokencito;
         const decoded = jwt_decode(token);
